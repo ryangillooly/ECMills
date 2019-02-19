@@ -1,0 +1,15 @@
+.inputbox       {margin-left: 1em;}
+#input_Name     {margin-left: 6.3em;}
+#input_phoneno  {margin-left: 4.3em;}
+#input_address  {margin-left: 5.1em;}
+#input_decname  {margin-left: 4.5em;}
+#input_cost1    {margin-left: 6.2em;}
+#input_cost2    {margin-left: 6.2em;}
+#input_cost3    {margin-left: 6.2em;}
+#input_cost4    {margin-left: 6.2em;}
+
+#btn
+{
+    width: 10em;
+    height: 3em;
+}
