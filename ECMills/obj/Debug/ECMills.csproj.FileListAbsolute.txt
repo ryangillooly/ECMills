@@ -78,3 +78,7 @@ C:\WWW\ECMills\ECMills\bin\EntityFramework.dll
 C:\WWW\ECMills\ECMills\bin\EntityFramework.SqlServer.dll
 C:\WWW\ECMills\ECMills\bin\EntityFramework.xml
 C:\WWW\ECMills\ECMills\bin\EntityFramework.SqlServer.xml
+C:\WWW\ECMills\ECMills\bin\Microsoft.AspNet.Identity.Core.dll
+C:\WWW\ECMills\ECMills\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\WWW\ECMills\ECMills\bin\Microsoft.AspNet.Identity.Core.xml
+C:\WWW\ECMills\ECMills\bin\Microsoft.AspNet.Identity.EntityFramework.xml

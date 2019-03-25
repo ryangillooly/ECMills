@@ -13,19 +13,4 @@ namespace ECMills.Models
         public string Name { get; set; }
     }
 
-    public class ApplicationUser : IdentityUser
-    {
-        public async Task<ClaimsIdentity> GenerateIdenetityAsync(UserManager<ApplicationUser>)
-        {
-            var userIdentity = await manager.CreateIdentityAsync(this, DefaultAuthenticationTypes);
-
-            return userIdentity;
-        }
-    }
-
-    public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
-    {
-        public ApplicationDbContext()
-            .base
-    }
 }
