@@ -1,0 +1,2 @@
+C:\WWW\ECMills\ECMills\obj\Release\ECMills.csprojAssemblyReference.cache
+C:\WWW\ECMills\ECMills\obj\Release\ECMills.csproj.CoreCompileInputs.cache
