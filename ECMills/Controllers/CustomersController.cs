@@ -6,6 +6,7 @@ using System.Web;
 using System.Web.Mvc;
 using ECMills.Models;
 using System.Web.Mvc.Html;
+using System.Data.SqlClient;
 
 namespace ECMills.Controllers
 {
@@ -24,9 +25,9 @@ namespace ECMills.Controllers
 
 
 
-        public ActionResult Details(string name)
+        public ActionResult Details(int id)
         {
-            var customer = GetCustomers(name);
+            var customer = GetCustomers(id);
 
             if (customer == null)
                 return HttpNotFound();
@@ -35,12 +36,18 @@ namespace ECMills.Controllers
         }
 
 
-        private IEnumerable<Client> GetCustomers(string name)
+        private IEnumerable<Client> GetCustomers(int id)
         {
-            ECMillsEntities DB = new ECMillsEntities();
-            string sqlquery = "SELECT * FROM Client WHERE C_NAME LIKE '%" + name + "%' ORDER BY C_ID ASC";
+            var idParam = new SqlParameter
+            {
+                ParameterName = "Id",
+                Value = id
+            };
 
-            List<Client> ClientDetails = DB.Clients.SqlQuery(sqlquery).ToList();
+            ECMillsEntities DB = new ECMillsEntities();
+           // string sqlquery = "EXEC Web.Sp_GetClientFile @Id", idParam;
+
+            List<Client> ClientDetails = DB.Clients.SqlQuery("EXEC Web.Sp_GetClientFile @Id", idParam).ToList();
 
             return ClientDetails;
         }

@@ -1,0 +1,347 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="ECMillsModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <Function Name="PrintClientMenu_4" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="ClientMaint">
+          <Parameter Name="Date" Type="date" Mode="In" />
+          <Parameter Name="Name" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="sp_GetClientFile" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="Web">
+          <Parameter Name="Id" Type="int" Mode="In" />
+        </Function>
+        <EntityContainer Name="ECMillsModelStoreContainer" />
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ECMillsModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="ECMillsEntities1" annotation:LazyLoadingEnabled="true" >
+          <FunctionImport Name="PrintClientMenu_4" ReturnType="Collection(ECMillsModel.PrintClientMenu_4_Result)">
+            <Parameter Name="Date" Mode="In" Type="DateTime" />
+            <Parameter Name="Name" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_GetClientFile" ReturnType="Collection(ECMillsModel.sp_GetClientFile_Result)">
+            <Parameter Name="Id" Mode="In" Type="Int32" />
+          </FunctionImport>
+        </EntityContainer>
+        <ComplexType Name="PrintClientMenu_4_Result">
+          <Property Type="String" Name="C_ATITLE" Nullable="true" MaxLength="7" />
+          <Property Type="String" Name="C_ANAME" Nullable="true" MaxLength="31" />
+          <Property Type="String" Name="C_TITLE" Nullable="true" MaxLength="7" />
+          <Property Type="String" Name="C_NAME" Nullable="true" MaxLength="29" />
+          <Property Type="String" Name="C_STREET" Nullable="true" MaxLength="29" />
+          <Property Type="String" Name="C_LINE1" Nullable="true" MaxLength="25" />
+          <Property Type="String" Name="C_LINE2" Nullable="true" MaxLength="25" />
+          <Property Type="Double" Name="C_AGE" Nullable="true" />
+          <Property Type="Boolean" Name="C_BURY" Nullable="true" />
+          <Property Type="DateTime" Name="D_DATE" Nullable="true" />
+          <Property Type="String" Name="D_PLACE" Nullable="true" MaxLength="53" />
+          <Property Type="String" Name="D_TO" Nullable="true" MaxLength="41" />
+          <Property Type="String" Name="CHURCH" Nullable="true" MaxLength="61" />
+          <Property Type="DateTime" Name="CH_DATE" Nullable="true" />
+          <Property Type="Double" Name="CH_TIME" Nullable="true" />
+          <Property Type="String" Name="COMMITMENT" Nullable="true" MaxLength="41" />
+          <Property Type="Double" Name="CM_TIME" Nullable="true" />
+          <Property Type="String" Name="MINISTER" Nullable="true" MaxLength="25" />
+          <Property Type="Boolean" Name="HYMNS" Nullable="true" />
+          <Property Type="Double" Name="CARS" Nullable="true" />
+          <Property Type="String" Name="CARS_TO" Nullable="true" MaxLength="61" />
+          <Property Type="String" Name="ASHES" Nullable="true" MaxLength="31" />
+          <Property Type="Double" Name="LV_TIME" Nullable="true" />
+          <Property Type="Double" Name="AV_TIME" Nullable="true" />
+          <Property Type="Double" Name="C_ID" Nullable="false" />
+          <Property Type="Double" Name="TOTCOST" Nullable="true" />
+          <Property Type="String" Name="A_ADDRESS1" Nullable="true" MaxLength="31" />
+          <Property Type="String" Name="A_ADDRES2" Nullable="true" MaxLength="31" />
+          <Property Type="String" Name="A_ADDRESS3" Nullable="true" MaxLength="31" />
+          <Property Type="String" Name="ASHES2" Nullable="true" MaxLength="51" />
+          <Property Type="String" Name="ASHES3" Nullable="true" MaxLength="51" />
+          <Property Type="String" Name="ASHES4" Nullable="true" MaxLength="51" />
+          <Property Type="Double" Name="OTH_CST" Nullable="true" />
+          <Property Type="String" Name="CARS_TO2" Nullable="true" MaxLength="31" />
+          <Property Type="String" Name="CARS_TO3" Nullable="true" MaxLength="31" />
+          <Property Type="Double" Name="CARS1_TIME" Nullable="true" />
+          <Property Type="Double" Name="CARS2_TIME" Nullable="true" />
+          <Property Type="String" Name="JEWEL1" Nullable="true" MaxLength="27" />
+          <Property Type="String" Name="JEWEL2" Nullable="true" MaxLength="19" />
+          <Property Type="String" Name="C_MINTRP1" Nullable="true" MaxLength="49" />
+          <Property Type="String" Name="C_MINTRP2" Nullable="true" MaxLength="31" />
+          <Property Type="String" Name="C_REMAIN" Nullable="true" MaxLength="51" />
+          <Property Type="String" Name="A_DEAR" Nullable="true" MaxLength="5" />
+          <Property Type="DateTime" Name="C_DATE" Nullable="true" />
+          <Property Type="String" Name="C_CERT" Nullable="true" MaxLength="11" />
+          <Property Type="String" Name="C_FORES" Nullable="true" MaxLength="45" />
+          <Property Type="String" Name="C_DENOM" Nullable="true" MaxLength="21" />
+          <Property Type="String" Name="C_REL" Nullable="true" MaxLength="15" />
+          <Property Type="Boolean" Name="C_HASBEEN" Nullable="true" />
+          <Property Type="String" Name="D_TO2" Nullable="true" MaxLength="41" />
+          <Property Type="String" Name="CHURCH2" Nullable="true" MaxLength="15" />
+          <Property Type="String" Name="C_AFTER" Nullable="true" MaxLength="51" />
+          <Property Type="String" Name="MIN_ADD1" Nullable="true" MaxLength="23" />
+          <Property Type="String" Name="MIN_ADD2" Nullable="true" MaxLength="21" />
+          <Property Type="String" Name="MIN_ADD3" Nullable="true" MaxLength="21" />
+          <Property Type="Double" Name="C2_LVTME" Nullable="true" />
+          <Property Type="Double" Name="CARS_COST" Nullable="true" />
+          <Property Type="Double" Name="C3_LVTME" Nullable="true" />
+          <Property Type="Double" Name="MILE_COST" Nullable="true" />
+          <Property Type="Double" Name="ESTCOST" Nullable="true" />
+          <Property Type="Double" Name="PRESS_CST" Nullable="true" />
+          <Property Type="Double" Name="C_MEMCST" Nullable="true" />
+          <Property Type="Double" Name="A_PAID" Nullable="true" />
+          <Property Type="Double" Name="A_OUTSTND" Nullable="true" />
+          <Property Type="String" Name="C_NOTE1" Nullable="true" MaxLength="51" />
+          <Property Type="String" Name="C_NOTE2" Nullable="true" MaxLength="51" />
+          <Property Type="String" Name="C_NOTE3" Nullable="true" MaxLength="51" />
+          <Property Type="String" Name="C_GO" Nullable="true" MaxLength="1" />
+          <Property Type="Double" Name="ASH_COST" Nullable="true" />
+          <Property Type="String" Name="A_PHONE" Nullable="true" MaxLength="15" />
+          <Property Type="Boolean" Name="C_ACK" Nullable="true" />
+          <Property Type="Boolean" Name="C_NOSERV" Nullable="true" />
+          <Property Type="DateTime" Name="C_INVDTE" Nullable="true" />
+          <Property Type="Boolean" Name="C_INVSW" Nullable="true" />
+          <Property Type="Double" Name="C_IAMT" Nullable="true" />
+          <Property Type="Boolean" Name="C_IPRT" Nullable="true" />
+          <Property Type="Double" Name="C_SUPCST" Nullable="true" />
+          <Property Type="String" Name="C_MININF1" Nullable="true" MaxLength="51" />
+          <Property Type="String" Name="C_MININF2" Nullable="true" MaxLength="51" />
+          <Property Type="Boolean" Name="CURPAY" Nullable="true" />
+          <Property Type="String" Name="C_SPID" Nullable="true" MaxLength="3" />
+          <Property Type="DateTime" Name="C_LINV" Nullable="true" />
+          <Property Type="Boolean" Name="C_NOINV" Nullable="true" />
+          <Property Type="DateTime" Name="C_LETT1" Nullable="true" />
+          <Property Type="DateTime" Name="C_LETT2" Nullable="true" />
+          <Property Type="DateTime" Name="C_LETT3" Nullable="true" />
+          <Property Type="Boolean" Name="C_DSCRF" Nullable="true" />
+          <Property Type="Double" Name="C_REMVE" Nullable="true" />
+          <Property Type="Boolean" Name="C_CNTR" Nullable="true" />
+          <Property Type="Double" Name="C_CARNUM" Nullable="true" />
+          <Property Type="String" Name="C_RMVFRM" Nullable="true" MaxLength="53" />
+          <Property Type="Boolean" Name="C_ASHELD" Nullable="true" />
+          <Property Type="Boolean" Name="C_REINV" Nullable="true" />
+          <Property Type="Boolean" Name="C_MINGEN" Nullable="true" />
+          <Property Type="String" Name="C_DUR" Nullable="true" MaxLength="7" />
+          <Property Type="Double" Name="CN_NO" Nullable="true" />
+          <Property Type="Boolean" Name="C_NOFU" Nullable="true" />
+          <Property Type="Double" Name="C_BRANCH" Nullable="true" />
+          <Property Type="Double" Name="C_TIME" Nullable="true" />
+          <Property Type="String" Name="C_NOTE4" Nullable="true" MaxLength="51" />
+          <Property Type="DateTime" Name="CM_DATE" Nullable="true" />
+          <Property Type="Boolean" Name="C_BEAR" Nullable="true" />
+          <Property Type="Boolean" Name="C_ORGAN" Nullable="true" />
+          <Property Type="DateTime" Name="C_LETT4" Nullable="true" />
+          <Property Type="DateTime" Name="C_LETT5" Nullable="true" />
+          <Property Type="DateTime" Name="C_LETT6" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="sp_GetClientFile_Result">
+          <Property Type="String" Name="Surname" Nullable="true" MaxLength="29" />
+          <Property Type="String" Name="OurReference" Nullable="true" MaxLength="11" />
+          <Property Type="String" Name="Forenames_" Nullable="true" MaxLength="45" />
+          <Property Type="String" Name="Address1" Nullable="true" MaxLength="29" />
+          <Property Type="String" Name="Address2" Nullable="true" MaxLength="25" />
+          <Property Type="String" Name="Address3" Nullable="true" MaxLength="25" />
+          <Property Type="Double" Name="Age" Nullable="true" />
+          <Property Type="String" Name="Denomination" Nullable="true" MaxLength="21" />
+          <Property Type="Boolean" Name="Burial" Nullable="true" />
+          <Property Type="String" Name="Commitment" Nullable="true" MaxLength="41" />
+          <Property Type="Double" Name="CommitmentTime" Nullable="true" />
+          <Property Type="DateTime" Name="DateOfDeath" Nullable="true" />
+          <Property Type="String" Name="PlaceOfDeath" Nullable="true" MaxLength="53" />
+          <Property Type="String" Name="RemovedFrom" Nullable="true" MaxLength="53" />
+          <Property Type="String" Name="RemovedTo" Nullable="true" MaxLength="41" />
+          <Property Type="String" Name="Remain" Nullable="true" MaxLength="51" />
+          <Property Type="Double" Name="RemoveCost" Nullable="true" />
+          <Property Type="String" Name="ServiceLoc" Nullable="true" MaxLength="61" />
+          <Property Type="DateTime" Name="ServiceDate" Nullable="true" />
+          <Property Type="Double" Name="ServiceTime" Nullable="true" />
+          <Property Type="String" Name="NoService" Nullable="false" MaxLength="1" />
+          <Property Type="String" Name="NameTaking" Nullable="false" MaxLength="1" />
+          <Property Type="String" Name="GraveNumber" Nullable="true" MaxLength="15" />
+          <Property Type="String" Name="Organist" Nullable="false" MaxLength="1" />
+          <Property Type="String" Name="MinisterTransport" Nullable="false" MaxLength="81" />
+          <Property Type="String" Name="MinisterInformation" Nullable="false" MaxLength="103" />
+          <Property Type="String" Name="HearseWill" Nullable="true" MaxLength="61" />
+          <Property Type="Double" Name="HearseAt" Nullable="true" />
+          <Property Type="String" Name="Ashes" Nullable="true" MaxLength="31" />
+          <Property Type="Double" Name="TotalCost" Nullable="true" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ECMillsModelStoreContainer" CdmEntityContainer="ECMillsEntities1" >
+          <FunctionImportMapping FunctionImportName="PrintClientMenu_4" FunctionName="ECMillsModel.Store.PrintClientMenu_4">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ECMillsModel.PrintClientMenu_4_Result">
+                <ScalarProperty Name="C_ATITLE" ColumnName="C_ATITLE" />
+                <ScalarProperty Name="C_ANAME" ColumnName="C_ANAME" />
+                <ScalarProperty Name="C_TITLE" ColumnName="C_TITLE" />
+                <ScalarProperty Name="C_NAME" ColumnName="C_NAME" />
+                <ScalarProperty Name="C_STREET" ColumnName="C_STREET" />
+                <ScalarProperty Name="C_LINE1" ColumnName="C_LINE1" />
+                <ScalarProperty Name="C_LINE2" ColumnName="C_LINE2" />
+                <ScalarProperty Name="C_AGE" ColumnName="C_AGE" />
+                <ScalarProperty Name="C_BURY" ColumnName="C_BURY" />
+                <ScalarProperty Name="D_DATE" ColumnName="D_DATE" />
+                <ScalarProperty Name="D_PLACE" ColumnName="D_PLACE" />
+                <ScalarProperty Name="D_TO" ColumnName="D_TO" />
+                <ScalarProperty Name="CHURCH" ColumnName="CHURCH" />
+                <ScalarProperty Name="CH_DATE" ColumnName="CH_DATE" />
+                <ScalarProperty Name="CH_TIME" ColumnName="CH_TIME" />
+                <ScalarProperty Name="COMMITMENT" ColumnName="COMMITMENT" />
+                <ScalarProperty Name="CM_TIME" ColumnName="CM_TIME" />
+                <ScalarProperty Name="MINISTER" ColumnName="MINISTER" />
+                <ScalarProperty Name="HYMNS" ColumnName="HYMNS" />
+                <ScalarProperty Name="CARS" ColumnName="CARS" />
+                <ScalarProperty Name="CARS_TO" ColumnName="CARS_TO" />
+                <ScalarProperty Name="ASHES" ColumnName="ASHES" />
+                <ScalarProperty Name="LV_TIME" ColumnName="LV_TIME" />
+                <ScalarProperty Name="AV_TIME" ColumnName="AV_TIME" />
+                <ScalarProperty Name="C_ID" ColumnName="C_ID" />
+                <ScalarProperty Name="TOTCOST" ColumnName="TOTCOST" />
+                <ScalarProperty Name="A_ADDRESS1" ColumnName="A_ADDRESS1" />
+                <ScalarProperty Name="A_ADDRES2" ColumnName="A_ADDRES2" />
+                <ScalarProperty Name="A_ADDRESS3" ColumnName="A_ADDRESS3" />
+                <ScalarProperty Name="ASHES2" ColumnName="ASHES2" />
+                <ScalarProperty Name="ASHES3" ColumnName="ASHES3" />
+                <ScalarProperty Name="ASHES4" ColumnName="ASHES4" />
+                <ScalarProperty Name="OTH_CST" ColumnName="OTH_CST" />
+                <ScalarProperty Name="CARS_TO2" ColumnName="CARS_TO2" />
+                <ScalarProperty Name="CARS_TO3" ColumnName="CARS_TO3" />
+                <ScalarProperty Name="CARS1_TIME" ColumnName="CARS1_TIME" />
+                <ScalarProperty Name="CARS2_TIME" ColumnName="CARS2_TIME" />
+                <ScalarProperty Name="JEWEL1" ColumnName="JEWEL1" />
+                <ScalarProperty Name="JEWEL2" ColumnName="JEWEL2" />
+                <ScalarProperty Name="C_MINTRP1" ColumnName="C_MINTRP1" />
+                <ScalarProperty Name="C_MINTRP2" ColumnName="C_MINTRP2" />
+                <ScalarProperty Name="C_REMAIN" ColumnName="C_REMAIN" />
+                <ScalarProperty Name="A_DEAR" ColumnName="A_DEAR" />
+                <ScalarProperty Name="C_DATE" ColumnName="C_DATE" />
+                <ScalarProperty Name="C_CERT" ColumnName="C_CERT" />
+                <ScalarProperty Name="C_FORES" ColumnName="C_FORES" />
+                <ScalarProperty Name="C_DENOM" ColumnName="C_DENOM" />
+                <ScalarProperty Name="C_REL" ColumnName="C_REL" />
+                <ScalarProperty Name="C_HASBEEN" ColumnName="C_HASBEEN" />
+                <ScalarProperty Name="D_TO2" ColumnName="D_TO2" />
+                <ScalarProperty Name="CHURCH2" ColumnName="CHURCH2" />
+                <ScalarProperty Name="C_AFTER" ColumnName="C_AFTER" />
+                <ScalarProperty Name="MIN_ADD1" ColumnName="MIN_ADD1" />
+                <ScalarProperty Name="MIN_ADD2" ColumnName="MIN_ADD2" />
+                <ScalarProperty Name="MIN_ADD3" ColumnName="MIN_ADD3" />
+                <ScalarProperty Name="C2_LVTME" ColumnName="C2_LVTME" />
+                <ScalarProperty Name="CARS_COST" ColumnName="CARS_COST" />
+                <ScalarProperty Name="C3_LVTME" ColumnName="C3_LVTME" />
+                <ScalarProperty Name="MILE_COST" ColumnName="MILE_COST" />
+                <ScalarProperty Name="ESTCOST" ColumnName="ESTCOST" />
+                <ScalarProperty Name="PRESS_CST" ColumnName="PRESS_CST" />
+                <ScalarProperty Name="C_MEMCST" ColumnName="C_MEMCST" />
+                <ScalarProperty Name="A_PAID" ColumnName="A_PAID" />
+                <ScalarProperty Name="A_OUTSTND" ColumnName="A_OUTSTND" />
+                <ScalarProperty Name="C_NOTE1" ColumnName="C_NOTE1" />
+                <ScalarProperty Name="C_NOTE2" ColumnName="C_NOTE2" />
+                <ScalarProperty Name="C_NOTE3" ColumnName="C_NOTE3" />
+                <ScalarProperty Name="C_GO" ColumnName="C_GO" />
+                <ScalarProperty Name="ASH_COST" ColumnName="ASH_COST" />
+                <ScalarProperty Name="A_PHONE" ColumnName="A_PHONE" />
+                <ScalarProperty Name="C_ACK" ColumnName="C_ACK" />
+                <ScalarProperty Name="C_NOSERV" ColumnName="C_NOSERV" />
+                <ScalarProperty Name="C_INVDTE" ColumnName="C_INVDTE" />
+                <ScalarProperty Name="C_INVSW" ColumnName="C_INVSW" />
+                <ScalarProperty Name="C_IAMT" ColumnName="C_IAMT" />
+                <ScalarProperty Name="C_IPRT" ColumnName="C_IPRT" />
+                <ScalarProperty Name="C_SUPCST" ColumnName="C_SUPCST" />
+                <ScalarProperty Name="C_MININF1" ColumnName="C_MININF1" />
+                <ScalarProperty Name="C_MININF2" ColumnName="C_MININF2" />
+                <ScalarProperty Name="CURPAY" ColumnName="CURPAY" />
+                <ScalarProperty Name="C_SPID" ColumnName="C_SPID" />
+                <ScalarProperty Name="C_LINV" ColumnName="C_LINV" />
+                <ScalarProperty Name="C_NOINV" ColumnName="C_NOINV" />
+                <ScalarProperty Name="C_LETT1" ColumnName="C_LETT1" />
+                <ScalarProperty Name="C_LETT2" ColumnName="C_LETT2" />
+                <ScalarProperty Name="C_LETT3" ColumnName="C_LETT3" />
+                <ScalarProperty Name="C_DSCRF" ColumnName="C_DSCRF" />
+                <ScalarProperty Name="C_REMVE" ColumnName="C_REMVE" />
+                <ScalarProperty Name="C_CNTR" ColumnName="C_CNTR" />
+                <ScalarProperty Name="C_CARNUM" ColumnName="C_CARNUM" />
+                <ScalarProperty Name="C_RMVFRM" ColumnName="C_RMVFRM" />
+                <ScalarProperty Name="C_ASHELD" ColumnName="C_ASHELD" />
+                <ScalarProperty Name="C_REINV" ColumnName="C_REINV" />
+                <ScalarProperty Name="C_MINGEN" ColumnName="C_MINGEN" />
+                <ScalarProperty Name="C_DUR" ColumnName="C_DUR" />
+                <ScalarProperty Name="CN_NO" ColumnName="CN_NO" />
+                <ScalarProperty Name="C_NOFU" ColumnName="C_NOFU" />
+                <ScalarProperty Name="C_BRANCH" ColumnName="C_BRANCH" />
+                <ScalarProperty Name="C_TIME" ColumnName="C_TIME" />
+                <ScalarProperty Name="C_NOTE4" ColumnName="C_NOTE4" />
+                <ScalarProperty Name="CM_DATE" ColumnName="CM_DATE" />
+                <ScalarProperty Name="C_BEAR" ColumnName="C_BEAR" />
+                <ScalarProperty Name="C_ORGAN" ColumnName="C_ORGAN" />
+                <ScalarProperty Name="C_LETT4" ColumnName="C_LETT4" />
+                <ScalarProperty Name="C_LETT5" ColumnName="C_LETT5" />
+                <ScalarProperty Name="C_LETT6" ColumnName="C_LETT6" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_GetClientFile" FunctionName="ECMillsModel.Store.sp_GetClientFile">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ECMillsModel.sp_GetClientFile_Result">
+                <ScalarProperty Name="Surname" ColumnName="Surname" />
+                <ScalarProperty Name="OurReference" ColumnName="OurReference" />
+                <ScalarProperty Name="Forenames_" ColumnName="Forenames " />
+                <ScalarProperty Name="Address1" ColumnName="Address1" />
+                <ScalarProperty Name="Address2" ColumnName="Address2" />
+                <ScalarProperty Name="Address3" ColumnName="Address3" />
+                <ScalarProperty Name="Age" ColumnName="Age" />
+                <ScalarProperty Name="Denomination" ColumnName="Denomination" />
+                <ScalarProperty Name="Burial" ColumnName="Burial" />
+                <ScalarProperty Name="Commitment" ColumnName="Commitment" />
+                <ScalarProperty Name="CommitmentTime" ColumnName="CommitmentTime" />
+                <ScalarProperty Name="DateOfDeath" ColumnName="DateOfDeath" />
+                <ScalarProperty Name="PlaceOfDeath" ColumnName="PlaceOfDeath" />
+                <ScalarProperty Name="RemovedFrom" ColumnName="RemovedFrom" />
+                <ScalarProperty Name="RemovedTo" ColumnName="RemovedTo" />
+                <ScalarProperty Name="Remain" ColumnName="Remain" />
+                <ScalarProperty Name="RemoveCost" ColumnName="RemoveCost" />
+                <ScalarProperty Name="ServiceLoc" ColumnName="ServiceLoc" />
+                <ScalarProperty Name="ServiceDate" ColumnName="ServiceDate" />
+                <ScalarProperty Name="ServiceTime" ColumnName="ServiceTime" />
+                <ScalarProperty Name="NoService" ColumnName="NoService" />
+                <ScalarProperty Name="NameTaking" ColumnName="NameTaking" />
+                <ScalarProperty Name="GraveNumber" ColumnName="GraveNumber" />
+                <ScalarProperty Name="Organist" ColumnName="Organist" />
+                <ScalarProperty Name="MinisterTransport" ColumnName="MinisterTransport" />
+                <ScalarProperty Name="MinisterInformation" ColumnName="MinisterInformation" />
+                <ScalarProperty Name="HearseWill" ColumnName="HearseWill" />
+                <ScalarProperty Name="HearseAt" ColumnName="HearseAt" />
+                <ScalarProperty Name="Ashes" ColumnName="Ashes" />
+                <ScalarProperty Name="TotalCost" ColumnName="TotalCost" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

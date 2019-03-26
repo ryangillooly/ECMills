@@ -1,4 +1,4 @@
-﻿@model IEnumerable<ECMills.Models.Client>
+﻿@model IEnumerable<ECMills.Models.sp_GetClientFile_Result>
 
 @{
     ViewBag.Title = "Details";
@@ -10,19 +10,73 @@
 <table class="table table-hover table-bordered table-responsive table-striped">
     <thead>
         <tr>
-            <td>Customer ID</td>
-            <td>Title</td>
-            <td>ForeName</td>
+            <td>Surname</td>
+            <td>OurReference</td>
+            <td>Forenames</td>
+            <td>Address1</td>
+            <td>Address2</td>
+            <td>Address3</td>
+            <td>Age</td>
+            <td>Denomination</td>
+            <td>Burial</td>
+            <td>Commitment</td>
+            <td>CommitmentTime</td>
+            <td>DateOfDeath</td>
+            <td>PlaceOfDeath</td>
+            <td>RemovedFrom</td>
+            <td>RemovedTo</td>
+            <td>Remain</td>
+            <td>RemoveCost</td>
+            <td>ServiceLoc</td>
+            <td>ServiceDate</td>
+            <td>ServiceTime</td>
+            <td>NoService</td>
+            <td>NameTaking</td>
+            <td>GraveNumber</td>
+            <td>Organist</td>
+            <td>MinisterTransport</td>
+            <td>MinisterInformation</td>
+            <td>HearseWill</td>
+            <td>HearseAt</td>
+            <td>Ashes</td>
+            <td>TotalCost</td>
         </tr>
     </thead>
     <tbody>
         @foreach (var customer in Model)
         {
-            <tr>
-                <td>@customer.C_ID</td>
-                <td>@customer.C_NAME</td>
-                <td>@customer.COMMITMENT</td>
-            </tr>
+        <tr>
+            <td>@customer.Surname</td>
+            <td>@customer.OurReference</td>
+            <td>@customer.Forenames_</td>
+            <td>@customer.Address1</td>
+            <td>@customer.Address2</td>
+            <td>@customer.Address3</td>
+            <td>@customer.Age</td>
+            <td>@customer.Denomination</td>
+            <td>@customer.Burial</td>
+            <td>@customer.Commitment</td>
+            <td>@customer.CommitmentTime</td>
+            <td>@customer.DateOfDeath</td>
+            <td>@customer.PlaceOfDeath</td>
+            <td>@customer.RemovedFrom</td>
+            <td>@customer.RemovedTo</td>
+            <td>@customer.Remain</td>
+            <td>@customer.RemoveCost</td>
+            <td>@customer.ServiceLoc</td>
+            <td>@customer.ServiceDate</td>
+            <td>@customer.ServiceTime</td>
+            <td>@customer.NoService</td>
+            <td>@customer.NameTaking</td>
+            <td>@customer.GraveNumber</td>
+            <td>@customer.Organist</td>
+            <td>@customer.MinisterTransport</td>
+            <td>@customer.MinisterInformation</td>
+            <td>@customer.HearseWill</td>
+            <td>@customer.HearseAt</td>
+            <td>@customer.Ashes</td>
+            <td>@customer.TotalCost</td>
+        </tr>
         }
     </tbody>
 </table>

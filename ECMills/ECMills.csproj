@@ -159,7 +159,28 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DBModel.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Models\DBModelProcs.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DBModelProcs.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DBModelProcs.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DBModelProcs.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DBModelProcs.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DBModelProcs.edmx</DependentUpon>
+    </Compile>
     <Compile Include="Models\Movie.cs" />
+    <Compile Include="Models\PrintClientMenu_4_Result.cs">
+      <DependentUpon>DBModelProcs.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sp_GetClientFile_Result.cs">
+      <DependentUpon>DBModelProcs.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\RandomMovieViewModel.cs" />
   </ItemGroup>
@@ -182,6 +203,16 @@
       <DependentUpon>DBModel.edmx</DependentUpon>
       <LastGenOutput>DBModel.cs</LastGenOutput>
     </Content>
+    <Content Include="Models\DBModelProcs.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>DBModelProcs.edmx</DependentUpon>
+      <LastGenOutput>DBModelProcs.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\DBModelProcs.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>DBModelProcs.edmx</DependentUpon>
+      <LastGenOutput>DBModelProcs.cs</LastGenOutput>
+    </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <EntityDeploy Include="Models\DBModel.edmx">
@@ -190,6 +221,13 @@
     </EntityDeploy>
     <Content Include="Models\DBModel.edmx.diagram">
       <DependentUpon>DBModel.edmx</DependentUpon>
+    </Content>
+    <EntityDeploy Include="Models\DBModelProcs.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>DBModelProcs.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\DBModelProcs.edmx.diagram">
+      <DependentUpon>DBModelProcs.edmx</DependentUpon>
     </Content>
     <None Include="Properties\PublishProfiles\ECMills - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
