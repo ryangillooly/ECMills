@@ -15,10 +15,10 @@ namespace ECMills.Models
     using System.Data.Entity.Core.Objects;
     using System.Linq;
     
-    public partial class ECMillsEntities1 : DbContext
+    public partial class ECMillsDBConnection : DbContext
     {
-        public ECMillsEntities1()
-            : base("name=ECMillsEntities1")
+        public ECMillsDBConnection()
+            : base("name=ECMillsDBConnection")
         {
         }
     
@@ -27,6 +27,7 @@ namespace ECMills.Models
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<Client> Clients { get; set; }
     
         public virtual ObjectResult<PrintClientMenu_4_Result> PrintClientMenu_4(Nullable<System.DateTime> date, string name)
         {

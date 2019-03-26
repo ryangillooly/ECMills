@@ -15,12 +15,20 @@ namespace ECMills.Controllers
 
         public ViewResult Index(string surname)
         {
-            ECMillsEntities DB = new ECMillsEntities();
+            if (!String.IsNullOrEmpty(surname))
+            {
 
-            string sqlquery = "SELECT * FROM Client WHERE C_NAME LIKE '%" + surname + "%' ORDER BY C_ID ASC";
+                ECMillsDBConnection DB = new ECMillsDBConnection();
+                string sqlquery = "SELECT * FROM Client WHERE C_NAME LIKE '%" + surname + "%' ORDER BY C_ID ASC";
 
-            List<Client> Clients = DB.Clients.SqlQuery(sqlquery).ToList();
-            return View(Clients);
+                List<Client> Clients = DB.Clients.SqlQuery(sqlquery).ToList();
+
+                return View(Clients);
+            }
+            else
+            {
+                return View("NoCustomers");
+            }
         }
 
 
@@ -36,20 +44,16 @@ namespace ECMills.Controllers
         }
 
 
-        private IEnumerable<Client> GetCustomers(int id)
+        private List<ECMills.Models.sp_GetClientFile_Result> GetCustomers(int id)
         {
-            var idParam = new SqlParameter
+
+            using (var context = new ECMillsDBConnection())
             {
-                ParameterName = "Id",
-                Value = id
-            };
+                var courses = context.sp_GetClientFile(id).ToList();
 
-            ECMillsEntities DB = new ECMillsEntities();
-           // string sqlquery = "EXEC Web.Sp_GetClientFile @Id", idParam;
+                return courses;
+            }
 
-            List<Client> ClientDetails = DB.Clients.SqlQuery("EXEC Web.Sp_GetClientFile @Id", idParam).ToList();
-
-            return ClientDetails;
         }
 
         public ViewResult Test()

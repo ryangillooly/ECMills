@@ -141,45 +141,30 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Client.cs">
-      <DependentUpon>DBModel.tt</DependentUpon>
+      <DependentUpon>ECMillsDatabaseModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Customer.cs" />
-    <Compile Include="Models\DBModel.Context.cs">
+    <Compile Include="Models\ECMillsDatabaseModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>DBModel.Context.tt</DependentUpon>
+      <DependentUpon>ECMillsDatabaseModel.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\DBModel.cs">
+    <Compile Include="Models\ECMillsDatabaseModel.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>DBModel.tt</DependentUpon>
+      <DependentUpon>ECMillsDatabaseModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\DBModel.Designer.cs">
+    <Compile Include="Models\ECMillsDatabaseModel.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>DBModel.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="Models\DBModelProcs.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DBModelProcs.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\DBModelProcs.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DBModelProcs.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\DBModelProcs.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DBModelProcs.edmx</DependentUpon>
+      <DependentUpon>ECMillsDatabaseModel.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\Movie.cs" />
     <Compile Include="Models\PrintClientMenu_4_Result.cs">
-      <DependentUpon>DBModelProcs.tt</DependentUpon>
+      <DependentUpon>ECMillsDatabaseModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\sp_GetClientFile_Result.cs">
-      <DependentUpon>DBModelProcs.tt</DependentUpon>
+      <DependentUpon>ECMillsDatabaseModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\RandomMovieViewModel.cs" />
@@ -193,41 +178,24 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="Models\DBModel.Context.tt">
+    <Content Include="Models\ECMillsDatabaseModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>DBModel.edmx</DependentUpon>
-      <LastGenOutput>DBModel.Context.cs</LastGenOutput>
+      <DependentUpon>ECMillsDatabaseModel.edmx</DependentUpon>
+      <LastGenOutput>ECMillsDatabaseModel.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Models\DBModel.tt">
+    <Content Include="Models\ECMillsDatabaseModel.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>DBModel.edmx</DependentUpon>
-      <LastGenOutput>DBModel.cs</LastGenOutput>
-    </Content>
-    <Content Include="Models\DBModelProcs.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>DBModelProcs.edmx</DependentUpon>
-      <LastGenOutput>DBModelProcs.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="Models\DBModelProcs.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>DBModelProcs.edmx</DependentUpon>
-      <LastGenOutput>DBModelProcs.cs</LastGenOutput>
+      <DependentUpon>ECMillsDatabaseModel.edmx</DependentUpon>
+      <LastGenOutput>ECMillsDatabaseModel.cs</LastGenOutput>
     </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <EntityDeploy Include="Models\DBModel.edmx">
+    <EntityDeploy Include="Models\ECMillsDatabaseModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>DBModel.Designer.cs</LastGenOutput>
+      <LastGenOutput>ECMillsDatabaseModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="Models\DBModel.edmx.diagram">
-      <DependentUpon>DBModel.edmx</DependentUpon>
-    </Content>
-    <EntityDeploy Include="Models\DBModelProcs.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>DBModelProcs.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Models\DBModelProcs.edmx.diagram">
-      <DependentUpon>DBModelProcs.edmx</DependentUpon>
+    <Content Include="Models\ECMillsDatabaseModel.edmx.diagram">
+      <DependentUpon>ECMillsDatabaseModel.edmx</DependentUpon>
     </Content>
     <None Include="Properties\PublishProfiles\ECMills - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
@@ -261,6 +229,7 @@
     <Content Include="Views\Customers\Index.cshtml" />
     <Content Include="Views\Movies\Index.cshtml" />
     <Content Include="Views\Customers\Test.cshtml" />
+    <Content Include="Views\Customers\NoCustomers.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
