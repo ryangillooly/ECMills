@@ -1,0 +1,774 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ECMillsModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <!--Errors Found During Generation:
+warning 6013: The table/view 'ECMills.dbo.Caskets' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="Caskets">
+          <Property Name="CSK_TYPE" Type="nvarchar" MaxLength="51" />
+          <Property Name="CSK_CST" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="C_CASK1" Type="nvarchar" MaxLength="51" />
+          <Property Name="C_CASK2" Type="nvarchar" MaxLength="51" />
+          <Property Name="C_CASK3" Type="nvarchar" MaxLength="51" />
+          <Property Name="C_CASK4" Type="nvarchar" MaxLength="51" />
+          <Property Name="C_CASKNO" Type="bigint" />
+          <Property Name="C_TYPE" Type="nvarchar" MaxLength="1" />
+        </EntityType>-->
+  <!--Errors Found During Generation:
+warning 6013: The table/view 'ECMills.dbo.Churches' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="Churches">
+          <Property Name="CH_NAME" Type="nvarchar" MaxLength="61" />
+          <Property Name="CH_NAME2" Type="nvarchar" MaxLength="23" />
+          <Property Name="CH_ADD1" Type="nvarchar" MaxLength="31" />
+          <Property Name="CH_ADD2" Type="nvarchar" MaxLength="31" />
+          <Property Name="CH_ADD3" Type="nvarchar" MaxLength="31" />
+          <Property Name="CH_PHONE" Type="nvarchar" MaxLength="13" />
+        </EntityType>-->
+  <!--Errors Found During Generation:
+warning 6013: The table/view 'ECMills.dbo.Client' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="Client">
+          <Property Name="C_ATITLE" Type="nvarchar" MaxLength="7" />
+          <Property Name="C_ANAME" Type="nvarchar" MaxLength="31" />
+          <Property Name="C_TITLE" Type="nvarchar" MaxLength="7" />
+          <Property Name="C_NAME" Type="nvarchar" MaxLength="29" />
+          <Property Name="C_STREET" Type="nvarchar" MaxLength="29" />
+          <Property Name="C_LINE1" Type="nvarchar" MaxLength="25" />
+          <Property Name="C_LINE2" Type="nvarchar" MaxLength="25" />
+          <Property Name="C_AGE" Type="float" />
+          <Property Name="C_BURY" Type="bit" />
+          <Property Name="D_DATE" Type="datetime2" Precision="0" />
+          <Property Name="D_PLACE" Type="nvarchar" MaxLength="53" />
+          <Property Name="D_TO" Type="nvarchar" MaxLength="41" />
+          <Property Name="CHURCH" Type="nvarchar" MaxLength="61" />
+          <Property Name="CH_DATE" Type="datetime2" Precision="0" />
+          <Property Name="CH_TIME" Type="float" />
+          <Property Name="COMMITMENT" Type="nvarchar" MaxLength="41" />
+          <Property Name="CM_TIME" Type="float" />
+          <Property Name="MINISTER" Type="nvarchar" MaxLength="25" />
+          <Property Name="HYMNS" Type="bit" />
+          <Property Name="CARS" Type="float" />
+          <Property Name="CARS_TO" Type="nvarchar" MaxLength="61" />
+          <Property Name="ASHES" Type="nvarchar" MaxLength="31" />
+          <Property Name="LV_TIME" Type="float" />
+          <Property Name="AV_TIME" Type="float" />
+          <Property Name="C_ID" Type="float" />
+          <Property Name="TOTCOST" Type="float" />
+          <Property Name="A_ADDRESS1" Type="nvarchar" MaxLength="31" />
+          <Property Name="A_ADDRES2" Type="nvarchar" MaxLength="31" />
+          <Property Name="A_ADDRESS3" Type="nvarchar" MaxLength="31" />
+          <Property Name="ASHES2" Type="nvarchar" MaxLength="51" />
+          <Property Name="ASHES3" Type="nvarchar" MaxLength="51" />
+          <Property Name="ASHES4" Type="nvarchar" MaxLength="51" />
+          <Property Name="OTH_CST" Type="float" />
+          <Property Name="CARS_TO2" Type="nvarchar" MaxLength="31" />
+          <Property Name="CARS_TO3" Type="nvarchar" MaxLength="31" />
+          <Property Name="CARS1_TIME" Type="float" />
+          <Property Name="CARS2_TIME" Type="float" />
+          <Property Name="JEWEL1" Type="nvarchar" MaxLength="27" />
+          <Property Name="JEWEL2" Type="nvarchar" MaxLength="19" />
+          <Property Name="C_MINTRP1" Type="nvarchar" MaxLength="49" />
+          <Property Name="C_MINTRP2" Type="nvarchar" MaxLength="31" />
+          <Property Name="C_REMAIN" Type="nvarchar" MaxLength="51" />
+          <Property Name="A_DEAR" Type="nvarchar" MaxLength="5" />
+          <Property Name="C_DATE" Type="datetime2" Precision="0" />
+          <Property Name="C_CERT" Type="nvarchar" MaxLength="11" />
+          <Property Name="C_FORES" Type="nvarchar" MaxLength="45" />
+          <Property Name="C_DENOM" Type="nvarchar" MaxLength="21" />
+          <Property Name="C_REL" Type="nvarchar" MaxLength="15" />
+          <Property Name="C_HASBEEN" Type="bit" />
+          <Property Name="D_TO2" Type="nvarchar" MaxLength="41" />
+          <Property Name="CHURCH2" Type="nvarchar" MaxLength="15" />
+          <Property Name="C_AFTER" Type="nvarchar" MaxLength="51" />
+          <Property Name="MIN_ADD1" Type="nvarchar" MaxLength="23" />
+          <Property Name="MIN_ADD2" Type="nvarchar" MaxLength="21" />
+          <Property Name="MIN_ADD3" Type="nvarchar" MaxLength="21" />
+          <Property Name="C2_LVTME" Type="float" />
+          <Property Name="CARS_COST" Type="float" />
+          <Property Name="C3_LVTME" Type="float" />
+          <Property Name="MILE_COST" Type="float" />
+          <Property Name="ESTCOST" Type="float" />
+          <Property Name="PRESS_CST" Type="float" />
+          <Property Name="C_MEMCST" Type="float" />
+          <Property Name="A_PAID" Type="float" />
+          <Property Name="A_OUTSTND" Type="float" />
+          <Property Name="C_NOTE1" Type="nvarchar" MaxLength="51" />
+          <Property Name="C_NOTE2" Type="nvarchar" MaxLength="51" />
+          <Property Name="C_NOTE3" Type="nvarchar" MaxLength="51" />
+          <Property Name="C_GO" Type="nvarchar" MaxLength="1" />
+          <Property Name="ASH_COST" Type="float" />
+          <Property Name="A_PHONE" Type="nvarchar" MaxLength="15" />
+          <Property Name="C_ACK" Type="bit" />
+          <Property Name="C_NOSERV" Type="bit" />
+          <Property Name="C_INVDTE" Type="datetime2" Precision="0" />
+          <Property Name="C_INVSW" Type="bit" />
+          <Property Name="C_IAMT" Type="float" />
+          <Property Name="C_IPRT" Type="bit" />
+          <Property Name="C_SUPCST" Type="float" />
+          <Property Name="C_MININF1" Type="nvarchar" MaxLength="51" />
+          <Property Name="C_MININF2" Type="nvarchar" MaxLength="51" />
+          <Property Name="CURPAY" Type="bit" />
+          <Property Name="C_SPID" Type="nvarchar" MaxLength="3" />
+          <Property Name="C_LINV" Type="datetime2" Precision="0" />
+          <Property Name="C_NOINV" Type="bit" />
+          <Property Name="C_LETT1" Type="datetime2" Precision="0" />
+          <Property Name="C_LETT2" Type="datetime2" Precision="0" />
+          <Property Name="C_LETT3" Type="datetime2" Precision="0" />
+          <Property Name="C_DSCRF" Type="bit" />
+          <Property Name="C_REMVE" Type="float" />
+          <Property Name="C_CNTR" Type="bit" />
+          <Property Name="C_CARNUM" Type="float" />
+          <Property Name="C_RMVFRM" Type="nvarchar" MaxLength="53" />
+          <Property Name="C_ASHELD" Type="bit" />
+          <Property Name="C_REINV" Type="bit" />
+          <Property Name="C_MINGEN" Type="bit" />
+          <Property Name="C_DUR" Type="nvarchar" MaxLength="7" />
+          <Property Name="CN_NO" Type="float" />
+          <Property Name="C_NOFU" Type="bit" />
+          <Property Name="C_BRANCH" Type="float" />
+          <Property Name="C_TIME" Type="float" />
+          <Property Name="C_NOTE4" Type="nvarchar" MaxLength="51" />
+          <Property Name="CM_DATE" Type="datetime2" Precision="0" />
+          <Property Name="C_BEAR" Type="bit" />
+          <Property Name="C_ORGAN" Type="bit" />
+          <Property Name="C_LETT4" Type="datetime2" Precision="0" />
+          <Property Name="C_LETT5" Type="datetime2" Precision="0" />
+          <Property Name="C_LETT6" Type="datetime2" Precision="0" />
+        </EntityType>-->
+  <!--Errors Found During Generation:
+warning 6013: The table/view 'ECMills.dbo.ClntCars' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="ClntCars">
+          <Property Name="D_CID" Type="bigint" />
+          <Property Name="D_NOTE1" Type="nvarchar" MaxLength="61" />
+          <Property Name="D_NOTE2" Type="nvarchar" MaxLength="61" />
+          <Property Name="D_NOTE3" Type="nvarchar" MaxLength="61" />
+          <Property Name="D_HRSE" Type="nvarchar" MaxLength="3" />
+          <Property Name="D_CAR1" Type="nvarchar" MaxLength="3" />
+          <Property Name="D_CAR2" Type="nvarchar" MaxLength="3" />
+          <Property Name="D_CAR3" Type="nvarchar" MaxLength="3" />
+        </EntityType>-->
+  <!--Errors Found During Generation:
+warning 6013: The table/view 'ECMills.dbo.ClntCost' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="ClntCost">
+          <Property Name="C_CID" Type="bigint" />
+          <Property Name="CASK_SIZE" Type="nvarchar" MaxLength="15" />
+          <Property Name="CASK_COST" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="MATT_COST" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="CREM_FEES" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="DCTR_FEES" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="SRVC_CHGE" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="C_TOT1" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="CHURCH_FEE" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="ORGANIST" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="C_CSTD1" Type="nvarchar" MaxLength="65" />
+          <Property Name="C_CST1" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="C_CSTD2" Type="nvarchar" MaxLength="51" />
+          <Property Name="C_CST2" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="C_CSTD3" Type="nvarchar" MaxLength="51" />
+          <Property Name="C_CST3" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="C_CSTD4" Type="nvarchar" MaxLength="51" />
+          <Property Name="C_CST4" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="C_TOT2" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="FLOWERS" Type="nvarchar" MaxLength="41" />
+          <Property Name="FLWR_CST" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="FLOWERS2" Type="nvarchar" MaxLength="41" />
+          <Property Name="FLOWERS3" Type="nvarchar" MaxLength="41" />
+          <Property Name="MEALS" Type="nvarchar" MaxLength="31" />
+          <Property Name="MEAL_CST" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="SUNDRIES" Type="nvarchar" MaxLength="31" />
+          <Property Name="SNDRY_CST" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="STATIONERY" Type="nvarchar" MaxLength="31" />
+          <Property Name="STAT_CST" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="STAT2" Type="nvarchar" MaxLength="31" />
+          <Property Name="STAT_CST2" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="C_TOT3" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="A_CST" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="C_YF" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="C_CASKT" Type="nvarchar" MaxLength="51" />
+          <Property Name="FLWR_CS1" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="FLWR_CS2" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="FLWR_TOT" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="VICAR2" Type="nvarchar" MaxLength="25" />
+          <Property Name="VIC_ADD1" Type="nvarchar" MaxLength="31" />
+          <Property Name="VIC_ADD2" Type="nvarchar" MaxLength="31" />
+          <Property Name="VIC_ADD3" Type="nvarchar" MaxLength="31" />
+          <Property Name="V2_LNE1" Type="nvarchar" MaxLength="21" />
+          <Property Name="V2_CST1" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="V2_LNE2" Type="nvarchar" MaxLength="21" />
+          <Property Name="V2_CST2" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="CG_CO" Type="bit" />
+          <Property Name="C_ALTAR" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="C_MINFEES" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="C_CASKT1" Type="nvarchar" MaxLength="51" />
+          <Property Name="C_CASKT2" Type="nvarchar" MaxLength="51" />
+          <Property Name="C_CASKT3" Type="nvarchar" MaxLength="51" />
+          <Property Name="C_CASKT4" Type="nvarchar" MaxLength="51" />
+          <Property Name="C_HRSELNE" Type="nvarchar" MaxLength="61" />
+          <Property Name="C_SAN" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="C_VAT" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="C_INVNUM" Type="bigint" />
+          <Property Name="C_NETT" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="C_CSTC1" Type="nvarchar" MaxLength="51" />
+          <Property Name="C_CSTC2" Type="nvarchar" MaxLength="51" />
+          <Property Name="C_CSTC3" Type="nvarchar" MaxLength="51" />
+          <Property Name="C_CSTC4" Type="nvarchar" MaxLength="51" />
+          <Property Name="C_DCST1" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="C_DCST2" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="C_DCST3" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="C_DCST4" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="C_VSW1" Type="bit" />
+          <Property Name="C_VSW2" Type="bit" />
+          <Property Name="C_VSW3" Type="bit" />
+          <Property Name="C_VSW4" Type="bit" />
+          <Property Name="C_VSW5" Type="bit" />
+          <Property Name="C_VSW6" Type="bit" />
+          <Property Name="C_HYMN1" Type="nvarchar" MaxLength="51" />
+          <Property Name="C_HYMN2" Type="nvarchar" MaxLength="51" />
+          <Property Name="C_HYMN3" Type="nvarchar" MaxLength="51" />
+          <Property Name="C_HYMN4" Type="nvarchar" MaxLength="51" />
+          <Property Name="VIC2_GEN" Type="bit" />
+          <Property Name="C_SELECT" Type="bit" />
+          <Property Name="C_SOL" Type="nvarchar" MaxLength="41" />
+          <Property Name="C_SOLAD1" Type="nvarchar" MaxLength="41" />
+          <Property Name="C_SOLAD2" Type="nvarchar" MaxLength="31" />
+          <Property Name="C_SOLAD3" Type="nvarchar" MaxLength="31" />
+          <Property Name="C_SOLAD4" Type="nvarchar" MaxLength="31" />
+          <Property Name="C_SOLPC" Type="nvarchar" MaxLength="9" />
+        </EntityType>-->
+  <!--Errors Found During Generation:
+warning 6013: The table/view 'ECMills.dbo.Contract' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="Contract">
+          <Property Name="CN_NAME" Type="nvarchar" MaxLength="41" />
+          <Property Name="CN_ADD1" Type="nvarchar" MaxLength="31" />
+          <Property Name="CN_ADD2" Type="nvarchar" MaxLength="31" />
+          <Property Name="CN_ADD3" Type="nvarchar" MaxLength="31" />
+          <Property Name="CN_PHONE" Type="nvarchar" MaxLength="13" />
+          <Property Name="CN_NUM" Type="bigint" />
+        </EntityType>-->
+  <!--Errors Found During Generation:
+warning 6013: The table/view 'ECMills.dbo.CorInv' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="CorInv">
+          <Property Name="CO_NAME" Type="nvarchar" MaxLength="41" />
+          <Property Name="CO_CNUM" Type="bigint" />
+          <Property Name="CO_DATE" Type="datetime" />
+          <Property Name="DECEASED" Type="nvarchar" MaxLength="35" />
+          <Property Name="CO_AMNT" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="COPAYDTE" Type="datetime" />
+          <Property Name="CO_PAID" Type="bit" />
+          <Property Name="CO_TIME" Type="decimal" Precision="10" Scale="1" />
+          <Property Name="CO_FROM" Type="nvarchar" MaxLength="41" />
+          <Property Name="CO_TO" Type="nvarchar" MaxLength="41" />
+          <Property Name="CO_PRT" Type="bit" />
+          <Property Name="CO_PAYAMT" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="C_COROFF" Type="nvarchar" MaxLength="31" />
+          <Property Name="CO_CUR" Type="bit" />
+          <Property Name="CO_VAT" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="CO_TOTL" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="CO_INVNUM" Type="bigint" />
+          <Property Name="CO_MILES" Type="bigint" />
+          <Property Name="CO_PENCE" Type="bigint" />
+          <Property Name="CO_MLCST" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="CO_NETT" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="CO_BRNC" Type="bigint" />
+          <Property Name="CO_MILE1" Type="bigint" />
+          <Property Name="CO_FRM2" Type="nvarchar" MaxLength="41" />
+          <Property Name="CO_MILE2" Type="bigint" />
+          <Property Name="C_MILES" Type="bigint" />
+          <Property Name="C_MILAL" Type="bigint" />
+          <Property Name="C_MILTOT" Type="bigint" />
+          <Property Name="C_MILRT" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="C_ALLOW" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="CO_CASE" Type="bigint" />
+        </EntityType>-->
+  <!--Errors Found During Generation:
+warning 6013: The table/view 'ECMills.dbo.Coroner' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="Coroner">
+          <Property Name="CORONER" Type="nvarchar" MaxLength="41" />
+          <Property Name="CO_ADD1" Type="nvarchar" MaxLength="31" />
+          <Property Name="CO_ADD2" Type="nvarchar" MaxLength="31" />
+          <Property Name="CO_ADD3" Type="nvarchar" MaxLength="31" />
+          <Property Name="CO_ADD4" Type="nvarchar" MaxLength="31" />
+          <Property Name="CO_TOTL" Type="nvarchar" MaxLength="50" />
+          <Property Name="CO_NUM" Type="nvarchar" MaxLength="50" />
+          <Property Name="CO_SW" Type="nvarchar" MaxLength="50" />
+          <Property Name="CO_MLES" Type="nvarchar" MaxLength="50" />
+          <Property Name="CO_ALL" Type="nvarchar" MaxLength="50" />
+          <Property Name="CO_RTE" Type="nvarchar" MaxLength="50" />
+        </EntityType>-->
+  <!--Errors Found During Generation:
+warning 6013: The table/view 'ECMills.dbo.Crems' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="Crems">
+          <Property Name="CR_NAME" Type="nvarchar" MaxLength="41" />
+          <Property Name="CR_ADD1" Type="nvarchar" MaxLength="31" />
+          <Property Name="CR_ADD2" Type="nvarchar" MaxLength="31" />
+          <Property Name="CR_ADD3" Type="nvarchar" MaxLength="31" />
+          <Property Name="CR_PHONE" Type="nvarchar" MaxLength="13" />
+        </EntityType>-->
+  <!--Errors Found During Generation:
+warning 6013: The table/view 'ECMills.dbo.Doctors' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="Doctors">
+          <Property Name="D_NAME" Type="nvarchar" MaxLength="41" />
+          <Property Name="D_ADD1" Type="nvarchar" MaxLength="31" />
+          <Property Name="D_ADD2" Type="nvarchar" MaxLength="31" />
+          <Property Name="D_ADD3" Type="nvarchar" MaxLength="31" />
+          <Property Name="D_DEAR" Type="nvarchar" MaxLength="7" />
+          <Property Name="D_PHONE" Type="nvarchar" MaxLength="13" />
+          <Property Name="D_FEE" Type="decimal" Precision="10" Scale="2" />
+        </EntityType>-->
+  <!--Errors Found During Generation:
+warning 6013: The table/view 'ECMills.dbo.DonateTo' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="DonateTo">
+          <Property Name="D2_CHARITY" Type="nvarchar" MaxLength="51" />
+          <Property Name="D2_CADD1" Type="nvarchar" MaxLength="35" />
+          <Property Name="D2_CADD2" Type="nvarchar" MaxLength="35" />
+          <Property Name="D2_CADD3" Type="nvarchar" MaxLength="35" />
+          <Property Name="D2_CADD4" Type="nvarchar" MaxLength="21" />
+          <Property Name="D2_TOTAL" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="D2_CID" Type="bigint" />
+          <Property Name="D2_DTER" Type="datetime" />
+          <Property Name="D2_CHAR2" Type="nvarchar" MaxLength="51" />
+          <Property Name="D2_C2AD1" Type="nvarchar" MaxLength="41" />
+          <Property Name="D2_C2AD2" Type="nvarchar" MaxLength="35" />
+          <Property Name="D2_C2AD3" Type="nvarchar" MaxLength="25" />
+          <Property Name="D2_C2AD4" Type="nvarchar" MaxLength="15" />
+          <Property Name="D2_CH2TOT" Type="decimal" Precision="10" Scale="2" />
+        </EntityType>-->
+  <!--Errors Found During Generation:
+warning 6013: The table/view 'ECMills.dbo.Donation' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="Donation">
+          <Property Name="D_CID" Type="bigint" />
+          <Property Name="D_NAME" Type="nvarchar" MaxLength="51" />
+          <Property Name="D_ADD1" Type="nvarchar" MaxLength="35" />
+          <Property Name="D_ADD2" Type="nvarchar" MaxLength="35" />
+          <Property Name="D_ADD3" Type="nvarchar" MaxLength="35" />
+          <Property Name="D_AMOUNT" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="D_REF" Type="bigint" />
+          <Property Name="D_PAY" Type="nvarchar" MaxLength="3" />
+        </EntityType>-->
+  <!--Errors Found During Generation:
+warning 6013: The table/view 'ECMills.dbo.Funlarr' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="Funlarr">
+          <Property Name="F_CID" Type="bigint" />
+          <Property Name="F_VIEW" Type="bit" />
+          <Property Name="F_OFFICE" Type="nvarchar" MaxLength="31" />
+          <Property Name="F_VWDAY" Type="nvarchar" MaxLength="15" />
+          <Property Name="F_VWTME" Type="nvarchar" MaxLength="13" />
+          <Property Name="F_NOTE1" Type="nvarchar" MaxLength="61" />
+          <Property Name="F_NOTE2" Type="nvarchar" MaxLength="61" />
+          <Property Name="F_CEME" Type="nvarchar" MaxLength="31" />
+          <Property Name="F_GRAVE" Type="nvarchar" MaxLength="5" />
+          <Property Name="F_SECTION" Type="nvarchar" MaxLength="13" />
+          <Property Name="F_NEWG" Type="bit" />
+          <Property Name="F_LINE1" Type="nvarchar" MaxLength="51" />
+          <Property Name="F_LINE2" Type="nvarchar" MaxLength="51" />
+          <Property Name="F_LINE3" Type="nvarchar" MaxLength="51" />
+          <Property Name="F_CONS" Type="bit" />
+          <Property Name="F_DEPTH" Type="nvarchar" MaxLength="9" />
+          <Property Name="F_COFSZE" Type="nvarchar" MaxLength="15" />
+          <Property Name="F_RIGHTS" Type="nvarchar" MaxLength="31" />
+          <Property Name="F_FEE" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="C_NOTES" Type="nvarchar(max)" />
+          <Property Name="C_KNAME" Type="nvarchar" MaxLength="35" />
+          <Property Name="C_KADD1" Type="nvarchar" MaxLength="35" />
+          <Property Name="C_KADD2" Type="nvarchar" MaxLength="35" />
+          <Property Name="C_KADD3" Type="nvarchar" MaxLength="35" />
+          <Property Name="C_KADD4" Type="nvarchar" MaxLength="15" />
+          <Property Name="C_DOC1" Type="nvarchar" MaxLength="35" />
+          <Property Name="C_DOC2" Type="nvarchar" MaxLength="35" />
+          <Property Name="F_COMP" Type="bit" />
+        </EntityType>-->
+  <!--Errors Found During Generation:
+warning 6013: The table/view 'ECMills.dbo.JVS' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="JVS">
+          <Property Name="JV_DESCR" Type="nvarchar" MaxLength="41" />
+          <Property Name="JV_DATE" Type="datetime" />
+          <Property Name="JV_AMT" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="JV_FROM" Type="nvarchar" MaxLength="3" />
+          <Property Name="JV_TO" Type="nvarchar" MaxLength="3" />
+          <Property Name="JV_CUR" Type="bit" />
+        </EntityType>-->
+  <!--Errors Found During Generation:
+warning 6013: The table/view 'ECMills.dbo.Minister' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="Minister">
+          <Property Name="M_NAME" Type="nvarchar" MaxLength="25" />
+          <Property Name="M_ADD1" Type="nvarchar" MaxLength="23" />
+          <Property Name="M_ADD2" Type="nvarchar" MaxLength="21" />
+          <Property Name="M_ADD3" Type="nvarchar" MaxLength="21" />
+          <Property Name="M_PHONE" Type="nvarchar" MaxLength="13" />
+          <Property Name="M_SEX" Type="bit" />
+          <Property Name="MIN_REF" Type="nvarchar" MaxLength="15" />
+        </EntityType>-->
+  <!--Errors Found During Generation:
+warning 6013: The table/view 'ECMills.dbo.NomCodes' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="NomCodes">
+          <Property Name="NOMCODE" Type="nvarchar" MaxLength="3" />
+          <Property Name="NOMDESCR" Type="nvarchar" MaxLength="31" />
+          <Property Name="NM_SALES" Type="bit" />
+          <Property Name="NM_MON1" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="NM_MON5" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="NM_MON9" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="NM_MON2" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="NM_MON6" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="NM_MON10" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="NM_MON3" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="NM_MON7" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="NM_MON11" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="NM_MON4" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="NM_MON8" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="NM_MON12" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="NM_GO" Type="bit" />
+          <Property Name="NM_VAT1" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="NM_VAT5" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="NM_VAT9" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="NM_VAT2" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="NM_VAT6" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="NM_VAT10" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="NM_VAT3" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="NM_VAT7" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="NM_VAT11" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="NM_VAT4" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="NM_VAT8" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="NM_VAT12" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="NM_LINENO" Type="bigint" />
+          <Property Name="NM_DRSW" Type="bit" />
+          <Property Name="NM_CUR" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="NM_TOTAL" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="NM_VAT" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="NM_SLES" Type="decimal" Precision="10" Scale="2" />
+        </EntityType>-->
+  <!--Errors Found During Generation:
+warning 6013: The table/view 'ECMills.dbo.Obits' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="Obits">
+          <Property Name="C_DATE" Type="datetime" />
+          <Property Name="O_DAY" Type="nvarchar" MaxLength="9" />
+          <Property Name="O_PAPER" Type="nvarchar" MaxLength="31" />
+          <Property Name="O_DAY2" Type="nvarchar" MaxLength="9" />
+          <Property Name="O_PAPER2" Type="nvarchar" MaxLength="31" />
+          <Property Name="O_DAY3" Type="nvarchar" MaxLength="9" />
+          <Property Name="O_PAPER3" Type="nvarchar" MaxLength="31" />
+          <Property Name="O_DAY4" Type="nvarchar" MaxLength="9" />
+          <Property Name="O_PAPER4" Type="nvarchar" MaxLength="31" />
+          <Property Name="O_NOTICE1" Type="nvarchar" MaxLength="77" />
+          <Property Name="O_NOTICE2" Type="nvarchar" MaxLength="77" />
+          <Property Name="O_NOTICE3" Type="nvarchar" MaxLength="77" />
+          <Property Name="O_NOTICE4" Type="nvarchar" MaxLength="77" />
+          <Property Name="O_NOTICE5" Type="nvarchar" MaxLength="77" />
+          <Property Name="O_NOTICE6" Type="nvarchar" MaxLength="77" />
+          <Property Name="O_NOTICE7" Type="nvarchar" MaxLength="77" />
+          <Property Name="O_NOTICE8" Type="nvarchar" MaxLength="77" />
+          <Property Name="A_CID" Type="bigint" />
+          <Property Name="O_COST1" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="O_PCOST2" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="O_PCOST3" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="O_PCOST4" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="A_DAY1" Type="nvarchar" MaxLength="9" />
+          <Property Name="A_PAPER1" Type="nvarchar" MaxLength="31" />
+          <Property Name="A_COST1" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="A_DAY2" Type="nvarchar" MaxLength="9" />
+          <Property Name="A_PAPER2" Type="nvarchar" MaxLength="31" />
+          <Property Name="A_COST2" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="A_DAY3" Type="nvarchar" MaxLength="9" />
+          <Property Name="A_PAPER3" Type="nvarchar" MaxLength="31" />
+          <Property Name="A_COST3" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="A_DAY4" Type="nvarchar" MaxLength="9" />
+          <Property Name="A_PAPER4" Type="nvarchar" MaxLength="31" />
+          <Property Name="A_COST4" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="A_NOTICE1" Type="nvarchar" MaxLength="65" />
+          <Property Name="A_NOTICE2" Type="nvarchar" MaxLength="65" />
+          <Property Name="A_NOTICE3" Type="nvarchar" MaxLength="65" />
+          <Property Name="A_NOTICE4" Type="nvarchar" MaxLength="65" />
+          <Property Name="A_NOTICE5" Type="nvarchar" MaxLength="65" />
+          <Property Name="O_NOTICE9" Type="nvarchar" MaxLength="77" />
+          <Property Name="A_NOTICE6" Type="nvarchar" MaxLength="65" />
+          <Property Name="A_NOTICE7" Type="nvarchar" MaxLength="65" />
+          <Property Name="A_NOTICE8" Type="nvarchar" MaxLength="65" />
+          <Property Name="O_NOTICE10" Type="nvarchar" MaxLength="77" />
+          <Property Name="C_ACK" Type="bit" />
+          <Property Name="O_NOTICE11" Type="nvarchar" MaxLength="77" />
+          <Property Name="O_NOTICE13" Type="nvarchar" MaxLength="77" />
+          <Property Name="O_NOTICE14" Type="nvarchar" MaxLength="77" />
+          <Property Name="A_NOTICE9" Type="nvarchar" MaxLength="65" />
+          <Property Name="O_ARR" Type="bit" />
+        </EntityType>-->
+  <!--Errors Found During Generation:
+warning 6013: The table/view 'ECMills.dbo.Parametr' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="Parametr">
+          <Property Name="P_NAME" Type="nvarchar" MaxLength="41" />
+          <Property Name="P_ADD1" Type="nvarchar" MaxLength="41" />
+          <Property Name="P_ADD2" Type="nvarchar" MaxLength="41" />
+          <Property Name="P_ADD3" Type="nvarchar" MaxLength="41" />
+          <Property Name="P_ADD4" Type="nvarchar" MaxLength="41" />
+          <Property Name="P_PSTCD" Type="nvarchar" MaxLength="15" />
+          <Property Name="P_PHONE" Type="nvarchar" MaxLength="15" />
+          <Property Name="P_VATNUM" Type="nvarchar" MaxLength="15" />
+          <Property Name="P_SIGNAT" Type="nvarchar" MaxLength="25" />
+          <Property Name="P_TITLE" Type="nvarchar" MaxLength="25" />
+          <Property Name="P_HEADLEN" Type="bigint" />
+          <Property Name="P_PAPLEN" Type="bigint" />
+          <Property Name="P_WORD" Type="nvarchar" MaxLength="9" />
+          <Property Name="P_LETT1" Type="bigint" />
+          <Property Name="P_LETT2" Type="bigint" />
+          <Property Name="P_LETT3" Type="bigint" />
+          <Property Name="P_LETT4" Type="bigint" />
+          <Property Name="P_WORD2" Type="nvarchar" MaxLength="9" />
+          <Property Name="P_TERMS1" Type="nvarchar" MaxLength="71" />
+          <Property Name="P_TERMS2" Type="nvarchar" MaxLength="71" />
+          <Property Name="P_BANK" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="P_SERV" Type="bigint" />
+          <Property Name="P_MASON" Type="nvarchar" MaxLength="31" />
+          <Property Name="P_CORON" Type="nvarchar" MaxLength="31" />
+          <Property Name="P_CASK1" Type="nvarchar" MaxLength="51" />
+          <Property Name="P_CASK2" Type="nvarchar" MaxLength="51" />
+          <Property Name="P_CASK3" Type="nvarchar" MaxLength="51" />
+          <Property Name="P_CASK4" Type="nvarchar" MaxLength="51" />
+          <Property Name="P_INV1" Type="nvarchar" MaxLength="61" />
+          <Property Name="P_INV2" Type="nvarchar" MaxLength="61" />
+          <Property Name="P_INV3" Type="nvarchar" MaxLength="61" />
+          <Property Name="P_DISC" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="P_HRSELNE" Type="nvarchar" MaxLength="61" />
+          <Property Name="P_BRANCHES" Type="bit" />
+          <Property Name="P_TERMS3" Type="nvarchar" MaxLength="71" />
+          <Property Name="P_INVNUM" Type="bigint" />
+          <Property Name="P_VRATE" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="P_YRMON" Type="bigint" />
+          <Property Name="P_MONCUR" Type="bigint" />
+          <Property Name="P_ENVSW" Type="bit" />
+          <Property Name="P_DISCPT" Type="bit" />
+          <Property Name="P_CID" Type="bigint" />
+          <Property Name="P_SNUM" Type="bigint" />
+          <Property Name="P_NETWORK" Type="bit" />
+          <Property Name="P_SWAC" Type="bit" />
+          <Property Name="P_CNTR" Type="bit" />
+          <Property Name="P_DAYS" Type="bigint" />
+          <Property Name="P_LETT5" Type="bigint" />
+          <Property Name="P_LETT6" Type="bigint" />
+        </EntityType>-->
+  <!--Errors Found During Generation:
+warning 6013: The table/view 'ECMills.dbo.Payment' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="Payment">
+          <Property Name="P_ID2" Type="bigint" />
+          <Property Name="P_ID" Type="bigint" />
+          <Property Name="P_DATE" Type="datetime" />
+          <Property Name="PAID" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="PAYIN_DATE" Type="datetime" />
+          <Property Name="P_RECPT" Type="nvarchar" MaxLength="7" />
+          <Property Name="CURPAY" Type="bit" />
+          <Property Name="P_SPID" Type="nvarchar" MaxLength="31" />
+        </EntityType>-->
+  <!--Errors Found During Generation:
+warning 6013: The table/view 'ECMills.dbo.SiMarch' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="SiMarch">
+          <Property Name="SI_NAME" Type="nvarchar" MaxLength="31" />
+          <Property Name="S_INV" Type="nvarchar" MaxLength="11" />
+          <Property Name="SI_DATE" Type="datetime" />
+          <Property Name="SI_AMT" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="SI_PAYDTE" Type="datetime" />
+          <Property Name="SI_SNUM" Type="bigint" />
+          <Property Name="SI_CHEQ" Type="nvarchar" MaxLength="11" />
+          <Property Name="SI_PAID" Type="bit" />
+          <Property Name="S_NOMCODE" Type="nvarchar" MaxLength="3" />
+          <Property Name="SI_PAST" Type="bit" />
+          <Property Name="SP_NON" Type="bit" />
+          <Property Name="SP_CPAY" Type="bit" />
+          <Property Name="SI_IDATE" Type="datetime" />
+          <Property Name="SI_VAT" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="SI_NETT" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="SI_EXE" Type="bit" />
+          <Property Name="SI_DISB" Type="bit" />
+          <Property Name="SI_DIRECT" Type="bit" />
+          <Property Name="SI_NOT" Type="bit" />
+          <Property Name="SI_DESCR" Type="nvarchar" MaxLength="31" />
+        </EntityType>-->
+  <!--Errors Found During Generation:
+warning 6013: The table/view 'ECMills.dbo.SubInv' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="SubInv">
+          <Property Name="S_LINE1" Type="nvarchar" MaxLength="41" />
+          <Property Name="S_COST1" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="S_LINE2" Type="nvarchar" MaxLength="41" />
+          <Property Name="S_COST2" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="S_LINE3" Type="nvarchar" MaxLength="41" />
+          <Property Name="S_COST3" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="S_LINE4" Type="nvarchar" MaxLength="41" />
+          <Property Name="S_COST4" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="S_LINE5" Type="nvarchar" MaxLength="41" />
+          <Property Name="S_COST5" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="S_LINE6" Type="nvarchar" MaxLength="41" />
+          <Property Name="S_COST6" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="S_LINE7" Type="nvarchar" MaxLength="41" />
+          <Property Name="S_COST7" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="S_TOTAL" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="S_CID" Type="bigint" />
+          <Property Name="S_INV" Type="bit" />
+          <Property Name="SUP_AUD" Type="bigint" />
+          <Property Name="SU_IDATE" Type="datetime" />
+          <Property Name="SU_IPRT" Type="bit" />
+          <Property Name="CURPAY" Type="bit" />
+          <Property Name="S_VAT" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="S_INVNUM" Type="bigint" />
+          <Property Name="S_VAT1" Type="bit" />
+          <Property Name="S_VAT2" Type="bit" />
+          <Property Name="S_VAT3" Type="bit" />
+          <Property Name="S_VAT4" Type="bit" />
+          <Property Name="S_VAT5" Type="bit" />
+          <Property Name="S_VAT6" Type="bit" />
+          <Property Name="S_VAT7" Type="bit" />
+          <Property Name="S_NETT" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="S_EXEMPT" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="S_REINV" Type="bit" />
+          <Property Name="S_DSB1" Type="bit" />
+          <Property Name="S_DSB2" Type="bit" />
+          <Property Name="S_DSB3" Type="bit" />
+          <Property Name="S_DSB4" Type="bit" />
+          <Property Name="S_DSB5" Type="bit" />
+          <Property Name="S_DSB6" Type="bit" />
+          <Property Name="S_DSB7" Type="bit" />
+          <Property Name="SP_SOL" Type="bit" />
+        </EntityType>-->
+  <!--Errors Found During Generation:
+warning 6013: The table/view 'ECMills.dbo.SuplInv2' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="SuplInv2">
+          <Property Name="SUPNAME" Type="nvarchar" MaxLength="35" />
+          <Property Name="SUPADD1" Type="nvarchar" MaxLength="31" />
+          <Property Name="SUPADD2" Type="nvarchar" MaxLength="31" />
+          <Property Name="SUPADD3" Type="nvarchar" MaxLength="31" />
+          <Property Name="S_LINE1" Type="nvarchar" MaxLength="41" />
+          <Property Name="S_COST1" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="S_LINE2" Type="nvarchar" MaxLength="41" />
+          <Property Name="S_COST2" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="S_LINE3" Type="nvarchar" MaxLength="41" />
+          <Property Name="S_COST3" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="S_LINE4" Type="nvarchar" MaxLength="41" />
+          <Property Name="S_COST4" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="S_LINE5" Type="nvarchar" MaxLength="41" />
+          <Property Name="S_COST5" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="S_LINE6" Type="nvarchar" MaxLength="41" />
+          <Property Name="S_COST6" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="S_LINE7" Type="nvarchar" MaxLength="41" />
+          <Property Name="S_COST7" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="S_TOTAL" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="S_INV" Type="bit" />
+          <Property Name="S_PAID" Type="bit" />
+          <Property Name="S_DATE" Type="datetime" />
+          <Property Name="P_DATE" Type="datetime" />
+          <Property Name="P_RECPT" Type="nvarchar" MaxLength="7" />
+          <Property Name="SU2_IDATE" Type="datetime" />
+          <Property Name="SU2_IPRT" Type="bit" />
+          <Property Name="CURPAY" Type="bit" />
+          <Property Name="SP_CID" Type="bigint" />
+          <Property Name="PAYIN_DATE" Type="datetime" />
+          <Property Name="PAID" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="SI_KY" Type="bigint" />
+          <Property Name="S2_VAT" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="S2_INVNUM" Type="bigint" />
+          <Property Name="S2_VAT1" Type="bit" />
+          <Property Name="S2_VAT2" Type="bit" />
+          <Property Name="S2_VAT3" Type="bit" />
+          <Property Name="S2_VAT4" Type="bit" />
+          <Property Name="S2_VAT5" Type="bit" />
+          <Property Name="S2_VAT6" Type="bit" />
+          <Property Name="S2_VAT7" Type="bit" />
+          <Property Name="S2_NETT" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="S2_EXEMPT" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="S2_REINV" Type="bit" />
+          <Property Name="S2_DSB1" Type="bit" />
+          <Property Name="S2_DSB2" Type="bit" />
+          <Property Name="S2_DSB3" Type="bit" />
+          <Property Name="S2_DSB4" Type="bit" />
+          <Property Name="S2_DSB5" Type="bit" />
+          <Property Name="S2_DSB6" Type="bit" />
+          <Property Name="S2_DSB7" Type="bit" />
+          <Property Name="S2_BRNC" Type="bigint" />
+        </EntityType>-->
+  <!--Errors Found During Generation:
+warning 6013: The table/view 'ECMills.dbo.SuppInv' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="SuppInv">
+          <Property Name="SI_NAME" Type="nvarchar" MaxLength="31" />
+          <Property Name="S_INV" Type="nvarchar" MaxLength="11" />
+          <Property Name="SI_DATE" Type="datetime" />
+          <Property Name="SI_AMT" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="SI_PAYDTE" Type="datetime" />
+          <Property Name="SI_SNUM" Type="bigint" />
+          <Property Name="SI_CHEQ" Type="nvarchar" MaxLength="11" />
+          <Property Name="SI_PAID" Type="bit" />
+          <Property Name="S_NOMCODE" Type="nvarchar" MaxLength="3" />
+          <Property Name="SI_PAST" Type="bit" />
+          <Property Name="SP_NON" Type="bit" />
+          <Property Name="SP_CPAY" Type="bit" />
+          <Property Name="SI_IDATE" Type="datetime" />
+          <Property Name="SI_VAT" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="SI_NETT" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="SI_EXE" Type="bit" />
+          <Property Name="SI_DISB" Type="bit" />
+          <Property Name="SI_DIRECT" Type="bit" />
+          <Property Name="SI_NOT" Type="bit" />
+          <Property Name="SI_DESCR" Type="nvarchar" MaxLength="31" />
+        </EntityType>-->
+  <!--Errors Found During Generation:
+warning 6013: The table/view 'ECMills.dbo.SuppInvO' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="SuppInvO">
+          <Property Name="SI_NAME" Type="nvarchar" MaxLength="31" />
+          <Property Name="S_INV" Type="nvarchar" MaxLength="11" />
+          <Property Name="SI_DATE" Type="datetime" />
+          <Property Name="SI_AMT" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="SI_PAYDTE" Type="datetime" />
+          <Property Name="SI_SNUM" Type="bigint" />
+          <Property Name="SI_CHEQ" Type="nvarchar" MaxLength="11" />
+          <Property Name="SI_PAID" Type="bit" />
+          <Property Name="S_NOMCODE" Type="nvarchar" MaxLength="3" />
+          <Property Name="SI_PAST" Type="bit" />
+          <Property Name="SP_NON" Type="bit" />
+          <Property Name="SP_CPAY" Type="bit" />
+          <Property Name="SI_IDATE" Type="datetime" />
+          <Property Name="SI_VAT" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="SI_NETT" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="SI_EXE" Type="bit" />
+          <Property Name="SI_DISB" Type="bit" />
+          <Property Name="SI_DIRECT" Type="bit" />
+          <Property Name="SI_NOT" Type="bit" />
+          <Property Name="SI_DESCR" Type="nvarchar" MaxLength="31" />
+        </EntityType>-->
+  <!--Errors Found During Generation:
+warning 6013: The table/view 'ECMills.dbo.Supplier' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="Supplier">
+          <Property Name="S_NUM" Type="bigint" />
+          <Property Name="S_NAME" Type="nvarchar" MaxLength="31" />
+          <Property Name="S_ADD1" Type="nvarchar" MaxLength="31" />
+          <Property Name="S_ADD2" Type="nvarchar" MaxLength="31" />
+          <Property Name="S_ADD3" Type="nvarchar" MaxLength="31" />
+          <Property Name="S_CONTACT" Type="nvarchar" MaxLength="25" />
+        </EntityType>-->
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'ECMills.sys.database_firewall_rules' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="database_firewall_rules">
+    <Key>
+      <PropertyRef Name="id" />
+      <PropertyRef Name="name" />
+      <PropertyRef Name="start_ip_address" />
+      <PropertyRef Name="end_ip_address" />
+      <PropertyRef Name="create_date" />
+      <PropertyRef Name="modify_date" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="start_ip_address" Type="varchar" MaxLength="45" Nullable="false" />
+    <Property Name="end_ip_address" Type="varchar" MaxLength="45" Nullable="false" />
+    <Property Name="create_date" Type="datetime" Nullable="false" />
+    <Property Name="modify_date" Type="datetime" Nullable="false" />
+  </EntityType>
+  <Function Name="PrintClientMenu_4" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="ClientMaint">
+    <Parameter Name="Date" Type="date" Mode="In" />
+    <Parameter Name="Name" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="sp_GetClientFile" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="Web">
+    <Parameter Name="Surname" Type="varchar" Mode="In" />
+  </Function>
+  <EntityContainer Name="ECMillsModelStoreContainer">
+    <EntitySet Name="database_firewall_rules" EntityType="Self.database_firewall_rules" store:Type="Views" store:Schema="sys">
+      <DefiningQuery>SELECT 
+    [database_firewall_rules].[id] AS [id], 
+    [database_firewall_rules].[name] AS [name], 
+    [database_firewall_rules].[start_ip_address] AS [start_ip_address], 
+    [database_firewall_rules].[end_ip_address] AS [end_ip_address], 
+    [database_firewall_rules].[create_date] AS [create_date], 
+    [database_firewall_rules].[modify_date] AS [modify_date]
+    FROM [sys].[database_firewall_rules] AS [database_firewall_rules]</DefiningQuery>
+    </EntitySet>
+  </EntityContainer>
+</Schema>

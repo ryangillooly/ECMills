@@ -1,0 +1,124 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ECMillsModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="ECMillsEntities" annotation:LazyLoadingEnabled="true">
+    <FunctionImport Name="PrintClientMenu_4" ReturnType="Collection(ECMillsModel.PrintClientMenu_4_Result)">
+      <Parameter Name="Date" Mode="In" Type="DateTime" />
+      <Parameter Name="Name" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_GetClientFile" ReturnType="Collection(ECMillsModel.sp_GetClientFile_Result)">
+      <Parameter Name="Surname" Mode="In" Type="String" />
+    </FunctionImport>
+  </EntityContainer>
+  <ComplexType Name="PrintClientMenu_4_Result">
+    <Property Type="String" Name="C_ATITLE" Nullable="true" MaxLength="7" />
+    <Property Type="String" Name="C_ANAME" Nullable="true" MaxLength="31" />
+    <Property Type="String" Name="C_TITLE" Nullable="true" MaxLength="7" />
+    <Property Type="String" Name="C_NAME" Nullable="true" MaxLength="29" />
+    <Property Type="String" Name="C_STREET" Nullable="true" MaxLength="29" />
+    <Property Type="String" Name="C_LINE1" Nullable="true" MaxLength="25" />
+    <Property Type="String" Name="C_LINE2" Nullable="true" MaxLength="25" />
+    <Property Type="Double" Name="C_AGE" Nullable="true" />
+    <Property Type="Boolean" Name="C_BURY" Nullable="true" />
+    <Property Type="DateTime" Name="D_DATE" Nullable="true" />
+    <Property Type="String" Name="D_PLACE" Nullable="true" MaxLength="53" />
+    <Property Type="String" Name="D_TO" Nullable="true" MaxLength="41" />
+    <Property Type="String" Name="CHURCH" Nullable="true" MaxLength="61" />
+    <Property Type="DateTime" Name="CH_DATE" Nullable="true" />
+    <Property Type="Double" Name="CH_TIME" Nullable="true" />
+    <Property Type="String" Name="COMMITMENT" Nullable="true" MaxLength="41" />
+    <Property Type="Double" Name="CM_TIME" Nullable="true" />
+    <Property Type="String" Name="MINISTER" Nullable="true" MaxLength="25" />
+    <Property Type="Boolean" Name="HYMNS" Nullable="true" />
+    <Property Type="Double" Name="CARS" Nullable="true" />
+    <Property Type="String" Name="CARS_TO" Nullable="true" MaxLength="61" />
+    <Property Type="String" Name="ASHES" Nullable="true" MaxLength="31" />
+    <Property Type="Double" Name="LV_TIME" Nullable="true" />
+    <Property Type="Double" Name="AV_TIME" Nullable="true" />
+    <Property Type="Double" Name="C_ID" Nullable="true" />
+    <Property Type="Double" Name="TOTCOST" Nullable="true" />
+    <Property Type="String" Name="A_ADDRESS1" Nullable="true" MaxLength="31" />
+    <Property Type="String" Name="A_ADDRES2" Nullable="true" MaxLength="31" />
+    <Property Type="String" Name="A_ADDRESS3" Nullable="true" MaxLength="31" />
+    <Property Type="String" Name="ASHES2" Nullable="true" MaxLength="51" />
+    <Property Type="String" Name="ASHES3" Nullable="true" MaxLength="51" />
+    <Property Type="String" Name="ASHES4" Nullable="true" MaxLength="51" />
+    <Property Type="Double" Name="OTH_CST" Nullable="true" />
+    <Property Type="String" Name="CARS_TO2" Nullable="true" MaxLength="31" />
+    <Property Type="String" Name="CARS_TO3" Nullable="true" MaxLength="31" />
+    <Property Type="Double" Name="CARS1_TIME" Nullable="true" />
+    <Property Type="Double" Name="CARS2_TIME" Nullable="true" />
+    <Property Type="String" Name="JEWEL1" Nullable="true" MaxLength="27" />
+    <Property Type="String" Name="JEWEL2" Nullable="true" MaxLength="19" />
+    <Property Type="String" Name="C_MINTRP1" Nullable="true" MaxLength="49" />
+    <Property Type="String" Name="C_MINTRP2" Nullable="true" MaxLength="31" />
+    <Property Type="String" Name="C_REMAIN" Nullable="true" MaxLength="51" />
+    <Property Type="String" Name="A_DEAR" Nullable="true" MaxLength="5" />
+    <Property Type="DateTime" Name="C_DATE" Nullable="true" />
+    <Property Type="String" Name="C_CERT" Nullable="true" MaxLength="11" />
+    <Property Type="String" Name="C_FORES" Nullable="true" MaxLength="45" />
+    <Property Type="String" Name="C_DENOM" Nullable="true" MaxLength="21" />
+    <Property Type="String" Name="C_REL" Nullable="true" MaxLength="15" />
+    <Property Type="Boolean" Name="C_HASBEEN" Nullable="true" />
+    <Property Type="String" Name="D_TO2" Nullable="true" MaxLength="41" />
+    <Property Type="String" Name="CHURCH2" Nullable="true" MaxLength="15" />
+    <Property Type="String" Name="C_AFTER" Nullable="true" MaxLength="51" />
+    <Property Type="String" Name="MIN_ADD1" Nullable="true" MaxLength="23" />
+    <Property Type="String" Name="MIN_ADD2" Nullable="true" MaxLength="21" />
+    <Property Type="String" Name="MIN_ADD3" Nullable="true" MaxLength="21" />
+    <Property Type="Double" Name="C2_LVTME" Nullable="true" />
+    <Property Type="Double" Name="CARS_COST" Nullable="true" />
+    <Property Type="Double" Name="C3_LVTME" Nullable="true" />
+    <Property Type="Double" Name="MILE_COST" Nullable="true" />
+    <Property Type="Double" Name="ESTCOST" Nullable="true" />
+    <Property Type="Double" Name="PRESS_CST" Nullable="true" />
+    <Property Type="Double" Name="C_MEMCST" Nullable="true" />
+    <Property Type="Double" Name="A_PAID" Nullable="true" />
+    <Property Type="Double" Name="A_OUTSTND" Nullable="true" />
+    <Property Type="String" Name="C_NOTE1" Nullable="true" MaxLength="51" />
+    <Property Type="String" Name="C_NOTE2" Nullable="true" MaxLength="51" />
+    <Property Type="String" Name="C_NOTE3" Nullable="true" MaxLength="51" />
+    <Property Type="String" Name="C_GO" Nullable="true" MaxLength="1" />
+    <Property Type="Double" Name="ASH_COST" Nullable="true" />
+    <Property Type="String" Name="A_PHONE" Nullable="true" MaxLength="15" />
+    <Property Type="Boolean" Name="C_ACK" Nullable="true" />
+    <Property Type="Boolean" Name="C_NOSERV" Nullable="true" />
+    <Property Type="DateTime" Name="C_INVDTE" Nullable="true" />
+    <Property Type="Boolean" Name="C_INVSW" Nullable="true" />
+    <Property Type="Double" Name="C_IAMT" Nullable="true" />
+    <Property Type="Boolean" Name="C_IPRT" Nullable="true" />
+    <Property Type="Double" Name="C_SUPCST" Nullable="true" />
+    <Property Type="String" Name="C_MININF1" Nullable="true" MaxLength="51" />
+    <Property Type="String" Name="C_MININF2" Nullable="true" MaxLength="51" />
+    <Property Type="Boolean" Name="CURPAY" Nullable="true" />
+    <Property Type="String" Name="C_SPID" Nullable="true" MaxLength="3" />
+    <Property Type="DateTime" Name="C_LINV" Nullable="true" />
+    <Property Type="Boolean" Name="C_NOINV" Nullable="true" />
+    <Property Type="DateTime" Name="C_LETT1" Nullable="true" />
+    <Property Type="DateTime" Name="C_LETT2" Nullable="true" />
+    <Property Type="DateTime" Name="C_LETT3" Nullable="true" />
+    <Property Type="Boolean" Name="C_DSCRF" Nullable="true" />
+    <Property Type="Double" Name="C_REMVE" Nullable="true" />
+    <Property Type="Boolean" Name="C_CNTR" Nullable="true" />
+    <Property Type="Double" Name="C_CARNUM" Nullable="true" />
+    <Property Type="String" Name="C_RMVFRM" Nullable="true" MaxLength="53" />
+    <Property Type="Boolean" Name="C_ASHELD" Nullable="true" />
+    <Property Type="Boolean" Name="C_REINV" Nullable="true" />
+    <Property Type="Boolean" Name="C_MINGEN" Nullable="true" />
+    <Property Type="String" Name="C_DUR" Nullable="true" MaxLength="7" />
+    <Property Type="Double" Name="CN_NO" Nullable="true" />
+    <Property Type="Boolean" Name="C_NOFU" Nullable="true" />
+    <Property Type="Double" Name="C_BRANCH" Nullable="true" />
+    <Property Type="Double" Name="C_TIME" Nullable="true" />
+    <Property Type="String" Name="C_NOTE4" Nullable="true" MaxLength="51" />
+    <Property Type="DateTime" Name="CM_DATE" Nullable="true" />
+    <Property Type="Boolean" Name="C_BEAR" Nullable="true" />
+    <Property Type="Boolean" Name="C_ORGAN" Nullable="true" />
+    <Property Type="DateTime" Name="C_LETT4" Nullable="true" />
+    <Property Type="DateTime" Name="C_LETT5" Nullable="true" />
+    <Property Type="DateTime" Name="C_LETT6" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="sp_GetClientFile_Result">
+    <Property Type="String" Name="Label" Nullable="false" MaxLength="19" />
+    <Property Type="String" Name="Value" Nullable="true" MaxLength="255" />
+  </ComplexType>
+</Schema>

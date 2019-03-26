@@ -5,21 +5,28 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using ECMills.Models;
+using System.Web.Mvc.Html;
 
 namespace ECMills.Controllers
 {
     public class CustomersController : Controller
     {
-        public ViewResult Index()
-        {
-            var customers = GetCustomers();
 
-            return View(customers);
+        public ViewResult Index(string surname)
+        {
+            ECMillsEntities DB = new ECMillsEntities();
+
+            string sqlquery = "SELECT * FROM Client WHERE C_NAME LIKE '%" + surname + "%' ORDER BY C_ID ASC";
+
+            List<Client> Clients = DB.Clients.SqlQuery(sqlquery).ToList();
+            return View(Clients);
         }
 
-        public ActionResult Details(int id)
+
+
+        public ActionResult Details(string name)
         {
-            var customer = GetCustomers().SingleOrDefault(c => c.Id == id);
+            var customer = GetCustomers(name);
 
             if (customer == null)
                 return HttpNotFound();
@@ -27,25 +34,20 @@ namespace ECMills.Controllers
             return View(customer);
         }
 
-        private IEnumerable<Customer> GetCustomers()
+
+        private IEnumerable<Client> GetCustomers(string name)
         {
-            return new List<Customer>
-            {
-                new Customer { Id = 1, Name = "John Smith" },
-                new Customer { Id = 2, Name = "Mary Williams" }
-            };
+            ECMillsEntities DB = new ECMillsEntities();
+            string sqlquery = "SELECT * FROM Client WHERE C_NAME LIKE '%" + name + "%' ORDER BY C_ID ASC";
+
+            List<Client> ClientDetails = DB.Clients.SqlQuery(sqlquery).ToList();
+
+            return ClientDetails;
         }
 
         public ViewResult Test()
         {
             return View();
         }
-
-        public class MyDbContext : DbContext
-        {
-            
-        }
-
-
     }
 }

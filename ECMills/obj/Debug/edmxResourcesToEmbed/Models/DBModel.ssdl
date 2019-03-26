@@ -1,0 +1,117 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ECMillsModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Client">
+    <Key>
+      <PropertyRef Name="C_ID" />
+    </Key>
+    <Property Name="C_ATITLE" Type="nvarchar" MaxLength="7" />
+    <Property Name="C_ANAME" Type="nvarchar" MaxLength="31" />
+    <Property Name="C_TITLE" Type="nvarchar" MaxLength="7" />
+    <Property Name="C_NAME" Type="nvarchar" MaxLength="29" />
+    <Property Name="C_STREET" Type="nvarchar" MaxLength="29" />
+    <Property Name="C_LINE1" Type="nvarchar" MaxLength="25" />
+    <Property Name="C_LINE2" Type="nvarchar" MaxLength="25" />
+    <Property Name="C_AGE" Type="float" />
+    <Property Name="C_BURY" Type="bit" />
+    <Property Name="D_DATE" Type="datetime2" Precision="0" />
+    <Property Name="D_PLACE" Type="nvarchar" MaxLength="53" />
+    <Property Name="D_TO" Type="nvarchar" MaxLength="41" />
+    <Property Name="CHURCH" Type="nvarchar" MaxLength="61" />
+    <Property Name="CH_DATE" Type="datetime2" Precision="0" />
+    <Property Name="CH_TIME" Type="float" />
+    <Property Name="COMMITMENT" Type="nvarchar" MaxLength="41" />
+    <Property Name="CM_TIME" Type="float" />
+    <Property Name="MINISTER" Type="nvarchar" MaxLength="25" />
+    <Property Name="HYMNS" Type="bit" />
+    <Property Name="CARS" Type="float" />
+    <Property Name="CARS_TO" Type="nvarchar" MaxLength="61" />
+    <Property Name="ASHES" Type="nvarchar" MaxLength="31" />
+    <Property Name="LV_TIME" Type="float" />
+    <Property Name="AV_TIME" Type="float" />
+    <Property Name="C_ID" Type="float" Nullable="false" />
+    <Property Name="TOTCOST" Type="float" />
+    <Property Name="A_ADDRESS1" Type="nvarchar" MaxLength="31" />
+    <Property Name="A_ADDRES2" Type="nvarchar" MaxLength="31" />
+    <Property Name="A_ADDRESS3" Type="nvarchar" MaxLength="31" />
+    <Property Name="ASHES2" Type="nvarchar" MaxLength="51" />
+    <Property Name="ASHES3" Type="nvarchar" MaxLength="51" />
+    <Property Name="ASHES4" Type="nvarchar" MaxLength="51" />
+    <Property Name="OTH_CST" Type="float" />
+    <Property Name="CARS_TO2" Type="nvarchar" MaxLength="31" />
+    <Property Name="CARS_TO3" Type="nvarchar" MaxLength="31" />
+    <Property Name="CARS1_TIME" Type="float" />
+    <Property Name="CARS2_TIME" Type="float" />
+    <Property Name="JEWEL1" Type="nvarchar" MaxLength="27" />
+    <Property Name="JEWEL2" Type="nvarchar" MaxLength="19" />
+    <Property Name="C_MINTRP1" Type="nvarchar" MaxLength="49" />
+    <Property Name="C_MINTRP2" Type="nvarchar" MaxLength="31" />
+    <Property Name="C_REMAIN" Type="nvarchar" MaxLength="51" />
+    <Property Name="A_DEAR" Type="nvarchar" MaxLength="5" />
+    <Property Name="C_DATE" Type="datetime2" Precision="0" />
+    <Property Name="C_CERT" Type="nvarchar" MaxLength="11" />
+    <Property Name="C_FORES" Type="nvarchar" MaxLength="45" />
+    <Property Name="C_DENOM" Type="nvarchar" MaxLength="21" />
+    <Property Name="C_REL" Type="nvarchar" MaxLength="15" />
+    <Property Name="C_HASBEEN" Type="bit" />
+    <Property Name="D_TO2" Type="nvarchar" MaxLength="41" />
+    <Property Name="CHURCH2" Type="nvarchar" MaxLength="15" />
+    <Property Name="C_AFTER" Type="nvarchar" MaxLength="51" />
+    <Property Name="MIN_ADD1" Type="nvarchar" MaxLength="23" />
+    <Property Name="MIN_ADD2" Type="nvarchar" MaxLength="21" />
+    <Property Name="MIN_ADD3" Type="nvarchar" MaxLength="21" />
+    <Property Name="C2_LVTME" Type="float" />
+    <Property Name="CARS_COST" Type="float" />
+    <Property Name="C3_LVTME" Type="float" />
+    <Property Name="MILE_COST" Type="float" />
+    <Property Name="ESTCOST" Type="float" />
+    <Property Name="PRESS_CST" Type="float" />
+    <Property Name="C_MEMCST" Type="float" />
+    <Property Name="A_PAID" Type="float" />
+    <Property Name="A_OUTSTND" Type="float" />
+    <Property Name="C_NOTE1" Type="nvarchar" MaxLength="51" />
+    <Property Name="C_NOTE2" Type="nvarchar" MaxLength="51" />
+    <Property Name="C_NOTE3" Type="nvarchar" MaxLength="51" />
+    <Property Name="C_GO" Type="nvarchar" MaxLength="1" />
+    <Property Name="ASH_COST" Type="float" />
+    <Property Name="A_PHONE" Type="nvarchar" MaxLength="15" />
+    <Property Name="C_ACK" Type="bit" />
+    <Property Name="C_NOSERV" Type="bit" />
+    <Property Name="C_INVDTE" Type="datetime2" Precision="0" />
+    <Property Name="C_INVSW" Type="bit" />
+    <Property Name="C_IAMT" Type="float" />
+    <Property Name="C_IPRT" Type="bit" />
+    <Property Name="C_SUPCST" Type="float" />
+    <Property Name="C_MININF1" Type="nvarchar" MaxLength="51" />
+    <Property Name="C_MININF2" Type="nvarchar" MaxLength="51" />
+    <Property Name="CURPAY" Type="bit" />
+    <Property Name="C_SPID" Type="nvarchar" MaxLength="3" />
+    <Property Name="C_LINV" Type="datetime2" Precision="0" />
+    <Property Name="C_NOINV" Type="bit" />
+    <Property Name="C_LETT1" Type="datetime2" Precision="0" />
+    <Property Name="C_LETT2" Type="datetime2" Precision="0" />
+    <Property Name="C_LETT3" Type="datetime2" Precision="0" />
+    <Property Name="C_DSCRF" Type="bit" />
+    <Property Name="C_REMVE" Type="float" />
+    <Property Name="C_CNTR" Type="bit" />
+    <Property Name="C_CARNUM" Type="float" />
+    <Property Name="C_RMVFRM" Type="nvarchar" MaxLength="53" />
+    <Property Name="C_ASHELD" Type="bit" />
+    <Property Name="C_REINV" Type="bit" />
+    <Property Name="C_MINGEN" Type="bit" />
+    <Property Name="C_DUR" Type="nvarchar" MaxLength="7" />
+    <Property Name="CN_NO" Type="float" />
+    <Property Name="C_NOFU" Type="bit" />
+    <Property Name="C_BRANCH" Type="float" />
+    <Property Name="C_TIME" Type="float" />
+    <Property Name="C_NOTE4" Type="nvarchar" MaxLength="51" />
+    <Property Name="CM_DATE" Type="datetime2" Precision="0" />
+    <Property Name="C_BEAR" Type="bit" />
+    <Property Name="C_ORGAN" Type="bit" />
+    <Property Name="C_LETT4" Type="datetime2" Precision="0" />
+    <Property Name="C_LETT5" Type="datetime2" Precision="0" />
+    <Property Name="C_LETT6" Type="datetime2" Precision="0" />
+  </EntityType>
+  <EntityContainer Name="ECMillsModelStoreContainer">
+    <EntitySet Name="Client" EntityType="Self.Client" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

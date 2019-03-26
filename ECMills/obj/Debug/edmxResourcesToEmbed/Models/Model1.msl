@@ -1,0 +1,165 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ECMillsModelStoreContainer" CdmEntityContainer="ECMillsAzureDB">
+    <EntitySetMapping Name="database_firewall_rules">
+      <EntityTypeMapping TypeName="ECMillsModel.database_firewall_rules">
+        <MappingFragment StoreEntitySet="database_firewall_rules">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="start_ip_address" ColumnName="start_ip_address" />
+          <ScalarProperty Name="end_ip_address" ColumnName="end_ip_address" />
+          <ScalarProperty Name="create_date" ColumnName="create_date" />
+          <ScalarProperty Name="modify_date" ColumnName="modify_date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="PrintClientMenu_4" FunctionName="ECMillsModel.Store.PrintClientMenu_4">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ECMillsModel.PrintClientMenu_4_Result">
+          <ScalarProperty Name="C_ATITLE" ColumnName="C_ATITLE" />
+          <ScalarProperty Name="C_ANAME" ColumnName="C_ANAME" />
+          <ScalarProperty Name="C_TITLE" ColumnName="C_TITLE" />
+          <ScalarProperty Name="C_NAME" ColumnName="C_NAME" />
+          <ScalarProperty Name="C_STREET" ColumnName="C_STREET" />
+          <ScalarProperty Name="C_LINE1" ColumnName="C_LINE1" />
+          <ScalarProperty Name="C_LINE2" ColumnName="C_LINE2" />
+          <ScalarProperty Name="C_AGE" ColumnName="C_AGE" />
+          <ScalarProperty Name="C_BURY" ColumnName="C_BURY" />
+          <ScalarProperty Name="D_DATE" ColumnName="D_DATE" />
+          <ScalarProperty Name="D_PLACE" ColumnName="D_PLACE" />
+          <ScalarProperty Name="D_TO" ColumnName="D_TO" />
+          <ScalarProperty Name="CHURCH" ColumnName="CHURCH" />
+          <ScalarProperty Name="CH_DATE" ColumnName="CH_DATE" />
+          <ScalarProperty Name="CH_TIME" ColumnName="CH_TIME" />
+          <ScalarProperty Name="COMMITMENT" ColumnName="COMMITMENT" />
+          <ScalarProperty Name="CM_TIME" ColumnName="CM_TIME" />
+          <ScalarProperty Name="MINISTER" ColumnName="MINISTER" />
+          <ScalarProperty Name="HYMNS" ColumnName="HYMNS" />
+          <ScalarProperty Name="CARS" ColumnName="CARS" />
+          <ScalarProperty Name="CARS_TO" ColumnName="CARS_TO" />
+          <ScalarProperty Name="ASHES" ColumnName="ASHES" />
+          <ScalarProperty Name="LV_TIME" ColumnName="LV_TIME" />
+          <ScalarProperty Name="AV_TIME" ColumnName="AV_TIME" />
+          <ScalarProperty Name="C_ID" ColumnName="C_ID" />
+          <ScalarProperty Name="TOTCOST" ColumnName="TOTCOST" />
+          <ScalarProperty Name="A_ADDRESS1" ColumnName="A_ADDRESS1" />
+          <ScalarProperty Name="A_ADDRES2" ColumnName="A_ADDRES2" />
+          <ScalarProperty Name="A_ADDRESS3" ColumnName="A_ADDRESS3" />
+          <ScalarProperty Name="ASHES2" ColumnName="ASHES2" />
+          <ScalarProperty Name="ASHES3" ColumnName="ASHES3" />
+          <ScalarProperty Name="ASHES4" ColumnName="ASHES4" />
+          <ScalarProperty Name="OTH_CST" ColumnName="OTH_CST" />
+          <ScalarProperty Name="CARS_TO2" ColumnName="CARS_TO2" />
+          <ScalarProperty Name="CARS_TO3" ColumnName="CARS_TO3" />
+          <ScalarProperty Name="CARS1_TIME" ColumnName="CARS1_TIME" />
+          <ScalarProperty Name="CARS2_TIME" ColumnName="CARS2_TIME" />
+          <ScalarProperty Name="JEWEL1" ColumnName="JEWEL1" />
+          <ScalarProperty Name="JEWEL2" ColumnName="JEWEL2" />
+          <ScalarProperty Name="C_MINTRP1" ColumnName="C_MINTRP1" />
+          <ScalarProperty Name="C_MINTRP2" ColumnName="C_MINTRP2" />
+          <ScalarProperty Name="C_REMAIN" ColumnName="C_REMAIN" />
+          <ScalarProperty Name="A_DEAR" ColumnName="A_DEAR" />
+          <ScalarProperty Name="C_DATE" ColumnName="C_DATE" />
+          <ScalarProperty Name="C_CERT" ColumnName="C_CERT" />
+          <ScalarProperty Name="C_FORES" ColumnName="C_FORES" />
+          <ScalarProperty Name="C_DENOM" ColumnName="C_DENOM" />
+          <ScalarProperty Name="C_REL" ColumnName="C_REL" />
+          <ScalarProperty Name="C_HASBEEN" ColumnName="C_HASBEEN" />
+          <ScalarProperty Name="D_TO2" ColumnName="D_TO2" />
+          <ScalarProperty Name="CHURCH2" ColumnName="CHURCH2" />
+          <ScalarProperty Name="C_AFTER" ColumnName="C_AFTER" />
+          <ScalarProperty Name="MIN_ADD1" ColumnName="MIN_ADD1" />
+          <ScalarProperty Name="MIN_ADD2" ColumnName="MIN_ADD2" />
+          <ScalarProperty Name="MIN_ADD3" ColumnName="MIN_ADD3" />
+          <ScalarProperty Name="C2_LVTME" ColumnName="C2_LVTME" />
+          <ScalarProperty Name="CARS_COST" ColumnName="CARS_COST" />
+          <ScalarProperty Name="C3_LVTME" ColumnName="C3_LVTME" />
+          <ScalarProperty Name="MILE_COST" ColumnName="MILE_COST" />
+          <ScalarProperty Name="ESTCOST" ColumnName="ESTCOST" />
+          <ScalarProperty Name="PRESS_CST" ColumnName="PRESS_CST" />
+          <ScalarProperty Name="C_MEMCST" ColumnName="C_MEMCST" />
+          <ScalarProperty Name="A_PAID" ColumnName="A_PAID" />
+          <ScalarProperty Name="A_OUTSTND" ColumnName="A_OUTSTND" />
+          <ScalarProperty Name="C_NOTE1" ColumnName="C_NOTE1" />
+          <ScalarProperty Name="C_NOTE2" ColumnName="C_NOTE2" />
+          <ScalarProperty Name="C_NOTE3" ColumnName="C_NOTE3" />
+          <ScalarProperty Name="C_GO" ColumnName="C_GO" />
+          <ScalarProperty Name="ASH_COST" ColumnName="ASH_COST" />
+          <ScalarProperty Name="A_PHONE" ColumnName="A_PHONE" />
+          <ScalarProperty Name="C_ACK" ColumnName="C_ACK" />
+          <ScalarProperty Name="C_NOSERV" ColumnName="C_NOSERV" />
+          <ScalarProperty Name="C_INVDTE" ColumnName="C_INVDTE" />
+          <ScalarProperty Name="C_INVSW" ColumnName="C_INVSW" />
+          <ScalarProperty Name="C_IAMT" ColumnName="C_IAMT" />
+          <ScalarProperty Name="C_IPRT" ColumnName="C_IPRT" />
+          <ScalarProperty Name="C_SUPCST" ColumnName="C_SUPCST" />
+          <ScalarProperty Name="C_MININF1" ColumnName="C_MININF1" />
+          <ScalarProperty Name="C_MININF2" ColumnName="C_MININF2" />
+          <ScalarProperty Name="CURPAY" ColumnName="CURPAY" />
+          <ScalarProperty Name="C_SPID" ColumnName="C_SPID" />
+          <ScalarProperty Name="C_LINV" ColumnName="C_LINV" />
+          <ScalarProperty Name="C_NOINV" ColumnName="C_NOINV" />
+          <ScalarProperty Name="C_LETT1" ColumnName="C_LETT1" />
+          <ScalarProperty Name="C_LETT2" ColumnName="C_LETT2" />
+          <ScalarProperty Name="C_LETT3" ColumnName="C_LETT3" />
+          <ScalarProperty Name="C_DSCRF" ColumnName="C_DSCRF" />
+          <ScalarProperty Name="C_REMVE" ColumnName="C_REMVE" />
+          <ScalarProperty Name="C_CNTR" ColumnName="C_CNTR" />
+          <ScalarProperty Name="C_CARNUM" ColumnName="C_CARNUM" />
+          <ScalarProperty Name="C_RMVFRM" ColumnName="C_RMVFRM" />
+          <ScalarProperty Name="C_ASHELD" ColumnName="C_ASHELD" />
+          <ScalarProperty Name="C_REINV" ColumnName="C_REINV" />
+          <ScalarProperty Name="C_MINGEN" ColumnName="C_MINGEN" />
+          <ScalarProperty Name="C_DUR" ColumnName="C_DUR" />
+          <ScalarProperty Name="CN_NO" ColumnName="CN_NO" />
+          <ScalarProperty Name="C_NOFU" ColumnName="C_NOFU" />
+          <ScalarProperty Name="C_BRANCH" ColumnName="C_BRANCH" />
+          <ScalarProperty Name="C_TIME" ColumnName="C_TIME" />
+          <ScalarProperty Name="C_NOTE4" ColumnName="C_NOTE4" />
+          <ScalarProperty Name="CM_DATE" ColumnName="CM_DATE" />
+          <ScalarProperty Name="C_BEAR" ColumnName="C_BEAR" />
+          <ScalarProperty Name="C_ORGAN" ColumnName="C_ORGAN" />
+          <ScalarProperty Name="C_LETT4" ColumnName="C_LETT4" />
+          <ScalarProperty Name="C_LETT5" ColumnName="C_LETT5" />
+          <ScalarProperty Name="C_LETT6" ColumnName="C_LETT6" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_GetClientFile" FunctionName="ECMillsModel.Store.sp_GetClientFile">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ECMillsModel.sp_GetClientFile_Result">
+          <ScalarProperty Name="Surname" ColumnName="Surname" />
+          <ScalarProperty Name="OurReference" ColumnName="OurReference" />
+          <ScalarProperty Name="Forenames_" ColumnName="Forenames " />
+          <ScalarProperty Name="Address1" ColumnName="Address1" />
+          <ScalarProperty Name="Address2" ColumnName="Address2" />
+          <ScalarProperty Name="Address3" ColumnName="Address3" />
+          <ScalarProperty Name="Age" ColumnName="Age" />
+          <ScalarProperty Name="Denomination" ColumnName="Denomination" />
+          <ScalarProperty Name="Burial" ColumnName="Burial" />
+          <ScalarProperty Name="Commitment" ColumnName="Commitment" />
+          <ScalarProperty Name="CommitmentTime" ColumnName="CommitmentTime" />
+          <ScalarProperty Name="DateOfDeath" ColumnName="DateOfDeath" />
+          <ScalarProperty Name="PlaceOfDeath" ColumnName="PlaceOfDeath" />
+          <ScalarProperty Name="RemovedFrom" ColumnName="RemovedFrom" />
+          <ScalarProperty Name="RemovedTo" ColumnName="RemovedTo" />
+          <ScalarProperty Name="Remain" ColumnName="Remain" />
+          <ScalarProperty Name="RemoveCost" ColumnName="RemoveCost" />
+          <ScalarProperty Name="ServiceLoc" ColumnName="ServiceLoc" />
+          <ScalarProperty Name="ServiceDate" ColumnName="ServiceDate" />
+          <ScalarProperty Name="ServiceTime" ColumnName="ServiceTime" />
+          <ScalarProperty Name="NoService" ColumnName="NoService" />
+          <ScalarProperty Name="NameTaking" ColumnName="NameTaking" />
+          <ScalarProperty Name="GraveNumber" ColumnName="GraveNumber" />
+          <ScalarProperty Name="Organist" ColumnName="Organist" />
+          <ScalarProperty Name="MinisterTransport" ColumnName="MinisterTransport" />
+          <ScalarProperty Name="MinisterInformation" ColumnName="MinisterInformation" />
+          <ScalarProperty Name="HearseWill" ColumnName="HearseWill" />
+          <ScalarProperty Name="HearseAt" ColumnName="HearseAt" />
+          <ScalarProperty Name="Ashes" ColumnName="Ashes" />
+          <ScalarProperty Name="TotalCost" ColumnName="TotalCost" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+  </EntityContainerMapping>
+</Mapping>

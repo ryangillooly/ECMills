@@ -1,43 +1,28 @@
-﻿@model ECMills.Models.Customer
+﻿@model IEnumerable<ECMills.Models.Client>
 
 @{
-    ViewBag.Title = Model.Name;
+    ViewBag.Title = "Details";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>@Model.Name</h2>
-@if (Model.Name == "John Smith")
-{
-    <table class="table table-bordered table-responsive table table-striped table-hover">
-        <thead>
+<h2>Details</h2>
+<br />
+<table class="table table-hover table-bordered table-responsive table-striped">
+    <thead>
+        <tr>
+            <td>Customer ID</td>
+            <td>Title</td>
+            <td>ForeName</td>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var customer in Model)
+        {
             <tr>
-                <td>Movie Name</td>
-                <td>Purchase Date</td>
+                <td>@customer.C_ID</td>
+                <td>@customer.C_NAME</td>
+                <td>@customer.COMMITMENT</td>
             </tr>
-        </thead>
-        <tr>
-            <td>Die Hard</td>
-            <td>12/07/2018</td>
-        </tr>
-        <tr>
-            <td>Alien Vs Predator</td>
-            <td>01/06/2018</td>
-        </tr>
-    </table>
-}
-else
-{
-    <table class="table table-bordered table-responsive table table-striped table-hover">
-        <thead>
-            <tr>
-                <td>Movie Name</td>
-                <td>Purchase Date</td>
-            </tr>
-        </thead>
-        <tr>
-            <td>Love Life</td>
-            <td>10-02-2019</td>
-        </tr>
-    </table>
-}
-
+        }
+    </tbody>
+</table>

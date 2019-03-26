@@ -1,4 +1,5 @@
-﻿@model IEnumerable<ECMills.Models.Customer>
+﻿@model IEnumerable<ECMills.Models.Client>
+
 @*
     Note: I've set the model for this view to IEnumerable<Customer>.
     This is a simple interface implemented by the list class. Since
@@ -16,25 +17,36 @@
 }
 
 <h2>Customers</h2>
-@if (!Model.Any())
-{
-    <p>We don't have any customers yet.</p>
-}
-else
-{
-    <table class="table table-bordered table-hover">
-        <thead>
+<br />
+<table class="table table-hover table-bordered table-responsive table-striped">
+    <thead>
+        <tr>
+            <td>Customer ID</td>
+            <td>Title</td>
+            <td>ForeName</td>
+            <td>Surname</td>
+            <td>Address1</td>
+            <td>Address2</td>
+            <td>Address3</td>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var customer in Model)
+        {
             <tr>
-                <th>Customer</th>
+                <td>
+                    <a href="@Url.Action("Details", "Customers", new { name = customer.C_NAME }, null)">
+                        @customer.C_ID
+                    </a>
+                </td>
+                <td>@customer.C_TITLE</td>
+                <td>@customer.C_FORES</td>
+                <td>@customer.C_NAME</td>
+                <td>@customer.C_STREET</td>
+                <td>@customer.C_LINE1</td>
+                <td>@customer.C_LINE2</td>
             </tr>
-        </thead>
-        <tbody>
-            @foreach (var customer in Model)
-            {
-                <tr>
-                    <td>@Html.ActionLink(customer.Name, "Details", "Customers", new { id = customer.Id }, null)</td>
-                </tr>
-            }
-        </tbody>
-    </table>
-}
+        }
+    </tbody>
+</table>
+
