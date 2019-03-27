@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="ECMillsModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="ECMillsModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Client">
           <Key>
             <PropertyRef Name="C_ID" />
@@ -123,11 +123,14 @@
         <Function Name="sp_GetClientFile" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="Web">
           <Parameter Name="Id" Type="int" Mode="In" />
         </Function>
+        <Function Name="sp_GetCommitalls" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="Web" />
+        <Function Name="sp_Test" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="Web">
+          <Parameter Name="Id" Type="int" Mode="In" />
+        </Function>
         <EntityContainer Name="ECMillsModelStoreContainer">
           <EntitySet Name="Client" EntityType="Self.Client" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="ECMillsModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -249,6 +252,10 @@
             <Parameter Name="Name" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="sp_GetClientFile" ReturnType="Collection(ECMillsModel.sp_GetClientFile_Result)">
+          <Parameter Name="Id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_GetCommitalls" ReturnType="Collection(String)" />
+          <FunctionImport Name="sp_Test" ReturnType="Collection(ECMillsModel.sp_Test_Result)">
             <Parameter Name="Id" Mode="In" Type="Int32" />
           </FunctionImport>
         </EntityContainer>
@@ -361,6 +368,38 @@
           <Property Type="DateTime" Name="C_LETT6" Nullable="true" />
         </ComplexType>
         <ComplexType Name="sp_GetClientFile_Result">
+          <Property Type="String" Name="Surname" Nullable="true" MaxLength="29" />
+          <Property Type="String" Name="OurReference" Nullable="true" MaxLength="11" />
+          <Property Type="String" Name="Forenames_" Nullable="true" MaxLength="45" />
+          <Property Type="String" Name="Address1" Nullable="true" MaxLength="29" />
+          <Property Type="String" Name="Address2" Nullable="true" MaxLength="25" />
+          <Property Type="String" Name="Address3" Nullable="true" MaxLength="25" />
+          <Property Type="Double" Name="Age" Nullable="true" />
+          <Property Type="String" Name="Denomination" Nullable="true" MaxLength="21" />
+          <Property Type="Boolean" Name="Burial" Nullable="true" />
+          <Property Type="String" Name="Commitment" Nullable="true" MaxLength="41" />
+          <Property Type="Double" Name="CommitmentTime" Nullable="true" />
+          <Property Type="DateTime" Name="DateOfDeath" Nullable="true" />
+          <Property Type="String" Name="PlaceOfDeath" Nullable="true" MaxLength="53" />
+          <Property Type="String" Name="RemovedFrom" Nullable="true" MaxLength="53" />
+          <Property Type="String" Name="RemovedTo" Nullable="true" MaxLength="41" />
+          <Property Type="String" Name="Remain" Nullable="true" MaxLength="51" />
+          <Property Type="Double" Name="RemoveCost" Nullable="true" />
+          <Property Type="String" Name="ServiceLoc" Nullable="true" MaxLength="61" />
+          <Property Type="DateTime" Name="ServiceDate" Nullable="true" />
+          <Property Type="Double" Name="ServiceTime" Nullable="true" />
+          <Property Type="String" Name="NoService" Nullable="false" MaxLength="1" />
+          <Property Type="String" Name="NameTaking" Nullable="false" MaxLength="1" />
+          <Property Type="String" Name="GraveNumber" Nullable="true" MaxLength="15" />
+          <Property Type="String" Name="Organist" Nullable="false" MaxLength="1" />
+          <Property Type="String" Name="MinisterTransport" Nullable="false" MaxLength="81" />
+          <Property Type="String" Name="MinisterInformation" Nullable="false" MaxLength="103" />
+          <Property Type="String" Name="HearseWill" Nullable="true" MaxLength="61" />
+          <Property Type="Double" Name="HearseAt" Nullable="true" />
+          <Property Type="String" Name="Ashes" Nullable="true" MaxLength="31" />
+          <Property Type="Double" Name="TotalCost" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="sp_Test_Result">
           <Property Type="String" Name="Surname" Nullable="true" MaxLength="29" />
           <Property Type="String" Name="OurReference" Nullable="true" MaxLength="11" />
           <Property Type="String" Name="Forenames_" Nullable="true" MaxLength="45" />
@@ -625,6 +664,43 @@
           <FunctionImportMapping FunctionImportName="sp_GetClientFile" FunctionName="ECMillsModel.Store.sp_GetClientFile">
             <ResultMapping>
               <ComplexTypeMapping TypeName="ECMillsModel.sp_GetClientFile_Result">
+                <ScalarProperty Name="Surname" ColumnName="Surname" />
+                <ScalarProperty Name="OurReference" ColumnName="OurReference" />
+                <ScalarProperty Name="Forenames_" ColumnName="Forenames " />
+                <ScalarProperty Name="Address1" ColumnName="Address1" />
+                <ScalarProperty Name="Address2" ColumnName="Address2" />
+                <ScalarProperty Name="Address3" ColumnName="Address3" />
+                <ScalarProperty Name="Age" ColumnName="Age" />
+                <ScalarProperty Name="Denomination" ColumnName="Denomination" />
+                <ScalarProperty Name="Burial" ColumnName="Burial" />
+                <ScalarProperty Name="Commitment" ColumnName="Commitment" />
+                <ScalarProperty Name="CommitmentTime" ColumnName="CommitmentTime" />
+                <ScalarProperty Name="DateOfDeath" ColumnName="DateOfDeath" />
+                <ScalarProperty Name="PlaceOfDeath" ColumnName="PlaceOfDeath" />
+                <ScalarProperty Name="RemovedFrom" ColumnName="RemovedFrom" />
+                <ScalarProperty Name="RemovedTo" ColumnName="RemovedTo" />
+                <ScalarProperty Name="Remain" ColumnName="Remain" />
+                <ScalarProperty Name="RemoveCost" ColumnName="RemoveCost" />
+                <ScalarProperty Name="ServiceLoc" ColumnName="ServiceLoc" />
+                <ScalarProperty Name="ServiceDate" ColumnName="ServiceDate" />
+                <ScalarProperty Name="ServiceTime" ColumnName="ServiceTime" />
+                <ScalarProperty Name="NoService" ColumnName="NoService" />
+                <ScalarProperty Name="NameTaking" ColumnName="NameTaking" />
+                <ScalarProperty Name="GraveNumber" ColumnName="GraveNumber" />
+                <ScalarProperty Name="Organist" ColumnName="Organist" />
+                <ScalarProperty Name="MinisterTransport" ColumnName="MinisterTransport" />
+                <ScalarProperty Name="MinisterInformation" ColumnName="MinisterInformation" />
+                <ScalarProperty Name="HearseWill" ColumnName="HearseWill" />
+                <ScalarProperty Name="HearseAt" ColumnName="HearseAt" />
+                <ScalarProperty Name="Ashes" ColumnName="Ashes" />
+                <ScalarProperty Name="TotalCost" ColumnName="TotalCost" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_GetCommitalls" FunctionName="ECMillsModel.Store.sp_GetCommitalls" />
+          <FunctionImportMapping FunctionImportName="sp_Test" FunctionName="ECMillsModel.Store.sp_Test">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ECMillsModel.sp_Test_Result">
                 <ScalarProperty Name="Surname" ColumnName="Surname" />
                 <ScalarProperty Name="OurReference" ColumnName="OurReference" />
                 <ScalarProperty Name="Forenames_" ColumnName="Forenames " />

@@ -1,0 +1,36 @@
+﻿@model ECMills.ViewModels.NewCustomerViewModel
+@{  
+    ViewBag.Title = "New";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>New Customer</h2>
+
+@using (Html.BeginForm("Create", "Customers"))
+{
+    <div class="form-group">
+        <label for="C_TITLE">Title</label>
+        @Html.TextBoxFor(m => m.Client.C_TITLE, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        <label for="C_FORES">Forename(s)</label>
+        @Html.TextBoxFor(m => m.Client.C_FORES, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        <label for="C_NAME">Surname</label>
+        @Html.TextBoxFor(m => m.Client.C_NAME, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        <label for="D_DATE">Date of Death</label>
+        @Html.TextBoxFor(m => m.Client.D_DATE, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        <label for="D_PLACE">Place of Death</label>
+        @Html.TextBoxFor(m => m.Client.D_PLACE, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        <label for="COMMITMENT">Commitment</label>
+        @Html.DropDownListFor(m => m.Client.COMMITMENT, new SelectList(Model.Churches, "Churches", "Churches"), "Please Select..." , new { @class = "form-control" })
+    </div>
+}
+

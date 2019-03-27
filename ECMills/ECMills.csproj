@@ -141,32 +141,33 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Client.cs">
-      <DependentUpon>ECMillsDatabaseModel.tt</DependentUpon>
+      <DependentUpon>ECMillsDataabaseModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Customer.cs" />
-    <Compile Include="Models\ECMillsDatabaseModel.Context.cs">
+    <Compile Include="Models\ECMillsDataabaseModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>ECMillsDatabaseModel.Context.tt</DependentUpon>
+      <DependentUpon>ECMillsDataabaseModel.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\ECMillsDatabaseModel.cs">
+    <Compile Include="Models\ECMillsDataabaseModel.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>ECMillsDatabaseModel.tt</DependentUpon>
+      <DependentUpon>ECMillsDataabaseModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\ECMillsDatabaseModel.Designer.cs">
+    <Compile Include="Models\ECMillsDataabaseModel.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>ECMillsDatabaseModel.edmx</DependentUpon>
+      <DependentUpon>ECMillsDataabaseModel.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\Movie.cs" />
     <Compile Include="Models\PrintClientMenu_4_Result.cs">
-      <DependentUpon>ECMillsDatabaseModel.tt</DependentUpon>
+      <DependentUpon>ECMillsDataabaseModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\sp_GetClientFile_Result.cs">
-      <DependentUpon>ECMillsDatabaseModel.tt</DependentUpon>
+      <DependentUpon>ECMillsDataabaseModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\NewCustomerViewModel.cs" />
     <Compile Include="ViewModels\RandomMovieViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -178,24 +179,24 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="Models\ECMillsDatabaseModel.Context.tt">
+    <Content Include="Models\ECMillsDataabaseModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>ECMillsDatabaseModel.edmx</DependentUpon>
-      <LastGenOutput>ECMillsDatabaseModel.Context.cs</LastGenOutput>
+      <DependentUpon>ECMillsDataabaseModel.edmx</DependentUpon>
+      <LastGenOutput>ECMillsDataabaseModel.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Models\ECMillsDatabaseModel.tt">
+    <Content Include="Models\ECMillsDataabaseModel.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>ECMillsDatabaseModel.edmx</DependentUpon>
-      <LastGenOutput>ECMillsDatabaseModel.cs</LastGenOutput>
+      <DependentUpon>ECMillsDataabaseModel.edmx</DependentUpon>
+      <LastGenOutput>ECMillsDataabaseModel.cs</LastGenOutput>
     </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <EntityDeploy Include="Models\ECMillsDatabaseModel.edmx">
+    <EntityDeploy Include="Models\ECMillsDataabaseModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>ECMillsDatabaseModel.Designer.cs</LastGenOutput>
+      <LastGenOutput>ECMillsDataabaseModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="Models\ECMillsDatabaseModel.edmx.diagram">
-      <DependentUpon>ECMillsDatabaseModel.edmx</DependentUpon>
+    <Content Include="Models\ECMillsDataabaseModel.edmx.diagram">
+      <DependentUpon>ECMillsDataabaseModel.edmx</DependentUpon>
     </Content>
     <None Include="Properties\PublishProfiles\ECMills - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
@@ -230,6 +231,7 @@
     <Content Include="Views\Movies\Index.cshtml" />
     <Content Include="Views\Customers\Test.cshtml" />
     <Content Include="Views\Customers\NoCustomers.cshtml" />
+    <Content Include="Views\Customers\New.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

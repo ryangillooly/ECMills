@@ -121,6 +121,9 @@
       <Parameter Name="Id" Mode="In" Type="Int32" />
     </FunctionImport>
     <FunctionImport Name="sp_GetCommitalls" ReturnType="Collection(String)" />
+    <FunctionImport Name="sp_Test" ReturnType="Collection(ECMillsModel.sp_Test_Result)">
+      <Parameter Name="Id" Mode="In" Type="Int32" />
+    </FunctionImport>
   </EntityContainer>
   <ComplexType Name="PrintClientMenu_4_Result">
     <Property Type="String" Name="C_ATITLE" Nullable="true" MaxLength="7" />
@@ -231,6 +234,38 @@
     <Property Type="DateTime" Name="C_LETT6" Nullable="true" />
   </ComplexType>
   <ComplexType Name="sp_GetClientFile_Result">
+    <Property Type="String" Name="Surname" Nullable="true" MaxLength="29" />
+    <Property Type="String" Name="OurReference" Nullable="true" MaxLength="11" />
+    <Property Type="String" Name="Forenames_" Nullable="true" MaxLength="45" />
+    <Property Type="String" Name="Address1" Nullable="true" MaxLength="29" />
+    <Property Type="String" Name="Address2" Nullable="true" MaxLength="25" />
+    <Property Type="String" Name="Address3" Nullable="true" MaxLength="25" />
+    <Property Type="Double" Name="Age" Nullable="true" />
+    <Property Type="String" Name="Denomination" Nullable="true" MaxLength="21" />
+    <Property Type="Boolean" Name="Burial" Nullable="true" />
+    <Property Type="String" Name="Commitment" Nullable="true" MaxLength="41" />
+    <Property Type="Double" Name="CommitmentTime" Nullable="true" />
+    <Property Type="DateTime" Name="DateOfDeath" Nullable="true" />
+    <Property Type="String" Name="PlaceOfDeath" Nullable="true" MaxLength="53" />
+    <Property Type="String" Name="RemovedFrom" Nullable="true" MaxLength="53" />
+    <Property Type="String" Name="RemovedTo" Nullable="true" MaxLength="41" />
+    <Property Type="String" Name="Remain" Nullable="true" MaxLength="51" />
+    <Property Type="Double" Name="RemoveCost" Nullable="true" />
+    <Property Type="String" Name="ServiceLoc" Nullable="true" MaxLength="61" />
+    <Property Type="DateTime" Name="ServiceDate" Nullable="true" />
+    <Property Type="Double" Name="ServiceTime" Nullable="true" />
+    <Property Type="String" Name="NoService" Nullable="false" MaxLength="1" />
+    <Property Type="String" Name="NameTaking" Nullable="false" MaxLength="1" />
+    <Property Type="String" Name="GraveNumber" Nullable="true" MaxLength="15" />
+    <Property Type="String" Name="Organist" Nullable="false" MaxLength="1" />
+    <Property Type="String" Name="MinisterTransport" Nullable="false" MaxLength="81" />
+    <Property Type="String" Name="MinisterInformation" Nullable="false" MaxLength="103" />
+    <Property Type="String" Name="HearseWill" Nullable="true" MaxLength="61" />
+    <Property Type="Double" Name="HearseAt" Nullable="true" />
+    <Property Type="String" Name="Ashes" Nullable="true" MaxLength="31" />
+    <Property Type="Double" Name="TotalCost" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="sp_Test_Result">
     <Property Type="String" Name="Surname" Nullable="true" MaxLength="29" />
     <Property Type="String" Name="OurReference" Nullable="true" MaxLength="11" />
     <Property Type="String" Name="Forenames_" Nullable="true" MaxLength="45" />

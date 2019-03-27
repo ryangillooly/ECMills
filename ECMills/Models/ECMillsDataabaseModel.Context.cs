@@ -50,5 +50,10 @@ namespace ECMills.Models
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_GetClientFile_Result>("sp_GetClientFile", idParameter);
         }
+    
+        public virtual ObjectResult<string> sp_GetCommitalls()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<string>("sp_GetCommitalls");
+        }
     }
 }

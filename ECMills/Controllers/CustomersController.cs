@@ -7,21 +7,29 @@ using System.Web.Mvc;
 using ECMills.Models;
 using System.Web.Mvc.Html;
 using System.Data.SqlClient;
+using ECMills.ViewModels;
 
 namespace ECMills.Controllers
 {
     public class CustomersController : Controller
     {
+        private ECMillsDBConnection DBContext;
+        public CustomersController()
+        {
+            DBContext = new ECMillsDBConnection();
+        }
+        protected override void Dispose(bool disposing)
+        {
+            DBContext.Dispose();
+        }
 
         public ViewResult Index(string surname)
         {
             if (!String.IsNullOrEmpty(surname))
             {
-
-                ECMillsDBConnection DB = new ECMillsDBConnection();
                 string sqlquery = "SELECT * FROM Client WHERE C_NAME LIKE '%" + surname + "%' ORDER BY C_ID ASC";
 
-                List<Client> Clients = DB.Clients.SqlQuery(sqlquery).ToList();
+                List<Client> Clients = DBContext.Clients.SqlQuery(sqlquery).ToList();
 
                 return View(Clients);
             }
@@ -30,8 +38,6 @@ namespace ECMills.Controllers
                 return View("NoCustomers");
             }
         }
-
-
 
         public ActionResult Details(int id)
         {
@@ -43,22 +49,28 @@ namespace ECMills.Controllers
             return View(customer);
         }
 
-
-        private List<ECMills.Models.sp_GetClientFile_Result> GetCustomers(int id)
+        private List<sp_GetClientFile_Result> GetCustomers(int id)
         {
-
-            using (var context = new ECMillsDBConnection())
-            {
-                var courses = context.sp_GetClientFile(id).ToList();
-
-                return courses;
-            }
-
+            var courses = DBContext.sp_GetClientFile(id).ToList();
+            return courses;
         }
 
         public ViewResult Test()
         {
             return View();
         }
+
+        public ActionResult New()
+        {
+            var Churches = DBContext.sp_GetCommitalls().ToList();
+
+            var viewModel = new NewCustomerViewModel
+            {
+               Churches = Churches
+            };
+
+            return View(viewModel);
+        }
+
     }
 }

@@ -262,5 +262,41 @@
       </ResultMapping>
     </FunctionImportMapping>
     <FunctionImportMapping FunctionImportName="sp_GetCommitalls" FunctionName="ECMillsModel.Store.sp_GetCommitalls" />
+    <FunctionImportMapping FunctionImportName="sp_Test" FunctionName="ECMillsModel.Store.sp_Test">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ECMillsModel.sp_Test_Result">
+          <ScalarProperty Name="Surname" ColumnName="Surname" />
+          <ScalarProperty Name="OurReference" ColumnName="OurReference" />
+          <ScalarProperty Name="Forenames_" ColumnName="Forenames " />
+          <ScalarProperty Name="Address1" ColumnName="Address1" />
+          <ScalarProperty Name="Address2" ColumnName="Address2" />
+          <ScalarProperty Name="Address3" ColumnName="Address3" />
+          <ScalarProperty Name="Age" ColumnName="Age" />
+          <ScalarProperty Name="Denomination" ColumnName="Denomination" />
+          <ScalarProperty Name="Burial" ColumnName="Burial" />
+          <ScalarProperty Name="Commitment" ColumnName="Commitment" />
+          <ScalarProperty Name="CommitmentTime" ColumnName="CommitmentTime" />
+          <ScalarProperty Name="DateOfDeath" ColumnName="DateOfDeath" />
+          <ScalarProperty Name="PlaceOfDeath" ColumnName="PlaceOfDeath" />
+          <ScalarProperty Name="RemovedFrom" ColumnName="RemovedFrom" />
+          <ScalarProperty Name="RemovedTo" ColumnName="RemovedTo" />
+          <ScalarProperty Name="Remain" ColumnName="Remain" />
+          <ScalarProperty Name="RemoveCost" ColumnName="RemoveCost" />
+          <ScalarProperty Name="ServiceLoc" ColumnName="ServiceLoc" />
+          <ScalarProperty Name="ServiceDate" ColumnName="ServiceDate" />
+          <ScalarProperty Name="ServiceTime" ColumnName="ServiceTime" />
+          <ScalarProperty Name="NoService" ColumnName="NoService" />
+          <ScalarProperty Name="NameTaking" ColumnName="NameTaking" />
+          <ScalarProperty Name="GraveNumber" ColumnName="GraveNumber" />
+          <ScalarProperty Name="Organist" ColumnName="Organist" />
+          <ScalarProperty Name="MinisterTransport" ColumnName="MinisterTransport" />
+          <ScalarProperty Name="MinisterInformation" ColumnName="MinisterInformation" />
+          <ScalarProperty Name="HearseWill" ColumnName="HearseWill" />
+          <ScalarProperty Name="HearseAt" ColumnName="HearseAt" />
+          <ScalarProperty Name="Ashes" ColumnName="Ashes" />
+          <ScalarProperty Name="TotalCost" ColumnName="TotalCost" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
   </EntityContainerMapping>
 </Mapping>

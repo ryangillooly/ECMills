@@ -119,6 +119,9 @@
     <Parameter Name="Id" Type="int" Mode="In" />
   </Function>
   <Function Name="sp_GetCommitalls" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="Web" />
+  <Function Name="sp_Test" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="Web">
+    <Parameter Name="Id" Type="int" Mode="In" />
+  </Function>
   <EntityContainer Name="ECMillsModelStoreContainer">
     <EntitySet Name="Client" EntityType="Self.Client" Schema="dbo" store:Type="Tables" />
   </EntityContainer>
