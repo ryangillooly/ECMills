@@ -81,3 +81,4 @@ C:\WWW\ECMills\ECMills\bin\Microsoft.AspNet.Identity.Core.dll
 C:\WWW\ECMills\ECMills\bin\Microsoft.AspNet.Identity.EntityFramework.dll
 C:\WWW\ECMills\ECMills\bin\Microsoft.AspNet.Identity.Core.xml
 C:\WWW\ECMills\ECMills\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\WWW\ECMills\ECMills\obj\Debug\ECMills.csprojAssemblyReference.cache
