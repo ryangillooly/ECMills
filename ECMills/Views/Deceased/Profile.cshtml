@@ -4,73 +4,72 @@
     ViewBag.Title = "Profile";
     Layout = "~/Views/Shared/NewLayout.cshtml";
 }
-<div class="card">
-    <div class="card-header card-header-primary">
-        <h4 class="card-title">Edit Profile</h4>
-        <p class="card-category">Complete your profile</p>
+@foreach (var deceasedProfle in Model)
+{
+    <div class="card">
+        <div class="card-header card-header-primary">
+            <h4 class="card-title">@deceasedProfle.Name</h4>
+            <p class="card-category">@deceasedProfle.Reference</p>
+        </div>
+        <div class="card-body">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Date Of Birth</th>
+                            <th>Age</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>@deceasedProfle.Name</td>
+                            <td>@deceasedProfle.DOB</td>
+                            <td>@deceasedProfle.Age</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Known As</th>
+                            <th>Gender</th>
+                            <th>Time of Death</th>
+                            <th>Religion</th>
+                            <th>Religious Denomination</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>@deceasedProfle.Known_As</td>
+                            <td>@deceasedProfle.Gender</td>
+                            <td>@deceasedProfle.TimeOfDeath</td>
+                            <td>@deceasedProfle.Religion</td>
+                            <td>@deceasedProfle.ReligiousDenomination</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Marital Status</th>
+                            <th>Occupation</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>@deceasedProfle.MaritalStatus</td>
+                            <td>@deceasedProfle.Occupation</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            
+
+            <button type="button" class="btn btn-primary pull-left">Edit Profile</button>
+
+            <button type="submit" class="btn btn-primary pull-right">Update Profile</button>
+
+            <div class="clearfix"></div>
+        </div>
     </div>
-    <div class="card-body">
-        @foreach (var deceasedProfle in Model)
-        {
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th>Reference</th>
-                        <th>Name</th>
-                        <th>Date Of Birth</th>
-                        <th>Age</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>@deceasedProfle.Reference</td>
-                        <td>@deceasedProfle.Name</td>
-                        <td>@deceasedProfle.DOB</td>
-                        <td>@deceasedProfle.Age</td>
-                    </tr>
-                </tbody>
-            </table>
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th>Known As</th>
-                        <th>Gender</th>
-                        <th>Time of Death</th>
-                        <th>Religion</th>
-                        <th>Religious Denomination</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>@deceasedProfle.Known_As</td>
-                        <td>@deceasedProfle.Gender</td>
-                        <td>@deceasedProfle.TimeOfDeath</td>
-                        <td>@deceasedProfle.Religion</td>
-                        <td>@deceasedProfle.ReligiousDenomination</td>
-                    </tr>
-                </tbody>
-            </table>
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th>Marital Status</th>
-                        <th>Occupation</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>@deceasedProfle.MaritalStatus</td>
-                        <td>@deceasedProfle.Occupation</td>
-                    </tr>
-                </tbody>
-            </table>
-
-        }
-
-        <button type="button" class="btn btn-primary pull-left">Edit Profile</button>
-
-        <button type="submit" class="btn btn-primary pull-right">Update Profile</button>
-
-        <div class="clearfix"></div>
-    </div>
-</div>
+}

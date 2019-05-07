@@ -30,7 +30,9 @@
                 <td>@deceased.Client_Name</td>
                 <td class="td-actions text-right">
                     <button type="button" rel="tooltip" class="btn btn-info">
-                        <i class="material-icons">person</i>
+                        <a href="@Url.Action("Profile", "Deceased", new { DeceasedID = deceased.Reference }, null)">
+                            <i class="material-icons">person</i>
+                        </a>
                     </button>
                     <button type="button" rel="tooltip" class="btn btn-success">
                         <i class="material-icons">edit</i>
