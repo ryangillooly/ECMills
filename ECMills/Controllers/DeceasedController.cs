@@ -34,6 +34,14 @@ namespace ECMills.Controllers
             return View(deceasedProfile);
         }
 
+        public new ActionResult EditProfile(Int16 DeceasedID)
+        {
+            var deceasedProfile = sp_GetDeceasedProfile(DeceasedID);
+
+            return View(deceasedProfile);
+        }
+
+
         private List<sp_GetDeceasedList_Result> sp_GetDeceasedList()
         {
             return DBContext.sp_GetDeceasedList().ToList();

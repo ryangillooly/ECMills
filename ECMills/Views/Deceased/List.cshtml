@@ -29,17 +29,17 @@
                 <td>@deceased.Deceased_Name</td>
                 <td>@deceased.Client_Name</td>
                 <td class="td-actions text-right">
-                    <button type="button" rel="tooltip" class="btn btn-info">
-                        <a href="@Url.Action("Profile", "Deceased", new { DeceasedID = deceased.Reference }, null)">
-                            <i class="material-icons">person</i>
-                        </a>
+                    <button type="button" rel="tooltip" class="btn btn-info" onclick="location.href='@Url.Action("Profile", "Deceased", new { DeceasedID = deceased.Reference }, null)'">
+                        <i class="material-icons">person</i>
                     </button>
-                    <button type="button" rel="tooltip" class="btn btn-success">
+
+                    <button type="button" rel="tooltip" class="btn btn-success" onclick="location.href='@Url.Action("EditProfile", "Deceased", new { DeceasedID = deceased.Reference }, null)'">
                         <i class="material-icons">edit</i>
                     </button>
-                    <button type="button" rel="tooltip" class="btn btn-danger">
-                        <i class="material-icons">close</i>
-                    </button>
+
+                        <button type="button" rel="tooltip" class="btn btn-danger">
+                            <i class="material-icons">close</i>
+                        </button>
                 </td>
             </tr>
         }

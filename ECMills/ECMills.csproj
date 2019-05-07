@@ -582,6 +582,7 @@
     <Content Include="Views\Deceased\DeceasedForm.cshtml" />
     <Content Include="Views\Deceased\List.cshtml" />
     <Content Include="Views\Deceased\Profile.cshtml" />
+    <Content Include="Views\Deceased\EditProfile.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
