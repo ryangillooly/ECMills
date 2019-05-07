@@ -24,7 +24,15 @@ namespace ECMills
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
-                      "~/Content/site.css"));
+                      "~/Content/site.css",
+                      "~/Contents/material-dashboard.css?v=2.1.1",
+                      "~/url/https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons",
+                      "~/url/https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css"));
+
+
+            bundles.Add(new StyleBundle("~/Content/Fonts").Include(
+                    "~/url/https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons",
+                    "~/url/https://use.fontawesome.com/releases/v5.8.1/css/all.css"));
         }
     }
 }

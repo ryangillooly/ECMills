@@ -14,12 +14,10 @@ namespace ECMills.Controllers
     public class CustomersController : Controller
     {
         private ECMillsDBConnection DBContext;
-
         public CustomersController()
         {
             DBContext = new ECMillsDBConnection();
         }
-
         protected override void Dispose(bool disposing)
         {
             DBContext.Dispose();
@@ -57,7 +55,7 @@ namespace ECMills.Controllers
             return courses;
         }
 
-        public ViewResult Test()
+        public ViewResult User()
         {
             return View();
         }
@@ -68,7 +66,7 @@ namespace ECMills.Controllers
 
             var viewModel = new NewCustomerViewModel
             {
-                Churches = Churches
+               Churches = Churches
             };
 
             return View(viewModel);

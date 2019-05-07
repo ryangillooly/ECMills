@@ -69,7 +69,6 @@ C:\WWW\ECMills\ECMills\bin\System.Web.WebPages.Razor.xml
 C:\WWW\ECMills\ECMills\bin\Newtonsoft.Json.xml
 C:\WWW\ECMills\ECMills\bin\Antlr3.Runtime.pdb
 C:\WWW\ECMills\ECMills\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-C:\WWW\ECMills\ECMills\obj\Debug\ECMills.csprojAssemblyReference.cache
 C:\WWW\ECMills\ECMills\obj\Debug\ECMills.csproj.CoreCompileInputs.cache
 C:\WWW\ECMills\ECMills\obj\Debug\ECMills.csproj.CopyComplete
 C:\WWW\ECMills\ECMills\obj\Debug\ECMills.dll
