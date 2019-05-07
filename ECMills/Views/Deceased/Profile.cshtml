@@ -1,19 +1,20 @@
 ﻿@model IEnumerable<ECMills.Models.sp_GetDeceasedProfile_Result>
 
 @{
-    ViewBag.Title = "Profile";
+    ViewBag.Title = "Deceased";
     Layout = "~/Views/Shared/NewLayout.cshtml";
 }
 @foreach (var deceasedProfle in Model)
 {
     
-    <div class="card">
+    <div class="card col-md-8">
         <div class="card-header card-header-primary">
             <h4 class="card-title">@deceasedProfle.Name</h4>
             <p class="card-category">@deceasedProfle.Reference</p>
         </div>
         <div class="card-body">
             <form>
+                <br />
                 <div class="row">
                     <div class="col-md-7">
                         <div class="form-group bmd-form-group">
