@@ -1,0 +1,45 @@
+﻿@model IEnumerable<ECMills.Models.sp_GetDeceasedList_Result>
+
+@{
+    ViewBag.Title = "List";
+    Layout = "~/Views/Shared/NewLayout.cshtml";
+}
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th class="text-center">Reference</th>
+            <th>Type</th>
+            <th>SubType</th>
+            <th>Status</th>
+            <th>Deceased Name</th>
+            <th>Client Name</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var deceased in Model)
+        {
+            <tr>
+                <td class="text-center">@deceased.Reference</td>
+                <td>@deceased.Type</td>
+                <td>@deceased.SubType</td>
+                <td>@deceased.Status</td>
+                <td>@deceased.Deceased_Name</td>
+                <td>@deceased.Client_Name</td>
+                <td class="td-actions text-right">
+                    <button type="button" rel="tooltip" class="btn btn-info">
+                        <i class="material-icons">person</i>
+                    </button>
+                    <button type="button" rel="tooltip" class="btn btn-success">
+                        <i class="material-icons">edit</i>
+                    </button>
+                    <button type="button" rel="tooltip" class="btn btn-danger">
+                        <i class="material-icons">close</i>
+                    </button>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="9ed3dd7471a64faf9b86e82dac185b6a" Name="Diagram1">
+        <EntityTypeShape EntityType="ECMills_DBModel.Ceremony" Width="1.5" PointX="12.5" PointY="30.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ECMills_DBModel.Client" Width="1.5" PointX="3" PointY="30.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ECMills_DBModel.Coffin" Width="1.5" PointX="8.25" PointY="11.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ECMills_DBModel.CommitallLocationType" Width="1.5" PointX="8" PointY="17.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ECMills_DBModel.CommittalLocation" Width="1.5" PointX="10.25" PointY="16.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ECMills_DBModel.Deceased" Width="1.5" PointX="8" PointY="29.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ECMills_DBModel.DeceasedAddressType" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ECMills_DBModel.DeceasedContactsContactType" Width="1.5" PointX="13" PointY="23" IsExpanded="true" />
+        <EntityTypeShape EntityType="ECMills_DBModel.Doctor" Width="1.5" PointX="13" PointY="43.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ECMills_DBModel.MaritalStatu" Width="1.5" PointX="5.75" PointY="21.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ECMills_DBModel.Memorial" Width="1.5" PointX="7.5" PointY="24.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ECMills_DBModel.MemorialContactPoint" Width="1.5" PointX="9.75" PointY="25.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ECMills_DBModel.Officiant" Width="1.5" PointX="10.25" PointY="43.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ECMills_DBModel.OfficiantContactPoint" Width="1.5" PointX="12.5" PointY="51" IsExpanded="true" />
+        <EntityTypeShape EntityType="ECMills_DBModel.OrderChecklist" Width="1.5" PointX="7.5" PointY="37.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ECMills_DBModel.OrderCost" Width="1.5" PointX="7.5" PointY="43.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ECMills_DBModel.OrderDetail" Width="1.5" PointX="10.5" PointY="36" IsExpanded="true" />
+        <EntityTypeShape EntityType="ECMills_DBModel.OrderItemSubType" Width="1.5" PointX="10.25" PointY="20.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ECMills_DBModel.OrderItemType" Width="1.5" PointX="8" PointY="21" IsExpanded="true" />
+        <EntityTypeShape EntityType="ECMills_DBModel.Order" Width="1.5" PointX="5.25" PointY="29.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ECMills_DBModel.OrderStatu" Width="1.5" PointX="3" PointY="26" IsExpanded="true" />
+        <EntityTypeShape EntityType="ECMills_DBModel.OrderSubStatu" Width="1.5" PointX="3" PointY="28.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ECMills_DBModel.OrderSubType" Width="1.5" PointX="3" PointY="36.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ECMills_DBModel.OrderType" Width="1.5" PointX="3" PointY="39" IsExpanded="true" />
+        <EntityTypeShape EntityType="ECMills_DBModel.Organist" Width="1.5" PointX="7.5" PointY="47.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ECMills_DBModel.Religion" Width="1.5" PointX="3.5" PointY="18.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ECMills_DBModel.ReligiousDenomination" Width="1.5" PointX="5.75" PointY="18" IsExpanded="true" />
+        <EntityTypeShape EntityType="ECMills_DBModel.Supplier" Width="1.5" PointX="6" PointY="11.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ECMills_DBModel.TransportType" Width="1.5" PointX="11.25" PointY="47.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ECMills_DBModel.User" Width="1.5" PointX="0.75" PointY="31" IsExpanded="true" />
+        <EntityTypeShape EntityType="ECMills_DBModel.DeceasedAddress" Width="1.5" PointX="10.25" PointY="31.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ECMills_DBModel.DeceasedContact" Width="1.5" PointX="15.25" PointY="29.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ECMills_DBModel.DeceasedContactsPointOfContact" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ECMills_DBModel.Jewellery" Width="1.5" PointX="7.5" PointY="50.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ECMills_DBModel.Music" Width="1.5" PointX="7.5" PointY="53.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ECMills_DBModel.Office" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ECMills_DBModel.OrderItem" Width="1.5" PointX="12.5" PointY="26.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ECMills_DBModel.Transport" Width="1.5" PointX="13.5" PointY="35.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ECMills_DBModel.Visitor" Width="1.5" PointX="7.5" PointY="59.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ECMills_DBModel.vw_GetDeceasedAddressList" Width="1.5" PointX="2.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ECMills_DBModel.vw_GetDeceasedList" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ECMills_DBModel.vw_GetDeceasedProfile" Width="1.5" PointX="4.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ECMills_DBModel.vw_RowCountForAllTables" Width="1.5" PointX="6.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ECMills_DBModel.database_firewall_rules" Width="1.5" PointX="6.75" PointY="3.75" IsExpanded="true" />
+        <AssociationConnector Association="ECMills_DBModel.FK_CommittalLocation_ID_Ceremony_CeremonyLocationID" ManuallyRouted="false" />
+        <AssociationConnector Association="ECMills_DBModel.FK_CommittalLocation_ID_Ceremony_CommittalLocationID" ManuallyRouted="false" />
+        <AssociationConnector Association="ECMills_DBModel.FK_Officiant_ID_Ceremony_OfficiantID" ManuallyRouted="false" />
+        <AssociationConnector Association="ECMills_DBModel.FK_Orders_ID_Ceremony_OrderID" ManuallyRouted="false" />
+        <AssociationConnector Association="ECMills_DBModel.FK_Client_ID_Orders_ClientID" ManuallyRouted="false" />
+        <AssociationConnector Association="ECMills_DBModel.FK_Users_ID_Client_CreatedBy" ManuallyRouted="false" />
+        <AssociationConnector Association="ECMills_DBModel.FK_Users_ID_Client_LastModifiedBy" ManuallyRouted="false" />
+        <AssociationConnector Association="ECMills_DBModel.FK_Coffin_ID_OrderDetails_CoffinID" ManuallyRouted="false" />
+        <AssociationConnector Association="ECMills_DBModel.FK_Supplier_ID_Coffin_SupplierID" ManuallyRouted="false" />
+        <AssociationConnector Association="ECMills_DBModel.FK_CommittalLocationType_ID_CommittalLocation_CommittalLocationTypeID" ManuallyRouted="false" />
+        <AssociationConnector Association="ECMills_DBModel.FK_Deceased_ID_DeceasedAddress_DeceasedID" ManuallyRouted="false" />
+        <AssociationConnector Association="ECMills_DBModel.FK_Deceased_ID_DeceasedContacts_DeceasedID" ManuallyRouted="false" />
+        <AssociationConnector Association="ECMills_DBModel.FK_Deceased_ID_Orders_DeceasedID" ManuallyRouted="false" />
+        <AssociationConnector Association="ECMills_DBModel.FK_DenominationID_Deceased_ID_Denomination" ManuallyRouted="false" />
+        <AssociationConnector Association="ECMills_DBModel.FK_MaritalStatus_ID_Deceased_MaritalStatusID" ManuallyRouted="false" />
+        <AssociationConnector Association="ECMills_DBModel.FK_Users_ID_Deceased_CreatedBy" ManuallyRouted="false" />
+        <AssociationConnector Association="ECMills_DBModel.FK_Users_ID_Deceased_LastModifiedBy" ManuallyRouted="false" />
+        <AssociationConnector Association="ECMills_DBModel.FK_ContactType_ID_DeceasedContacts_ContactTypeID" ManuallyRouted="false" />
+        <AssociationConnector Association="ECMills_DBModel.FK_Doctor_ID_DeceasedContacts_DoctorID" ManuallyRouted="false" />
+        <AssociationConnector Association="ECMills_DBModel.FK_Memorial_OrderID_MemorialContactPoint_OrderID" ManuallyRouted="false" />
+        <AssociationConnector Association="ECMills_DBModel.FK_Orders_ID_Memorial_OrderID" ManuallyRouted="false" />
+        <AssociationConnector Association="ECMills_DBModel.FK_Officiant_ID_OfficiantContactPoint_OfficiantID" ManuallyRouted="false" />
+        <AssociationConnector Association="ECMills_DBModel.FK_Orders_ID_OrderChecklist_OrderID" ManuallyRouted="false" />
+        <AssociationConnector Association="ECMills_DBModel.FK_Orders_ID_OrderCost_OrderID" ManuallyRouted="false" />
+        <AssociationConnector Association="ECMills_DBModel.FK_Orders_ID_OrderDetails_OrderID" ManuallyRouted="false" />
+        <AssociationConnector Association="ECMills_DBModel.FK_2133" ManuallyRouted="false" />
+        <AssociationConnector Association="ECMills_DBModel.FK_OrderItemSubType_ID_OrderItems_ItemSubTypeID" ManuallyRouted="false" />
+        <AssociationConnector Association="ECMills_DBModel.FK_OrderItemType_ID_OrderItems_ItemTypeID" ManuallyRouted="false" />
+        <AssociationConnector Association="ECMills_DBModel.FK_Orders_ID_Jewellery_OrderID" ManuallyRouted="false" />
+        <AssociationConnector Association="ECMills_DBModel.FK_Orders_ID_Music_OrderID" ManuallyRouted="false" />
+        <AssociationConnector Association="ECMills_DBModel.FK_Orders_ID_OrderItems_OrderID" ManuallyRouted="false" />
+        <AssociationConnector Association="ECMills_DBModel.FK_Orders_ID_Organist_OrderID" ManuallyRouted="false" />
+        <AssociationConnector Association="ECMills_DBModel.FK_Orders_ID_Transport_OrderID" ManuallyRouted="false" />
+        <AssociationConnector Association="ECMills_DBModel.FK_Orders_ID_Visitors_OrderID" ManuallyRouted="false" />
+        <AssociationConnector Association="ECMills_DBModel.FK_Orderstatus_ID_Orders_OrderStatusID" ManuallyRouted="false" />
+        <AssociationConnector Association="ECMills_DBModel.FK_OrderSubStatus_ID_Orders_OrderSubStatusID" ManuallyRouted="false" />
+        <AssociationConnector Association="ECMills_DBModel.FK_OrderSubType_ID_Orders_OrderSubTypeID" ManuallyRouted="false" />
+        <AssociationConnector Association="ECMills_DBModel.FK_OrderType_ID_Orders_OrderTypeID" ManuallyRouted="false" />
+        <AssociationConnector Association="ECMills_DBModel.FK_Users_ID_Orders_CreatedBy" ManuallyRouted="false" />
+        <AssociationConnector Association="ECMills_DBModel.FK_Users_ID_Orders_LastModifiedBy" ManuallyRouted="false" />
+        <AssociationConnector Association="ECMills_DBModel.FK_Religion_ID_ReligiousDenomination_ReligionID" ManuallyRouted="false" />
+        <AssociationConnector Association="ECMills_DBModel.FK_Supplier_ID_Transport_SupplierID" ManuallyRouted="false" />
+        <AssociationConnector Association="ECMills_DBModel.FK_TransportType_ID_Transport_TypeID" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

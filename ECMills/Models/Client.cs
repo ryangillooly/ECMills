@@ -14,111 +14,30 @@ namespace ECMills.Models
     
     public partial class Client
     {
-        public string C_ATITLE { get; set; }
-        public string C_ANAME { get; set; }
-        public string C_TITLE { get; set; }
-        public string C_NAME { get; set; }
-        public string C_STREET { get; set; }
-        public string C_LINE1 { get; set; }
-        public string C_LINE2 { get; set; }
-        public Nullable<double> C_AGE { get; set; }
-        public Nullable<bool> C_BURY { get; set; }
-        public Nullable<System.DateTime> D_DATE { get; set; }
-        public string D_PLACE { get; set; }
-        public string D_TO { get; set; }
-        public string CHURCH { get; set; }
-        public Nullable<System.DateTime> CH_DATE { get; set; }
-        public Nullable<double> CH_TIME { get; set; }
-        public string COMMITMENT { get; set; }
-        public Nullable<double> CM_TIME { get; set; }
-        public string MINISTER { get; set; }
-        public Nullable<bool> HYMNS { get; set; }
-        public Nullable<double> CARS { get; set; }
-        public string CARS_TO { get; set; }
-        public string ASHES { get; set; }
-        public Nullable<double> LV_TIME { get; set; }
-        public Nullable<double> AV_TIME { get; set; }
-        public double C_ID { get; set; }
-        public Nullable<double> TOTCOST { get; set; }
-        public string A_ADDRESS1 { get; set; }
-        public string A_ADDRES2 { get; set; }
-        public string A_ADDRESS3 { get; set; }
-        public string ASHES2 { get; set; }
-        public string ASHES3 { get; set; }
-        public string ASHES4 { get; set; }
-        public Nullable<double> OTH_CST { get; set; }
-        public string CARS_TO2 { get; set; }
-        public string CARS_TO3 { get; set; }
-        public Nullable<double> CARS1_TIME { get; set; }
-        public Nullable<double> CARS2_TIME { get; set; }
-        public string JEWEL1 { get; set; }
-        public string JEWEL2 { get; set; }
-        public string C_MINTRP1 { get; set; }
-        public string C_MINTRP2 { get; set; }
-        public string C_REMAIN { get; set; }
-        public string A_DEAR { get; set; }
-        public Nullable<System.DateTime> C_DATE { get; set; }
-        public string C_CERT { get; set; }
-        public string C_FORES { get; set; }
-        public string C_DENOM { get; set; }
-        public string C_REL { get; set; }
-        public Nullable<bool> C_HASBEEN { get; set; }
-        public string D_TO2 { get; set; }
-        public string CHURCH2 { get; set; }
-        public string C_AFTER { get; set; }
-        public string MIN_ADD1 { get; set; }
-        public string MIN_ADD2 { get; set; }
-        public string MIN_ADD3 { get; set; }
-        public Nullable<double> C2_LVTME { get; set; }
-        public Nullable<double> CARS_COST { get; set; }
-        public Nullable<double> C3_LVTME { get; set; }
-        public Nullable<double> MILE_COST { get; set; }
-        public Nullable<double> ESTCOST { get; set; }
-        public Nullable<double> PRESS_CST { get; set; }
-        public Nullable<double> C_MEMCST { get; set; }
-        public Nullable<double> A_PAID { get; set; }
-        public Nullable<double> A_OUTSTND { get; set; }
-        public string C_NOTE1 { get; set; }
-        public string C_NOTE2 { get; set; }
-        public string C_NOTE3 { get; set; }
-        public string C_GO { get; set; }
-        public Nullable<double> ASH_COST { get; set; }
-        public string A_PHONE { get; set; }
-        public Nullable<bool> C_ACK { get; set; }
-        public Nullable<bool> C_NOSERV { get; set; }
-        public Nullable<System.DateTime> C_INVDTE { get; set; }
-        public Nullable<bool> C_INVSW { get; set; }
-        public Nullable<double> C_IAMT { get; set; }
-        public Nullable<bool> C_IPRT { get; set; }
-        public Nullable<double> C_SUPCST { get; set; }
-        public string C_MININF1 { get; set; }
-        public string C_MININF2 { get; set; }
-        public Nullable<bool> CURPAY { get; set; }
-        public string C_SPID { get; set; }
-        public Nullable<System.DateTime> C_LINV { get; set; }
-        public Nullable<bool> C_NOINV { get; set; }
-        public Nullable<System.DateTime> C_LETT1 { get; set; }
-        public Nullable<System.DateTime> C_LETT2 { get; set; }
-        public Nullable<System.DateTime> C_LETT3 { get; set; }
-        public Nullable<bool> C_DSCRF { get; set; }
-        public Nullable<double> C_REMVE { get; set; }
-        public Nullable<bool> C_CNTR { get; set; }
-        public Nullable<double> C_CARNUM { get; set; }
-        public string C_RMVFRM { get; set; }
-        public Nullable<bool> C_ASHELD { get; set; }
-        public Nullable<bool> C_REINV { get; set; }
-        public Nullable<bool> C_MINGEN { get; set; }
-        public string C_DUR { get; set; }
-        public Nullable<double> CN_NO { get; set; }
-        public Nullable<bool> C_NOFU { get; set; }
-        public Nullable<double> C_BRANCH { get; set; }
-        public Nullable<double> C_TIME { get; set; }
-        public string C_NOTE4 { get; set; }
-        public Nullable<System.DateTime> CM_DATE { get; set; }
-        public Nullable<bool> C_BEAR { get; set; }
-        public Nullable<bool> C_ORGAN { get; set; }
-        public Nullable<System.DateTime> C_LETT4 { get; set; }
-        public Nullable<System.DateTime> C_LETT5 { get; set; }
-        public Nullable<System.DateTime> C_LETT6 { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Client()
+        {
+            this.Orders = new HashSet<Order>();
+        }
+    
+        public short ID { get; set; }
+        public string Title { get; set; }
+        public string Forenames { get; set; }
+        public string Surname { get; set; }
+        public string AddressLine1 { get; set; }
+        public string AddressLine2 { get; set; }
+        public string City { get; set; }
+        public string PostCode { get; set; }
+        public string ContactNo { get; set; }
+        public string Relationship { get; set; }
+        public System.DateTime CreationTime { get; set; }
+        public byte CreatedBy { get; set; }
+        public Nullable<System.DateTime> LastModifiedTime { get; set; }
+        public Nullable<byte> LastModifiedBy { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Order> Orders { get; set; }
+        public virtual User User { get; set; }
+        public virtual User User1 { get; set; }
     }
 }

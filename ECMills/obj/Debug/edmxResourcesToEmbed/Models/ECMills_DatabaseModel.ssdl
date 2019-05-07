@@ -1,0 +1,1559 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ECMills_DBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Ceremony">
+    <Key>
+      <PropertyRef Name="OrderID" />
+    </Key>
+    <Property Name="OrderID" Type="smallint" Nullable="false" />
+    <Property Name="CeremonyLocationID" Type="smallint" />
+    <Property Name="CeremonyDateTime" Type="datetime" />
+    <Property Name="CeremonyNotes" Type="nvarchar" MaxLength="50" />
+    <Property Name="CommittalLocationID" Type="smallint" />
+    <Property Name="CommitalDateTime" Type="datetime" />
+    <Property Name="CommittalNotes" Type="nvarchar" MaxLength="50" />
+    <Property Name="ReceptionAddress1" Type="nvarchar" MaxLength="50" />
+    <Property Name="ReceptionAddress2" Type="nvarchar" MaxLength="50" />
+    <Property Name="ReceptionCity" Type="nvarchar" MaxLength="50" />
+    <Property Name="ReceptionPostCode" Type="nvarchar" MaxLength="50" />
+    <Property Name="ReceptionDateTime" Type="datetime" />
+    <Property Name="ReceptionNotes" Type="nvarchar" MaxLength="50" />
+    <Property Name="OfficiantID" Type="tinyint" Nullable="false" />
+    <Property Name="OfficiantNotes" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="Client">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="smallint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Title" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="Forenames" Type="nvarchar" MaxLength="60" Nullable="false" />
+    <Property Name="Surname" Type="nvarchar" MaxLength="60" Nullable="false" />
+    <Property Name="AddressLine1" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="AddressLine2" Type="nvarchar" MaxLength="100" />
+    <Property Name="City" Type="nvarchar" MaxLength="85" Nullable="false" />
+    <Property Name="PostCode" Type="nvarchar" MaxLength="8" Nullable="false" />
+    <Property Name="ContactNo" Type="nvarchar" MaxLength="13" Nullable="false" />
+    <Property Name="Relationship" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="CreationTime" Type="datetime" Nullable="false" />
+    <Property Name="CreatedBy" Type="tinyint" Nullable="false" />
+    <Property Name="LastModifiedTime" Type="datetime" />
+    <Property Name="LastModifiedBy" Type="tinyint" />
+  </EntityType>
+  <EntityType Name="Coffin">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="tinyint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="Type" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Cost" Type="decimal" Precision="7" Scale="2" Nullable="false" />
+    <Property Name="SupplierID" Type="smallint" Nullable="false" />
+    <Property Name="Lining" Type="nvarchar" MaxLength="50" />
+    <Property Name="Shape" Type="nvarchar" MaxLength="50" />
+    <Property Name="Fittings" Type="nvarchar" MaxLength="50" />
+    <Property Name="AdditionalOrnaments" Type="nvarchar" MaxLength="50" />
+    <Property Name="Colour" Type="nvarchar" MaxLength="50" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CommitallLocationType">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="tinyint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Type" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CommittalLocation">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="smallint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CommittalLocationTypeID" Type="tinyint" Nullable="false" />
+    <Property Name="AddressLine1" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="AddressLine2" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="City" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="PostCode" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ContactNo" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Website" Type="nvarchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Deceased">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="smallint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Title" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="Fornames" Type="nvarchar" MaxLength="60" Nullable="false" />
+    <Property Name="Surname" Type="nvarchar" MaxLength="60" Nullable="false" />
+    <Property Name="KnownAs" Type="nvarchar" MaxLength="60" />
+    <Property Name="DateOfBirth" Type="date" />
+    <Property Name="Age" Type="tinyint" Nullable="false" />
+    <Property Name="Gender" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="DateTimeOfDeath" Type="datetime" Nullable="false" />
+    <Property Name="Occupation" Type="nvarchar" MaxLength="100" />
+    <Property Name="Length" Type="nvarchar" MaxLength="5" />
+    <Property Name="Width" Type="nvarchar" MaxLength="5" />
+    <Property Name="Depth" Type="nvarchar" MaxLength="5" />
+    <Property Name="MaritalStatusID" Type="tinyint" />
+    <Property Name="DenominationID" Type="int" />
+    <Property Name="CreationTime" Type="datetime" Nullable="false" />
+    <Property Name="CreatedBy" Type="tinyint" Nullable="false" />
+    <Property Name="LastModifiedTime" Type="datetime" />
+    <Property Name="LastModifiedBy" Type="tinyint" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'ECMills_NewDesign.dbo.DeceasedAddress' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="DeceasedAddress">
+    <Key>
+      <PropertyRef Name="DeceasedID" />
+      <PropertyRef Name="AddressTypeID" />
+      <PropertyRef Name="AddressLine1" />
+      <PropertyRef Name="City" />
+      <PropertyRef Name="PostCode" />
+    </Key>
+    <Property Name="DeceasedID" Type="smallint" Nullable="false" />
+    <Property Name="AddressTypeID" Type="tinyint" Nullable="false" />
+    <Property Name="AddressLine1" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="AddressLine2" Type="nvarchar" MaxLength="100" />
+    <Property Name="City" Type="nvarchar" MaxLength="85" Nullable="false" />
+    <Property Name="PostCode" Type="nvarchar" MaxLength="8" Nullable="false" />
+    <Property Name="ContactName" Type="nvarchar" MaxLength="100" />
+    <Property Name="ContactNo" Type="nvarchar" MaxLength="13" />
+    <Property Name="Notes" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="DeceasedAddressType">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="tinyint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="30" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'ECMills_NewDesign.dbo.DeceasedContacts' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="DeceasedContacts">
+    <Key>
+      <PropertyRef Name="DeceasedID" />
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="ContactTypeID" />
+      <PropertyRef Name="Title" />
+      <PropertyRef Name="Forenames" />
+      <PropertyRef Name="Surname" />
+      <PropertyRef Name="Relationship" />
+      <PropertyRef Name="ConsentToBeContacted" />
+      <PropertyRef Name="AccountModerator" />
+    </Key>
+    <Property Name="DeceasedID" Type="smallint" Nullable="false" />
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ContactTypeID" Type="tinyint" Nullable="false" />
+    <Property Name="Title" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="Forenames" Type="nvarchar" MaxLength="60" Nullable="false" />
+    <Property Name="Surname" Type="nvarchar" MaxLength="60" Nullable="false" />
+    <Property Name="DateOfBirth" Type="date" />
+    <Property Name="Occupation" Type="nvarchar" MaxLength="100" />
+    <Property Name="Relationship" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="AddressLine1" Type="nvarchar" MaxLength="20" />
+    <Property Name="AddressLine2" Type="nvarchar" MaxLength="100" />
+    <Property Name="City" Type="nvarchar" MaxLength="85" />
+    <Property Name="PostCode" Type="nvarchar" MaxLength="8" />
+    <Property Name="ConsentToBeContacted" Type="bit" Nullable="false" />
+    <Property Name="AccountModerator" Type="bit" Nullable="false" />
+    <Property Name="Notes" Type="nvarchar(max)" />
+    <Property Name="DoctorID" Type="tinyint" />
+  </EntityType>
+  <EntityType Name="DeceasedContactsContactType">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="tinyint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Type" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'ECMills_NewDesign.dbo.DeceasedContactsPointOfContact' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="DeceasedContactsPointOfContact">
+    <Key>
+      <PropertyRef Name="DeceasedContactsID" />
+      <PropertyRef Name="Type" />
+      <PropertyRef Name="Value" />
+    </Key>
+    <Property Name="DeceasedContactsID" Type="int" Nullable="false" />
+    <Property Name="Type" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Value" Type="nvarchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Doctor">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="tinyint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Title" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Forenames" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Surname" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Gender" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="Address1" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Address2" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="City" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="PostCode" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="PhoneNo" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Fee" Type="decimal" Precision="6" Scale="2" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'ECMills_NewDesign.dbo.Jewellery' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="Jewellery">
+    <Key>
+      <PropertyRef Name="OrderID" />
+      <PropertyRef Name="LineItem" />
+      <PropertyRef Name="Item" />
+    </Key>
+    <Property Name="OrderID" Type="smallint" Nullable="false" />
+    <Property Name="LineItem" Type="int" Nullable="false" />
+    <Property Name="Item" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="MaritalStatus">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="tinyint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Status" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Memorial">
+    <Key>
+      <PropertyRef Name="OrderID" />
+    </Key>
+    <Property Name="OrderID" Type="smallint" Nullable="false" />
+    <Property Name="Requirement" Type="nvarchar" MaxLength="50" />
+    <Property Name="MemorialBooked" Type="bit" />
+    <Property Name="MemorialRemovalBooked" Type="bit" />
+    <Property Name="Material" Type="nvarchar" MaxLength="50" />
+    <Property Name="Finish" Type="nvarchar" MaxLength="50" />
+    <Property Name="FixingDate" Type="datetime" />
+    <Property Name="MasonryQuoteRef" Type="nvarchar" MaxLength="50" />
+    <Property Name="InscriptionText" Type="nvarchar" MaxLength="50" />
+    <Property Name="InscriptionFont" Type="nvarchar" MaxLength="50" />
+    <Property Name="InscriptionFinish" Type="nvarchar" MaxLength="50" />
+    <Property Name="Base" Type="nvarchar" MaxLength="50" />
+    <Property Name="Size" Type="nvarchar" MaxLength="50" />
+    <Property Name="PhotoTaken" Type="bit" />
+    <Property Name="Desc" Type="nvarchar" MaxLength="50" />
+    <Property Name="AshesIntermentReq" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="MemorialContactPoint">
+    <Key>
+      <PropertyRef Name="OrderID" />
+    </Key>
+    <Property Name="OrderID" Type="smallint" Nullable="false" />
+    <Property Name="Type" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Value" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'ECMills_NewDesign.dbo.Music' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="Music">
+    <Key>
+      <PropertyRef Name="OrderID" />
+      <PropertyRef Name="LineItem" />
+      <PropertyRef Name="Venue" />
+      <PropertyRef Name="Hymn" />
+      <PropertyRef Name="Notes" />
+      <PropertyRef Name="OnEntry" />
+    </Key>
+    <Property Name="OrderID" Type="smallint" Nullable="false" />
+    <Property Name="LineItem" Type="tinyint" Nullable="false" />
+    <Property Name="Venue" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Hymn" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Notes" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="OnEntry" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'ECMills_NewDesign.dbo.Office' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="Office">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="AddressLine1" />
+      <PropertyRef Name="City" />
+      <PropertyRef Name="PostCode" />
+      <PropertyRef Name="PhoneNo" />
+    </Key>
+    <Property Name="ID" Type="tinyint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AddressLine1" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="AddressLine2" Type="nvarchar" MaxLength="100" />
+    <Property Name="City" Type="nvarchar" MaxLength="85" Nullable="false" />
+    <Property Name="PostCode" Type="nvarchar" MaxLength="8" Nullable="false" />
+    <Property Name="PhoneNo" Type="nvarchar" MaxLength="13" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Officiant">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="tinyint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Title" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="Forenames" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="Surname" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="Gender" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="AddressLine1" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="AddressLine2" Type="nvarchar" MaxLength="100" />
+    <Property Name="City" Type="nvarchar" MaxLength="85" Nullable="false" />
+    <Property Name="PostCode" Type="nvarchar" MaxLength="8" Nullable="false" />
+  </EntityType>
+  <EntityType Name="OfficiantContactPoint">
+    <Key>
+      <PropertyRef Name="OfficiantID" />
+      <PropertyRef Name="Type" />
+    </Key>
+    <Property Name="OfficiantID" Type="tinyint" Nullable="false" />
+    <Property Name="Type" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="Value" Type="nvarchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="OrderChecklist">
+    <Key>
+      <PropertyRef Name="OrderID" />
+    </Key>
+    <Property Name="OrderID" Type="smallint" Nullable="false" />
+    <Property Name="HospitalReleaseFormRecieved" Type="tinyint" Nullable="false" />
+    <Property Name="DeceasedBroughtIntoCare" Type="tinyint" Nullable="false" />
+    <Property Name="FuneralArrangementComplete" Type="tinyint" Nullable="false" />
+    <Property Name="ItinerarySentToClient" Type="tinyint" Nullable="false" />
+    <Property Name="CremCertificateRecieved" Type="tinyint" Nullable="false" />
+    <Property Name="CremationBooked" Type="tinyint" Nullable="false" />
+    <Property Name="OfficiantConfirmationSent" Type="tinyint" Nullable="false" />
+    <Property Name="CremForm1Complete" Type="tinyint" Nullable="false" />
+    <Property Name="CremForm2Complete" Type="tinyint" Nullable="false" />
+    <Property Name="CremForm3Complete" Type="tinyint" Nullable="false" />
+    <Property Name="CremFormsDelivered" Type="tinyint" Nullable="false" />
+    <Property Name="CrematedRemainsInstructionsRecieved" Type="tinyint" Nullable="false" />
+    <Property Name="ArrangementSignedAndUploaded" Type="tinyint" Nullable="false" />
+    <Property Name="CoffinOrderPlace" Type="tinyint" Nullable="false" />
+    <Property Name="CoffinRecievedAndFitted" Type="tinyint" Nullable="false" />
+    <Property Name="ClientAdvisedVisitingIsReady" Type="tinyint" Nullable="false" />
+    <Property Name="OrganistMusicConfirmed" Type="tinyint" Nullable="false" />
+    <Property Name="FlowersOrdered" Type="tinyint" Nullable="false" />
+    <Property Name="OrderOfServiceApproved" Type="tinyint" Nullable="false" />
+    <Property Name="OrderOfServicePrinted" Type="tinyint" Nullable="false" />
+    <Property Name="ObirAgreedAndSubmitted" Type="tinyint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="OrderCost">
+    <Key>
+      <PropertyRef Name="OrderID" />
+    </Key>
+    <Property Name="OrderID" Type="smallint" Nullable="false" />
+    <Property Name="Cars" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="DeceasedRemoval" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="Estimated" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="Other" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="Sup" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="Total" Type="decimal" Precision="10" Scale="2" />
+  </EntityType>
+  <EntityType Name="OrderDetails">
+    <Key>
+      <PropertyRef Name="OrderID" />
+    </Key>
+    <Property Name="OrderID" Type="smallint" Nullable="false" />
+    <Property Name="IsContract" Type="bit" Nullable="false" />
+    <Property Name="BearersRequired" Type="bit" Nullable="false" />
+    <Property Name="Removed" Type="bit" Nullable="false" />
+    <Property Name="AshesNotes" Type="nvarchar" MaxLength="255" />
+    <Property Name="GraveNotes" Type="nvarchar" MaxLength="255" />
+    <Property Name="JewelleryNotes" Type="nvarchar" MaxLength="255" />
+    <Property Name="MinisterInfo" Type="nvarchar" MaxLength="255" />
+    <Property Name="MinisterTransport" Type="nvarchar" MaxLength="255" />
+    <Property Name="CoffinID" Type="tinyint" Nullable="false" />
+    <Property Name="CoffinNotes" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="CoffinLength" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="CoffinWidth" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="CoffinDepth" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="EmbalmingRequired" Type="bit" Nullable="false" />
+    <Property Name="EmbalmingPermissionObtained" Type="bit" Nullable="false" />
+    <Property Name="PostMortemComplete" Type="bit" Nullable="false" />
+    <Property Name="JewelleryDateCollected" Type="date" Nullable="false" />
+    <Property Name="JewelleryWhoCollected" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="JewelleryDateRemoved" Type="date" Nullable="false" />
+    <Property Name="JewelleryWhoRemoved" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="GraveNo" Type="nvarchar" MaxLength="30" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'ECMills_NewDesign.dbo.OrderItems' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="OrderItems">
+    <Key>
+      <PropertyRef Name="OrderID" />
+      <PropertyRef Name="LineItem" />
+      <PropertyRef Name="ItemID" />
+      <PropertyRef Name="ItemTypeID" />
+      <PropertyRef Name="ItemSubTypeID" />
+      <PropertyRef Name="Description" />
+      <PropertyRef Name="Price" />
+      <PropertyRef Name="VAT" />
+      <PropertyRef Name="Total" />
+      <PropertyRef Name="Cost" />
+    </Key>
+    <Property Name="OrderID" Type="smallint" Nullable="false" />
+    <Property Name="LineItem" Type="tinyint" Nullable="false" />
+    <Property Name="ItemID" Type="int" Nullable="false" />
+    <Property Name="ItemTypeID" Type="tinyint" Nullable="false" />
+    <Property Name="ItemSubTypeID" Type="tinyint" Nullable="false" />
+    <Property Name="Description" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Price" Type="decimal" Precision="8" Scale="2" Nullable="false" />
+    <Property Name="VAT" Type="decimal" Precision="8" Scale="2" Nullable="false" />
+    <Property Name="Total" Type="decimal" Precision="8" Scale="2" Nullable="false" />
+    <Property Name="Cost" Type="decimal" Precision="8" Scale="2" Nullable="false" />
+  </EntityType>
+  <EntityType Name="OrderItemSubType">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="OrderItemTypeID" Type="tinyint" Nullable="false" />
+    <Property Name="ID" Type="tinyint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Subtype" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="OrderItemType">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="tinyint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Type" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Orders">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="smallint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ClientID" Type="smallint" Nullable="false" />
+    <Property Name="DeceasedID" Type="smallint" Nullable="false" />
+    <Property Name="OrderTypeID" Type="tinyint" Nullable="false" />
+    <Property Name="OrderSubTypeID" Type="tinyint" Nullable="false" />
+    <Property Name="OrderStatusID" Type="tinyint" Nullable="false" />
+    <Property Name="OrderSubStatusID" Type="tinyint" Nullable="false" />
+    <Property Name="CreationTime" Type="datetime" Nullable="false" />
+    <Property Name="CreatedBy" Type="tinyint" Nullable="false" />
+    <Property Name="LastModifiedTime" Type="datetime" />
+    <Property Name="LastModifiedBy" Type="tinyint" />
+  </EntityType>
+  <EntityType Name="OrderStatus">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="tinyint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Status" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="OrderSubStatus">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="tinyint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SubStatus" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="OrderSubType">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="tinyint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Type" Type="nvarchar" MaxLength="30" Nullable="false" />
+  </EntityType>
+  <EntityType Name="OrderType">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="tinyint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Type" Type="nvarchar" MaxLength="30" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Organist">
+    <Key>
+      <PropertyRef Name="OrderID" />
+      <PropertyRef Name="LineItem" />
+    </Key>
+    <Property Name="OrderID" Type="smallint" Nullable="false" />
+    <Property Name="LineItem" Type="tinyint" Nullable="false" />
+    <Property Name="Venue" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Music" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Type" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Musician" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="OnEntry" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Religion">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="smallint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ReligiousDenomination">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ReligionID" Type="smallint" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="150" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Supplier">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="smallint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Description" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="AddressLine1" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="AddressLine2" Type="nvarchar" MaxLength="50" />
+    <Property Name="City" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="PostCode" Type="nvarchar" MaxLength="8" Nullable="false" />
+    <Property Name="ContactNo" Type="nvarchar" MaxLength="13" />
+    <Property Name="Email" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'ECMills_NewDesign.dbo.Transport' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="Transport">
+    <Key>
+      <PropertyRef Name="OrderID" />
+      <PropertyRef Name="LineItem" />
+      <PropertyRef Name="TransportTypeID" />
+      <PropertyRef Name="SupplierID" />
+    </Key>
+    <Property Name="OrderID" Type="smallint" Nullable="false" />
+    <Property Name="LineItem" Type="tinyint" Nullable="false" />
+    <Property Name="TransportTypeID" Type="int" Nullable="false" />
+    <Property Name="Vehicle" Type="nvarchar" MaxLength="50" />
+    <Property Name="SupplierID" Type="smallint" Nullable="false" />
+    <Property Name="PickupTime" Type="datetime" />
+    <Property Name="CollectionAddress1" Type="nvarchar" MaxLength="50" />
+    <Property Name="CollectionAddress2" Type="nvarchar" MaxLength="50" />
+    <Property Name="CollectionCity" Type="nvarchar" MaxLength="50" />
+    <Property Name="CollectionPostCode" Type="nvarchar" MaxLength="50" />
+    <Property Name="Destination1Address1" Type="nvarchar" MaxLength="50" />
+    <Property Name="Destination1Address2" Type="nvarchar" MaxLength="50" />
+    <Property Name="Destination1City" Type="nvarchar" MaxLength="50" />
+    <Property Name="Destination1PostCode" Type="nvarchar" MaxLength="50" />
+    <Property Name="Destination2Address1" Type="nvarchar" MaxLength="50" />
+    <Property Name="Destination2Address2" Type="nvarchar" MaxLength="50" />
+    <Property Name="Destination2City" Type="nvarchar" MaxLength="50" />
+    <Property Name="Destination2Postcode" Type="nvarchar" MaxLength="50" />
+    <Property Name="ReturnAddress1" Type="nvarchar" MaxLength="50" />
+    <Property Name="ReturnAddress2" Type="nvarchar" MaxLength="50" />
+    <Property Name="ReturnCity" Type="nvarchar" MaxLength="50" />
+    <Property Name="ReturnPostCode" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="TransportType">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Type" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Price" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="Cost" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="tinyint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="OfficeID" Type="tinyint" Nullable="false" />
+    <Property Name="Forenames" Type="nvarchar" MaxLength="60" Nullable="false" />
+    <Property Name="Surname" Type="nvarchar" MaxLength="60" Nullable="false" />
+    <Property Name="Username" Type="nvarchar" MaxLength="15" Nullable="false" />
+    <Property Name="Password" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" MaxLength="320" Nullable="false" />
+    <Property Name="AccountActive" Type="bit" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'ECMills_NewDesign.dbo.Visitors' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="Visitors">
+    <Key>
+      <PropertyRef Name="OrderID" />
+      <PropertyRef Name="LineItem" />
+      <PropertyRef Name="Title" />
+      <PropertyRef Name="Forenames" />
+      <PropertyRef Name="Surname" />
+      <PropertyRef Name="Relationship" />
+      <PropertyRef Name="Time" />
+    </Key>
+    <Property Name="OrderID" Type="smallint" Nullable="false" />
+    <Property Name="LineItem" Type="tinyint" Nullable="false" />
+    <Property Name="Title" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Forenames" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Surname" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Relationship" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Time" Type="datetime" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'ECMills_NewDesign.dbo.vw_GetDeceasedAddressList' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="vw_GetDeceasedAddressList">
+    <Key>
+      <PropertyRef Name="DeceasedID" />
+      <PropertyRef Name="AddressType" />
+      <PropertyRef Name="AddressLine1" />
+      <PropertyRef Name="City" />
+      <PropertyRef Name="PostCode" />
+    </Key>
+    <Property Name="DeceasedID" Type="smallint" Nullable="false" />
+    <Property Name="AddressType" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="AddressLine1" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="AddressLine2" Type="nvarchar" MaxLength="100" />
+    <Property Name="City" Type="nvarchar" MaxLength="85" Nullable="false" />
+    <Property Name="PostCode" Type="nvarchar" MaxLength="8" Nullable="false" />
+    <Property Name="ContactName" Type="nvarchar" MaxLength="100" />
+    <Property Name="ContactNo" Type="nvarchar" MaxLength="13" />
+    <Property Name="Notes" Type="nvarchar(max)" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'ECMills_NewDesign.dbo.vw_GetDeceasedList' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="vw_GetDeceasedList">
+    <Key>
+      <PropertyRef Name="Reference" />
+      <PropertyRef Name="Type" />
+      <PropertyRef Name="SubType" />
+      <PropertyRef Name="Status" />
+      <PropertyRef Name="Client Name" />
+    </Key>
+    <Property Name="Reference" Type="smallint" Nullable="false" />
+    <Property Name="Type" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="SubType" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="Status" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Deceased Name" Type="nvarchar" MaxLength="132" />
+    <Property Name="Client Name" Type="nvarchar" MaxLength="132" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'ECMills_NewDesign.dbo.vw_GetDeceasedProfile' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="vw_GetDeceasedProfile">
+    <Key>
+      <PropertyRef Name="Reference" />
+      <PropertyRef Name="Name" />
+      <PropertyRef Name="Age" />
+      <PropertyRef Name="Gender" />
+      <PropertyRef Name="TimeOfDeath" />
+      <PropertyRef Name="Religion" />
+      <PropertyRef Name="ReligiousDenomination" />
+      <PropertyRef Name="MaritalStatus" />
+    </Key>
+    <Property Name="Reference" Type="smallint" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="132" Nullable="false" />
+    <Property Name="DOB" Type="date" />
+    <Property Name="Known As" Type="nvarchar" MaxLength="60" />
+    <Property Name="Age" Type="tinyint" Nullable="false" />
+    <Property Name="Gender" Type="varchar" MaxLength="6" Nullable="false" />
+    <Property Name="TimeOfDeath" Type="datetime" Nullable="false" />
+    <Property Name="Religion" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ReligiousDenomination" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="MaritalStatus" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Occupation" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'ECMills_NewDesign.dbo.vw_RowCountForAllTables' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="vw_RowCountForAllTables">
+    <Key>
+      <PropertyRef Name="Table" />
+    </Key>
+    <Property Name="Table" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="RowCount" Type="int" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'ECMills_NewDesign.sys.database_firewall_rules' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="database_firewall_rules">
+    <Key>
+      <PropertyRef Name="id" />
+      <PropertyRef Name="name" />
+      <PropertyRef Name="start_ip_address" />
+      <PropertyRef Name="end_ip_address" />
+      <PropertyRef Name="create_date" />
+      <PropertyRef Name="modify_date" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="start_ip_address" Type="varchar" MaxLength="45" Nullable="false" />
+    <Property Name="end_ip_address" Type="varchar" MaxLength="45" Nullable="false" />
+    <Property Name="create_date" Type="datetime" Nullable="false" />
+    <Property Name="modify_date" Type="datetime" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_2133">
+    <End Role="OrderItemType" Type="Self.OrderItemType" Multiplicity="1" />
+    <End Role="OrderItemSubType" Type="Self.OrderItemSubType" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OrderItemType">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="OrderItemSubType">
+        <PropertyRef Name="OrderItemTypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Client_ID_Orders_ClientID">
+    <End Role="Client" Type="Self.Client" Multiplicity="1" />
+    <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Client">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Orders">
+        <PropertyRef Name="ClientID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Coffin_ID_OrderDetails_CoffinID">
+    <End Role="Coffin" Type="Self.Coffin" Multiplicity="1" />
+    <End Role="OrderDetails" Type="Self.OrderDetails" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Coffin">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="OrderDetails">
+        <PropertyRef Name="CoffinID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CommittalLocation_ID_Ceremony_CeremonyLocationID">
+    <End Role="CommittalLocation" Type="Self.CommittalLocation" Multiplicity="0..1" />
+    <End Role="Ceremony" Type="Self.Ceremony" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CommittalLocation">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Ceremony">
+        <PropertyRef Name="CeremonyLocationID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CommittalLocation_ID_Ceremony_CommittalLocationID">
+    <End Role="CommittalLocation" Type="Self.CommittalLocation" Multiplicity="0..1" />
+    <End Role="Ceremony" Type="Self.Ceremony" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CommittalLocation">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Ceremony">
+        <PropertyRef Name="CommittalLocationID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CommittalLocationType_ID_CommittalLocation_CommittalLocationTypeID">
+    <End Role="CommitallLocationType" Type="Self.CommitallLocationType" Multiplicity="1" />
+    <End Role="CommittalLocation" Type="Self.CommittalLocation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CommitallLocationType">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="CommittalLocation">
+        <PropertyRef Name="CommittalLocationTypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ContactType_ID_DeceasedContacts_ContactTypeID">
+    <End Role="DeceasedContactsContactType" Type="Self.DeceasedContactsContactType" Multiplicity="1" />
+    <End Role="DeceasedContacts" Type="Self.DeceasedContacts" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DeceasedContactsContactType">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="DeceasedContacts">
+        <PropertyRef Name="ContactTypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Deceased_ID_DeceasedAddress_DeceasedID">
+    <End Role="Deceased" Type="Self.Deceased" Multiplicity="1" />
+    <End Role="DeceasedAddress" Type="Self.DeceasedAddress" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Deceased">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="DeceasedAddress">
+        <PropertyRef Name="DeceasedID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Deceased_ID_DeceasedContacts_DeceasedID">
+    <End Role="Deceased" Type="Self.Deceased" Multiplicity="1" />
+    <End Role="DeceasedContacts" Type="Self.DeceasedContacts" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Deceased">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="DeceasedContacts">
+        <PropertyRef Name="DeceasedID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Deceased_ID_Orders_DeceasedID">
+    <End Role="Deceased" Type="Self.Deceased" Multiplicity="1" />
+    <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Deceased">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Orders">
+        <PropertyRef Name="DeceasedID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DenominationID_Deceased_ID_Denomination">
+    <End Role="ReligiousDenomination" Type="Self.ReligiousDenomination" Multiplicity="0..1" />
+    <End Role="Deceased" Type="Self.Deceased" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ReligiousDenomination">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Deceased">
+        <PropertyRef Name="DenominationID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Doctor_ID_DeceasedContacts_DoctorID">
+    <End Role="Doctor" Type="Self.Doctor" Multiplicity="0..1" />
+    <End Role="DeceasedContacts" Type="Self.DeceasedContacts" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Doctor">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="DeceasedContacts">
+        <PropertyRef Name="DoctorID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MaritalStatus_ID_Deceased_MaritalStatusID">
+    <End Role="MaritalStatus" Type="Self.MaritalStatus" Multiplicity="0..1" />
+    <End Role="Deceased" Type="Self.Deceased" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MaritalStatus">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Deceased">
+        <PropertyRef Name="MaritalStatusID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Memorial_OrderID_MemorialContactPoint_OrderID">
+    <End Role="Memorial" Type="Self.Memorial" Multiplicity="1" />
+    <End Role="MemorialContactPoint" Type="Self.MemorialContactPoint" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Memorial">
+        <PropertyRef Name="OrderID" />
+      </Principal>
+      <Dependent Role="MemorialContactPoint">
+        <PropertyRef Name="OrderID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Officiant_ID_Ceremony_OfficiantID">
+    <End Role="Officiant" Type="Self.Officiant" Multiplicity="1" />
+    <End Role="Ceremony" Type="Self.Ceremony" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Officiant">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Ceremony">
+        <PropertyRef Name="OfficiantID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Officiant_ID_OfficiantContactPoint_OfficiantID">
+    <End Role="Officiant" Type="Self.Officiant" Multiplicity="1" />
+    <End Role="OfficiantContactPoint" Type="Self.OfficiantContactPoint" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Officiant">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="OfficiantContactPoint">
+        <PropertyRef Name="OfficiantID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OrderItemSubType_ID_OrderItems_ItemSubTypeID">
+    <End Role="OrderItemSubType" Type="Self.OrderItemSubType" Multiplicity="1" />
+    <End Role="OrderItems" Type="Self.OrderItems" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OrderItemSubType">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="OrderItems">
+        <PropertyRef Name="ItemSubTypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OrderItemType_ID_OrderItems_ItemTypeID">
+    <End Role="OrderItemType" Type="Self.OrderItemType" Multiplicity="1" />
+    <End Role="OrderItems" Type="Self.OrderItems" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OrderItemType">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="OrderItems">
+        <PropertyRef Name="ItemTypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Orders_ID_Ceremony_OrderID">
+    <End Role="Orders" Type="Self.Orders" Multiplicity="1" />
+    <End Role="Ceremony" Type="Self.Ceremony" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Orders">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Ceremony">
+        <PropertyRef Name="OrderID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Orders_ID_Jewellery_OrderID">
+    <End Role="Orders" Type="Self.Orders" Multiplicity="1" />
+    <End Role="Jewellery" Type="Self.Jewellery" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Orders">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Jewellery">
+        <PropertyRef Name="OrderID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Orders_ID_Memorial_OrderID">
+    <End Role="Orders" Type="Self.Orders" Multiplicity="1" />
+    <End Role="Memorial" Type="Self.Memorial" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Orders">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Memorial">
+        <PropertyRef Name="OrderID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Orders_ID_Music_OrderID">
+    <End Role="Orders" Type="Self.Orders" Multiplicity="1" />
+    <End Role="Music" Type="Self.Music" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Orders">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Music">
+        <PropertyRef Name="OrderID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Orders_ID_OrderChecklist_OrderID">
+    <End Role="Orders" Type="Self.Orders" Multiplicity="1" />
+    <End Role="OrderChecklist" Type="Self.OrderChecklist" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Orders">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="OrderChecklist">
+        <PropertyRef Name="OrderID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Orders_ID_OrderCost_OrderID">
+    <End Role="Orders" Type="Self.Orders" Multiplicity="1" />
+    <End Role="OrderCost" Type="Self.OrderCost" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Orders">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="OrderCost">
+        <PropertyRef Name="OrderID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Orders_ID_OrderDetails_OrderID">
+    <End Role="Orders" Type="Self.Orders" Multiplicity="1" />
+    <End Role="OrderDetails" Type="Self.OrderDetails" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Orders">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="OrderDetails">
+        <PropertyRef Name="OrderID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Orders_ID_OrderItems_OrderID">
+    <End Role="Orders" Type="Self.Orders" Multiplicity="1" />
+    <End Role="OrderItems" Type="Self.OrderItems" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Orders">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="OrderItems">
+        <PropertyRef Name="OrderID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Orders_ID_Organist_OrderID">
+    <End Role="Orders" Type="Self.Orders" Multiplicity="1" />
+    <End Role="Organist" Type="Self.Organist" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Orders">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Organist">
+        <PropertyRef Name="OrderID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Orders_ID_Transport_OrderID">
+    <End Role="Orders" Type="Self.Orders" Multiplicity="1" />
+    <End Role="Transport" Type="Self.Transport" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Orders">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Transport">
+        <PropertyRef Name="OrderID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Orders_ID_Visitors_OrderID">
+    <End Role="Orders" Type="Self.Orders" Multiplicity="1" />
+    <End Role="Visitors" Type="Self.Visitors" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Orders">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Visitors">
+        <PropertyRef Name="OrderID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Orderstatus_ID_Orders_OrderStatusID">
+    <End Role="OrderStatus" Type="Self.OrderStatus" Multiplicity="1" />
+    <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OrderStatus">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Orders">
+        <PropertyRef Name="OrderStatusID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OrderSubStatus_ID_Orders_OrderSubStatusID">
+    <End Role="OrderSubStatus" Type="Self.OrderSubStatus" Multiplicity="1" />
+    <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OrderSubStatus">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Orders">
+        <PropertyRef Name="OrderSubStatusID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OrderSubType_ID_Orders_OrderSubTypeID">
+    <End Role="OrderSubType" Type="Self.OrderSubType" Multiplicity="1" />
+    <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OrderSubType">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Orders">
+        <PropertyRef Name="OrderSubTypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OrderType_ID_Orders_OrderTypeID">
+    <End Role="OrderType" Type="Self.OrderType" Multiplicity="1" />
+    <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OrderType">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Orders">
+        <PropertyRef Name="OrderTypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Religion_ID_ReligiousDenomination_ReligionID">
+    <End Role="Religion" Type="Self.Religion" Multiplicity="1" />
+    <End Role="ReligiousDenomination" Type="Self.ReligiousDenomination" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Religion">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ReligiousDenomination">
+        <PropertyRef Name="ReligionID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Supplier_ID_Coffin_SupplierID">
+    <End Role="Supplier" Type="Self.Supplier" Multiplicity="1" />
+    <End Role="Coffin" Type="Self.Coffin" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Supplier">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Coffin">
+        <PropertyRef Name="SupplierID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Supplier_ID_Transport_SupplierID">
+    <End Role="Supplier" Type="Self.Supplier" Multiplicity="1" />
+    <End Role="Transport" Type="Self.Transport" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Supplier">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Transport">
+        <PropertyRef Name="SupplierID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TransportType_ID_Transport_TypeID">
+    <End Role="TransportType" Type="Self.TransportType" Multiplicity="1" />
+    <End Role="Transport" Type="Self.Transport" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TransportType">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Transport">
+        <PropertyRef Name="TransportTypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Users_ID_Client_CreatedBy">
+    <End Role="Users" Type="Self.Users" Multiplicity="1" />
+    <End Role="Client" Type="Self.Client" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Client">
+        <PropertyRef Name="CreatedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Users_ID_Client_LastModifiedBy">
+    <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+    <End Role="Client" Type="Self.Client" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Client">
+        <PropertyRef Name="LastModifiedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Users_ID_Deceased_CreatedBy">
+    <End Role="Users" Type="Self.Users" Multiplicity="1" />
+    <End Role="Deceased" Type="Self.Deceased" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Deceased">
+        <PropertyRef Name="CreatedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Users_ID_Deceased_LastModifiedBy">
+    <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+    <End Role="Deceased" Type="Self.Deceased" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Deceased">
+        <PropertyRef Name="LastModifiedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Users_ID_Orders_CreatedBy">
+    <End Role="Users" Type="Self.Users" Multiplicity="1" />
+    <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Orders">
+        <PropertyRef Name="CreatedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Users_ID_Orders_LastModifiedBy">
+    <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+    <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Orders">
+        <PropertyRef Name="LastModifiedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="sp_GetDeceasedAddressList" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="DeceasedID" Type="smallint" Mode="In" />
+  </Function>
+  <Function Name="sp_GetDeceasedList" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="sp_GetDeceasedProfile" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="DeceasedID" Type="smallint" Mode="In" />
+  </Function>
+  <EntityContainer Name="ECMills_DBModelStoreContainer">
+    <EntitySet Name="Ceremony" EntityType="Self.Ceremony" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Client" EntityType="Self.Client" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Coffin" EntityType="Self.Coffin" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CommitallLocationType" EntityType="Self.CommitallLocationType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CommittalLocation" EntityType="Self.CommittalLocation" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Deceased" EntityType="Self.Deceased" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DeceasedAddressType" EntityType="Self.DeceasedAddressType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DeceasedContactsContactType" EntityType="Self.DeceasedContactsContactType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Doctor" EntityType="Self.Doctor" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MaritalStatus" EntityType="Self.MaritalStatus" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Memorial" EntityType="Self.Memorial" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MemorialContactPoint" EntityType="Self.MemorialContactPoint" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Officiant" EntityType="Self.Officiant" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="OfficiantContactPoint" EntityType="Self.OfficiantContactPoint" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="OrderChecklist" EntityType="Self.OrderChecklist" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="OrderCost" EntityType="Self.OrderCost" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="OrderDetails" EntityType="Self.OrderDetails" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="OrderItemSubType" EntityType="Self.OrderItemSubType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="OrderItemType" EntityType="Self.OrderItemType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Orders" EntityType="Self.Orders" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="OrderStatus" EntityType="Self.OrderStatus" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="OrderSubStatus" EntityType="Self.OrderSubStatus" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="OrderSubType" EntityType="Self.OrderSubType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="OrderType" EntityType="Self.OrderType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Organist" EntityType="Self.Organist" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Religion" EntityType="Self.Religion" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ReligiousDenomination" EntityType="Self.ReligiousDenomination" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Supplier" EntityType="Self.Supplier" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TransportType" EntityType="Self.TransportType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DeceasedAddress" EntityType="Self.DeceasedAddress" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [DeceasedAddress].[DeceasedID] AS [DeceasedID], 
+    [DeceasedAddress].[AddressTypeID] AS [AddressTypeID], 
+    [DeceasedAddress].[AddressLine1] AS [AddressLine1], 
+    [DeceasedAddress].[AddressLine2] AS [AddressLine2], 
+    [DeceasedAddress].[City] AS [City], 
+    [DeceasedAddress].[PostCode] AS [PostCode], 
+    [DeceasedAddress].[ContactName] AS [ContactName], 
+    [DeceasedAddress].[ContactNo] AS [ContactNo], 
+    [DeceasedAddress].[Notes] AS [Notes]
+    FROM [dbo].[DeceasedAddress] AS [DeceasedAddress]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="DeceasedContacts" EntityType="Self.DeceasedContacts" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [DeceasedContacts].[DeceasedID] AS [DeceasedID], 
+    [DeceasedContacts].[ID] AS [ID], 
+    [DeceasedContacts].[ContactTypeID] AS [ContactTypeID], 
+    [DeceasedContacts].[Title] AS [Title], 
+    [DeceasedContacts].[Forenames] AS [Forenames], 
+    [DeceasedContacts].[Surname] AS [Surname], 
+    [DeceasedContacts].[DateOfBirth] AS [DateOfBirth], 
+    [DeceasedContacts].[Occupation] AS [Occupation], 
+    [DeceasedContacts].[Relationship] AS [Relationship], 
+    [DeceasedContacts].[AddressLine1] AS [AddressLine1], 
+    [DeceasedContacts].[AddressLine2] AS [AddressLine2], 
+    [DeceasedContacts].[City] AS [City], 
+    [DeceasedContacts].[PostCode] AS [PostCode], 
+    [DeceasedContacts].[ConsentToBeContacted] AS [ConsentToBeContacted], 
+    [DeceasedContacts].[AccountModerator] AS [AccountModerator], 
+    [DeceasedContacts].[Notes] AS [Notes], 
+    [DeceasedContacts].[DoctorID] AS [DoctorID]
+    FROM [dbo].[DeceasedContacts] AS [DeceasedContacts]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="DeceasedContactsPointOfContact" EntityType="Self.DeceasedContactsPointOfContact" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [DeceasedContactsPointOfContact].[DeceasedContactsID] AS [DeceasedContactsID], 
+    [DeceasedContactsPointOfContact].[Type] AS [Type], 
+    [DeceasedContactsPointOfContact].[Value] AS [Value]
+    FROM [dbo].[DeceasedContactsPointOfContact] AS [DeceasedContactsPointOfContact]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="Jewellery" EntityType="Self.Jewellery" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Jewellery].[OrderID] AS [OrderID], 
+    [Jewellery].[LineItem] AS [LineItem], 
+    [Jewellery].[Item] AS [Item]
+    FROM [dbo].[Jewellery] AS [Jewellery]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="Music" EntityType="Self.Music" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Music].[OrderID] AS [OrderID], 
+    [Music].[LineItem] AS [LineItem], 
+    [Music].[Venue] AS [Venue], 
+    [Music].[Hymn] AS [Hymn], 
+    [Music].[Notes] AS [Notes], 
+    [Music].[OnEntry] AS [OnEntry]
+    FROM [dbo].[Music] AS [Music]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="Office" EntityType="Self.Office" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Office].[ID] AS [ID], 
+    [Office].[AddressLine1] AS [AddressLine1], 
+    [Office].[AddressLine2] AS [AddressLine2], 
+    [Office].[City] AS [City], 
+    [Office].[PostCode] AS [PostCode], 
+    [Office].[PhoneNo] AS [PhoneNo]
+    FROM [dbo].[Office] AS [Office]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="OrderItems" EntityType="Self.OrderItems" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [OrderItems].[OrderID] AS [OrderID], 
+    [OrderItems].[LineItem] AS [LineItem], 
+    [OrderItems].[ItemID] AS [ItemID], 
+    [OrderItems].[ItemTypeID] AS [ItemTypeID], 
+    [OrderItems].[ItemSubTypeID] AS [ItemSubTypeID], 
+    [OrderItems].[Description] AS [Description], 
+    [OrderItems].[Price] AS [Price], 
+    [OrderItems].[VAT] AS [VAT], 
+    [OrderItems].[Total] AS [Total], 
+    [OrderItems].[Cost] AS [Cost]
+    FROM [dbo].[OrderItems] AS [OrderItems]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="Transport" EntityType="Self.Transport" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Transport].[OrderID] AS [OrderID], 
+    [Transport].[LineItem] AS [LineItem], 
+    [Transport].[TransportTypeID] AS [TransportTypeID], 
+    [Transport].[Vehicle] AS [Vehicle], 
+    [Transport].[SupplierID] AS [SupplierID], 
+    [Transport].[PickupTime] AS [PickupTime], 
+    [Transport].[CollectionAddress1] AS [CollectionAddress1], 
+    [Transport].[CollectionAddress2] AS [CollectionAddress2], 
+    [Transport].[CollectionCity] AS [CollectionCity], 
+    [Transport].[CollectionPostCode] AS [CollectionPostCode], 
+    [Transport].[Destination1Address1] AS [Destination1Address1], 
+    [Transport].[Destination1Address2] AS [Destination1Address2], 
+    [Transport].[Destination1City] AS [Destination1City], 
+    [Transport].[Destination1PostCode] AS [Destination1PostCode], 
+    [Transport].[Destination2Address1] AS [Destination2Address1], 
+    [Transport].[Destination2Address2] AS [Destination2Address2], 
+    [Transport].[Destination2City] AS [Destination2City], 
+    [Transport].[Destination2Postcode] AS [Destination2Postcode], 
+    [Transport].[ReturnAddress1] AS [ReturnAddress1], 
+    [Transport].[ReturnAddress2] AS [ReturnAddress2], 
+    [Transport].[ReturnCity] AS [ReturnCity], 
+    [Transport].[ReturnPostCode] AS [ReturnPostCode]
+    FROM [dbo].[Transport] AS [Transport]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="Visitors" EntityType="Self.Visitors" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Visitors].[OrderID] AS [OrderID], 
+    [Visitors].[LineItem] AS [LineItem], 
+    [Visitors].[Title] AS [Title], 
+    [Visitors].[Forenames] AS [Forenames], 
+    [Visitors].[Surname] AS [Surname], 
+    [Visitors].[Relationship] AS [Relationship], 
+    [Visitors].[Time] AS [Time]
+    FROM [dbo].[Visitors] AS [Visitors]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="vw_GetDeceasedAddressList" EntityType="Self.vw_GetDeceasedAddressList" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [vw_GetDeceasedAddressList].[DeceasedID] AS [DeceasedID], 
+    [vw_GetDeceasedAddressList].[AddressType] AS [AddressType], 
+    [vw_GetDeceasedAddressList].[AddressLine1] AS [AddressLine1], 
+    [vw_GetDeceasedAddressList].[AddressLine2] AS [AddressLine2], 
+    [vw_GetDeceasedAddressList].[City] AS [City], 
+    [vw_GetDeceasedAddressList].[PostCode] AS [PostCode], 
+    [vw_GetDeceasedAddressList].[ContactName] AS [ContactName], 
+    [vw_GetDeceasedAddressList].[ContactNo] AS [ContactNo], 
+    [vw_GetDeceasedAddressList].[Notes] AS [Notes]
+    FROM [dbo].[vw_GetDeceasedAddressList] AS [vw_GetDeceasedAddressList]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="vw_GetDeceasedList" EntityType="Self.vw_GetDeceasedList" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [vw_GetDeceasedList].[Reference] AS [Reference], 
+    [vw_GetDeceasedList].[Type] AS [Type], 
+    [vw_GetDeceasedList].[SubType] AS [SubType], 
+    [vw_GetDeceasedList].[Status] AS [Status], 
+    [vw_GetDeceasedList].[Deceased Name] AS [Deceased Name], 
+    [vw_GetDeceasedList].[Client Name] AS [Client Name]
+    FROM [dbo].[vw_GetDeceasedList] AS [vw_GetDeceasedList]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="vw_GetDeceasedProfile" EntityType="Self.vw_GetDeceasedProfile" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [vw_GetDeceasedProfile].[Reference] AS [Reference], 
+    [vw_GetDeceasedProfile].[Name] AS [Name], 
+    [vw_GetDeceasedProfile].[DOB] AS [DOB], 
+    [vw_GetDeceasedProfile].[Known As] AS [Known As], 
+    [vw_GetDeceasedProfile].[Age] AS [Age], 
+    [vw_GetDeceasedProfile].[Gender] AS [Gender], 
+    [vw_GetDeceasedProfile].[TimeOfDeath] AS [TimeOfDeath], 
+    [vw_GetDeceasedProfile].[Religion] AS [Religion], 
+    [vw_GetDeceasedProfile].[ReligiousDenomination] AS [ReligiousDenomination], 
+    [vw_GetDeceasedProfile].[MaritalStatus] AS [MaritalStatus], 
+    [vw_GetDeceasedProfile].[Occupation] AS [Occupation]
+    FROM [dbo].[vw_GetDeceasedProfile] AS [vw_GetDeceasedProfile]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="vw_RowCountForAllTables" EntityType="Self.vw_RowCountForAllTables" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [vw_RowCountForAllTables].[Table] AS [Table], 
+    [vw_RowCountForAllTables].[RowCount] AS [RowCount]
+    FROM [dbo].[vw_RowCountForAllTables] AS [vw_RowCountForAllTables]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="database_firewall_rules" EntityType="Self.database_firewall_rules" store:Type="Views" store:Schema="sys">
+      <DefiningQuery>SELECT 
+    [database_firewall_rules].[id] AS [id], 
+    [database_firewall_rules].[name] AS [name], 
+    [database_firewall_rules].[start_ip_address] AS [start_ip_address], 
+    [database_firewall_rules].[end_ip_address] AS [end_ip_address], 
+    [database_firewall_rules].[create_date] AS [create_date], 
+    [database_firewall_rules].[modify_date] AS [modify_date]
+    FROM [sys].[database_firewall_rules] AS [database_firewall_rules]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="FK_2133" Association="Self.FK_2133">
+      <End Role="OrderItemType" EntitySet="OrderItemType" />
+      <End Role="OrderItemSubType" EntitySet="OrderItemSubType" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Client_ID_Orders_ClientID" Association="Self.FK_Client_ID_Orders_ClientID">
+      <End Role="Client" EntitySet="Client" />
+      <End Role="Orders" EntitySet="Orders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Coffin_ID_OrderDetails_CoffinID" Association="Self.FK_Coffin_ID_OrderDetails_CoffinID">
+      <End Role="Coffin" EntitySet="Coffin" />
+      <End Role="OrderDetails" EntitySet="OrderDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CommittalLocation_ID_Ceremony_CeremonyLocationID" Association="Self.FK_CommittalLocation_ID_Ceremony_CeremonyLocationID">
+      <End Role="CommittalLocation" EntitySet="CommittalLocation" />
+      <End Role="Ceremony" EntitySet="Ceremony" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CommittalLocation_ID_Ceremony_CommittalLocationID" Association="Self.FK_CommittalLocation_ID_Ceremony_CommittalLocationID">
+      <End Role="CommittalLocation" EntitySet="CommittalLocation" />
+      <End Role="Ceremony" EntitySet="Ceremony" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CommittalLocationType_ID_CommittalLocation_CommittalLocationTypeID" Association="Self.FK_CommittalLocationType_ID_CommittalLocation_CommittalLocationTypeID">
+      <End Role="CommitallLocationType" EntitySet="CommitallLocationType" />
+      <End Role="CommittalLocation" EntitySet="CommittalLocation" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ContactType_ID_DeceasedContacts_ContactTypeID" Association="Self.FK_ContactType_ID_DeceasedContacts_ContactTypeID">
+      <End Role="DeceasedContactsContactType" EntitySet="DeceasedContactsContactType" />
+      <End Role="DeceasedContacts" EntitySet="DeceasedContacts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Deceased_ID_DeceasedAddress_DeceasedID" Association="Self.FK_Deceased_ID_DeceasedAddress_DeceasedID">
+      <End Role="Deceased" EntitySet="Deceased" />
+      <End Role="DeceasedAddress" EntitySet="DeceasedAddress" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Deceased_ID_DeceasedContacts_DeceasedID" Association="Self.FK_Deceased_ID_DeceasedContacts_DeceasedID">
+      <End Role="Deceased" EntitySet="Deceased" />
+      <End Role="DeceasedContacts" EntitySet="DeceasedContacts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Deceased_ID_Orders_DeceasedID" Association="Self.FK_Deceased_ID_Orders_DeceasedID">
+      <End Role="Deceased" EntitySet="Deceased" />
+      <End Role="Orders" EntitySet="Orders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DenominationID_Deceased_ID_Denomination" Association="Self.FK_DenominationID_Deceased_ID_Denomination">
+      <End Role="ReligiousDenomination" EntitySet="ReligiousDenomination" />
+      <End Role="Deceased" EntitySet="Deceased" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Doctor_ID_DeceasedContacts_DoctorID" Association="Self.FK_Doctor_ID_DeceasedContacts_DoctorID">
+      <End Role="Doctor" EntitySet="Doctor" />
+      <End Role="DeceasedContacts" EntitySet="DeceasedContacts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MaritalStatus_ID_Deceased_MaritalStatusID" Association="Self.FK_MaritalStatus_ID_Deceased_MaritalStatusID">
+      <End Role="MaritalStatus" EntitySet="MaritalStatus" />
+      <End Role="Deceased" EntitySet="Deceased" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Memorial_OrderID_MemorialContactPoint_OrderID" Association="Self.FK_Memorial_OrderID_MemorialContactPoint_OrderID">
+      <End Role="Memorial" EntitySet="Memorial" />
+      <End Role="MemorialContactPoint" EntitySet="MemorialContactPoint" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Officiant_ID_Ceremony_OfficiantID" Association="Self.FK_Officiant_ID_Ceremony_OfficiantID">
+      <End Role="Officiant" EntitySet="Officiant" />
+      <End Role="Ceremony" EntitySet="Ceremony" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Officiant_ID_OfficiantContactPoint_OfficiantID" Association="Self.FK_Officiant_ID_OfficiantContactPoint_OfficiantID">
+      <End Role="Officiant" EntitySet="Officiant" />
+      <End Role="OfficiantContactPoint" EntitySet="OfficiantContactPoint" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OrderItemSubType_ID_OrderItems_ItemSubTypeID" Association="Self.FK_OrderItemSubType_ID_OrderItems_ItemSubTypeID">
+      <End Role="OrderItemSubType" EntitySet="OrderItemSubType" />
+      <End Role="OrderItems" EntitySet="OrderItems" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OrderItemType_ID_OrderItems_ItemTypeID" Association="Self.FK_OrderItemType_ID_OrderItems_ItemTypeID">
+      <End Role="OrderItemType" EntitySet="OrderItemType" />
+      <End Role="OrderItems" EntitySet="OrderItems" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Orders_ID_Ceremony_OrderID" Association="Self.FK_Orders_ID_Ceremony_OrderID">
+      <End Role="Orders" EntitySet="Orders" />
+      <End Role="Ceremony" EntitySet="Ceremony" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Orders_ID_Jewellery_OrderID" Association="Self.FK_Orders_ID_Jewellery_OrderID">
+      <End Role="Orders" EntitySet="Orders" />
+      <End Role="Jewellery" EntitySet="Jewellery" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Orders_ID_Memorial_OrderID" Association="Self.FK_Orders_ID_Memorial_OrderID">
+      <End Role="Orders" EntitySet="Orders" />
+      <End Role="Memorial" EntitySet="Memorial" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Orders_ID_Music_OrderID" Association="Self.FK_Orders_ID_Music_OrderID">
+      <End Role="Orders" EntitySet="Orders" />
+      <End Role="Music" EntitySet="Music" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Orders_ID_OrderChecklist_OrderID" Association="Self.FK_Orders_ID_OrderChecklist_OrderID">
+      <End Role="Orders" EntitySet="Orders" />
+      <End Role="OrderChecklist" EntitySet="OrderChecklist" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Orders_ID_OrderCost_OrderID" Association="Self.FK_Orders_ID_OrderCost_OrderID">
+      <End Role="Orders" EntitySet="Orders" />
+      <End Role="OrderCost" EntitySet="OrderCost" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Orders_ID_OrderDetails_OrderID" Association="Self.FK_Orders_ID_OrderDetails_OrderID">
+      <End Role="Orders" EntitySet="Orders" />
+      <End Role="OrderDetails" EntitySet="OrderDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Orders_ID_OrderItems_OrderID" Association="Self.FK_Orders_ID_OrderItems_OrderID">
+      <End Role="Orders" EntitySet="Orders" />
+      <End Role="OrderItems" EntitySet="OrderItems" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Orders_ID_Organist_OrderID" Association="Self.FK_Orders_ID_Organist_OrderID">
+      <End Role="Orders" EntitySet="Orders" />
+      <End Role="Organist" EntitySet="Organist" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Orders_ID_Transport_OrderID" Association="Self.FK_Orders_ID_Transport_OrderID">
+      <End Role="Orders" EntitySet="Orders" />
+      <End Role="Transport" EntitySet="Transport" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Orders_ID_Visitors_OrderID" Association="Self.FK_Orders_ID_Visitors_OrderID">
+      <End Role="Orders" EntitySet="Orders" />
+      <End Role="Visitors" EntitySet="Visitors" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Orderstatus_ID_Orders_OrderStatusID" Association="Self.FK_Orderstatus_ID_Orders_OrderStatusID">
+      <End Role="OrderStatus" EntitySet="OrderStatus" />
+      <End Role="Orders" EntitySet="Orders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OrderSubStatus_ID_Orders_OrderSubStatusID" Association="Self.FK_OrderSubStatus_ID_Orders_OrderSubStatusID">
+      <End Role="OrderSubStatus" EntitySet="OrderSubStatus" />
+      <End Role="Orders" EntitySet="Orders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OrderSubType_ID_Orders_OrderSubTypeID" Association="Self.FK_OrderSubType_ID_Orders_OrderSubTypeID">
+      <End Role="OrderSubType" EntitySet="OrderSubType" />
+      <End Role="Orders" EntitySet="Orders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OrderType_ID_Orders_OrderTypeID" Association="Self.FK_OrderType_ID_Orders_OrderTypeID">
+      <End Role="OrderType" EntitySet="OrderType" />
+      <End Role="Orders" EntitySet="Orders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Religion_ID_ReligiousDenomination_ReligionID" Association="Self.FK_Religion_ID_ReligiousDenomination_ReligionID">
+      <End Role="Religion" EntitySet="Religion" />
+      <End Role="ReligiousDenomination" EntitySet="ReligiousDenomination" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Supplier_ID_Coffin_SupplierID" Association="Self.FK_Supplier_ID_Coffin_SupplierID">
+      <End Role="Supplier" EntitySet="Supplier" />
+      <End Role="Coffin" EntitySet="Coffin" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Supplier_ID_Transport_SupplierID" Association="Self.FK_Supplier_ID_Transport_SupplierID">
+      <End Role="Supplier" EntitySet="Supplier" />
+      <End Role="Transport" EntitySet="Transport" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TransportType_ID_Transport_TypeID" Association="Self.FK_TransportType_ID_Transport_TypeID">
+      <End Role="TransportType" EntitySet="TransportType" />
+      <End Role="Transport" EntitySet="Transport" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Users_ID_Client_CreatedBy" Association="Self.FK_Users_ID_Client_CreatedBy">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Client" EntitySet="Client" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Users_ID_Client_LastModifiedBy" Association="Self.FK_Users_ID_Client_LastModifiedBy">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Client" EntitySet="Client" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Users_ID_Deceased_CreatedBy" Association="Self.FK_Users_ID_Deceased_CreatedBy">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Deceased" EntitySet="Deceased" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Users_ID_Deceased_LastModifiedBy" Association="Self.FK_Users_ID_Deceased_LastModifiedBy">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Deceased" EntitySet="Deceased" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Users_ID_Orders_CreatedBy" Association="Self.FK_Users_ID_Orders_CreatedBy">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Orders" EntitySet="Orders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Users_ID_Orders_LastModifiedBy" Association="Self.FK_Users_ID_Orders_LastModifiedBy">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Orders" EntitySet="Orders" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

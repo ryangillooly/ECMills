@@ -7,16 +7,15 @@ using System.Web.Mvc;
 using ECMills.Models;
 using System.Web.Mvc.Html;
 using System.Data.SqlClient;
-using ECMills.ViewModels;
 
 namespace ECMills.Controllers
 {
     public class CustomersController : Controller
     {
-        private ECMillsDBConnection DBContext;
+        private ECMills_DBModel_Connection DBContext;
         public CustomersController()
         {
-            DBContext = new ECMillsDBConnection();
+            DBContext = new ECMills_DBModel_Connection();
         }
         protected override void Dispose(bool disposing)
         {
@@ -38,39 +37,41 @@ namespace ECMills.Controllers
                 return View("NoCustomers");
             }
         }
+        /*
+                public ActionResult Details(int id)
+                {
+                    var customer = GetCustomers(id);
 
-        public ActionResult Details(int id)
-        {
-            var customer = GetCustomers(id);
+                    if (customer == null)
+                        return HttpNotFound();
 
-            if (customer == null)
-                return HttpNotFound();
+                    return View(customer);
+                }
 
-            return View(customer);
-        }
+                private List<sp_GetClientFile_Result> GetCustomers(int id)
+                {
+                    var courses = DBContext.sp_GetClientFile(id).ToList();
+                    return courses;
+                }
 
-        private List<sp_GetClientFile_Result> GetCustomers(int id)
-        {
-            var courses = DBContext.sp_GetClientFile(id).ToList();
-            return courses;
-        }
+                public ViewResult User()
+                {
+                    return View();
+                }
 
-        public ViewResult User()
-        {
-            return View();
-        }
+                public ActionResult New()
+                {
+                    var Churches = DBContext.sp_GetCommitalls().ToList();
 
-        public ActionResult New()
-        {
-            var Churches = DBContext.sp_GetCommitalls().ToList();
+                    var viewModel = new NewCustomerViewModel
+                    {
+                       Churches = Churches
+                    };
 
-            var viewModel = new NewCustomerViewModel
-            {
-               Churches = Churches
-            };
+                    return View(viewModel);
+                }
 
-            return View(viewModel);
-        }
+            */
 
     }
 }
