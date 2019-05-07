@@ -6,72 +6,99 @@
 }
 @foreach (var deceasedProfle in Model)
 {
+    
     <div class="card">
         <div class="card-header card-header-primary">
             <h4 class="card-title">@deceasedProfle.Name</h4>
             <p class="card-category">@deceasedProfle.Reference</p>
         </div>
         <div class="card-body">
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Date Of Birth</th>
-                        <th>Age</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>@deceasedProfle.Name</td>
-                        <td>@deceasedProfle.DOB</td>
-                        <td>@deceasedProfle.Age</td>
-                    </tr>
-                </tbody>
-            </table>
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th>Known As</th>
-                        <th>Gender</th>
-                        <th>Time of Death</th>
-                        <th>Religion</th>
-                        <th>Religious Denomination</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>@deceasedProfle.Known_As</td>
-                        <td>@deceasedProfle.Gender</td>
-                        <td>@deceasedProfle.TimeOfDeath</td>
-                        <td>@deceasedProfle.Religion</td>
-                        <td>@deceasedProfle.ReligiousDenomination</td>
-                    </tr>
-                </tbody>
-            </table>
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th>Marital Status</th>
-                        <th>Occupation</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>@deceasedProfle.MaritalStatus</td>
-                        <td>@deceasedProfle.Occupation</td>
-                    </tr>
-                </tbody>
-            </table>
+            <form>
+                <div class="row">
+                    <div class="col-md-7">
+                        <div class="form-group bmd-form-group">
+                            <label class="bmd-label-static">Name</label>
+                            <div class="form-control">@deceasedProfle.Name</div>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="form-group bmd-form-group">
+                            <label class="bmd-label-static">Gender</label>
+                            <div class="form-control">@deceasedProfle.Gender</div>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="form-group bmd-form-group">
+                            <label class="bmd-label-static">Date of Birth</label>
+                            <div class="form-control">@deceasedProfle.DOB</div>
+                        </div>
+                    </div>
+                    <div class="col-md-1">
+                        <div class="form-group bmd-form-group">
+                            <label class="bmd-label-static">Age</label>
+                            <div class="form-control">@deceasedProfle.Age</div>
+                        </div>
+                    </div>
+                </div>
+                <br />
+                <div class="row">
+                    <div class="col-md-2">
+                        <div class="form-group bmd-form-group">
+                            <label class="bmd-label-static">Known As</label>
+                            <div class="form-control">@deceasedProfle.Known_As</div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group bmd-form-group">
+                            <label class="bmd-label-static">Date/Time of Death</label>
+                            <div class="form-control">@deceasedProfle.TimeOfDeath</div>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="form-group bmd-form-group">
+                            <label class="bmd-label-static">Religion</label>
+                            <div class="form-control">@deceasedProfle.Religion</div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group bmd-form-group">
+                            <label class="bmd-label-static">Religious Denomination</label>
+                            <div class="form-control">@deceasedProfle.ReligiousDenomination</div>
+                        </div>
+                    </div>
+                </div>
+                <br />
+                <div class="row">
+                    <div class="col-md-2">
+                        <div class="form-group bmd-form-group">
+                            <label class="bmd-label-static">Marital Status</label>
+                            <div class="form-control">@deceasedProfle.MaritalStatus</div>
+                        </div>
+                    </div>
+                    <div class="col-md-5">
+                        <div class="form-group bmd-form-group">
+                            <label class="bmd-label-static">Occupation</label>
+                            <div class="form-control">@deceasedProfle.Occupation</div>
+                        </div>
+                    </div>
+                </div>
+                <button type="button" class="btn btn-primary pull-left" onclick="location.href='@Url.Action("EditProfile", "Deceased", new { DeceasedID = deceasedProfle.Reference }, null)'">
+                    Edit Profile
+                </button>
 
+                <button type="submit" class="btn btn-primary pull-right">Update Profile</button>
 
-
-        <button type="button" class="btn btn-primary pull-left" onclick="location.href='@Url.Action("EditProfile", "Deceased", new { DeceasedID = deceasedProfle.Reference }, null)'">
-            Edit Profile
-        </button>
-
-        <button type="submit" class="btn btn-primary pull-right">Update Profile</button>
-
-        <div class="clearfix"></div>
+                <div class="clearfix"></div>
+            </form>
         </div>
     </div>
 }
+    <div class="card">
+        <div class="card-body">
+           
+            <b-button variant="outline-primary">
+
+            </b-button>
+        </div>
+    </div>
+

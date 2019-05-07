@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="ECMills_DBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="ECMills_NewDesignModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Ceremony">
           <Key>
             <PropertyRef Name="OrderID" />
@@ -614,7 +614,9 @@ warning 6002: The table/view 'ECMills_NewDesign.dbo.vw_GetDeceasedProfile' does 
         <EntityType Name="vw_GetDeceasedProfile">
           <Key>
             <PropertyRef Name="Reference" />
-            <PropertyRef Name="Name" />
+            <PropertyRef Name="Title" />
+            <PropertyRef Name="Forenames" />
+            <PropertyRef Name="Surname" />
             <PropertyRef Name="Age" />
             <PropertyRef Name="Gender" />
             <PropertyRef Name="TimeOfDeath" />
@@ -623,7 +625,10 @@ warning 6002: The table/view 'ECMills_NewDesign.dbo.vw_GetDeceasedProfile' does 
             <PropertyRef Name="MaritalStatus" />
           </Key>
           <Property Name="Reference" Type="smallint" Nullable="false" />
-          <Property Name="Name" Type="nvarchar" MaxLength="132" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="Forenames" Type="nvarchar" MaxLength="60" Nullable="false" />
+          <Property Name="Surname" Type="nvarchar" MaxLength="60" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="132" />
           <Property Name="DOB" Type="date" />
           <Property Name="Known As" Type="nvarchar" MaxLength="60" />
           <Property Name="Age" Type="tinyint" Nullable="false" />
@@ -1184,7 +1189,7 @@ warning 6002: The table/view 'ECMills_NewDesign.sys.database_firewall_rules' doe
         <Function Name="sp_GetDeceasedProfile" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="DeceasedID" Type="smallint" Mode="In" />
         </Function>
-        <EntityContainer Name="ECMills_DBModelStoreContainer">
+        <EntityContainer Name="ECMills_NewDesignModelStoreContainer">
           <EntitySet Name="Ceremony" EntityType="Self.Ceremony" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Client" EntityType="Self.Client" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Coffin" EntityType="Self.Coffin" Schema="dbo" store:Type="Tables" />
@@ -1360,6 +1365,9 @@ warning 6002: The table/view 'ECMills_NewDesign.sys.database_firewall_rules' doe
           <EntitySet Name="vw_GetDeceasedProfile" EntityType="Self.vw_GetDeceasedProfile" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
     [vw_GetDeceasedProfile].[Reference] AS [Reference], 
+    [vw_GetDeceasedProfile].[Title] AS [Title], 
+    [vw_GetDeceasedProfile].[Forenames] AS [Forenames], 
+    [vw_GetDeceasedProfile].[Surname] AS [Surname], 
     [vw_GetDeceasedProfile].[Name] AS [Name], 
     [vw_GetDeceasedProfile].[DOB] AS [DOB], 
     [vw_GetDeceasedProfile].[Known As] AS [Known As], 
@@ -1565,7 +1573,7 @@ warning 6002: The table/view 'ECMills_NewDesign.sys.database_firewall_rules' doe
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="ECMills_DBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="ECMills_NewDesignModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="Ceremony">
           <Key>
             <PropertyRef Name="OrderID" />
@@ -2237,7 +2245,9 @@ warning 6002: The table/view 'ECMills_NewDesign.sys.database_firewall_rules' doe
         <EntityType Name="vw_GetDeceasedProfile">
           <Key>
             <PropertyRef Name="Reference" />
-            <PropertyRef Name="Name" />
+            <PropertyRef Name="Title" />
+            <PropertyRef Name="Forenames" />
+            <PropertyRef Name="Surname" />
             <PropertyRef Name="Age" />
             <PropertyRef Name="Gender" />
             <PropertyRef Name="TimeOfDeath" />
@@ -2246,7 +2256,10 @@ warning 6002: The table/view 'ECMills_NewDesign.sys.database_firewall_rules' doe
             <PropertyRef Name="MaritalStatus" />
           </Key>
           <Property Name="Reference" Type="Int16" Nullable="false" />
-          <Property Name="Name" Type="String" MaxLength="132" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Title" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Forenames" Type="String" MaxLength="60" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Surname" Type="String" MaxLength="60" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="132" FixedLength="false" Unicode="true" />
           <Property Name="DOB" Type="DateTime" Precision="0" />
           <Property Name="Known_As" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
           <Property Name="Age" Type="Byte" Nullable="false" />
@@ -3013,11 +3026,11 @@ warning 6002: The table/view 'ECMills_NewDesign.sys.database_firewall_rules' doe
             <End Role="TransportType" EntitySet="TransportTypes" />
             <End Role="Transport" EntitySet="Transports" />
           </AssociationSet>
-          <FunctionImport Name="sp_GetDeceasedAddressList" ReturnType="Collection(ECMills_DBModel.sp_GetDeceasedAddressList_Result)">
+          <FunctionImport Name="sp_GetDeceasedAddressList" ReturnType="Collection(ECMills_NewDesignModel.sp_GetDeceasedAddressList_Result)">
             <Parameter Name="DeceasedID" Mode="In" Type="Int16" />
           </FunctionImport>
-          <FunctionImport Name="sp_GetDeceasedList" ReturnType="Collection(ECMills_DBModel.sp_GetDeceasedList_Result)" />
-          <FunctionImport Name="sp_GetDeceasedProfile" ReturnType="Collection(ECMills_DBModel.sp_GetDeceasedProfile_Result)">
+          <FunctionImport Name="sp_GetDeceasedList" ReturnType="Collection(ECMills_NewDesignModel.sp_GetDeceasedList_Result)" />
+          <FunctionImport Name="sp_GetDeceasedProfile" ReturnType="Collection(ECMills_NewDesignModel.sp_GetDeceasedProfile_Result)">
             <Parameter Name="DeceasedID" Mode="In" Type="Int16" />
           </FunctionImport>
         </EntityContainer>
@@ -3042,7 +3055,10 @@ warning 6002: The table/view 'ECMills_NewDesign.sys.database_firewall_rules' doe
         </ComplexType>
         <ComplexType Name="sp_GetDeceasedProfile_Result">
           <Property Type="Int16" Name="Reference" Nullable="false" />
-          <Property Type="String" Name="Name" Nullable="false" MaxLength="132" />
+          <Property Type="String" Name="Title" Nullable="false" MaxLength="10" />
+          <Property Type="String" Name="Forenames" Nullable="false" MaxLength="60" />
+          <Property Type="String" Name="Surname" Nullable="false" MaxLength="60" />
+          <Property Type="String" Name="Name" Nullable="true" MaxLength="132" />
           <Property Type="DateTime" Name="DOB" Nullable="true" />
           <Property Type="String" Name="Known_As" Nullable="true" MaxLength="60" />
           <Property Type="Byte" Name="Age" Nullable="false" />
@@ -3058,9 +3074,9 @@ warning 6002: The table/view 'ECMills_NewDesign.sys.database_firewall_rules' doe
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="ECMills_DBModelStoreContainer" CdmEntityContainer="ECMills_DBModel_Connection">
+        <EntityContainerMapping StorageEntityContainer="ECMills_NewDesignModelStoreContainer" CdmEntityContainer="ECMills_DBModel_Connection">
           <EntitySetMapping Name="Ceremonies">
-            <EntityTypeMapping TypeName="ECMills_DBModel.Ceremony">
+            <EntityTypeMapping TypeName="ECMills_NewDesignModel.Ceremony">
               <MappingFragment StoreEntitySet="Ceremony">
                 <ScalarProperty Name="OrderID" ColumnName="OrderID" />
                 <ScalarProperty Name="CeremonyLocationID" ColumnName="CeremonyLocationID" />
@@ -3081,7 +3097,7 @@ warning 6002: The table/view 'ECMills_NewDesign.sys.database_firewall_rules' doe
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Clients">
-            <EntityTypeMapping TypeName="ECMills_DBModel.Client">
+            <EntityTypeMapping TypeName="ECMills_NewDesignModel.Client">
               <MappingFragment StoreEntitySet="Client">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Title" ColumnName="Title" />
@@ -3101,7 +3117,7 @@ warning 6002: The table/view 'ECMills_NewDesign.sys.database_firewall_rules' doe
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Coffins">
-            <EntityTypeMapping TypeName="ECMills_DBModel.Coffin">
+            <EntityTypeMapping TypeName="ECMills_NewDesignModel.Coffin">
               <MappingFragment StoreEntitySet="Coffin">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
@@ -3118,7 +3134,7 @@ warning 6002: The table/view 'ECMills_NewDesign.sys.database_firewall_rules' doe
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="CommitallLocationTypes">
-            <EntityTypeMapping TypeName="ECMills_DBModel.CommitallLocationType">
+            <EntityTypeMapping TypeName="ECMills_NewDesignModel.CommitallLocationType">
               <MappingFragment StoreEntitySet="CommitallLocationType">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Type" ColumnName="Type" />
@@ -3126,7 +3142,7 @@ warning 6002: The table/view 'ECMills_NewDesign.sys.database_firewall_rules' doe
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="CommittalLocations">
-            <EntityTypeMapping TypeName="ECMills_DBModel.CommittalLocation">
+            <EntityTypeMapping TypeName="ECMills_NewDesignModel.CommittalLocation">
               <MappingFragment StoreEntitySet="CommittalLocation">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="CommittalLocationTypeID" ColumnName="CommittalLocationTypeID" />
@@ -3141,7 +3157,7 @@ warning 6002: The table/view 'ECMills_NewDesign.sys.database_firewall_rules' doe
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Deceaseds">
-            <EntityTypeMapping TypeName="ECMills_DBModel.Deceased">
+            <EntityTypeMapping TypeName="ECMills_NewDesignModel.Deceased">
               <MappingFragment StoreEntitySet="Deceased">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Title" ColumnName="Title" />
@@ -3166,7 +3182,7 @@ warning 6002: The table/view 'ECMills_NewDesign.sys.database_firewall_rules' doe
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="DeceasedAddressTypes">
-            <EntityTypeMapping TypeName="ECMills_DBModel.DeceasedAddressType">
+            <EntityTypeMapping TypeName="ECMills_NewDesignModel.DeceasedAddressType">
               <MappingFragment StoreEntitySet="DeceasedAddressType">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
@@ -3174,7 +3190,7 @@ warning 6002: The table/view 'ECMills_NewDesign.sys.database_firewall_rules' doe
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="DeceasedContactsContactTypes">
-            <EntityTypeMapping TypeName="ECMills_DBModel.DeceasedContactsContactType">
+            <EntityTypeMapping TypeName="ECMills_NewDesignModel.DeceasedContactsContactType">
               <MappingFragment StoreEntitySet="DeceasedContactsContactType">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Type" ColumnName="Type" />
@@ -3182,7 +3198,7 @@ warning 6002: The table/view 'ECMills_NewDesign.sys.database_firewall_rules' doe
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Doctors">
-            <EntityTypeMapping TypeName="ECMills_DBModel.Doctor">
+            <EntityTypeMapping TypeName="ECMills_NewDesignModel.Doctor">
               <MappingFragment StoreEntitySet="Doctor">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Title" ColumnName="Title" />
@@ -3199,7 +3215,7 @@ warning 6002: The table/view 'ECMills_NewDesign.sys.database_firewall_rules' doe
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="MaritalStatus">
-            <EntityTypeMapping TypeName="ECMills_DBModel.MaritalStatu">
+            <EntityTypeMapping TypeName="ECMills_NewDesignModel.MaritalStatu">
               <MappingFragment StoreEntitySet="MaritalStatus">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Status" ColumnName="Status" />
@@ -3207,7 +3223,7 @@ warning 6002: The table/view 'ECMills_NewDesign.sys.database_firewall_rules' doe
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Memorials">
-            <EntityTypeMapping TypeName="ECMills_DBModel.Memorial">
+            <EntityTypeMapping TypeName="ECMills_NewDesignModel.Memorial">
               <MappingFragment StoreEntitySet="Memorial">
                 <ScalarProperty Name="OrderID" ColumnName="OrderID" />
                 <ScalarProperty Name="Requirement" ColumnName="Requirement" />
@@ -3229,7 +3245,7 @@ warning 6002: The table/view 'ECMills_NewDesign.sys.database_firewall_rules' doe
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="MemorialContactPoints">
-            <EntityTypeMapping TypeName="ECMills_DBModel.MemorialContactPoint">
+            <EntityTypeMapping TypeName="ECMills_NewDesignModel.MemorialContactPoint">
               <MappingFragment StoreEntitySet="MemorialContactPoint">
                 <ScalarProperty Name="OrderID" ColumnName="OrderID" />
                 <ScalarProperty Name="Type" ColumnName="Type" />
@@ -3238,7 +3254,7 @@ warning 6002: The table/view 'ECMills_NewDesign.sys.database_firewall_rules' doe
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Officiants">
-            <EntityTypeMapping TypeName="ECMills_DBModel.Officiant">
+            <EntityTypeMapping TypeName="ECMills_NewDesignModel.Officiant">
               <MappingFragment StoreEntitySet="Officiant">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Title" ColumnName="Title" />
@@ -3253,7 +3269,7 @@ warning 6002: The table/view 'ECMills_NewDesign.sys.database_firewall_rules' doe
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="OfficiantContactPoints">
-            <EntityTypeMapping TypeName="ECMills_DBModel.OfficiantContactPoint">
+            <EntityTypeMapping TypeName="ECMills_NewDesignModel.OfficiantContactPoint">
               <MappingFragment StoreEntitySet="OfficiantContactPoint">
                 <ScalarProperty Name="OfficiantID" ColumnName="OfficiantID" />
                 <ScalarProperty Name="Type" ColumnName="Type" />
@@ -3262,7 +3278,7 @@ warning 6002: The table/view 'ECMills_NewDesign.sys.database_firewall_rules' doe
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="OrderChecklists">
-            <EntityTypeMapping TypeName="ECMills_DBModel.OrderChecklist">
+            <EntityTypeMapping TypeName="ECMills_NewDesignModel.OrderChecklist">
               <MappingFragment StoreEntitySet="OrderChecklist">
                 <ScalarProperty Name="OrderID" ColumnName="OrderID" />
                 <ScalarProperty Name="HospitalReleaseFormRecieved" ColumnName="HospitalReleaseFormRecieved" />
@@ -3290,7 +3306,7 @@ warning 6002: The table/view 'ECMills_NewDesign.sys.database_firewall_rules' doe
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="OrderCosts">
-            <EntityTypeMapping TypeName="ECMills_DBModel.OrderCost">
+            <EntityTypeMapping TypeName="ECMills_NewDesignModel.OrderCost">
               <MappingFragment StoreEntitySet="OrderCost">
                 <ScalarProperty Name="OrderID" ColumnName="OrderID" />
                 <ScalarProperty Name="Cars" ColumnName="Cars" />
@@ -3303,7 +3319,7 @@ warning 6002: The table/view 'ECMills_NewDesign.sys.database_firewall_rules' doe
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="OrderDetails">
-            <EntityTypeMapping TypeName="ECMills_DBModel.OrderDetail">
+            <EntityTypeMapping TypeName="ECMills_NewDesignModel.OrderDetail">
               <MappingFragment StoreEntitySet="OrderDetails">
                 <ScalarProperty Name="OrderID" ColumnName="OrderID" />
                 <ScalarProperty Name="IsContract" ColumnName="IsContract" />
@@ -3331,7 +3347,7 @@ warning 6002: The table/view 'ECMills_NewDesign.sys.database_firewall_rules' doe
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="OrderItemSubTypes">
-            <EntityTypeMapping TypeName="ECMills_DBModel.OrderItemSubType">
+            <EntityTypeMapping TypeName="ECMills_NewDesignModel.OrderItemSubType">
               <MappingFragment StoreEntitySet="OrderItemSubType">
                 <ScalarProperty Name="OrderItemTypeID" ColumnName="OrderItemTypeID" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
@@ -3340,7 +3356,7 @@ warning 6002: The table/view 'ECMills_NewDesign.sys.database_firewall_rules' doe
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="OrderItemTypes">
-            <EntityTypeMapping TypeName="ECMills_DBModel.OrderItemType">
+            <EntityTypeMapping TypeName="ECMills_NewDesignModel.OrderItemType">
               <MappingFragment StoreEntitySet="OrderItemType">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Type" ColumnName="Type" />
@@ -3348,7 +3364,7 @@ warning 6002: The table/view 'ECMills_NewDesign.sys.database_firewall_rules' doe
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Orders">
-            <EntityTypeMapping TypeName="ECMills_DBModel.Order">
+            <EntityTypeMapping TypeName="ECMills_NewDesignModel.Order">
               <MappingFragment StoreEntitySet="Orders">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="ClientID" ColumnName="ClientID" />
@@ -3365,7 +3381,7 @@ warning 6002: The table/view 'ECMills_NewDesign.sys.database_firewall_rules' doe
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="OrderStatus">
-            <EntityTypeMapping TypeName="ECMills_DBModel.OrderStatu">
+            <EntityTypeMapping TypeName="ECMills_NewDesignModel.OrderStatu">
               <MappingFragment StoreEntitySet="OrderStatus">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Status" ColumnName="Status" />
@@ -3373,7 +3389,7 @@ warning 6002: The table/view 'ECMills_NewDesign.sys.database_firewall_rules' doe
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="OrderSubStatus">
-            <EntityTypeMapping TypeName="ECMills_DBModel.OrderSubStatu">
+            <EntityTypeMapping TypeName="ECMills_NewDesignModel.OrderSubStatu">
               <MappingFragment StoreEntitySet="OrderSubStatus">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="SubStatus" ColumnName="SubStatus" />
@@ -3381,7 +3397,7 @@ warning 6002: The table/view 'ECMills_NewDesign.sys.database_firewall_rules' doe
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="OrderSubTypes">
-            <EntityTypeMapping TypeName="ECMills_DBModel.OrderSubType">
+            <EntityTypeMapping TypeName="ECMills_NewDesignModel.OrderSubType">
               <MappingFragment StoreEntitySet="OrderSubType">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Type" ColumnName="Type" />
@@ -3389,7 +3405,7 @@ warning 6002: The table/view 'ECMills_NewDesign.sys.database_firewall_rules' doe
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="OrderTypes">
-            <EntityTypeMapping TypeName="ECMills_DBModel.OrderType">
+            <EntityTypeMapping TypeName="ECMills_NewDesignModel.OrderType">
               <MappingFragment StoreEntitySet="OrderType">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Type" ColumnName="Type" />
@@ -3397,7 +3413,7 @@ warning 6002: The table/view 'ECMills_NewDesign.sys.database_firewall_rules' doe
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Organists">
-            <EntityTypeMapping TypeName="ECMills_DBModel.Organist">
+            <EntityTypeMapping TypeName="ECMills_NewDesignModel.Organist">
               <MappingFragment StoreEntitySet="Organist">
                 <ScalarProperty Name="OrderID" ColumnName="OrderID" />
                 <ScalarProperty Name="LineItem" ColumnName="LineItem" />
@@ -3410,7 +3426,7 @@ warning 6002: The table/view 'ECMills_NewDesign.sys.database_firewall_rules' doe
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Religions">
-            <EntityTypeMapping TypeName="ECMills_DBModel.Religion">
+            <EntityTypeMapping TypeName="ECMills_NewDesignModel.Religion">
               <MappingFragment StoreEntitySet="Religion">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
@@ -3418,7 +3434,7 @@ warning 6002: The table/view 'ECMills_NewDesign.sys.database_firewall_rules' doe
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="ReligiousDenominations">
-            <EntityTypeMapping TypeName="ECMills_DBModel.ReligiousDenomination">
+            <EntityTypeMapping TypeName="ECMills_NewDesignModel.ReligiousDenomination">
               <MappingFragment StoreEntitySet="ReligiousDenomination">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="ReligionID" ColumnName="ReligionID" />
@@ -3427,7 +3443,7 @@ warning 6002: The table/view 'ECMills_NewDesign.sys.database_firewall_rules' doe
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Suppliers">
-            <EntityTypeMapping TypeName="ECMills_DBModel.Supplier">
+            <EntityTypeMapping TypeName="ECMills_NewDesignModel.Supplier">
               <MappingFragment StoreEntitySet="Supplier">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
@@ -3442,7 +3458,7 @@ warning 6002: The table/view 'ECMills_NewDesign.sys.database_firewall_rules' doe
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="TransportTypes">
-            <EntityTypeMapping TypeName="ECMills_DBModel.TransportType">
+            <EntityTypeMapping TypeName="ECMills_NewDesignModel.TransportType">
               <MappingFragment StoreEntitySet="TransportType">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Type" ColumnName="Type" />
@@ -3452,7 +3468,7 @@ warning 6002: The table/view 'ECMills_NewDesign.sys.database_firewall_rules' doe
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Users">
-            <EntityTypeMapping TypeName="ECMills_DBModel.User">
+            <EntityTypeMapping TypeName="ECMills_NewDesignModel.User">
               <MappingFragment StoreEntitySet="Users">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="OfficeID" ColumnName="OfficeID" />
@@ -3466,7 +3482,7 @@ warning 6002: The table/view 'ECMills_NewDesign.sys.database_firewall_rules' doe
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="DeceasedAddresses">
-            <EntityTypeMapping TypeName="ECMills_DBModel.DeceasedAddress">
+            <EntityTypeMapping TypeName="ECMills_NewDesignModel.DeceasedAddress">
               <MappingFragment StoreEntitySet="DeceasedAddress">
                 <ScalarProperty Name="DeceasedID" ColumnName="DeceasedID" />
                 <ScalarProperty Name="AddressTypeID" ColumnName="AddressTypeID" />
@@ -3481,7 +3497,7 @@ warning 6002: The table/view 'ECMills_NewDesign.sys.database_firewall_rules' doe
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="DeceasedContacts">
-            <EntityTypeMapping TypeName="ECMills_DBModel.DeceasedContact">
+            <EntityTypeMapping TypeName="ECMills_NewDesignModel.DeceasedContact">
               <MappingFragment StoreEntitySet="DeceasedContacts">
                 <ScalarProperty Name="DeceasedID" ColumnName="DeceasedID" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
@@ -3504,7 +3520,7 @@ warning 6002: The table/view 'ECMills_NewDesign.sys.database_firewall_rules' doe
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="DeceasedContactsPointOfContacts">
-            <EntityTypeMapping TypeName="ECMills_DBModel.DeceasedContactsPointOfContact">
+            <EntityTypeMapping TypeName="ECMills_NewDesignModel.DeceasedContactsPointOfContact">
               <MappingFragment StoreEntitySet="DeceasedContactsPointOfContact">
                 <ScalarProperty Name="DeceasedContactsID" ColumnName="DeceasedContactsID" />
                 <ScalarProperty Name="Type" ColumnName="Type" />
@@ -3513,7 +3529,7 @@ warning 6002: The table/view 'ECMills_NewDesign.sys.database_firewall_rules' doe
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Jewelleries">
-            <EntityTypeMapping TypeName="ECMills_DBModel.Jewellery">
+            <EntityTypeMapping TypeName="ECMills_NewDesignModel.Jewellery">
               <MappingFragment StoreEntitySet="Jewellery">
                 <ScalarProperty Name="OrderID" ColumnName="OrderID" />
                 <ScalarProperty Name="LineItem" ColumnName="LineItem" />
@@ -3522,7 +3538,7 @@ warning 6002: The table/view 'ECMills_NewDesign.sys.database_firewall_rules' doe
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Musics">
-            <EntityTypeMapping TypeName="ECMills_DBModel.Music">
+            <EntityTypeMapping TypeName="ECMills_NewDesignModel.Music">
               <MappingFragment StoreEntitySet="Music">
                 <ScalarProperty Name="OrderID" ColumnName="OrderID" />
                 <ScalarProperty Name="LineItem" ColumnName="LineItem" />
@@ -3534,7 +3550,7 @@ warning 6002: The table/view 'ECMills_NewDesign.sys.database_firewall_rules' doe
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Offices">
-            <EntityTypeMapping TypeName="ECMills_DBModel.Office">
+            <EntityTypeMapping TypeName="ECMills_NewDesignModel.Office">
               <MappingFragment StoreEntitySet="Office">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="AddressLine1" ColumnName="AddressLine1" />
@@ -3546,7 +3562,7 @@ warning 6002: The table/view 'ECMills_NewDesign.sys.database_firewall_rules' doe
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="OrderItems">
-            <EntityTypeMapping TypeName="ECMills_DBModel.OrderItem">
+            <EntityTypeMapping TypeName="ECMills_NewDesignModel.OrderItem">
               <MappingFragment StoreEntitySet="OrderItems">
                 <ScalarProperty Name="OrderID" ColumnName="OrderID" />
                 <ScalarProperty Name="LineItem" ColumnName="LineItem" />
@@ -3562,7 +3578,7 @@ warning 6002: The table/view 'ECMills_NewDesign.sys.database_firewall_rules' doe
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Transports">
-            <EntityTypeMapping TypeName="ECMills_DBModel.Transport">
+            <EntityTypeMapping TypeName="ECMills_NewDesignModel.Transport">
               <MappingFragment StoreEntitySet="Transport">
                 <ScalarProperty Name="OrderID" ColumnName="OrderID" />
                 <ScalarProperty Name="LineItem" ColumnName="LineItem" />
@@ -3590,7 +3606,7 @@ warning 6002: The table/view 'ECMills_NewDesign.sys.database_firewall_rules' doe
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Visitors">
-            <EntityTypeMapping TypeName="ECMills_DBModel.Visitor">
+            <EntityTypeMapping TypeName="ECMills_NewDesignModel.Visitor">
               <MappingFragment StoreEntitySet="Visitors">
                 <ScalarProperty Name="OrderID" ColumnName="OrderID" />
                 <ScalarProperty Name="LineItem" ColumnName="LineItem" />
@@ -3603,7 +3619,7 @@ warning 6002: The table/view 'ECMills_NewDesign.sys.database_firewall_rules' doe
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="vw_GetDeceasedAddressList">
-            <EntityTypeMapping TypeName="ECMills_DBModel.vw_GetDeceasedAddressList">
+            <EntityTypeMapping TypeName="ECMills_NewDesignModel.vw_GetDeceasedAddressList">
               <MappingFragment StoreEntitySet="vw_GetDeceasedAddressList">
                 <ScalarProperty Name="DeceasedID" ColumnName="DeceasedID" />
                 <ScalarProperty Name="AddressType" ColumnName="AddressType" />
@@ -3618,7 +3634,7 @@ warning 6002: The table/view 'ECMills_NewDesign.sys.database_firewall_rules' doe
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="vw_GetDeceasedList">
-            <EntityTypeMapping TypeName="ECMills_DBModel.vw_GetDeceasedList">
+            <EntityTypeMapping TypeName="ECMills_NewDesignModel.vw_GetDeceasedList">
               <MappingFragment StoreEntitySet="vw_GetDeceasedList">
                 <ScalarProperty Name="Reference" ColumnName="Reference" />
                 <ScalarProperty Name="Type" ColumnName="Type" />
@@ -3630,9 +3646,12 @@ warning 6002: The table/view 'ECMills_NewDesign.sys.database_firewall_rules' doe
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="vw_GetDeceasedProfile">
-            <EntityTypeMapping TypeName="ECMills_DBModel.vw_GetDeceasedProfile">
+            <EntityTypeMapping TypeName="ECMills_NewDesignModel.vw_GetDeceasedProfile">
               <MappingFragment StoreEntitySet="vw_GetDeceasedProfile">
                 <ScalarProperty Name="Reference" ColumnName="Reference" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Forenames" ColumnName="Forenames" />
+                <ScalarProperty Name="Surname" ColumnName="Surname" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="DOB" ColumnName="DOB" />
                 <ScalarProperty Name="Known_As" ColumnName="Known As" />
@@ -3647,7 +3666,7 @@ warning 6002: The table/view 'ECMills_NewDesign.sys.database_firewall_rules' doe
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="vw_RowCountForAllTables">
-            <EntityTypeMapping TypeName="ECMills_DBModel.vw_RowCountForAllTables">
+            <EntityTypeMapping TypeName="ECMills_NewDesignModel.vw_RowCountForAllTables">
               <MappingFragment StoreEntitySet="vw_RowCountForAllTables">
                 <ScalarProperty Name="Table" ColumnName="Table" />
                 <ScalarProperty Name="RowCount" ColumnName="RowCount" />
@@ -3655,7 +3674,7 @@ warning 6002: The table/view 'ECMills_NewDesign.sys.database_firewall_rules' doe
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="database_firewall_rules">
-            <EntityTypeMapping TypeName="ECMills_DBModel.database_firewall_rules">
+            <EntityTypeMapping TypeName="ECMills_NewDesignModel.database_firewall_rules">
               <MappingFragment StoreEntitySet="database_firewall_rules">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="name" ColumnName="name" />
@@ -3666,9 +3685,9 @@ warning 6002: The table/view 'ECMills_NewDesign.sys.database_firewall_rules' doe
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <FunctionImportMapping FunctionImportName="sp_GetDeceasedAddressList" FunctionName="ECMills_DBModel.Store.sp_GetDeceasedAddressList">
+          <FunctionImportMapping FunctionImportName="sp_GetDeceasedAddressList" FunctionName="ECMills_NewDesignModel.Store.sp_GetDeceasedAddressList">
             <ResultMapping>
-              <ComplexTypeMapping TypeName="ECMills_DBModel.sp_GetDeceasedAddressList_Result">
+              <ComplexTypeMapping TypeName="ECMills_NewDesignModel.sp_GetDeceasedAddressList_Result">
                 <ScalarProperty Name="DeceasedID" ColumnName="DeceasedID" />
                 <ScalarProperty Name="AddressType" ColumnName="AddressType" />
                 <ScalarProperty Name="AddressLine1" ColumnName="AddressLine1" />
@@ -3681,9 +3700,9 @@ warning 6002: The table/view 'ECMills_NewDesign.sys.database_firewall_rules' doe
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="sp_GetDeceasedList" FunctionName="ECMills_DBModel.Store.sp_GetDeceasedList">
+          <FunctionImportMapping FunctionImportName="sp_GetDeceasedList" FunctionName="ECMills_NewDesignModel.Store.sp_GetDeceasedList">
             <ResultMapping>
-              <ComplexTypeMapping TypeName="ECMills_DBModel.sp_GetDeceasedList_Result">
+              <ComplexTypeMapping TypeName="ECMills_NewDesignModel.sp_GetDeceasedList_Result">
                 <ScalarProperty Name="Reference" ColumnName="Reference" />
                 <ScalarProperty Name="Type" ColumnName="Type" />
                 <ScalarProperty Name="SubType" ColumnName="SubType" />
@@ -3693,10 +3712,13 @@ warning 6002: The table/view 'ECMills_NewDesign.sys.database_firewall_rules' doe
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="sp_GetDeceasedProfile" FunctionName="ECMills_DBModel.Store.sp_GetDeceasedProfile">
+          <FunctionImportMapping FunctionImportName="sp_GetDeceasedProfile" FunctionName="ECMills_NewDesignModel.Store.sp_GetDeceasedProfile">
             <ResultMapping>
-              <ComplexTypeMapping TypeName="ECMills_DBModel.sp_GetDeceasedProfile_Result">
+              <ComplexTypeMapping TypeName="ECMills_NewDesignModel.sp_GetDeceasedProfile_Result">
                 <ScalarProperty Name="Reference" ColumnName="Reference" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Forenames" ColumnName="Forenames" />
+                <ScalarProperty Name="Surname" ColumnName="Surname" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="DOB" ColumnName="DOB" />
                 <ScalarProperty Name="Known_As" ColumnName="Known As" />

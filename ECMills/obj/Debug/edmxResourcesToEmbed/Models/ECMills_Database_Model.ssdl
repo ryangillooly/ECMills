@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Schema Namespace="ECMills_DBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+<Schema Namespace="ECMills_NewDesignModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
   <EntityType Name="Ceremony">
     <Key>
       <PropertyRef Name="OrderID" />
@@ -1184,7 +1184,7 @@ warning 6002: The table/view 'ECMills_NewDesign.sys.database_firewall_rules' doe
   <Function Name="sp_GetDeceasedProfile" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="DeceasedID" Type="smallint" Mode="In" />
   </Function>
-  <EntityContainer Name="ECMills_DBModelStoreContainer">
+  <EntityContainer Name="ECMills_NewDesignModelStoreContainer">
     <EntitySet Name="Ceremony" EntityType="Self.Ceremony" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Client" EntityType="Self.Client" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Coffin" EntityType="Self.Coffin" Schema="dbo" store:Type="Tables" />

@@ -15,6 +15,9 @@ namespace ECMills.Models
     public partial class vw_GetDeceasedProfile
     {
         public short Reference { get; set; }
+        public string Title { get; set; }
+        public string Forenames { get; set; }
+        public string Surname { get; set; }
         public string Name { get; set; }
         public Nullable<System.DateTime> DOB { get; set; }
         public string Known_As { get; set; }

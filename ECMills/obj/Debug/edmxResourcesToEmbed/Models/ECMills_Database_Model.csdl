@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Schema Namespace="ECMills_DBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+<Schema Namespace="ECMills_NewDesignModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
   <EntityType Name="Ceremony">
     <Key>
       <PropertyRef Name="OrderID" />
@@ -1235,7 +1235,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
+  <EntityContainer Name="ECMills_DBModel_Connection" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="Ceremonies" EntityType="Self.Ceremony" />
     <EntitySet Name="Clients" EntityType="Self.Client" />
     <EntitySet Name="Coffins" EntityType="Self.Coffin" />
@@ -1452,11 +1452,11 @@
       <End Role="TransportType" EntitySet="TransportTypes" />
       <End Role="Transport" EntitySet="Transports" />
     </AssociationSet>
-    <FunctionImport Name="sp_GetDeceasedAddressList" ReturnType="Collection(ECMills_DBModel.sp_GetDeceasedAddressList_Result)">
+    <FunctionImport Name="sp_GetDeceasedAddressList" ReturnType="Collection(ECMills_NewDesignModel.sp_GetDeceasedAddressList_Result)">
       <Parameter Name="DeceasedID" Mode="In" Type="Int16" />
     </FunctionImport>
-    <FunctionImport Name="sp_GetDeceasedList" ReturnType="Collection(ECMills_DBModel.sp_GetDeceasedList_Result)" />
-    <FunctionImport Name="sp_GetDeceasedProfile" ReturnType="Collection(ECMills_DBModel.sp_GetDeceasedProfile_Result)">
+    <FunctionImport Name="sp_GetDeceasedList" ReturnType="Collection(ECMills_NewDesignModel.sp_GetDeceasedList_Result)" />
+    <FunctionImport Name="sp_GetDeceasedProfile" ReturnType="Collection(ECMills_NewDesignModel.sp_GetDeceasedProfile_Result)">
       <Parameter Name="DeceasedID" Mode="In" Type="Int16" />
     </FunctionImport>
   </EntityContainer>

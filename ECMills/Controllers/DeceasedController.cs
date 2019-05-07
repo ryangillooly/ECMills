@@ -29,8 +29,8 @@ namespace ECMills.Controllers
 
         public new ActionResult Profile(Int16 DeceasedID)
         {
-            var deceasedProfile = sp_GetDeceasedProfile(DeceasedID);
-
+            var deceasedProfile   = sp_GetDeceasedProfile(DeceasedID);
+            var deceasedAddresses = sp_GetDeceasedAddressList(DeceasedID);
             return View(deceasedProfile);
         }
 
@@ -50,6 +50,11 @@ namespace ECMills.Controllers
         private List<sp_GetDeceasedProfile_Result> sp_GetDeceasedProfile(Int16 DeceasedID)
         {
             return DBContext.sp_GetDeceasedProfile(DeceasedID).ToList();
+        }
+
+        private List<sp_GetDeceasedAddressList_Result> sp_GetDeceasedAddressList(Int16 DeceasedID)
+        {
+            return DBContext.sp_GetDeceasedAddressList(DeceasedID).ToList();
         }
 
 

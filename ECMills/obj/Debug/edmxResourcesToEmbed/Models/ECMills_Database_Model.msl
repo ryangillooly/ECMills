@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="ECMills_DBModelStoreContainer" CdmEntityContainer="Entities">
+  <EntityContainerMapping StorageEntityContainer="ECMills_NewDesignModelStoreContainer" CdmEntityContainer="ECMills_DBModel_Connection">
     <EntitySetMapping Name="Ceremonies">
-      <EntityTypeMapping TypeName="ECMills_DBModel.Ceremony">
+      <EntityTypeMapping TypeName="ECMills_NewDesignModel.Ceremony">
         <MappingFragment StoreEntitySet="Ceremony">
           <ScalarProperty Name="OrderID" ColumnName="OrderID" />
           <ScalarProperty Name="CeremonyLocationID" ColumnName="CeremonyLocationID" />
@@ -23,7 +23,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Clients">
-      <EntityTypeMapping TypeName="ECMills_DBModel.Client">
+      <EntityTypeMapping TypeName="ECMills_NewDesignModel.Client">
         <MappingFragment StoreEntitySet="Client">
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="Title" ColumnName="Title" />
@@ -43,7 +43,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Coffins">
-      <EntityTypeMapping TypeName="ECMills_DBModel.Coffin">
+      <EntityTypeMapping TypeName="ECMills_NewDesignModel.Coffin">
         <MappingFragment StoreEntitySet="Coffin">
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="Name" ColumnName="Name" />
@@ -60,7 +60,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="CommitallLocationTypes">
-      <EntityTypeMapping TypeName="ECMills_DBModel.CommitallLocationType">
+      <EntityTypeMapping TypeName="ECMills_NewDesignModel.CommitallLocationType">
         <MappingFragment StoreEntitySet="CommitallLocationType">
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="Type" ColumnName="Type" />
@@ -68,7 +68,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="CommittalLocations">
-      <EntityTypeMapping TypeName="ECMills_DBModel.CommittalLocation">
+      <EntityTypeMapping TypeName="ECMills_NewDesignModel.CommittalLocation">
         <MappingFragment StoreEntitySet="CommittalLocation">
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="CommittalLocationTypeID" ColumnName="CommittalLocationTypeID" />
@@ -83,7 +83,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Deceaseds">
-      <EntityTypeMapping TypeName="ECMills_DBModel.Deceased">
+      <EntityTypeMapping TypeName="ECMills_NewDesignModel.Deceased">
         <MappingFragment StoreEntitySet="Deceased">
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="Title" ColumnName="Title" />
@@ -108,7 +108,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="DeceasedAddressTypes">
-      <EntityTypeMapping TypeName="ECMills_DBModel.DeceasedAddressType">
+      <EntityTypeMapping TypeName="ECMills_NewDesignModel.DeceasedAddressType">
         <MappingFragment StoreEntitySet="DeceasedAddressType">
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="Name" ColumnName="Name" />
@@ -116,7 +116,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="DeceasedContactsContactTypes">
-      <EntityTypeMapping TypeName="ECMills_DBModel.DeceasedContactsContactType">
+      <EntityTypeMapping TypeName="ECMills_NewDesignModel.DeceasedContactsContactType">
         <MappingFragment StoreEntitySet="DeceasedContactsContactType">
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="Type" ColumnName="Type" />
@@ -124,7 +124,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Doctors">
-      <EntityTypeMapping TypeName="ECMills_DBModel.Doctor">
+      <EntityTypeMapping TypeName="ECMills_NewDesignModel.Doctor">
         <MappingFragment StoreEntitySet="Doctor">
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="Title" ColumnName="Title" />
@@ -141,7 +141,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="MaritalStatus">
-      <EntityTypeMapping TypeName="ECMills_DBModel.MaritalStatu">
+      <EntityTypeMapping TypeName="ECMills_NewDesignModel.MaritalStatu">
         <MappingFragment StoreEntitySet="MaritalStatus">
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="Status" ColumnName="Status" />
@@ -149,7 +149,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Memorials">
-      <EntityTypeMapping TypeName="ECMills_DBModel.Memorial">
+      <EntityTypeMapping TypeName="ECMills_NewDesignModel.Memorial">
         <MappingFragment StoreEntitySet="Memorial">
           <ScalarProperty Name="OrderID" ColumnName="OrderID" />
           <ScalarProperty Name="Requirement" ColumnName="Requirement" />
@@ -171,7 +171,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="MemorialContactPoints">
-      <EntityTypeMapping TypeName="ECMills_DBModel.MemorialContactPoint">
+      <EntityTypeMapping TypeName="ECMills_NewDesignModel.MemorialContactPoint">
         <MappingFragment StoreEntitySet="MemorialContactPoint">
           <ScalarProperty Name="OrderID" ColumnName="OrderID" />
           <ScalarProperty Name="Type" ColumnName="Type" />
@@ -180,7 +180,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Officiants">
-      <EntityTypeMapping TypeName="ECMills_DBModel.Officiant">
+      <EntityTypeMapping TypeName="ECMills_NewDesignModel.Officiant">
         <MappingFragment StoreEntitySet="Officiant">
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="Title" ColumnName="Title" />
@@ -195,7 +195,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="OfficiantContactPoints">
-      <EntityTypeMapping TypeName="ECMills_DBModel.OfficiantContactPoint">
+      <EntityTypeMapping TypeName="ECMills_NewDesignModel.OfficiantContactPoint">
         <MappingFragment StoreEntitySet="OfficiantContactPoint">
           <ScalarProperty Name="OfficiantID" ColumnName="OfficiantID" />
           <ScalarProperty Name="Type" ColumnName="Type" />
@@ -204,7 +204,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="OrderChecklists">
-      <EntityTypeMapping TypeName="ECMills_DBModel.OrderChecklist">
+      <EntityTypeMapping TypeName="ECMills_NewDesignModel.OrderChecklist">
         <MappingFragment StoreEntitySet="OrderChecklist">
           <ScalarProperty Name="OrderID" ColumnName="OrderID" />
           <ScalarProperty Name="HospitalReleaseFormRecieved" ColumnName="HospitalReleaseFormRecieved" />
@@ -232,7 +232,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="OrderCosts">
-      <EntityTypeMapping TypeName="ECMills_DBModel.OrderCost">
+      <EntityTypeMapping TypeName="ECMills_NewDesignModel.OrderCost">
         <MappingFragment StoreEntitySet="OrderCost">
           <ScalarProperty Name="OrderID" ColumnName="OrderID" />
           <ScalarProperty Name="Cars" ColumnName="Cars" />
@@ -245,7 +245,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="OrderDetails">
-      <EntityTypeMapping TypeName="ECMills_DBModel.OrderDetail">
+      <EntityTypeMapping TypeName="ECMills_NewDesignModel.OrderDetail">
         <MappingFragment StoreEntitySet="OrderDetails">
           <ScalarProperty Name="OrderID" ColumnName="OrderID" />
           <ScalarProperty Name="IsContract" ColumnName="IsContract" />
@@ -273,7 +273,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="OrderItemSubTypes">
-      <EntityTypeMapping TypeName="ECMills_DBModel.OrderItemSubType">
+      <EntityTypeMapping TypeName="ECMills_NewDesignModel.OrderItemSubType">
         <MappingFragment StoreEntitySet="OrderItemSubType">
           <ScalarProperty Name="OrderItemTypeID" ColumnName="OrderItemTypeID" />
           <ScalarProperty Name="ID" ColumnName="ID" />
@@ -282,7 +282,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="OrderItemTypes">
-      <EntityTypeMapping TypeName="ECMills_DBModel.OrderItemType">
+      <EntityTypeMapping TypeName="ECMills_NewDesignModel.OrderItemType">
         <MappingFragment StoreEntitySet="OrderItemType">
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="Type" ColumnName="Type" />
@@ -290,7 +290,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Orders">
-      <EntityTypeMapping TypeName="ECMills_DBModel.Order">
+      <EntityTypeMapping TypeName="ECMills_NewDesignModel.Order">
         <MappingFragment StoreEntitySet="Orders">
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="ClientID" ColumnName="ClientID" />
@@ -307,7 +307,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="OrderStatus">
-      <EntityTypeMapping TypeName="ECMills_DBModel.OrderStatu">
+      <EntityTypeMapping TypeName="ECMills_NewDesignModel.OrderStatu">
         <MappingFragment StoreEntitySet="OrderStatus">
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="Status" ColumnName="Status" />
@@ -315,7 +315,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="OrderSubStatus">
-      <EntityTypeMapping TypeName="ECMills_DBModel.OrderSubStatu">
+      <EntityTypeMapping TypeName="ECMills_NewDesignModel.OrderSubStatu">
         <MappingFragment StoreEntitySet="OrderSubStatus">
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="SubStatus" ColumnName="SubStatus" />
@@ -323,7 +323,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="OrderSubTypes">
-      <EntityTypeMapping TypeName="ECMills_DBModel.OrderSubType">
+      <EntityTypeMapping TypeName="ECMills_NewDesignModel.OrderSubType">
         <MappingFragment StoreEntitySet="OrderSubType">
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="Type" ColumnName="Type" />
@@ -331,7 +331,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="OrderTypes">
-      <EntityTypeMapping TypeName="ECMills_DBModel.OrderType">
+      <EntityTypeMapping TypeName="ECMills_NewDesignModel.OrderType">
         <MappingFragment StoreEntitySet="OrderType">
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="Type" ColumnName="Type" />
@@ -339,7 +339,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Organists">
-      <EntityTypeMapping TypeName="ECMills_DBModel.Organist">
+      <EntityTypeMapping TypeName="ECMills_NewDesignModel.Organist">
         <MappingFragment StoreEntitySet="Organist">
           <ScalarProperty Name="OrderID" ColumnName="OrderID" />
           <ScalarProperty Name="LineItem" ColumnName="LineItem" />
@@ -352,7 +352,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Religions">
-      <EntityTypeMapping TypeName="ECMills_DBModel.Religion">
+      <EntityTypeMapping TypeName="ECMills_NewDesignModel.Religion">
         <MappingFragment StoreEntitySet="Religion">
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="Name" ColumnName="Name" />
@@ -360,7 +360,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="ReligiousDenominations">
-      <EntityTypeMapping TypeName="ECMills_DBModel.ReligiousDenomination">
+      <EntityTypeMapping TypeName="ECMills_NewDesignModel.ReligiousDenomination">
         <MappingFragment StoreEntitySet="ReligiousDenomination">
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="ReligionID" ColumnName="ReligionID" />
@@ -369,7 +369,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Suppliers">
-      <EntityTypeMapping TypeName="ECMills_DBModel.Supplier">
+      <EntityTypeMapping TypeName="ECMills_NewDesignModel.Supplier">
         <MappingFragment StoreEntitySet="Supplier">
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="Name" ColumnName="Name" />
@@ -384,7 +384,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="TransportTypes">
-      <EntityTypeMapping TypeName="ECMills_DBModel.TransportType">
+      <EntityTypeMapping TypeName="ECMills_NewDesignModel.TransportType">
         <MappingFragment StoreEntitySet="TransportType">
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="Type" ColumnName="Type" />
@@ -394,7 +394,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Users">
-      <EntityTypeMapping TypeName="ECMills_DBModel.User">
+      <EntityTypeMapping TypeName="ECMills_NewDesignModel.User">
         <MappingFragment StoreEntitySet="Users">
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="OfficeID" ColumnName="OfficeID" />
@@ -408,7 +408,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="DeceasedAddresses">
-      <EntityTypeMapping TypeName="ECMills_DBModel.DeceasedAddress">
+      <EntityTypeMapping TypeName="ECMills_NewDesignModel.DeceasedAddress">
         <MappingFragment StoreEntitySet="DeceasedAddress">
           <ScalarProperty Name="DeceasedID" ColumnName="DeceasedID" />
           <ScalarProperty Name="AddressTypeID" ColumnName="AddressTypeID" />
@@ -423,7 +423,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="DeceasedContacts">
-      <EntityTypeMapping TypeName="ECMills_DBModel.DeceasedContact">
+      <EntityTypeMapping TypeName="ECMills_NewDesignModel.DeceasedContact">
         <MappingFragment StoreEntitySet="DeceasedContacts">
           <ScalarProperty Name="DeceasedID" ColumnName="DeceasedID" />
           <ScalarProperty Name="ID" ColumnName="ID" />
@@ -446,7 +446,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="DeceasedContactsPointOfContacts">
-      <EntityTypeMapping TypeName="ECMills_DBModel.DeceasedContactsPointOfContact">
+      <EntityTypeMapping TypeName="ECMills_NewDesignModel.DeceasedContactsPointOfContact">
         <MappingFragment StoreEntitySet="DeceasedContactsPointOfContact">
           <ScalarProperty Name="DeceasedContactsID" ColumnName="DeceasedContactsID" />
           <ScalarProperty Name="Type" ColumnName="Type" />
@@ -455,7 +455,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Jewelleries">
-      <EntityTypeMapping TypeName="ECMills_DBModel.Jewellery">
+      <EntityTypeMapping TypeName="ECMills_NewDesignModel.Jewellery">
         <MappingFragment StoreEntitySet="Jewellery">
           <ScalarProperty Name="OrderID" ColumnName="OrderID" />
           <ScalarProperty Name="LineItem" ColumnName="LineItem" />
@@ -464,7 +464,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Musics">
-      <EntityTypeMapping TypeName="ECMills_DBModel.Music">
+      <EntityTypeMapping TypeName="ECMills_NewDesignModel.Music">
         <MappingFragment StoreEntitySet="Music">
           <ScalarProperty Name="OrderID" ColumnName="OrderID" />
           <ScalarProperty Name="LineItem" ColumnName="LineItem" />
@@ -476,7 +476,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Offices">
-      <EntityTypeMapping TypeName="ECMills_DBModel.Office">
+      <EntityTypeMapping TypeName="ECMills_NewDesignModel.Office">
         <MappingFragment StoreEntitySet="Office">
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="AddressLine1" ColumnName="AddressLine1" />
@@ -488,7 +488,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="OrderItems">
-      <EntityTypeMapping TypeName="ECMills_DBModel.OrderItem">
+      <EntityTypeMapping TypeName="ECMills_NewDesignModel.OrderItem">
         <MappingFragment StoreEntitySet="OrderItems">
           <ScalarProperty Name="OrderID" ColumnName="OrderID" />
           <ScalarProperty Name="LineItem" ColumnName="LineItem" />
@@ -504,7 +504,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Transports">
-      <EntityTypeMapping TypeName="ECMills_DBModel.Transport">
+      <EntityTypeMapping TypeName="ECMills_NewDesignModel.Transport">
         <MappingFragment StoreEntitySet="Transport">
           <ScalarProperty Name="OrderID" ColumnName="OrderID" />
           <ScalarProperty Name="LineItem" ColumnName="LineItem" />
@@ -532,7 +532,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Visitors">
-      <EntityTypeMapping TypeName="ECMills_DBModel.Visitor">
+      <EntityTypeMapping TypeName="ECMills_NewDesignModel.Visitor">
         <MappingFragment StoreEntitySet="Visitors">
           <ScalarProperty Name="OrderID" ColumnName="OrderID" />
           <ScalarProperty Name="LineItem" ColumnName="LineItem" />
@@ -545,7 +545,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="vw_GetDeceasedAddressList">
-      <EntityTypeMapping TypeName="ECMills_DBModel.vw_GetDeceasedAddressList">
+      <EntityTypeMapping TypeName="ECMills_NewDesignModel.vw_GetDeceasedAddressList">
         <MappingFragment StoreEntitySet="vw_GetDeceasedAddressList">
           <ScalarProperty Name="DeceasedID" ColumnName="DeceasedID" />
           <ScalarProperty Name="AddressType" ColumnName="AddressType" />
@@ -560,7 +560,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="vw_GetDeceasedList">
-      <EntityTypeMapping TypeName="ECMills_DBModel.vw_GetDeceasedList">
+      <EntityTypeMapping TypeName="ECMills_NewDesignModel.vw_GetDeceasedList">
         <MappingFragment StoreEntitySet="vw_GetDeceasedList">
           <ScalarProperty Name="Reference" ColumnName="Reference" />
           <ScalarProperty Name="Type" ColumnName="Type" />
@@ -572,7 +572,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="vw_GetDeceasedProfile">
-      <EntityTypeMapping TypeName="ECMills_DBModel.vw_GetDeceasedProfile">
+      <EntityTypeMapping TypeName="ECMills_NewDesignModel.vw_GetDeceasedProfile">
         <MappingFragment StoreEntitySet="vw_GetDeceasedProfile">
           <ScalarProperty Name="Reference" ColumnName="Reference" />
           <ScalarProperty Name="Title" ColumnName="Title" />
@@ -592,7 +592,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="vw_RowCountForAllTables">
-      <EntityTypeMapping TypeName="ECMills_DBModel.vw_RowCountForAllTables">
+      <EntityTypeMapping TypeName="ECMills_NewDesignModel.vw_RowCountForAllTables">
         <MappingFragment StoreEntitySet="vw_RowCountForAllTables">
           <ScalarProperty Name="Table" ColumnName="Table" />
           <ScalarProperty Name="RowCount" ColumnName="RowCount" />
@@ -600,7 +600,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="database_firewall_rules">
-      <EntityTypeMapping TypeName="ECMills_DBModel.database_firewall_rules">
+      <EntityTypeMapping TypeName="ECMills_NewDesignModel.database_firewall_rules">
         <MappingFragment StoreEntitySet="database_firewall_rules">
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="name" ColumnName="name" />
@@ -611,9 +611,9 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <FunctionImportMapping FunctionImportName="sp_GetDeceasedAddressList" FunctionName="ECMills_DBModel.Store.sp_GetDeceasedAddressList">
+    <FunctionImportMapping FunctionImportName="sp_GetDeceasedAddressList" FunctionName="ECMills_NewDesignModel.Store.sp_GetDeceasedAddressList">
       <ResultMapping>
-        <ComplexTypeMapping TypeName="ECMills_DBModel.sp_GetDeceasedAddressList_Result">
+        <ComplexTypeMapping TypeName="ECMills_NewDesignModel.sp_GetDeceasedAddressList_Result">
           <ScalarProperty Name="DeceasedID" ColumnName="DeceasedID" />
           <ScalarProperty Name="AddressType" ColumnName="AddressType" />
           <ScalarProperty Name="AddressLine1" ColumnName="AddressLine1" />
@@ -626,9 +626,9 @@
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
-    <FunctionImportMapping FunctionImportName="sp_GetDeceasedList" FunctionName="ECMills_DBModel.Store.sp_GetDeceasedList">
+    <FunctionImportMapping FunctionImportName="sp_GetDeceasedList" FunctionName="ECMills_NewDesignModel.Store.sp_GetDeceasedList">
       <ResultMapping>
-        <ComplexTypeMapping TypeName="ECMills_DBModel.sp_GetDeceasedList_Result">
+        <ComplexTypeMapping TypeName="ECMills_NewDesignModel.sp_GetDeceasedList_Result">
           <ScalarProperty Name="Reference" ColumnName="Reference" />
           <ScalarProperty Name="Type" ColumnName="Type" />
           <ScalarProperty Name="SubType" ColumnName="SubType" />
@@ -638,9 +638,9 @@
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
-    <FunctionImportMapping FunctionImportName="sp_GetDeceasedProfile" FunctionName="ECMills_DBModel.Store.sp_GetDeceasedProfile">
+    <FunctionImportMapping FunctionImportName="sp_GetDeceasedProfile" FunctionName="ECMills_NewDesignModel.Store.sp_GetDeceasedProfile">
       <ResultMapping>
-        <ComplexTypeMapping TypeName="ECMills_DBModel.sp_GetDeceasedProfile_Result">
+        <ComplexTypeMapping TypeName="ECMills_NewDesignModel.sp_GetDeceasedProfile_Result">
           <ScalarProperty Name="Reference" ColumnName="Reference" />
           <ScalarProperty Name="Title" ColumnName="Title" />
           <ScalarProperty Name="Forenames" ColumnName="Forenames" />
