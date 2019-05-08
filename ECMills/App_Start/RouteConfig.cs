@@ -15,10 +15,19 @@ namespace ECMills
 
             routes.MapMvcAttributeRoutes();
 
+
+            routes.MapRoute(
+                name: "ActionOnly",
+                url: "Arrangement/{id}/{action}",
+                defaults: new { controller = "Arrangement" },
+                constraints: new { id = @"\d+" }
+            );
+            
+            
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Arrangement", action = "List", id = UrlParameter.Optional }
+                defaults: new { controller = "Arrangement", action = "Home", id = UrlParameter.Optional }
             );
         }
     }

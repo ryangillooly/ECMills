@@ -1,105 +1,131 @@
-﻿@model IEnumerable<ECMills.Models.sp_GetDeceasedProfile_Result>
+﻿@using ECMills.Models;
+@model dynamic
+
 
 @{
     ViewBag.Title = "Arrangement";
     Layout = "~/Views/Shared/_Layout.cshtml";
-}
-@foreach (var deceasedProfle in Model)
+}    
+
+@foreach (sp_GetDeceasedProfile_Result Profile in Model.Profile)
 {
-    
-    <div class="card col-md-8">
-        <div class="card-header card-header-primary">
-            <h4 class="card-title">@deceasedProfle.Name</h4>
-            <p class="card-category">@deceasedProfle.Reference</p>
-        </div>
-        <div class="card-body">
-            <form>
-                <br />
-                <div class="row">
-                    <div class="col-md-7">
-                        <div class="form-group bmd-form-group">
-                            <label class="bmd-label-static">Name</label>
-                            <div class="form-control">@deceasedProfle.Name</div>
-                        </div>
-                    </div>
-                    <div class="col-md-2">
-                        <div class="form-group bmd-form-group">
-                            <label class="bmd-label-static">Gender</label>
-                            <div class="form-control">@deceasedProfle.Gender</div>
-                        </div>
-                    </div>
-                    <div class="col-md-2">
-                        <div class="form-group bmd-form-group">
-                            <label class="bmd-label-static">Date of Birth</label>
-                            <div class="form-control">@deceasedProfle.DOB</div>
-                        </div>
-                    </div>
-                    <div class="col-md-1">
-                        <div class="form-group bmd-form-group">
-                            <label class="bmd-label-static">Age</label>
-                            <div class="form-control">@deceasedProfle.Age</div>
-                        </div>
-                    </div>
-                </div>
-                <br />
-                <div class="row">
-                    <div class="col-md-2">
-                        <div class="form-group bmd-form-group">
-                            <label class="bmd-label-static">Known As</label>
-                            <div class="form-control">@deceasedProfle.Known_As</div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="form-group bmd-form-group">
-                            <label class="bmd-label-static">Date/Time of Death</label>
-                            <div class="form-control">@deceasedProfle.TimeOfDeath</div>
-                        </div>
-                    </div>
-                    <div class="col-md-2">
-                        <div class="form-group bmd-form-group">
-                            <label class="bmd-label-static">Religion</label>
-                            <div class="form-control">@deceasedProfle.Religion</div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="form-group bmd-form-group">
-                            <label class="bmd-label-static">Religious Denomination</label>
-                            <div class="form-control">@deceasedProfle.ReligiousDenomination</div>
-                        </div>
-                    </div>
-                </div>
-                <br />
-                <div class="row">
-                    <div class="col-md-2">
-                        <div class="form-group bmd-form-group">
-                            <label class="bmd-label-static">Marital Status</label>
-                            <div class="form-control">@deceasedProfle.MaritalStatus</div>
-                        </div>
-                    </div>
-                    <div class="col-md-5">
-                        <div class="form-group bmd-form-group">
-                            <label class="bmd-label-static">Occupation</label>
-                            <div class="form-control">@deceasedProfle.Occupation</div>
-                        </div>
-                    </div>
-                </div>
-                <button type="button" class="btn btn-primary pull-left" onclick="location.href='@Url.Action("EditDeceased", "Arrangement", new { id = deceasedProfle.Reference }, null)'">
-                    Edit Profile
-                </button>
-
-                <button type="submit" class="btn btn-primary pull-right">Update Profile</button>
-
-                <div class="clearfix"></div>
-            </form>
-        </div>
+<div class="card col-md-8">
+    <div class="card-header card-header-primary">
+        <h4 class="card-title">@Profile.Name</h4>
+        <p class="card-category">@Profile.Reference</p>
     </div>
+    <div class="card-body">
+        <form>
+            <br />
+            <div class="row">
+                <div class="col-md-7">
+                    <div class="form-group bmd-form-group">
+                        <label class="bmd-label-static">Name</label>
+                        <div class="form-control">@Profile.Name</div>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="form-group bmd-form-group">
+                        <label class="bmd-label-static">Gender</label>
+                        <div class="form-control">@Profile.Gender</div>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="form-group bmd-form-group">
+                        <label class="bmd-label-static">Date of Birth</label>
+                        <div class="form-control">@Profile.DOB</div>
+                    </div>
+                </div>
+                <div class="col-md-1">
+                    <div class="form-group bmd-form-group">
+                        <label class="bmd-label-static">Age</label>
+                        <div class="form-control">@Profile.Age</div>
+                    </div>
+                </div>
+            </div>
+            <br />
+            <div class="row">
+                <div class="col-md-2">
+                    <div class="form-group bmd-form-group">
+                        <label class="bmd-label-static">Known As</label>
+                        <div class="form-control">@Profile.Known_As</div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group bmd-form-group">
+                        <label class="bmd-label-static">Date/Time of Death</label>
+                        <div class="form-control">@Profile.TimeOfDeath</div>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="form-group bmd-form-group">
+                        <label class="bmd-label-static">Religion</label>
+                        <div class="form-control">@Profile.Religion</div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group bmd-form-group">
+                        <label class="bmd-label-static">Religious Denomination</label>
+                        <div class="form-control">@Profile.ReligiousDenomination</div>
+                    </div>
+                </div>
+            </div>
+            <br />
+            <div class="row">
+                <div class="col-md-2">
+                    <div class="form-group bmd-form-group">
+                        <label class="bmd-label-static">Marital Status</label>
+                        <div class="form-control">@Profile.MaritalStatus</div>
+                    </div>
+                </div>
+                <div class="col-md-5">
+                    <div class="form-group bmd-form-group">
+                        <label class="bmd-label-static">Occupation</label>
+                        <div class="form-control">@Profile.Occupation</div>
+                    </div>
+                </div>
+            </div>
+            <button type="button" class="btn btn-primary pull-left" onclick="location.href='@Url.Action("EditDeceased", "Arrangement", new { id = @Profile.Reference }, null)'">
+                Edit Profile
+            </button>
+
+            <button type="submit" class="btn btn-primary pull-right">Update Profile</button>
+
+            <div class="clearfix"></div>
+        </form>
+    </div>
+</div>              
 }
-    <div class="card">
-        <div class="card-body">
-           
-            <b-button variant="outline-primary">
-
-            </b-button>
-        </div>
+<div class="card table-responsive col-md-5">
+    <div class="card-body table-responsive table-hover col-md-12">
+        Listed Addresses
+        <hr />
+        <table class="col-md-12">
+            @foreach (sp_GetDeceasedAddressList_Result List in Model.List)
+            {
+                <tr>
+                    <td>
+                        <button type="button" class="btn btn-outline-primary text-left col-md-12">
+                            @List.AddressType
+                            <br />
+                            @List.AddressLine1, @List.AddressLine2, @List.City, @List.PostCode
+                        </button>
+                    </td>
+                </tr>
+            }
+        </table>
     </div>
+</div>
 
+<div class="card table-responsive col-md-5">
+    <div class="card-body table-responsive table-hover col-md-12">
+        Listed Addresses
+        <hr />
+        <table class="col-md-12">
+            @foreach (sp_GetDeceasedAddressList_Result List in Model.List)
+            {
+                
+            }
+        </table>
+    </div>
+</div>

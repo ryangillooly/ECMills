@@ -1,4 +1,4 @@
-﻿<div class="sidebar" data-color="purple" data-background-color="white" data-image="../assets/img/sidebar-1.jpg">
+﻿<div class="sidebar" data-color="purple" data-background-color="white" data-image="~/assets/img/sidebar-1.jpg">
     <!--
         Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
 
@@ -11,14 +11,20 @@
     </div>
     <div class="sidebar-wrapper">
         <ul class="nav">
-            <li class="nav-item  @(ViewContext.RouteData.Values["Controller"].ToString() == "Home" ? "active" : "")">
-                <a class="nav-link" href="@Url.Action("Index", "Home", null, null)">
+            <li class="nav-item  @(ViewContext.RouteData.Values["Controller"].ToString() == "Arrangement" &&
+                                   ViewContext.RouteData.Values["Action"].ToString()     == "Home" ? "active" : "")">
+                <a class="nav-link" href="@Url.Action("Home", "Arrangement", new { id = string.Empty }, null)">
                 <i class="material-icons">dashboard</i>
                 <p>Home</p>
                 </a>
             </li>
-            <li class="nav-item @(ViewContext.RouteData.Values["Controller"].ToString() == "Arrangement" ? "active" : "")">
-                <a class="nav-link" href="@Url.Action("List", "Arrangement", null, null)">
+            <li class="nav-item @(ViewContext.RouteData.Values["Controller"].ToString() == "Arrangement" &&
+                                   (
+                                     ViewContext.RouteData.Values["Action"].ToString()     == "List"      ||
+                                     ViewContext.RouteData.Values["Action"].ToString()     == "Deceased"  ||
+                                     ViewContext.RouteData.Values["Action"].ToString()     == "EditDeceased" 
+                                   )? "active" : "")">
+                <a class="nav-link" href="@Url.Action("List", "Arrangement", new { id = string.Empty }, null)">
                     <i class="material-icons">person</i>
                     <p>Deceased</p>
                 </a>

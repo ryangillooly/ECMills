@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using ECMills.Models;
+using System.Dynamic;
 using System.Web.Mvc;
 
 namespace ECMills.Controllers
@@ -18,6 +19,11 @@ namespace ECMills.Controllers
 
         // GET: Funeral
 
+        public ActionResult Home()
+        {
+            return View();
+        }
+
         public ActionResult List()
         {
             var deceased = sp_GetDeceasedList();
@@ -26,8 +32,11 @@ namespace ECMills.Controllers
 
         public ActionResult Deceased(Int16 id)
         {
-            var deceasedProfile = sp_GetDeceasedProfile(id);
-            return View(deceasedProfile);
+            dynamic dynamicObject = new ExpandoObject();
+            dynamicObject.Profile = sp_GetDeceasedProfile(id);
+            dynamicObject.List    = sp_GetDeceasedAddressList(id);
+
+            return View(dynamicObject);
         }
 
         public ActionResult EditDeceased(Int16 id)
@@ -36,17 +45,17 @@ namespace ECMills.Controllers
             return View(deceasedProfile);
         }
 
-        private List<sp_GetDeceasedList_Result> sp_GetDeceasedList()
+        public List<sp_GetDeceasedList_Result> sp_GetDeceasedList()
         {
             return DBContext.sp_GetDeceasedList().ToList();
         }
 
-        private List<sp_GetDeceasedProfile_Result> sp_GetDeceasedProfile(Int16 id)
+        public List<sp_GetDeceasedProfile_Result> sp_GetDeceasedProfile(Int16 id)
         {
             return DBContext.sp_GetDeceasedProfile(id).ToList();
         }
 
-        private List<sp_GetDeceasedAddressList_Result> sp_GetDeceasedAddressList(Int16 id)
+        public List<sp_GetDeceasedAddressList_Result> sp_GetDeceasedAddressList(Int16 id)
         {
             return DBContext.sp_GetDeceasedAddressList(id).ToList();
         }

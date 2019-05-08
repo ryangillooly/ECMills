@@ -577,7 +577,6 @@
     <Content Include="Views\Web.config" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\NavBar.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Scripts\material-dashboard.js.map" />
@@ -588,6 +587,7 @@
     <Content Include="Views\Arrangement\Deceased.cshtml" />
     <Content Include="Views\Arrangement\List.cshtml" />
     <Content Include="Views\Arrangement\EditDeceased.cshtml" />
+    <Content Include="Views\Arrangement\Home.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -599,6 +599,7 @@
     <Folder Include="Views\FirstCalls\" />
     <Folder Include="Views\FuneralPlanEnquiries\" />
     <Folder Include="Views\FuneralPlans\" />
+    <Folder Include="Views\Home\" />
     <Folder Include="Views\Reports\" />
   </ItemGroup>
   <ItemGroup>
