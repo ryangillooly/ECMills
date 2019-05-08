@@ -21,17 +21,21 @@ namespace ECMills.Controllers
 
         public ActionResult Home()
         {
+            ViewBag.CurrentPage = "Home";
             return View();
         }
 
         public ActionResult List()
         {
+            ViewBag.CurrentPage = "List";
             var deceased = sp_GetDeceasedList();
             return View(deceased);
         }
 
         public ActionResult Deceased(Int16 id)
         {
+            ViewBag.CurrentPage = "Deceased";
+
             dynamic dynamicObject = new ExpandoObject();
             dynamicObject.Profile = sp_GetDeceasedProfile(id);
             dynamicObject.List    = sp_GetDeceasedAddressList(id);
@@ -41,6 +45,7 @@ namespace ECMills.Controllers
 
         public ActionResult EditDeceased(Int16 id)
         {
+            ViewBag.CurrentPage = "EditDeceased";
             var deceasedProfile = sp_GetDeceasedProfile(id);
             return View(deceasedProfile);
         }

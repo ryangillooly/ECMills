@@ -5,127 +5,170 @@
 @{
     ViewBag.Title = "Arrangement";
     Layout = "~/Views/Shared/_Layout.cshtml";
-}    
+}
 
 @foreach (sp_GetDeceasedProfile_Result Profile in Model.Profile)
 {
-<div class="card col-md-8">
-    <div class="card-header card-header-primary">
-        <h4 class="card-title">@Profile.Name</h4>
-        <p class="card-category">@Profile.Reference</p>
-    </div>
-    <div class="card-body">
-        <form>
-            <br />
-            <div class="row">
-                <div class="col-md-7">
-                    <div class="form-group bmd-form-group">
-                        <label class="bmd-label-static">Name</label>
-                        <div class="form-control">@Profile.Name</div>
+    <div class="card col-md-5">
+        <div class="card-header card-header-primary">
+            <h4 class="card-title">@Profile.Name</h4>
+            <p class="card-category">@Profile.Reference</p>
+        </div>
+        <div class="card-body">
+            <form>
+                <br />
+                <div class="row">
+                    <div class="col-md-8">
+                        <div class="form-group bmd-form-group">
+                            <label class="bmd-label-static">Name</label>
+                            <div class="form-control">@Profile.Name</div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group bmd-form-group">
+                            <label class="bmd-label-static">Known As</label>
+                            <div class="form-control">@Profile.Known_As</div>
+                        </div>
                     </div>
                 </div>
-                <div class="col-md-2">
-                    <div class="form-group bmd-form-group">
-                        <label class="bmd-label-static">Gender</label>
-                        <div class="form-control">@Profile.Gender</div>
+                <br />
+                <div class="row">
+                    <div class="col-md-2">
+                        <div class="form-group bmd-form-group">
+                            <label class="bmd-label-static">Gender</label>
+                            <div class="form-control">@Profile.Gender</div>
+                        </div>
                     </div>
-                </div>
-                <div class="col-md-2">
-                    <div class="form-group bmd-form-group">
-                        <label class="bmd-label-static">Date of Birth</label>
-                        <div class="form-control">@Profile.DOB</div>
+                    <div class="col-md-2">
+                        <div class="form-group bmd-form-group">
+                            <label class="bmd-label-static">Age</label>
+                            <div class="form-control">@Profile.Age</div>
+                        </div>
                     </div>
-                </div>
-                <div class="col-md-1">
-                    <div class="form-group bmd-form-group">
-                        <label class="bmd-label-static">Age</label>
-                        <div class="form-control">@Profile.Age</div>
+                    <div class="col-md-3">
+                        <div class="form-group bmd-form-group">
+                            <label class="bmd-label-static">Date of Birth</label>
+                            <div class="form-control">@Profile.DOB</div>
+                        </div>
                     </div>
-                </div>
-            </div>
-            <br />
-            <div class="row">
-                <div class="col-md-2">
-                    <div class="form-group bmd-form-group">
-                        <label class="bmd-label-static">Known As</label>
-                        <div class="form-control">@Profile.Known_As</div>
+                    <div class="col-md-5">
+                        <div class="form-group bmd-form-group">
+                            <label class="bmd-label-static">Date/Time of Death</label>
+                            <div class="form-control">@Profile.TimeOfDeath</div>
+                        </div>
                     </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="form-group bmd-form-group">
-                        <label class="bmd-label-static">Date/Time of Death</label>
-                        <div class="form-control">@Profile.TimeOfDeath</div>
-                    </div>
-                </div>
-                <div class="col-md-2">
-                    <div class="form-group bmd-form-group">
-                        <label class="bmd-label-static">Religion</label>
-                        <div class="form-control">@Profile.Religion</div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="form-group bmd-form-group">
-                        <label class="bmd-label-static">Religious Denomination</label>
-                        <div class="form-control">@Profile.ReligiousDenomination</div>
-                    </div>
-                </div>
-            </div>
-            <br />
-            <div class="row">
-                <div class="col-md-2">
-                    <div class="form-group bmd-form-group">
-                        <label class="bmd-label-static">Marital Status</label>
-                        <div class="form-control">@Profile.MaritalStatus</div>
-                    </div>
-                </div>
-                <div class="col-md-5">
-                    <div class="form-group bmd-form-group">
-                        <label class="bmd-label-static">Occupation</label>
-                        <div class="form-control">@Profile.Occupation</div>
-                    </div>
-                </div>
-            </div>
-            <button type="button" class="btn btn-primary pull-left" onclick="location.href='@Url.Action("EditDeceased", "Arrangement", new { id = @Profile.Reference }, null)'">
-                Edit Profile
-            </button>
 
-            <button type="submit" class="btn btn-primary pull-right">Update Profile</button>
+                </div>
+                <br />
+                <div class="row">
+                    <div class="col-md-5">
+                        <div class="form-group bmd-form-group">
+                            <label class="bmd-label-static">Marital Status</label>
+                            <div class="form-control">@Profile.MaritalStatus</div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group bmd-form-group">
+                            <label class="bmd-label-static">Occupation</label>
+                            <div class="form-control">@Profile.Occupation</div>
+                        </div>
+                    </div>
+                </div>
+                <br />
+                <div class="row">
+                    <div class="col-md-5">
+                        <div class="form-group bmd-form-group">
+                            <label class="bmd-label-static">Religion</label>
+                            <div class="form-control">@Profile.Religion</div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group bmd-form-group">
+                            <label class="bmd-label-static">Religious Denomination</label>
+                            <div class="form-control">@Profile.ReligiousDenomination</div>
+                        </div>
+                    </div>
+                </div>
+                <button type="button" class="btn btn-primary pull-left" onclick="location.href='@Url.Action("EditDeceased", "Arrangement", new { id = @Profile.Reference }, null)'">
+                    Edit Profile
+                </button>
 
-            <div class="clearfix"></div>
-        </form>
+                <button type="submit" class="btn btn-primary pull-right">Update Profile</button>
+
+                <div class="clearfix"></div>
+            </form>
+        </div>
     </div>
-</div>              
 }
-<div class="card table-responsive col-md-5">
-    <div class="card-body table-responsive table-hover col-md-12">
-        Listed Addresses
-        <hr />
-        <table class="col-md-12">
-            @foreach (sp_GetDeceasedAddressList_Result List in Model.List)
-            {
-                <tr>
-                    <td>
-                        <button type="button" class="btn btn-outline-primary text-left col-md-12">
-                            @List.AddressType
-                            <br />
-                            @List.AddressLine1, @List.AddressLine2, @List.City, @List.PostCode
-                        </button>
-                    </td>
-                </tr>
-            }
-        </table>
+
+<div class="row col-md-12">
+    <div class="card col-md-5">
+        <div class="card-body">
+            Listed Addresses
+            <hr />
+            <table class="table-responsive table-hover">
+                @{
+                    Int32 AddressID = 0;
+                    Dictionary<string, string> Variables = new Dictionary<string, string>();
+                }
+                @foreach (sp_GetDeceasedAddressList_Result List in Model.List)
+                {
+                    AddressID = AddressID + 1;
+
+                    Variables.Add(String.Format("AddressLine1_{0}", AddressID.ToString()), List.AddressLine1);
+                    Variables.Add(String.Format("AddressLine2_{0}", AddressID.ToString()), List.AddressLine2);
+                    Variables.Add(String.Format("City_{0}"        , AddressID.ToString()), List.City);
+                    Variables.Add(String.Format("PostCode_{0}"    , AddressID.ToString()), List.PostCode);
+
+                    <tr>
+                        <td>
+                            <button id="@AddressID" type="button" class="AddressButton btn btn-outline-primary text-left col-md-12">
+                                @List.AddressType
+                                <br />
+                                @List.AddressLine1, @List.AddressLine2, @List.City, @List.PostCode
+                            </button>
+                        </td>
+                    </tr>
+                }
+            </table>
+        </div>
+    </div>
+
+    <div class="col-md-1">
+
+    </div>
+
+    <div class="card table-responsive col-md-5">
+        <div class="card-body">
+            Address Details
+            <hr />
+            <div id="testerdiv">
+
+            </div>
+        </div>
     </div>
 </div>
 
-<div class="card table-responsive col-md-5">
-    <div class="card-body table-responsive table-hover col-md-12">
-        Listed Addresses
-        <hr />
-        <table class="col-md-12">
-            @foreach (sp_GetDeceasedAddressList_Result List in Model.List)
-            {
-                
-            }
-        </table>
-    </div>
-</div>
+@section scripts {
+    <script type="text/javascript">
+    $(document).on('click', '#1', function () {
+
+        $(".variabledata").remove();
+
+            $("#testerdiv").append('<p class="variabledata">@Variables["AddressLine1_1"]</p>');
+            $("#testerdiv").append('<p class="variabledata">@Variables["AddressLine2_1"]</p>');
+            $("#testerdiv").append('<p class="variabledata">@Variables["City_1"]</p>');
+            $("#testerdiv").append('<p class="variabledata">@Variables["PostCode_1"]</p>');
+        });
+
+    $(document).on('click', '#2', function () {
+
+        $(".variabledata").remove();
+
+            $("#testerdiv").append('<p class="variabledata">@Variables["AddressLine1_2"]</p>');
+            $("#testerdiv").append('<p class="variabledata">@Variables["AddressLine2_2"]</p>');
+            $("#testerdiv").append('<p class="variabledata">@Variables["City_2"]</p>');
+            $("#testerdiv").append('<p class="variabledata">@Variables["PostCode_2"]</p>');
+        });
+    </script>
+    }

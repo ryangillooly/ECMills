@@ -17,6 +17,7 @@
     <link href="~/Content/material-dashboard.css?v=2.1.1" rel="stylesheet" />
 
     @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/jquery")
 </head>
 
 <body>
@@ -85,6 +86,7 @@
     <script>
         $(document).ready(function () {
             $().ready(function () {
+
                 $sidebar = $('.sidebar');
 
                 $sidebar_img_container = $sidebar.find('.sidebar-background');
