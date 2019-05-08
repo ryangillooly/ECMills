@@ -117,12 +117,12 @@
 
                     Variables.Add(String.Format("AddressLine1_{0}", AddressID.ToString()), List.AddressLine1);
                     Variables.Add(String.Format("AddressLine2_{0}", AddressID.ToString()), List.AddressLine2);
-                    Variables.Add(String.Format("City_{0}"        , AddressID.ToString()), List.City);
-                    Variables.Add(String.Format("PostCode_{0}"    , AddressID.ToString()), List.PostCode);
+                    Variables.Add(String.Format("City_{0}", AddressID.ToString()), List.City);
+                    Variables.Add(String.Format("PostCode_{0}", AddressID.ToString()), List.PostCode);
 
                     <tr>
                         <td>
-                            <button id="@AddressID" type="button" class="AddressButton btn btn-outline-primary text-left col-md-12">
+                            <button id="@AddressID" type="button" onclick="testFunction(@AddressID)" class="AddressButton btn btn-outline-primary text-left col-md-12">
                                 @List.AddressType
                                 <br />
                                 @List.AddressLine1, @List.AddressLine2, @List.City, @List.PostCode
@@ -151,7 +151,7 @@
 
 @section scripts {
     <script type="text/javascript">
-    $(document).on('click', '#1', function () {
+    @*$(document).on('click', '#1', function () {
 
         $(".variabledata").remove();
 
@@ -169,6 +169,28 @@
             $("#testerdiv").append('<p class="variabledata">@Variables["AddressLine2_2"]</p>');
             $("#testerdiv").append('<p class="variabledata">@Variables["City_2"]</p>');
             $("#testerdiv").append('<p class="variabledata">@Variables["PostCode_2"]</p>');
-        });
+    });*@
+
+    function testFunction(ID) {
+       // if (!(AddressID === undefined))
+        // { 
+
+        $(".variabledata").remove();
+        if (ID == 1)
+            {
+                $("#testerdiv").append('<p class="variabledata">@Variables["AddressLine1_1"]</p>');
+                $("#testerdiv").append('<p class="variabledata">@Variables["AddressLine2_1"]</p>');
+                $("#testerdiv").append('<p class="variabledata">@Variables["City_1"]</p>');
+                $("#testerdiv").append('<p class="variabledata">@Variables["PostCode_1"]</p>');
+        } else
+            if (ID == 2)
+            {
+                $("#testerdiv").append('<p class="variabledata">@Variables["AddressLine1_2"]</p>');
+                $("#testerdiv").append('<p class="variabledata">@Variables["AddressLine2_2"]</p>');
+                $("#testerdiv").append('<p class="variabledata">@Variables["City_2"]</p>');
+                $("#testerdiv").append('<p class="variabledata">@Variables["PostCode_2"]</p>');
+            } 
+        };
+  //  };
     </script>
     }
