@@ -6,9 +6,9 @@ using System.Web.Mvc;
 
 namespace ECMills.Controllers
 {
-    public class HomeController : Controller
+    public class AccountsController : Controller
     {
-        // GET: Home
+        // GET: Accounts
         public ActionResult Index()
         {
             return View();

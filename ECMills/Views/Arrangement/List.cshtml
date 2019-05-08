@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<ECMills.Models.sp_GetDeceasedList_Result>
 
 @{
-    ViewBag.Title = "List";
+    ViewBag.Title = "Arrangement";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
@@ -36,12 +36,12 @@
                                     <td>@deceased.Client_Name</td>
                                     <td class="td-actions">
                                         <button type="button" rel="tooltip" class="btn btn-info">
-                                            <a href="@Url.Action("Profile", "Deceased", new { DeceasedID = deceased.Reference }, null)">
+                                            <a href="@Url.Action("Deceased", "Arrangement", new { id = deceased.Reference }, null)">
                                                 <i class="material-icons">person</i>
                                             </a>
                                         </button>
                                         <button type="button" rel="tooltip" class="btn btn-success">
-                                            <a href="@Url.Action("EditProfile", "Deceased", new { DeceasedID = deceased.Reference }, null)">
+                                            <a href="@Url.Action("EditDeceased", "Arrangement", new { id = deceased.Reference }, null)">
                                                 <i class="material-icons">edit</i>
                                             </a>
                                         </button>

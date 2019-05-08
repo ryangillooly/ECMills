@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<ECMills.Models.sp_GetDeceasedProfile_Result>
 
 @{
-    ViewBag.Title = "Deceased";
+    ViewBag.Title = "Arrangement";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 @foreach (var deceasedProfle in Model)
@@ -98,7 +98,7 @@
                         </div>
                     </div>
                 </div>
-                <button type="button" class="btn btn-primary pull-left" onclick="location.href='@Url.Action("Profile", "Deceased", new { DeceasedID = deceasedProfle.Reference }, null)'">
+                <button type="button" class="btn btn-primary pull-left" onclick="location.href='@Url.Action("Deceased", "Arrangement", new { id = deceasedProfle.Reference }, null)'">
                     Cancel
                 </button>
 

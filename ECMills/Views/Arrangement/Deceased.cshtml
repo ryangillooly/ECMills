@@ -1,11 +1,12 @@
 ﻿@model IEnumerable<ECMills.Models.sp_GetDeceasedProfile_Result>
 
 @{
-    ViewBag.Title = "Deceased";
+    ViewBag.Title = "Arrangement";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 @foreach (var deceasedProfle in Model)
 {
+    
     <div class="card col-md-8">
         <div class="card-header card-header-primary">
             <h4 class="card-title">@deceasedProfle.Name</h4>
@@ -15,44 +16,28 @@
             <form>
                 <br />
                 <div class="row">
-                    <div class="col-md-1">
+                    <div class="col-md-7">
                         <div class="form-group bmd-form-group">
-                            <label class="bmd-label-static">Title</label>
-                            <input type="text" class="form-control" placeholder="@deceasedProfle.Title" />
+                            <label class="bmd-label-static">Name</label>
+                            <div class="form-control">@deceasedProfle.Name</div>
                         </div>
                     </div>
-
-                    <div class="col-md-2">
-                        <div class="form-group bmd-form-group">
-                            <label class="bmd-label-static">Forenames</label>
-                            <input type="text" class="form-control" placeholder="@deceasedProfle.Forenames">
-                        </div>
-                    </div>
-
-                    <div class="col-md-4">
-                        <div class="form-group bmd-form-group">
-                            <label class="bmd-label-static">Surname</label>
-                            <input type="text" class="form-control" placeholder="@deceasedProfle.Surname">
-                        </div>
-                    </div>
-
                     <div class="col-md-2">
                         <div class="form-group bmd-form-group">
                             <label class="bmd-label-static">Gender</label>
-                            <input type="text" class="form-control" placeholder="@deceasedProfle.Gender">
+                            <div class="form-control">@deceasedProfle.Gender</div>
                         </div>
                     </div>
-
                     <div class="col-md-2">
                         <div class="form-group bmd-form-group">
                             <label class="bmd-label-static">Date of Birth</label>
-                            <input type="text" class="form-control" placeholder="@deceasedProfle.DOB">
+                            <div class="form-control">@deceasedProfle.DOB</div>
                         </div>
                     </div>
                     <div class="col-md-1">
                         <div class="form-group bmd-form-group">
                             <label class="bmd-label-static">Age</label>
-                            <input type="text" class="form-control" placeholder="@deceasedProfle.Age">
+                            <div class="form-control">@deceasedProfle.Age</div>
                         </div>
                     </div>
                 </div>
@@ -61,25 +46,25 @@
                     <div class="col-md-2">
                         <div class="form-group bmd-form-group">
                             <label class="bmd-label-static">Known As</label>
-                            <input type="text" class="form-control" placeholder="@deceasedProfle.Known_As">
+                            <div class="form-control">@deceasedProfle.Known_As</div>
                         </div>
                     </div>
                     <div class="col-md-4">
                         <div class="form-group bmd-form-group">
                             <label class="bmd-label-static">Date/Time of Death</label>
-                            <input type="text" class="form-control" placeholder="@deceasedProfle.TimeOfDeath">
+                            <div class="form-control">@deceasedProfle.TimeOfDeath</div>
                         </div>
                     </div>
                     <div class="col-md-2">
                         <div class="form-group bmd-form-group">
                             <label class="bmd-label-static">Religion</label>
-                            <input type="text" class="form-control" placeholder="@deceasedProfle.Religion">
+                            <div class="form-control">@deceasedProfle.Religion</div>
                         </div>
                     </div>
                     <div class="col-md-4">
                         <div class="form-group bmd-form-group">
                             <label class="bmd-label-static">Religious Denomination</label>
-                            <input type="text" class="form-control" placeholder="@deceasedProfle.ReligiousDenomination">
+                            <div class="form-control">@deceasedProfle.ReligiousDenomination</div>
                         </div>
                     </div>
                 </div>
@@ -88,18 +73,18 @@
                     <div class="col-md-2">
                         <div class="form-group bmd-form-group">
                             <label class="bmd-label-static">Marital Status</label>
-                            <input type="text" class="form-control" placeholder="@deceasedProfle.MaritalStatus">
+                            <div class="form-control">@deceasedProfle.MaritalStatus</div>
                         </div>
                     </div>
                     <div class="col-md-5">
                         <div class="form-group bmd-form-group">
                             <label class="bmd-label-static">Occupation</label>
-                            <input type="text" class="form-control" placeholder="@deceasedProfle.Occupation">
+                            <div class="form-control">@deceasedProfle.Occupation</div>
                         </div>
                     </div>
                 </div>
-                <button type="button" class="btn btn-primary pull-left" onclick="location.href='@Url.Action("Profile", "Deceased", new { DeceasedID = deceasedProfle.Reference }, null)'">
-                    Cancel
+                <button type="button" class="btn btn-primary pull-left" onclick="location.href='@Url.Action("EditDeceased", "Arrangement", new { id = deceasedProfle.Reference }, null)'">
+                    Edit Profile
                 </button>
 
                 <button type="submit" class="btn btn-primary pull-right">Update Profile</button>
@@ -109,3 +94,12 @@
         </div>
     </div>
 }
+    <div class="card">
+        <div class="card-body">
+           
+            <b-button variant="outline-primary">
+
+            </b-button>
+        </div>
+    </div>
+

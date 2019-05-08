@@ -5,6 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using ECMills.Models;
+using ECMills.ViewModels;
 using System.Web.Mvc.Html;
 using System.Data.SqlClient;
 using System.Web.Routing;
@@ -27,10 +28,15 @@ namespace ECMills.Controllers
             return View(deceased);
         }
 
-        public new ActionResult Profile(Int16 DeceasedID)
+        public ActionResult Profile(Int16 DeceasedID)
         {
             var deceasedProfile   = sp_GetDeceasedProfile(DeceasedID);
             var deceasedAddresses = sp_GetDeceasedAddressList(DeceasedID);
+
+            DeceasedProfileViewModel DeceasedDetails = new DeceasedProfileViewModel();
+
+            /* DeceasedDetails.sp_GetDeceasedProfile_Results;
+            */
             return View(deceasedProfile);
         }
 
