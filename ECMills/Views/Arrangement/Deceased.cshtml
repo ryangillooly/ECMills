@@ -172,25 +172,109 @@
     });*@
 
     function testFunction(ID) {
-       // if (!(AddressID === undefined))
-        // { 
-
-        $(".variabledata").remove();
+        $(".removerow").remove();
         if (ID == 1)
-            {
-                $("#testerdiv").append('<p class="variabledata">@Variables["AddressLine1_1"]</p>');
-                $("#testerdiv").append('<p class="variabledata">@Variables["AddressLine2_1"]</p>');
-                $("#testerdiv").append('<p class="variabledata">@Variables["City_1"]</p>');
-                $("#testerdiv").append('<p class="variabledata">@Variables["PostCode_1"]</p>');
+        {
+            var appendCode = '<div id="tester1" class="row removerow">' +
+                                '<div class="col-md-6">' +
+                                    '<div class="form-group bmd-form-group">'+
+                                        '<label class="bmd-label-static">'+
+                                            'Address Line 1'+
+                                        '</label>'+
+                                        '<div class="form-control">'+
+                                            "@Variables["AddressLine1_1"]" +
+                                        '</div>' +
+                                    '</div>' +
+                                '</div>' +
+                                '<div class="col-md-6">' +
+                                    '<div class="form-group bmd-form-group">' +
+                                            '<label class="bmd-label-static">' +
+                                                'Address Line 2' +
+                                            '</label>' +
+                                            '<div class="form-control">' +
+                                                "@Variables["AddressLine2_1"]" +
+                                            '</div>' +
+                                        '</div>' +
+                                    '</div>' +
+                                '</div>' +
+                               
+                                '<div class="row removerow">' +
+                                    '<div class="col-md-4">' +
+                                        '<div class="form-group bmd-form-group">' +
+                                            '<label class="bmd-label-static">' +
+                                                'City' +
+                                            '</label>' +
+                                            '<div class="form-control">' +
+                                                "@Variables["City_1"]" +
+                                            '</div>' +
+                                        '</div>' +
+                                    '</div>' +
+                                    '<div class="col-md-4">' +
+                                        '<div class="form-group bmd-form-group">' +
+                                            '<label class="bmd-label-static">' +
+                                                'PostCode' +
+                                            '</label>' +
+                                            '<div class="form-control">' +
+                                                "@Variables["PostCode_1"]" +
+                                            '</div>' +
+                                        '</div>' +
+                                    '</div>' +
+                                '</div>'
+
+            $("#testerdiv").append(appendCode.toString());
         } else
             if (ID == 2)
             {
-                $("#testerdiv").append('<p class="variabledata">@Variables["AddressLine1_2"]</p>');
-                $("#testerdiv").append('<p class="variabledata">@Variables["AddressLine2_2"]</p>');
-                $("#testerdiv").append('<p class="variabledata">@Variables["City_2"]</p>');
-                $("#testerdiv").append('<p class="variabledata">@Variables["PostCode_2"]</p>');
+var appendCode = '<div class="row removerow">' +
+                '<div class="col-md-6">' +
+                        '<div class="form-group bmd-form-group">'+
+                            '<label class="bmd-label-static">'+
+                                'Address Line 1'+
+                            '</label>'+
+                            '<div class="form-control">'+
+                                "@Variables["AddressLine1_2"]" +
+                            '</div>' +
+                        '</div>' +
+                    '</div>' +
+                    '<div class="col-md-6">' +
+                        '<div class="form-group bmd-form-group">' +
+                            '<label class="bmd-label-static">' +
+                                'Address Line 2' +
+                            '</label>' +
+                            '<div class="form-control">' +
+                                "@Variables["AddressLine2_2"]" +
+                            '</div>' +
+                        '</div>' +
+                    '</div>' +
+                '</div>' +
+               
+                '<div class="row removerow">' +
+                    '<div class="col-md-4">' +
+                        '<div class="form-group bmd-form-group">' +
+                            '<label class="bmd-label-static">' +
+                                'City' +
+                            '</label>' +
+                            '<div class="form-control">' +
+                                "@Variables["City_2"]" +
+                            '</div>' +
+                        '</div>' +
+                    '</div>' +
+                    '<div class="col-md-4">' +
+                        '<div class="form-group bmd-form-group">' +
+                            '<label class="bmd-label-static">' +
+                                'PostCode' +
+                            '</label>' +
+                            '<div class="form-control">' +
+                                "@Variables["PostCode_2"]" +
+                           '</div>' +
+                        '</div>' +
+                    '</div>' +
+                '</div>'
+
+            $("#testerdiv").append(appendCode.toString());
             } 
+
+
         };
-  //  };
     </script>
     }
