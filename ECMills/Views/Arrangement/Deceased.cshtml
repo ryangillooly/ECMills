@@ -115,11 +115,13 @@
                 {
                     AddressID = AddressID + 1;
 
+                    Variables.Add(String.Format("AddressType_{0}", AddressID.ToString()), List.AddressType);
                     Variables.Add(String.Format("AddressLine1_{0}", AddressID.ToString()), List.AddressLine1);
                     Variables.Add(String.Format("AddressLine2_{0}", AddressID.ToString()), List.AddressLine2);
                     Variables.Add(String.Format("City_{0}", AddressID.ToString()), List.City);
                     Variables.Add(String.Format("PostCode_{0}", AddressID.ToString()), List.PostCode);
-
+                    Variables.Add(String.Format("ContactName_{0}", AddressID.ToString()), List.ContactName);
+                    Variables.Add(String.Format("ContactPoints_{0}", AddressID.ToString()), List.ContactNo);
                     <tr>
                         <td>
                             <button id="@AddressID" type="button" onclick="testFunction(@AddressID)" class="AddressButton btn btn-outline-primary text-left col-md-12">
@@ -143,7 +145,93 @@
             Address Details
             <hr />
             <div id="testerdiv">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group bmd-form-group">
+                            <label class="bmd-label-static">
+                                Address Type
+                            </label>
+                            <div id="AddressType" class="form-control">
 
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group bmd-form-group">
+                            <label class="bmd-label-static">
+                                Address Line 1
+                            </label>
+                            <div id="AddressLine1" class="form-control">
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group bmd-form-group">
+                            <label class="bmd-label-static">
+                                Address Line 2
+                            </label>
+                            <div id="AddressLine2" class="form-control">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <br />
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group bmd-form-group">
+                            <label class="bmd-label-static">
+                                City
+                            </label>
+                           <div id="City" class="form-control">
+                                
+                            </div>  
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group bmd-form-group">
+                            <label class="bmd-label-static">
+                                PostCode
+                            </label>
+                            <div id="PostCode" class="form-control">
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group bmd-form-group">
+                            <label class="bmd-label-static">
+                                Contact Name
+                            </label>
+                            <div id="ContactName" class="form-control">
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group bmd-form-group">
+                            <label class="bmd-label-static">
+                                Contact Points
+                            </label>
+                            <div id="ContactPoints" class="form-control">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label>Notes</label>
+                            <textarea class="form-control" rows="3"></textarea>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -172,109 +260,45 @@
     });*@
 
     function testFunction(ID) {
-        $(".removerow").remove();
+
+        $("#AddressType").empty();
+        $("#AddressLine1").empty();
+        $("#AddressLine2").empty();
+        $("#City").empty();
+        $("#PostCode").empty();
+        $("#ContactName").empty();
+        $("#ContactPoints").empty();
+
         if (ID == 1)
         {
-            var appendCode = '<div id="tester1" class="row removerow">' +
-                                '<div class="col-md-6">' +
-                                    '<div class="form-group bmd-form-group">'+
-                                        '<label class="bmd-label-static">'+
-                                            'Address Line 1'+
-                                        '</label>'+
-                                        '<div class="form-control">'+
-                                            "@Variables["AddressLine1_1"]" +
-                                        '</div>' +
-                                    '</div>' +
-                                '</div>' +
-                                '<div class="col-md-6">' +
-                                    '<div class="form-group bmd-form-group">' +
-                                            '<label class="bmd-label-static">' +
-                                                'Address Line 2' +
-                                            '</label>' +
-                                            '<div class="form-control">' +
-                                                "@Variables["AddressLine2_1"]" +
-                                            '</div>' +
-                                        '</div>' +
-                                    '</div>' +
-                                '</div>' +
-                               
-                                '<div class="row removerow">' +
-                                    '<div class="col-md-4">' +
-                                        '<div class="form-group bmd-form-group">' +
-                                            '<label class="bmd-label-static">' +
-                                                'City' +
-                                            '</label>' +
-                                            '<div class="form-control">' +
-                                                "@Variables["City_1"]" +
-                                            '</div>' +
-                                        '</div>' +
-                                    '</div>' +
-                                    '<div class="col-md-4">' +
-                                        '<div class="form-group bmd-form-group">' +
-                                            '<label class="bmd-label-static">' +
-                                                'PostCode' +
-                                            '</label>' +
-                                            '<div class="form-control">' +
-                                                "@Variables["PostCode_1"]" +
-                                            '</div>' +
-                                        '</div>' +
-                                    '</div>' +
-                                '</div>'
-
-            $("#testerdiv").append(appendCode.toString());
+            $('#AddressType').append("@Variables["AddressType_1"]");
+            $("#AddressLine1").append("@Variables["AddressLine1_1"]"); 
+            $("#AddressLine2").append("@Variables["AddressLine2_1"]"); 
+            $("#City").append("@Variables["City_1"]"); 
+            $("#PostCode").append("@Variables["PostCode_1"]");  
+            $('#ContactName').append("@Variables["ContactName_1"]");
+            $('#ContactPoints').append("@Variables["ContactPoints_1"]");
         } else
             if (ID == 2)
             {
-var appendCode = '<div class="row removerow">' +
-                '<div class="col-md-6">' +
-                        '<div class="form-group bmd-form-group">'+
-                            '<label class="bmd-label-static">'+
-                                'Address Line 1'+
-                            '</label>'+
-                            '<div class="form-control">'+
-                                "@Variables["AddressLine1_2"]" +
-                            '</div>' +
-                        '</div>' +
-                    '</div>' +
-                    '<div class="col-md-6">' +
-                        '<div class="form-group bmd-form-group">' +
-                            '<label class="bmd-label-static">' +
-                                'Address Line 2' +
-                            '</label>' +
-                            '<div class="form-control">' +
-                                "@Variables["AddressLine2_2"]" +
-                            '</div>' +
-                        '</div>' +
-                    '</div>' +
-                '</div>' +
-               
-                '<div class="row removerow">' +
-                    '<div class="col-md-4">' +
-                        '<div class="form-group bmd-form-group">' +
-                            '<label class="bmd-label-static">' +
-                                'City' +
-                            '</label>' +
-                            '<div class="form-control">' +
-                                "@Variables["City_2"]" +
-                            '</div>' +
-                        '</div>' +
-                    '</div>' +
-                    '<div class="col-md-4">' +
-                        '<div class="form-group bmd-form-group">' +
-                            '<label class="bmd-label-static">' +
-                                'PostCode' +
-                            '</label>' +
-                            '<div class="form-control">' +
-                                "@Variables["PostCode_2"]" +
-                           '</div>' +
-                        '</div>' +
-                    '</div>' +
-                '</div>'
-
-            $("#testerdiv").append(appendCode.toString());
-            } 
-
-
+                $('#AddressType').append("@Variables["AddressType_2"]");
+                $("#AddressLine1").append("@Variables["AddressLine1_2"]"); 
+                $("#AddressLine2").append("@Variables["AddressLine2_2"]"); 
+                $("#City").append("@Variables["City_2"]"); 
+                $("#PostCode").append("@Variables["PostCode_2"]");  
+                $('#ContactName').append("@Variables["ContactName_2"]");
+                $('#ContactPoints').append("@Variables["ContactPoints_2"]"); 
+            } else
+                if (ID == 3)
+                {
+                    $('#AddressType').append("@Variables["AddressType_3"]");
+                    $("#AddressLine1").append("@Variables["AddressLine1_3"]"); 
+                    $("#AddressLine2").append("@Variables["AddressLine2_3"]"); 
+                    $("#City").append("@Variables["City_3"]"); 
+                    $("#PostCode").append("@Variables["PostCode_3"]");  
+                    $('#ContactName').append("@Variables["ContactName_3"]");
+                    $('#ContactPoints').append("@Variables["ContactPoints_3"]"); 
+                } 
         };
     </script>
     }
