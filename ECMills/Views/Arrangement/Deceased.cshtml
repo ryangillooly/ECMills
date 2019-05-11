@@ -27,7 +27,7 @@
                     <div class="col-md-4">
                         <div class="form-group bmd-form-group DeceasedProfileForm">
                             <label class="bmd-label-static">Known As</label>
-                            <div class="form-control" id="ReadOnlyInput-KnownAs">@DeceasedProfile.Known_As</div>
+                            <div class="form-control" id="ReadOnlyInput-Known_As">@DeceasedProfile.Known_As</div>
                         </div>
                     </div>
                 </div>
@@ -292,7 +292,7 @@
             // Redo this section by passing an array as the variable with all the values
             // Then loop through the array values and run dynamic JS to replace the div's
             $('#ReadOnlyInput-Name'         ).replaceWith('<input name="Name"            id="ReadWriteInput-Name"          type="text" class="form-control" placeholder="' + Name                  + '" />');
-            $('#ReadOnlyInput-KnownAs'      ).replaceWith('<input name="Known_As"        id="ReadWriteInput-Known_As"      type="text" class="form-control" placeholder="' + Known_As              + '" />');
+            $('#ReadOnlyInput-Known_As'      ).replaceWith('<input name="Known_As"        id="ReadWriteInput-Known_As"      type="text" class="form-control" placeholder="' + Known_As              + '" />');
             $('#ReadOnlyInput-Gender'       ).replaceWith('<input name="Gender"          id="ReadWriteInput-Gender"        type="text" class="form-control" placeholder="' + Gender                + '" />');
             $('#ReadOnlyInput-Age'          ).replaceWith('<input name="Age"             id="ReadWriteInput-Age"           type="text" class="form-control" placeholder="' + Age                   + '" />');
             $('#ReadOnlyInput-DOB'          ).replaceWith('<input name="DOB"             id="ReadWriteInput-DOB"           type="text" class="form-control" placeholder="' + DOB                   + '" />');
@@ -310,7 +310,7 @@
         function CancelDeceasedProfileEdit(Name, Known_As, Gender, Age, DOB, TimeOfDeath, MaritalStatus, Occupation, Religion, ReligiousDenomination)
         {
             $('#ReadWriteInput-Name'         ).replaceWith('<div class="form-control" id="ReadOnlyInput-Name">'             + Name                  + '</div>');
-            $('#ReadWriteInput-KnownAs'      ).replaceWith('<div class="form-control" id="ReadOnlyInput-Known_As">'         + Known_As              + '</div>');
+            $('#ReadWriteInput-Known_As'      ).replaceWith('<div class="form-control" id="ReadOnlyInput-Known_As">'         + Known_As              + '</div>');
             $('#ReadWriteInput-Gender'       ).replaceWith('<div class="form-control" id="ReadOnlyInput-Gender">'           + Gender                + '</div>');
             $('#ReadWriteInput-Age'          ).replaceWith('<div class="form-control" id="ReadOnlyInput-Age">'              + Age                   + '</div>');
             $('#ReadWriteInput-DOB'          ).replaceWith('<div class="form-control" id="ReadOnlyInput-DOB">'              + DOB                   + '</div>');
@@ -324,37 +324,18 @@
         };
 
     function SubmitProfileUpdates() {
-        var Name = document.getElementById("ReadWriteInput-Name");
-        var KnownAs = document.getElementById("ReadWriteInput-KnownAs");
-        var Gender = document.getElementById("ReadWriteInput-Gender");
-        var Age = document.getElementById("ReadWriteInput-Age");
-        var DOB = document.getElementById("ReadWriteInput-DOB");
-        var TimeOfDeath = document.getElementById("ReadWriteInput-TimeOfDeath");
-        var MaritalStatus = document.getElementById("ReadWriteInput-MaritalStatus");
-        var Occupation = document.getElementById("ReadWriteInput-Occupation");
-        var Religion = document.getElementById("ReadWriteInput-Religion");
-        var Reldom = document.getElementById("ReadWriteInput-Reldom");
+        var Name = document.getElementById("#ReadWriteInput-Name");
+        var Known_As = document.getElementById("#ReadWriteInput-Known_As");
+        var Gender = document.getElementById("#ReadWriteInput-Gender");
+        var Age = document.getElementById("#ReadWriteInput-Age");
+        var DOB = document.getElementById("#ReadWriteInput-DOB");
+        var TimeOfDeath = document.getElementById("#ReadWriteInput-TimeOfDeath");
+        var MaritalStatus = document.getElementById("#ReadWriteInput-MaritalStatus");
+        var Occupation = document.getElementById("#ReadWriteInput-Occupation");
+        var Religion = document.getElementById("#ReadWriteInput-Religion");
+        var Reldom = document.getElementById("#ReadWriteInput-Reldom");
 
-        $.ajax({
-            type: 'post',
-            url: '@Url.Action("ProfileUpdate","Arrangement")',
-            data: {
-                Name: Name,
-                KnownAs: KnownAs,
-                Gender: Gender,
-                Age: Age,
-                DOB: DOB,
-                TimeOfDeath: TimeOfDeath,
-                MaritalStatus: MaritalStatus,
-                Occupation: Occupation,
-                Religion: Religion,
-                Reldom: Reldom
-            },
-            success: function (response) {
-                $('#success__para').html("You data will be saved");
-            }
-        });
-         return false;
+
     };
     </script>
     }
