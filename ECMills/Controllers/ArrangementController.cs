@@ -32,22 +32,24 @@ namespace ECMills.Controllers
             return View(deceased);
         }
 
+        [HttpGet]
         public ActionResult Deceased(Int16 id)
         {
+            Int16 DeceasedID = id;
             ViewBag.CurrentPage = "Deceased";
+            ViewBag.DeceasedID = DeceasedID.ToString();
 
             dynamic dynamicObject = new ExpandoObject();
-            dynamicObject.Profile = sp_GetDeceasedProfile(id);
-            dynamicObject.List    = sp_GetDeceasedAddressList(id);
+            dynamicObject.DeceasedProfile = sp_GetDeceasedProfile(DeceasedID);
+            dynamicObject.DeceasedAddressList = sp_GetDeceasedAddressList(DeceasedID);
 
             return View(dynamicObject);
         }
 
-        public ActionResult EditDeceased(Int16 id)
+        [HttpPost]
+        public ActionResult Deceased(string Name)
         {
-            ViewBag.CurrentPage = "EditDeceased";
-            var deceasedProfile = sp_GetDeceasedProfile(id);
-            return View(deceasedProfile);
+            return Content($"Hello {Name}");
         }
 
         public List<sp_GetDeceasedList_Result> sp_GetDeceasedList()
@@ -64,6 +66,5 @@ namespace ECMills.Controllers
         {
             return DBContext.sp_GetDeceasedAddressList(id).ToList();
         }
-
     }
 }

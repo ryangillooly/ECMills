@@ -586,7 +586,6 @@
     <Content Include="Views\Shared\SecondNavbar.cshtml" />
     <Content Include="Views\Arrangement\Deceased.cshtml" />
     <Content Include="Views\Arrangement\List.cshtml" />
-    <Content Include="Views\Arrangement\EditDeceased.cshtml" />
     <Content Include="Views\Arrangement\Home.cshtml" />
   </ItemGroup>
   <ItemGroup>
