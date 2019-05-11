@@ -15,7 +15,7 @@
             <p class="card-category">@DeceasedProfile.Reference</p>
         </div>
         <div class="card-body">
-            <form method="post">
+            <form method="post" onsubmit="return SubmitProfileUpdates();">
                 <br />
                 <div class="row">
                     <div class="col-md-8">
@@ -94,11 +94,7 @@
                     Edit Profile
                 </button>
 
-                @{ 
-
-                 }
-
-                <button type="submit" class="btn btn-primary pull-right">
+                <button type="button" onclick="SubmitProfileUpdates()" class="btn btn-primary pull-right">
                     Update Profile
                 </button>
 
@@ -308,10 +304,11 @@
  
             $('#EditProfile_Button').replaceWith('<button type="button" id="CancelDeceasedProfileEdit_Button" class="btn btn-primary pull-left" onclick="CancelDeceasedProfileEdit(\'' + Name + '\',\'' + Known_As + '\',\'' + Gender + '\',\'' + Age + '\',\'' + DOB + '\',\'' + TimeOfDeath + '\',\'' + MaritalStatus + '\',\'' + Occupation + '\',\'' + Religion + '\',\'' + ReligiousDenomination + '\')">Cancel</button>');
         
-    };
+        };
 
-    // backslash + quote is an escape character for single quote (e.g  \' )
-        function CancelDeceasedProfileEdit(Name, Known_As, Gender, Age, DOB, TimeOfDeath, MaritalStatus, Occupation, Religion, ReligiousDenomination) {
+        // backslash + quote is an escape character for single quote (e.g  \' )
+        function CancelDeceasedProfileEdit(Name, Known_As, Gender, Age, DOB, TimeOfDeath, MaritalStatus, Occupation, Religion, ReligiousDenomination)
+        {
             $('#ReadWriteInput-Name'         ).replaceWith('<div class="form-control" id="ReadOnlyInput-Name">'             + Name                  + '</div>');
             $('#ReadWriteInput-KnownAs'      ).replaceWith('<div class="form-control" id="ReadOnlyInput-Known_As">'         + Known_As              + '</div>');
             $('#ReadWriteInput-Gender'       ).replaceWith('<div class="form-control" id="ReadOnlyInput-Gender">'           + Gender                + '</div>');
@@ -324,7 +321,40 @@
             $('#ReadWriteInput-RelDom'       ).replaceWith('<div class="form-control" id="ReadOnlyInput-RelDom">'           + ReligiousDenomination + '</div>');
 
             $('#CancelDeceasedProfileEdit_Button').replaceWith('<button type="button" id="EditProfile_Button" class="btn btn-primary pull-left" onclick="EditDeceasedProfile(\'' + Name + '\',\'' + Known_As + '\',\'' + Gender + '\',\'' + Age + '\',\'' + DOB + '\',\'' + TimeOfDeath + '\',\'' + MaritalStatus + '\',\'' + Occupation + '\',\'' + Religion + '\',\'' + ReligiousDenomination + '\')">Edit Profile</button>');
-            };
+        };
 
+    function SubmitProfileUpdates() {
+        var Name = document.getElementById("ReadWriteInput-Name");
+        var KnownAs = document.getElementById("ReadWriteInput-KnownAs");
+        var Gender = document.getElementById("ReadWriteInput-Gender");
+        var Age = document.getElementById("ReadWriteInput-Age");
+        var DOB = document.getElementById("ReadWriteInput-DOB");
+        var TimeOfDeath = document.getElementById("ReadWriteInput-TimeOfDeath");
+        var MaritalStatus = document.getElementById("ReadWriteInput-MaritalStatus");
+        var Occupation = document.getElementById("ReadWriteInput-Occupation");
+        var Religion = document.getElementById("ReadWriteInput-Religion");
+        var Reldom = document.getElementById("ReadWriteInput-Reldom");
+
+        $.ajax({
+            type: 'post',
+            url: '@Url.Action("ProfileUpdate","Arrangement")',
+            data: {
+                Name: Name,
+                KnownAs: KnownAs,
+                Gender: Gender,
+                Age: Age,
+                DOB: DOB,
+                TimeOfDeath: TimeOfDeath,
+                MaritalStatus: MaritalStatus,
+                Occupation: Occupation,
+                Religion: Religion,
+                Reldom: Reldom
+            },
+            success: function (response) {
+                $('#success__para').html("You data will be saved");
+            }
+        });
+         return false;
+    };
     </script>
     }
