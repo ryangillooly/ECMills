@@ -46,17 +46,19 @@ namespace ECMills.Controllers
             return View(dynamicObject);
         }
 
-        public ActionResult ProfileUpdate(string Name, string KnownAs, string Gender, int Age, DateTime DOB,
+        
+        public ActionResult ProfileUpdate(string Name, string Known_As, string Gender, int Age, DateTime DOB,
                                           DateTime TimeOfDeath, string MaritalStatus, string Occupation,
                                           string Religion, string Reldom)
         {
-            string SQLQuery = "Here we go...";
 
+            string SQLQuery = "Here we go...";
             SQLQuery = SQLQuery + Name + ", " + Reldom;
 
-            return Content(SQLQuery);
-
+            return Content("YEP");
+            
         }
+
         public List<sp_GetDeceasedList_Result> sp_GetDeceasedList()
         {
             return DBContext.sp_GetDeceasedList().ToList();
