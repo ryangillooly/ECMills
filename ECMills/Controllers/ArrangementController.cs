@@ -17,8 +17,6 @@ namespace ECMills.Controllers
             DBContext = new ECMills_DBModel_Connection();
         }
 
-        // GET: Funeral
-
         public ActionResult Home()
         {
             ViewBag.CurrentPage = "Home";
@@ -39,8 +37,8 @@ namespace ECMills.Controllers
             ViewBag.CurrentPage = "Deceased";
             ViewBag.DeceasedID = DeceasedID.ToString();
 
-            dynamic dynamicObject = new ExpandoObject();
-            dynamicObject.DeceasedProfile = sp_GetDeceasedProfile(DeceasedID);
+            dynamic dynamicObject             = new ExpandoObject();
+            dynamicObject.DeceasedProfile     = sp_GetDeceasedProfile(DeceasedID);
             dynamicObject.DeceasedAddressList = sp_GetDeceasedAddressList(DeceasedID);
 
             return View(dynamicObject);
