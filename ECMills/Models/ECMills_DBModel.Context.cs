@@ -15,10 +15,10 @@ namespace ECMills.Models
     using System.Data.Entity.Core.Objects;
     using System.Linq;
     
-    public partial class ECMills_DBModel_Connection : DbContext
+    public partial class ECMills_DBConnection : DbContext
     {
-        public ECMills_DBModel_Connection()
-            : base("name=ECMills_DBModel_Connection")
+        public ECMills_DBConnection()
+            : base("name=ECMills_DBConnection")
         {
         }
     
@@ -27,6 +27,10 @@ namespace ECMills.Models
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<provision_marker_dss> provision_marker_dss { get; set; }
+        public virtual DbSet<schema_info_dss> schema_info_dss { get; set; }
+        public virtual DbSet<scope_config_dss> scope_config_dss { get; set; }
+        public virtual DbSet<scope_info_dss> scope_info_dss { get; set; }
         public virtual DbSet<Ceremony> Ceremonies { get; set; }
         public virtual DbSet<Client> Clients { get; set; }
         public virtual DbSet<Coffin> Coffins { get; set; }
@@ -57,6 +61,26 @@ namespace ECMills.Models
         public virtual DbSet<Supplier> Suppliers { get; set; }
         public virtual DbSet<TransportType> TransportTypes { get; set; }
         public virtual DbSet<User> Users { get; set; }
+        public virtual DbSet<action> actions { get; set; }
+        public virtual DbSet<agent> agents { get; set; }
+        public virtual DbSet<agent_instance> agent_instance { get; set; }
+        public virtual DbSet<agent_version> agent_version { get; set; }
+        public virtual DbSet<configuration> configurations { get; set; }
+        public virtual DbSet<EnumType> EnumTypes { get; set; }
+        public virtual DbSet<MetaInformation> MetaInformations { get; set; }
+        public virtual DbSet<scaleunitlimit> scaleunitlimits { get; set; }
+        public virtual DbSet<ScheduleTask> ScheduleTasks { get; set; }
+        public virtual DbSet<subscription> subscriptions { get; set; }
+        public virtual DbSet<syncgroup> syncgroups { get; set; }
+        public virtual DbSet<syncgroupmember> syncgroupmembers { get; set; }
+        public virtual DbSet<SyncObjectData> SyncObjectDatas { get; set; }
+        public virtual DbSet<task> tasks { get; set; }
+        public virtual DbSet<userdatabase> userdatabases { get; set; }
+        public virtual DbSet<Job> Jobs { get; set; }
+        public virtual DbSet<MessageQueue> MessageQueues { get; set; }
+        public virtual DbSet<MetaInformation1> MetaInformation1 { get; set; }
+        public virtual DbSet<Schedule> Schedules { get; set; }
+        public virtual DbSet<ScheduleTask1> ScheduleTask1 { get; set; }
         public virtual DbSet<DeceasedAddress> DeceasedAddresses { get; set; }
         public virtual DbSet<DeceasedContact> DeceasedContacts { get; set; }
         public virtual DbSet<DeceasedContactsPointOfContact> DeceasedContactsPointOfContacts { get; set; }
@@ -66,7 +90,9 @@ namespace ECMills.Models
         public virtual DbSet<OrderItem> OrderItems { get; set; }
         public virtual DbSet<Transport> Transports { get; set; }
         public virtual DbSet<Visitor> Visitors { get; set; }
+        public virtual DbSet<UIHistory> UIHistories { get; set; }
         public virtual DbSet<vw_GetDeceasedAddressList> vw_GetDeceasedAddressList { get; set; }
+        public virtual DbSet<vw_GetDeceasedContactsList> vw_GetDeceasedContactsList { get; set; }
         public virtual DbSet<vw_GetDeceasedList> vw_GetDeceasedList { get; set; }
         public virtual DbSet<vw_GetDeceasedProfile> vw_GetDeceasedProfile { get; set; }
         public virtual DbSet<vw_RowCountForAllTables> vw_RowCountForAllTables { get; set; }
@@ -79,6 +105,15 @@ namespace ECMills.Models
                 new ObjectParameter("DeceasedID", typeof(short));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_GetDeceasedAddressList_Result>("sp_GetDeceasedAddressList", deceasedIDParameter);
+        }
+    
+        public virtual ObjectResult<sp_GetDeceasedContactsList_Result> sp_GetDeceasedContactsList(Nullable<short> deceasedID)
+        {
+            var deceasedIDParameter = deceasedID.HasValue ?
+                new ObjectParameter("DeceasedID", deceasedID) :
+                new ObjectParameter("DeceasedID", typeof(short));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_GetDeceasedContactsList_Result>("sp_GetDeceasedContactsList", deceasedIDParameter);
         }
     
         public virtual ObjectResult<sp_GetDeceasedList_Result> sp_GetDeceasedList()

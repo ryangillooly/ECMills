@@ -1,4 +1,4 @@
-﻿<div class="sidebar" data-color="purple" data-background-color="white" data-image="~\~\Images\MaterialDash\sidebar-1.jpg">
+﻿<div class="sidebar" data-color="purple" data-background-color="white" data-image="~/Images/MaterialDash/sidebar-1.jpg">
     <!--
         Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
 
@@ -14,23 +14,25 @@
             <li class="nav-item  @(ViewContext.RouteData.Values["Controller"].ToString() == "Arrangement" &&
                                    ViewContext.RouteData.Values["Action"].ToString()     == "Home" ? "active" : "")">
                 <a class="nav-link" href="@Url.Action("Home", "Arrangement", new { id = string.Empty }, null)">
-                <i class="material-icons">dashboard</i>
-                <p>Home</p>
+                    <i class="material-icons">dashboard</i>
+                    <p>Home</p>
                 </a>
             </li>
             <li class="nav-item @(ViewContext.RouteData.Values["Controller"].ToString() == "Arrangement" &&
                                    (
                                      ViewContext.RouteData.Values["Action"].ToString()     == "List"      ||
-                                     ViewContext.RouteData.Values["Action"].ToString()     == "Deceased"  ||
-                                     ViewContext.RouteData.Values["Action"].ToString()     == "EditDeceased" 
+                                     ViewContext.RouteData.Values["Action"].ToString()     == "Deceased"
                                    )? "active" : "")">
                 <a class="nav-link" href="@Url.Action("List", "Arrangement", new { id = string.Empty }, null)">
                     <i class="material-icons">person</i>
                     <p>Deceased</p>
                 </a>
             </li>
-            <li class="nav-item ">
-                <a class="nav-link" href="./tables.html">
+            <li class="nav-item @(ViewContext.RouteData.Values["Controller"].ToString() == "Arrangement" &&
+                                   (
+                                     ViewContext.RouteData.Values["Action"].ToString()     == "Contacts"
+                                   )? "active" : "")">
+                <a class="nav-link" href="@Url.Action("Contacts", "Arrangement", new { id = string.Empty }, null)">
                     <i class="material-icons">content_paste</i>
                     <p>Contacts</p>
                 </a>

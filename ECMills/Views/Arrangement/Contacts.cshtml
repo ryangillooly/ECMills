@@ -1,0 +1,146 @@
+﻿@using ECMills.Models;
+@model dynamic
+
+@{
+    ViewBag.Title = "Arrangement";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row col-md-12">
+    <div class="card col-md-5">
+        <div class="card-body">
+            Listed Contacts
+            <hr />
+            <table class="table-responsive table-hover">
+                @{
+                    Int32 DeceasedContactID = 0;
+                    Dictionary<string, string> ContactDictionaryArray = new Dictionary<string, string>();
+                }
+                @foreach (sp_GetDeceasedContactsList_Result DeceasedContactList in Model.DeceasedContactList)
+                {
+                    DeceasedContactID = DeceasedContactID + 1;
+
+                    // Add address details into the dictionary array called "AddressDictionaryArray"
+                   // ContactDictionaryArray.Add(String.Format("AddressType_{0}", DeceasedContactID.ToString()), DeceasedContactID.AddressType);
+
+                    <tr>
+                        <td>
+                            <button id="@DeceasedContactID" type="button" onclick="GetDeceasedAddressDetails(@DeceasedContactID)" class="ContactsButton btn btn-outline-primary text-left col-md-12">
+                                <table class="col-md-5">
+                                    <tr class="col-md-12">
+                                        <th align="left">@DeceasedContactList.ContactType</th>
+                                        <th align="right">@DeceasedContactList.Relationship</th>
+                                    </tr>
+                                    <tr>
+                                        <td align="left">@DeceasedContactList.Name</td>
+                                        <td align="right">@DeceasedContactList.PointOfContactValue</td>
+                                    </tr>
+                                </table>
+                            </button>
+                        </td>
+                    </tr>
+                }
+            </table>
+        </div>
+    </div>
+
+    <div class="col-md-1">
+
+    </div>
+
+    <div class="card table-responsive col-md-5">
+        <div class="card-body">
+            Address Details
+            <hr />
+            <div id="testerdiv">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group bmd-form-group">
+                            <label class="bmd-label-static">
+                                Address Type
+                            </label>
+                            <div id="AddressType" class="form-control">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group bmd-form-group">
+                            <label class="bmd-label-static">
+                                Address Line 1
+                            </label>
+                            <div id="AddressLine1" class="form-control">
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group bmd-form-group">
+                            <label class="bmd-label-static">
+                                Address Line 2
+                            </label>
+                            <div id="AddressLine2" class="form-control">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <br />
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group bmd-form-group">
+                            <label class="bmd-label-static">
+                                City
+                            </label>
+                            <div id="City" class="form-control">
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group bmd-form-group">
+                            <label class="bmd-label-static">
+                                PostCode
+                            </label>
+                            <div id="PostCode" class="form-control">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group bmd-form-group">
+                            <label class="bmd-label-static">
+                                Contact Name
+                            </label>
+                            <div id="ContactName" class="form-control">
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group bmd-form-group">
+                            <label class="bmd-label-static">
+                                Contact Points
+                            </label>
+                            <div id="ContactPoints" class="form-control">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label>Notes</label>
+                            <textarea class="form-control" rows="3"></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

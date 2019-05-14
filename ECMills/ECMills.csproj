@@ -139,7 +139,6 @@
     <Compile Include="Controllers\CommunityController.cs" />
     <Compile Include="Controllers\ContactsController.cs" />
     <Compile Include="Controllers\DashboardController.cs" />
-    <Compile Include="Controllers\DeceasedController.cs" />
     <Compile Include="Controllers\DiaryController.cs" />
     <Compile Include="Controllers\FirstCallsController.cs" />
     <Compile Include="Controllers\FuneralPlanEnquiriesController.cs" />
@@ -149,164 +148,244 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\action.cs">
+      <DependentUpon>ECMills_DBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\agent.cs">
+      <DependentUpon>ECMills_DBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\agent_instance.cs">
+      <DependentUpon>ECMills_DBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\agent_version.cs">
+      <DependentUpon>ECMills_DBModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Ceremony.cs">
-      <DependentUpon>ECMills_Database_Model.tt</DependentUpon>
+      <DependentUpon>ECMills_DBModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Client.cs">
-      <DependentUpon>ECMills_Database_Model.tt</DependentUpon>
+      <DependentUpon>ECMills_DBModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Coffin.cs">
-      <DependentUpon>ECMills_Database_Model.tt</DependentUpon>
+      <DependentUpon>ECMills_DBModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\CommitallLocationType.cs">
-      <DependentUpon>ECMills_Database_Model.tt</DependentUpon>
+      <DependentUpon>ECMills_DBModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\CommittalLocation.cs">
-      <DependentUpon>ECMills_Database_Model.tt</DependentUpon>
+      <DependentUpon>ECMills_DBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\configuration.cs">
+      <DependentUpon>ECMills_DBModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\database_firewall_rules.cs">
-      <DependentUpon>ECMills_Database_Model.tt</DependentUpon>
+      <DependentUpon>ECMills_DBModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Deceased.cs">
-      <DependentUpon>ECMills_Database_Model.tt</DependentUpon>
+      <DependentUpon>ECMills_DBModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\DeceasedAddress.cs">
-      <DependentUpon>ECMills_Database_Model.tt</DependentUpon>
+      <DependentUpon>ECMills_DBModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\DeceasedAddressType.cs">
-      <DependentUpon>ECMills_Database_Model.tt</DependentUpon>
+      <DependentUpon>ECMills_DBModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\DeceasedContact.cs">
-      <DependentUpon>ECMills_Database_Model.tt</DependentUpon>
+      <DependentUpon>ECMills_DBModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\DeceasedContactsContactType.cs">
-      <DependentUpon>ECMills_Database_Model.tt</DependentUpon>
+      <DependentUpon>ECMills_DBModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\DeceasedContactsPointOfContact.cs">
-      <DependentUpon>ECMills_Database_Model.tt</DependentUpon>
+      <DependentUpon>ECMills_DBModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Doctor.cs">
-      <DependentUpon>ECMills_Database_Model.tt</DependentUpon>
+      <DependentUpon>ECMills_DBModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\ECMills_Database_Model.Context.cs">
+    <Compile Include="Models\ECMills_DBModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>ECMills_Database_Model.Context.tt</DependentUpon>
+      <DependentUpon>ECMills_DBModel.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\ECMills_Database_Model.cs">
+    <Compile Include="Models\ECMills_DBModel.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>ECMills_Database_Model.tt</DependentUpon>
+      <DependentUpon>ECMills_DBModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\ECMills_Database_Model.Designer.cs">
+    <Compile Include="Models\ECMills_DBModel.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>ECMills_Database_Model.edmx</DependentUpon>
+      <DependentUpon>ECMills_DBModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EnumType.cs">
+      <DependentUpon>ECMills_DBModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Jewellery.cs">
-      <DependentUpon>ECMills_Database_Model.tt</DependentUpon>
+      <DependentUpon>ECMills_DBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Job.cs">
+      <DependentUpon>ECMills_DBModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\MaritalStatu.cs">
-      <DependentUpon>ECMills_Database_Model.tt</DependentUpon>
+      <DependentUpon>ECMills_DBModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Memorial.cs">
-      <DependentUpon>ECMills_Database_Model.tt</DependentUpon>
+      <DependentUpon>ECMills_DBModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\MemorialContactPoint.cs">
-      <DependentUpon>ECMills_Database_Model.tt</DependentUpon>
+      <DependentUpon>ECMills_DBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\MessageQueue.cs">
+      <DependentUpon>ECMills_DBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\MetaInformation.cs">
+      <DependentUpon>ECMills_DBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\MetaInformation1.cs">
+      <DependentUpon>ECMills_DBModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Music.cs">
-      <DependentUpon>ECMills_Database_Model.tt</DependentUpon>
+      <DependentUpon>ECMills_DBModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Office.cs">
-      <DependentUpon>ECMills_Database_Model.tt</DependentUpon>
+      <DependentUpon>ECMills_DBModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Officiant.cs">
-      <DependentUpon>ECMills_Database_Model.tt</DependentUpon>
+      <DependentUpon>ECMills_DBModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\OfficiantContactPoint.cs">
-      <DependentUpon>ECMills_Database_Model.tt</DependentUpon>
+      <DependentUpon>ECMills_DBModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Order.cs">
-      <DependentUpon>ECMills_Database_Model.tt</DependentUpon>
+      <DependentUpon>ECMills_DBModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\OrderChecklist.cs">
-      <DependentUpon>ECMills_Database_Model.tt</DependentUpon>
+      <DependentUpon>ECMills_DBModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\OrderCost.cs">
-      <DependentUpon>ECMills_Database_Model.tt</DependentUpon>
+      <DependentUpon>ECMills_DBModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\OrderDetail.cs">
-      <DependentUpon>ECMills_Database_Model.tt</DependentUpon>
+      <DependentUpon>ECMills_DBModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\OrderItem.cs">
-      <DependentUpon>ECMills_Database_Model.tt</DependentUpon>
+      <DependentUpon>ECMills_DBModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\OrderItemSubType.cs">
-      <DependentUpon>ECMills_Database_Model.tt</DependentUpon>
+      <DependentUpon>ECMills_DBModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\OrderItemType.cs">
-      <DependentUpon>ECMills_Database_Model.tt</DependentUpon>
+      <DependentUpon>ECMills_DBModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\OrderStatu.cs">
-      <DependentUpon>ECMills_Database_Model.tt</DependentUpon>
+      <DependentUpon>ECMills_DBModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\OrderSubStatu.cs">
-      <DependentUpon>ECMills_Database_Model.tt</DependentUpon>
+      <DependentUpon>ECMills_DBModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\OrderSubType.cs">
-      <DependentUpon>ECMills_Database_Model.tt</DependentUpon>
+      <DependentUpon>ECMills_DBModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\OrderType.cs">
-      <DependentUpon>ECMills_Database_Model.tt</DependentUpon>
+      <DependentUpon>ECMills_DBModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Organist.cs">
-      <DependentUpon>ECMills_Database_Model.tt</DependentUpon>
+      <DependentUpon>ECMills_DBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\provision_marker_dss.cs">
+      <DependentUpon>ECMills_DBModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Religion.cs">
-      <DependentUpon>ECMills_Database_Model.tt</DependentUpon>
+      <DependentUpon>ECMills_DBModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\ReligiousDenomination.cs">
-      <DependentUpon>ECMills_Database_Model.tt</DependentUpon>
+      <DependentUpon>ECMills_DBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\scaleunitlimit.cs">
+      <DependentUpon>ECMills_DBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Schedule.cs">
+      <DependentUpon>ECMills_DBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ScheduleTask.cs">
+      <DependentUpon>ECMills_DBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ScheduleTask1.cs">
+      <DependentUpon>ECMills_DBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\schema_info_dss.cs">
+      <DependentUpon>ECMills_DBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\scope_config_dss.cs">
+      <DependentUpon>ECMills_DBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\scope_info_dss.cs">
+      <DependentUpon>ECMills_DBModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\sp_GetDeceasedAddressList_Result.cs">
-      <DependentUpon>ECMills_Database_Model.tt</DependentUpon>
+      <DependentUpon>ECMills_DBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sp_GetDeceasedContactsList_Result.cs">
+      <DependentUpon>ECMills_DBModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\sp_GetDeceasedList_Result.cs">
-      <DependentUpon>ECMills_Database_Model.tt</DependentUpon>
+      <DependentUpon>ECMills_DBModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\sp_GetDeceasedProfile_Result.cs">
-      <DependentUpon>ECMills_Database_Model.tt</DependentUpon>
+      <DependentUpon>ECMills_DBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\subscription.cs">
+      <DependentUpon>ECMills_DBModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Supplier.cs">
-      <DependentUpon>ECMills_Database_Model.tt</DependentUpon>
+      <DependentUpon>ECMills_DBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\syncgroup.cs">
+      <DependentUpon>ECMills_DBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\syncgroupmember.cs">
+      <DependentUpon>ECMills_DBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SyncObjectData.cs">
+      <DependentUpon>ECMills_DBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\task.cs">
+      <DependentUpon>ECMills_DBModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Transport.cs">
-      <DependentUpon>ECMills_Database_Model.tt</DependentUpon>
+      <DependentUpon>ECMills_DBModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\TransportType.cs">
-      <DependentUpon>ECMills_Database_Model.tt</DependentUpon>
+      <DependentUpon>ECMills_DBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\UIHistory.cs">
+      <DependentUpon>ECMills_DBModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\User.cs">
-      <DependentUpon>ECMills_Database_Model.tt</DependentUpon>
+      <DependentUpon>ECMills_DBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\userdatabase.cs">
+      <DependentUpon>ECMills_DBModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Visitor.cs">
-      <DependentUpon>ECMills_Database_Model.tt</DependentUpon>
+      <DependentUpon>ECMills_DBModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\vw_GetDeceasedAddressList.cs">
-      <DependentUpon>ECMills_Database_Model.tt</DependentUpon>
+      <DependentUpon>ECMills_DBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\vw_GetDeceasedContactsList.cs">
+      <DependentUpon>ECMills_DBModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\vw_GetDeceasedList.cs">
-      <DependentUpon>ECMills_Database_Model.tt</DependentUpon>
+      <DependentUpon>ECMills_DBModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\vw_GetDeceasedProfile.cs">
-      <DependentUpon>ECMills_Database_Model.tt</DependentUpon>
+      <DependentUpon>ECMills_DBModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\vw_RowCountForAllTables.cs">
-      <DependentUpon>ECMills_Database_Model.tt</DependentUpon>
+      <DependentUpon>ECMills_DBModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ViewModels\DeceasedProfileViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-grid.css" />
@@ -514,30 +593,30 @@
     <Content Include="Content\material-dashboard\_tooltip.scss" />
     <Content Include="Content\material-dashboard\_type.scss" />
     <Content Include="Content\material-dashboard\_variables.scss" />
-    <EntityDeploy Include="Models\ECMills_Database_Model.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>ECMills_Database_Model.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Models\ECMills_Database_Model.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>ECMills_Database_Model.edmx</DependentUpon>
-      <LastGenOutput>ECMills_Database_Model.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="Models\ECMills_Database_Model.edmx.diagram">
-      <DependentUpon>ECMills_Database_Model.edmx</DependentUpon>
-    </Content>
-    <Content Include="Models\ECMills_Database_Model.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>ECMills_Database_Model.edmx</DependentUpon>
-      <LastGenOutput>ECMills_Database_Model.cs</LastGenOutput>
-    </Content>
     <Content Include="Content\bootstrap.min.css.map" />
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-reboot.min.css.map" />
     <Content Include="Content\bootstrap-reboot.css.map" />
     <Content Include="Content\bootstrap-grid.min.css.map" />
     <Content Include="Content\bootstrap-grid.css.map" />
+    <EntityDeploy Include="Models\ECMills_DBModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ECMills_DBModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\ECMills_DBModel.edmx.diagram">
+      <DependentUpon>ECMills_DBModel.edmx</DependentUpon>
+    </Content>
     <None Include="Properties\PublishProfiles\ECMills - Web Deploy.pubxml" />
+    <Content Include="Models\ECMills_DBModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ECMills_DBModel.edmx</DependentUpon>
+      <LastGenOutput>ECMills_DBModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\ECMills_DBModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ECMills_DBModel.edmx</DependentUpon>
+      <LastGenOutput>ECMills_DBModel.cs</LastGenOutput>
+    </Content>
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -613,9 +692,6 @@
     <Content Include="Views\Shared\NavBar.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Scripts\material-dashboard.js.map" />
-    <Content Include="Views\Deceased\List.cshtml" />
-    <Content Include="Views\Deceased\Profile.cshtml" />
-    <Content Include="Views\Deceased\EditProfile.cshtml" />
     <Content Include="Views\Shared\SecondNavbar.cshtml" />
     <Content Include="Views\Arrangement\Deceased.cshtml" />
     <Content Include="Views\Arrangement\List.cshtml" />
@@ -629,9 +705,11 @@
     <Content Include="Scripts\popper.js.map" />
     <Content Include="Scripts\popper-utils.min.js.map" />
     <Content Include="Scripts\popper-utils.js.map" />
+    <Content Include="Views\Arrangement\Contacts.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="ViewModels\" />
     <Folder Include="Views\Accounts\" />
     <Folder Include="Views\Community\" />
     <Folder Include="Views\Contacts\" />

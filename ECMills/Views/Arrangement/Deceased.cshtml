@@ -304,7 +304,7 @@
  
             $('#EditProfile_Button').replaceWith('<button type="button" id="CancelDeceasedProfileEdit_Button" class="btn btn-primary pull-left" onclick="CancelDeceasedProfileEdit(\'' + Name + '\',\'' + Known_As + '\',\'' + Gender + '\',\'' + Age + '\',\'' + DOB + '\',\'' + TimeOfDeath + '\',\'' + MaritalStatus + '\',\'' + Occupation + '\',\'' + Religion + '\',\'' + ReligiousDenomination + '\')">Cancel</button>');
            // $('#UpdateProfileDiv').append('<button type="button" onclick="SubmitProfileUpdates()" class="btn btn-primary pull-right">Update Profile</button>')
-            $('#UpdateProfileDiv').append('<input type="submit" class="btn btn-primary pull-right">Update Profile</input>')
+            $('#UpdateProfileDiv').append('<input type="submit" class="btn btn-primary pull-right" />')
         };
 
         // backslash + quote is an escape character for single quote (e.g  \' )
@@ -327,6 +327,8 @@
 
     function SubmitProfileUpdates() {
 
+        event.preventDefault;
+
         var Name = document.getElementById("ReadWriteInput-Name").value;
         var Test = $('input[name=Name]').val();
         var Known_As        =   document.getElementById("ReadWriteInput-Known_As").value;
@@ -341,6 +343,8 @@
         
         var form = $(this);
         var url = form.attr('action');
+
+        var tester = form.serialize();
 
         $.ajax({
             type: 'POST',

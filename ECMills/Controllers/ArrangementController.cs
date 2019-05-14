@@ -10,11 +10,11 @@ namespace ECMills.Controllers
 {
     public class ArrangementController : Controller
     {
-        private ECMills_DBModel_Connection DBContext;
+        private ECMills_DBConnection DBContext;
 
         public ArrangementController()
         {
-            DBContext = new ECMills_DBModel_Connection();
+            DBContext = new ECMills_DBConnection();
         }
 
         public ActionResult Home()
@@ -44,17 +44,24 @@ namespace ECMills.Controllers
             return View(dynamicObject);
         }
 
-        
+        public ActionResult Contacts(Int16 id)
+        {
+            dynamic dynamicObject = new ExpandoObject();
+            dynamicObject.DeceasedContactList = sp_GetDeceasedContactsList(id);
+            return View(dynamicObject);
+        }
+
         public ActionResult ProfileUpdate(string Name, string Known_As, string Gender, int Age, DateTime DOB,
                                           DateTime TimeOfDeath, string MaritalStatus, string Occupation,
                                           string Religion, string Reldom)
         {
 
-            string SQLQuery = "Here we go...";
+          /*
+           string SQLQuery = "Here we go...";
             SQLQuery = SQLQuery + Name + ", " + Reldom;
-
+            */
             return Content("YEP");
-            
+           
         }
 
         public List<sp_GetDeceasedList_Result> sp_GetDeceasedList()
@@ -70,6 +77,11 @@ namespace ECMills.Controllers
         public List<sp_GetDeceasedAddressList_Result> sp_GetDeceasedAddressList(Int16 id)
         {
             return DBContext.sp_GetDeceasedAddressList(id).ToList();
+        }
+
+        public List<sp_GetDeceasedContactsList_Result> sp_GetDeceasedContactsList(Int16 id)
+        {
+            return DBContext.sp_GetDeceasedContactsList(id).ToList();
         }
     }
 }

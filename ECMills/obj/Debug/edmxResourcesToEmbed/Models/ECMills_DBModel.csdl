@@ -1,5 +1,52 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Schema Namespace="ECMills_DBModel_Namespace" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+<Schema Namespace="ECMills_DatabaseModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="provision_marker_dss">
+    <Key>
+      <PropertyRef Name="object_id" />
+      <PropertyRef Name="owner_scope_local_id" />
+    </Key>
+    <Property Name="object_id" Type="Int32" Nullable="false" />
+    <Property Name="owner_scope_local_id" Type="Int32" Nullable="false" />
+    <Property Name="provision_scope_local_id" Type="Int32" />
+    <Property Name="provision_timestamp" Type="Int64" Nullable="false" />
+    <Property Name="provision_local_peer_key" Type="Int32" Nullable="false" />
+    <Property Name="provision_scope_peer_key" Type="Int32" />
+    <Property Name="provision_scope_peer_timestamp" Type="Int64" />
+    <Property Name="provision_datetime" Type="DateTime" Precision="3" />
+    <Property Name="state" Type="Int32" />
+    <Property Name="version" Type="Binary" MaxLength="8" FixedLength="true" Nullable="false" annotation:StoreGeneratedPattern="Computed" />
+  </EntityType>
+  <EntityType Name="schema_info_dss">
+    <Key>
+      <PropertyRef Name="schema_major_version" />
+      <PropertyRef Name="schema_minor_version" />
+    </Key>
+    <Property Name="schema_major_version" Type="Int32" Nullable="false" />
+    <Property Name="schema_minor_version" Type="Int32" Nullable="false" />
+    <Property Name="schema_extended_info" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="scope_config_dss">
+    <Key>
+      <PropertyRef Name="config_id" />
+    </Key>
+    <Property Name="config_id" Type="Guid" Nullable="false" />
+    <Property Name="config_data" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="scope_status" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+  </EntityType>
+  <EntityType Name="scope_info_dss">
+    <Key>
+      <PropertyRef Name="sync_scope_name" />
+    </Key>
+    <Property Name="scope_local_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="scope_id" Type="Guid" Nullable="false" />
+    <Property Name="sync_scope_name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="scope_sync_knowledge" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="scope_tombstone_cleanup_knowledge" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="scope_timestamp" Type="Binary" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" />
+    <Property Name="scope_config_id" Type="Guid" />
+    <Property Name="scope_restore_count" Type="Int32" Nullable="false" />
+    <Property Name="scope_user_comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
   <EntityType Name="Ceremony">
     <Key>
       <PropertyRef Name="OrderID" />
@@ -451,6 +498,309 @@
     <NavigationProperty Name="Orders" Relationship="Self.FK_Users_ID_Orders_CreatedBy" FromRole="Users" ToRole="Orders" />
     <NavigationProperty Name="Orders1" Relationship="Self.FK_Users_ID_Orders_LastModifiedBy" FromRole="Users" ToRole="Orders" />
   </EntityType>
+  <EntityType Name="action">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Guid" Nullable="false" />
+    <Property Name="syncgroupid" Type="Guid" />
+    <Property Name="type" Type="Int32" Nullable="false" />
+    <Property Name="state" Type="Int32" Nullable="false" />
+    <Property Name="creationtime" Type="DateTime" Precision="3" />
+    <Property Name="lastupdatetime" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="tasks" Relationship="Self.FK__task__actionid" FromRole="action" ToRole="task" />
+  </EntityType>
+  <EntityType Name="agent">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Guid" Nullable="false" />
+    <Property Name="name" Type="String" MaxLength="140" FixedLength="false" Unicode="true" />
+    <Property Name="subscriptionid" Type="Guid" />
+    <Property Name="state" Type="Int32" />
+    <Property Name="lastalivetime" Type="DateTime" Precision="3" />
+    <Property Name="is_on_premise" Type="Boolean" Nullable="false" />
+    <Property Name="version" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+    <Property Name="password_hash" Type="Binary" MaxLength="256" FixedLength="false" />
+    <Property Name="password_salt" Type="Binary" MaxLength="256" FixedLength="false" />
+    <NavigationProperty Name="subscription" Relationship="Self.FK__agent__subscript" FromRole="agent" ToRole="subscription" />
+    <NavigationProperty Name="agent_instance" Relationship="Self.FK__agent_ins__agent" FromRole="agent" ToRole="agent_instance" />
+  </EntityType>
+  <EntityType Name="agent_instance">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Guid" Nullable="false" />
+    <Property Name="agentid" Type="Guid" Nullable="false" />
+    <Property Name="lastalivetime" Type="DateTime" Precision="3" />
+    <Property Name="version" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="agent" Relationship="Self.FK__agent_ins__agent" FromRole="agent_instance" ToRole="agent" />
+  </EntityType>
+  <EntityType Name="agent_version">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Version" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ExpiresOn" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Comment" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="configuration">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="ConfigKey" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ConfigValue" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="LastModified" Type="DateTime" Nullable="false" Precision="3" />
+  </EntityType>
+  <EntityType Name="EnumType">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Type" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="EnumId" Type="Int32" Nullable="false" />
+    <Property Name="LastModified" Type="DateTime" Nullable="false" Precision="3" />
+  </EntityType>
+  <EntityType Name="MetaInformation">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="VersionMajor" Type="Int32" Nullable="false" />
+    <Property Name="VersionMinor" Type="Int32" Nullable="false" />
+    <Property Name="VersionBuild" Type="Int32" Nullable="false" />
+    <Property Name="VersionService" Type="Int32" Nullable="false" />
+    <Property Name="VersionString" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Version" Type="Int64" />
+    <Property Name="State" Type="Boolean" Nullable="false" />
+    <Property Name="Timestamp" Type="DateTime" Nullable="false" Precision="3" />
+  </EntityType>
+  <EntityType Name="scaleunitlimit">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="MaxValue" Type="Int32" Nullable="false" />
+    <Property Name="LastModified" Type="DateTime" Nullable="false" Precision="3" />
+  </EntityType>
+  <EntityType Name="ScheduleTask">
+    <Key>
+      <PropertyRef Name="SyncGroupId" />
+    </Key>
+    <Property Name="Id" Type="Guid" Nullable="false" />
+    <Property Name="SyncGroupId" Type="Guid" Nullable="false" />
+    <Property Name="Interval" Type="Int64" Nullable="false" />
+    <Property Name="LastUpdate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="State" Type="Byte" Nullable="false" />
+    <Property Name="ExpirationTime" Type="DateTime" Precision="3" />
+    <Property Name="PopReceipt" Type="Guid" />
+    <Property Name="DequeueCount" Type="Byte" Nullable="false" />
+    <Property Name="Type" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="syncgroup" Relationship="Self.FK__ScheduleT__SyncG" FromRole="ScheduleTask" ToRole="syncgroup" />
+  </EntityType>
+  <EntityType Name="subscription">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Guid" Nullable="false" />
+    <Property Name="name" Type="String" MaxLength="140" FixedLength="false" Unicode="true" />
+    <Property Name="creationtime" Type="DateTime" Precision="3" />
+    <Property Name="lastlogintime" Type="DateTime" Precision="3" />
+    <Property Name="tombstoneretentionperiodindays" Type="Int32" Nullable="false" />
+    <Property Name="policyid" Type="Int32" />
+    <Property Name="subscriptionstate" Type="Byte" Nullable="false" />
+    <Property Name="WindowsAzureSubscriptionId" Type="Guid" />
+    <Property Name="EnableDetailedProviderTracing" Type="Boolean" />
+    <Property Name="syncserveruniquename" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="version" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="agents" Relationship="Self.FK__agent__subscript" FromRole="subscription" ToRole="agent" />
+    <NavigationProperty Name="syncgroups" Relationship="Self.FK__syncgroup__subsc" FromRole="subscription" ToRole="syncgroup" />
+    <NavigationProperty Name="userdatabases" Relationship="Self.FK__userdatab__subsc" FromRole="subscription" ToRole="userdatabase" />
+  </EntityType>
+  <EntityType Name="syncgroup">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Guid" Nullable="false" />
+    <Property Name="name" Type="String" MaxLength="140" FixedLength="false" Unicode="true" />
+    <Property Name="subscriptionid" Type="Guid" />
+    <Property Name="schema_description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="state" Type="Int32" />
+    <Property Name="hub_memberid" Type="Guid" />
+    <Property Name="conflict_resolution_policy" Type="Int32" Nullable="false" />
+    <Property Name="sync_interval" Type="Int32" Nullable="false" />
+    <Property Name="sync_enabled" Type="Boolean" Nullable="false" />
+    <Property Name="lastupdatetime" Type="DateTime" Precision="3" />
+    <Property Name="ocsschemadefinition" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="hubhasdata" Type="Boolean" />
+    <Property Name="ConflictLoggingEnabled" Type="Boolean" Nullable="false" />
+    <Property Name="ConflictTableRetentionInDays" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="ScheduleTask" Relationship="Self.FK__ScheduleT__SyncG" FromRole="syncgroup" ToRole="ScheduleTask" />
+    <NavigationProperty Name="subscription" Relationship="Self.FK__syncgroup__subsc" FromRole="syncgroup" ToRole="subscription" />
+    <NavigationProperty Name="userdatabase" Relationship="Self.FK__syncgroup__hub_m" FromRole="syncgroup" ToRole="userdatabase" />
+    <NavigationProperty Name="syncgroupmembers" Relationship="Self.FK__syncmember__syncg" FromRole="syncgroup" ToRole="syncgroupmember" />
+  </EntityType>
+  <EntityType Name="syncgroupmember">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Guid" Nullable="false" />
+    <Property Name="name" Type="String" MaxLength="140" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="scopename" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="syncgroupid" Type="Guid" Nullable="false" />
+    <Property Name="syncdirection" Type="Int32" Nullable="false" />
+    <Property Name="databaseid" Type="Guid" Nullable="false" />
+    <Property Name="memberstate" Type="Int32" Nullable="false" />
+    <Property Name="hubstate" Type="Int32" Nullable="false" />
+    <Property Name="memberstate_lastupdated" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="hubstate_lastupdated" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="lastsynctime" Type="DateTime" Precision="3" />
+    <Property Name="lastsynctime_zerofailures_member" Type="DateTime" Precision="3" />
+    <Property Name="lastsynctime_zerofailures_hub" Type="DateTime" Precision="3" />
+    <Property Name="jobId" Type="Guid" />
+    <Property Name="hubJobId" Type="Guid" />
+    <Property Name="noinitsync" Type="Boolean" Nullable="false" />
+    <Property Name="memberhasdata" Type="Boolean" />
+    <NavigationProperty Name="syncgroup" Relationship="Self.FK__syncmember__syncg" FromRole="syncgroupmember" ToRole="syncgroup" />
+    <NavigationProperty Name="userdatabase" Relationship="Self.FK__syncmember__datab" FromRole="syncgroupmember" ToRole="userdatabase" />
+  </EntityType>
+  <EntityType Name="SyncObjectData">
+    <Key>
+      <PropertyRef Name="ObjectId" />
+      <PropertyRef Name="DataType" />
+    </Key>
+    <Property Name="ObjectId" Type="Guid" Nullable="false" />
+    <Property Name="DataType" Type="Int32" Nullable="false" />
+    <Property Name="CreatedTime" Type="DateTime" Nullable="false" Precision="7" />
+    <Property Name="DroppedTime" Type="DateTime" Precision="7" />
+    <Property Name="LastModified" Type="Binary" MaxLength="8" FixedLength="true" Nullable="false" annotation:StoreGeneratedPattern="Computed" />
+    <Property Name="ObjectData" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="task">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Guid" Nullable="false" />
+    <Property Name="actionid" Type="Guid" Nullable="false" />
+    <Property Name="taskNumber" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="lastheartbeat" Type="DateTime" Precision="3" />
+    <Property Name="state" Type="Int32" />
+    <Property Name="type" Type="Int32" />
+    <Property Name="agentid" Type="Guid" />
+    <Property Name="owning_instanceid" Type="Guid" />
+    <Property Name="creationtime" Type="DateTime" Precision="3" />
+    <Property Name="pickuptime" Type="DateTime" Precision="3" />
+    <Property Name="completedtime" Type="DateTime" Precision="3" />
+    <Property Name="request" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="response" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="priority" Type="Int32" />
+    <Property Name="retry_count" Type="Int32" Nullable="false" />
+    <Property Name="dependency_count" Type="Int32" Nullable="false" />
+    <Property Name="version" Type="Int64" Nullable="false" />
+    <Property Name="lastresettime" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="action" Relationship="Self.FK__task__actionid" FromRole="task" ToRole="action" />
+    <NavigationProperty Name="task1" Relationship="Self.taskdependency" FromRole="task" ToRole="task1" />
+    <NavigationProperty Name="tasks" Relationship="Self.taskdependency" FromRole="task1" ToRole="task" />
+  </EntityType>
+  <EntityType Name="userdatabase">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Guid" Nullable="false" />
+    <Property Name="server" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="database" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="state" Type="Int32" Nullable="false" />
+    <Property Name="subscriptionid" Type="Guid" Nullable="false" />
+    <Property Name="agentid" Type="Guid" Nullable="false" />
+    <Property Name="connection_string" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="db_schema" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="is_on_premise" Type="Boolean" Nullable="false" />
+    <Property Name="sqlazure_info" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="last_schema_updated" Type="DateTime" Precision="3" />
+    <Property Name="last_tombstonecleanup" Type="DateTime" Precision="3" />
+    <Property Name="region" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="jobId" Type="Guid" />
+    <NavigationProperty Name="subscription" Relationship="Self.FK__userdatab__subsc" FromRole="userdatabase" ToRole="subscription" />
+    <NavigationProperty Name="syncgroups" Relationship="Self.FK__syncgroup__hub_m" FromRole="userdatabase" ToRole="syncgroup" />
+    <NavigationProperty Name="syncgroupmembers" Relationship="Self.FK__syncmember__datab" FromRole="userdatabase" ToRole="syncgroupmember" />
+  </EntityType>
+  <EntityType Name="Job">
+    <Key>
+      <PropertyRef Name="JobId" />
+    </Key>
+    <Property Name="JobId" Type="Guid" Nullable="false" />
+    <Property Name="IsCancelled" Type="Boolean" Nullable="false" />
+    <Property Name="InitialInsertTimeUTC" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="JobType" Type="Int32" Nullable="false" />
+    <Property Name="InputData" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="TaskCount" Type="Int32" Nullable="false" />
+    <Property Name="CompletedTaskCount" Type="Int32" Nullable="false" />
+    <Property Name="TracingId" Type="Guid" />
+    <NavigationProperty Name="MessageQueues" Relationship="Self.FK__MessageQu__JobId__09C96D33" FromRole="Job" ToRole="MessageQueue" />
+  </EntityType>
+  <EntityType Name="MessageQueue">
+    <Key>
+      <PropertyRef Name="MessageId" />
+    </Key>
+    <Property Name="MessageId" Type="Guid" Nullable="false" />
+    <Property Name="JobId" Type="Guid" />
+    <Property Name="MessageType" Type="Int32" Nullable="false" />
+    <Property Name="MessageData" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="InitialInsertTimeUTC" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="InsertTimeUTC" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="UpdateTimeUTC" Type="DateTime" Precision="3" />
+    <Property Name="ExecTimes" Type="Byte" Nullable="false" />
+    <Property Name="ResetTimes" Type="Int32" Nullable="false" />
+    <Property Name="Version" Type="Int64" Nullable="false" />
+    <Property Name="TracingId" Type="Guid" />
+    <Property Name="QueueId" Type="Guid" />
+    <Property Name="WorkerId" Type="Guid" />
+    <NavigationProperty Name="Job" Relationship="Self.FK__MessageQu__JobId__09C96D33" FromRole="MessageQueue" ToRole="Job" />
+  </EntityType>
+  <EntityType Name="MetaInformation1">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="VersionMajor" Type="Int32" Nullable="false" />
+    <Property Name="VersionMinor" Type="Int32" Nullable="false" />
+    <Property Name="VersionBuild" Type="Int32" Nullable="false" />
+    <Property Name="VersionService" Type="Int32" Nullable="false" />
+    <Property Name="VersionString" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Version" Type="Int64" />
+    <Property Name="State" Type="Boolean" Nullable="false" />
+    <Property Name="Timestamp" Type="DateTime" Nullable="false" Precision="3" />
+  </EntityType>
+  <EntityType Name="Schedule">
+    <Key>
+      <PropertyRef Name="ScheduleId" />
+    </Key>
+    <Property Name="ScheduleId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FreqType" Type="Int32" Nullable="false" />
+    <Property Name="FreqInterval" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="ScheduleTask1" Relationship="Self.FK__ScheduleT__Sched__1446FBA6" FromRole="Schedule" ToRole="ScheduleTask1" />
+  </EntityType>
+  <EntityType Name="ScheduleTask1">
+    <Key>
+      <PropertyRef Name="ScheduleTaskId" />
+    </Key>
+    <Property Name="ScheduleTaskId" Type="Guid" Nullable="false" />
+    <Property Name="TaskType" Type="Int32" Nullable="false" />
+    <Property Name="TaskName" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Schedule" Type="Int32" />
+    <Property Name="State" Type="Int32" Nullable="false" />
+    <Property Name="NextRunTime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="MessageId" Type="Guid" />
+    <Property Name="TaskInput" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="QueueId" Type="Guid" Nullable="false" />
+    <Property Name="TracingId" Type="Guid" Nullable="false" />
+    <Property Name="JobId" Type="Guid" Nullable="false" />
+    <NavigationProperty Name="Schedule1" Relationship="Self.FK__ScheduleT__Sched__1446FBA6" FromRole="ScheduleTask1" ToRole="Schedule" />
+  </EntityType>
   <EntityType Name="DeceasedAddress">
     <Key>
       <PropertyRef Name="DeceasedID" />
@@ -635,6 +985,30 @@
     <Property Name="Time" Type="DateTime" Nullable="false" Precision="3" />
     <NavigationProperty Name="Order" Relationship="Self.FK_Orders_ID_Visitors_OrderID" FromRole="Visitors" ToRole="Orders" />
   </EntityType>
+  <EntityType Name="UIHistory">
+    <Key>
+      <PropertyRef Name="id" />
+      <PropertyRef Name="completionTime" />
+      <PropertyRef Name="taskType" />
+      <PropertyRef Name="recordType" />
+      <PropertyRef Name="serverid" />
+      <PropertyRef Name="agentid" />
+      <PropertyRef Name="databaseid" />
+      <PropertyRef Name="syncgroupId" />
+      <PropertyRef Name="detailEnumId" />
+    </Key>
+    <Property Name="id" Type="Guid" Nullable="false" />
+    <Property Name="completionTime" Type="DateTime" Nullable="false" Precision="7" />
+    <Property Name="taskType" Type="Int32" Nullable="false" />
+    <Property Name="recordType" Type="Int32" Nullable="false" />
+    <Property Name="serverid" Type="Guid" Nullable="false" />
+    <Property Name="agentid" Type="Guid" Nullable="false" />
+    <Property Name="databaseid" Type="Guid" Nullable="false" />
+    <Property Name="syncgroupId" Type="Guid" Nullable="false" />
+    <Property Name="detailEnumId" Type="String" MaxLength="400" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="detailStringParameters" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="isWritable" Type="Boolean" />
+  </EntityType>
   <EntityType Name="vw_GetDeceasedAddressList">
     <Key>
       <PropertyRef Name="DeceasedID" />
@@ -728,6 +1102,22 @@
     </Key>
     <Property Name="Table" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="RowCount" Type="Int32" />
+  </EntityType>
+  <EntityType Name="database_firewall_rules">
+    <Key>
+      <PropertyRef Name="id" />
+      <PropertyRef Name="name" />
+      <PropertyRef Name="start_ip_address" />
+      <PropertyRef Name="end_ip_address" />
+      <PropertyRef Name="create_date" />
+      <PropertyRef Name="modify_date" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="start_ip_address" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="end_ip_address" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="create_date" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="modify_date" Type="DateTime" Nullable="false" Precision="3" />
   </EntityType>
   <Association Name="FK_CommittalLocation_ID_Ceremony_CeremonyLocationID">
     <End Role="CommittalLocation" Type="Self.CommittalLocation" Multiplicity="0..1" />
@@ -1245,7 +1635,147 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <EntityContainer Name="ECMills_DBModel_Connection" annotation:LazyLoadingEnabled="true">
+  <Association Name="FK__task__actionid">
+    <End Role="action" Type="Self.action" Multiplicity="1" />
+    <End Role="task" Type="Self.task" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="action">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="task">
+        <PropertyRef Name="actionid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__agent__subscript">
+    <End Role="subscription" Type="Self.subscription" Multiplicity="0..1" />
+    <End Role="agent" Type="Self.agent" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="subscription">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="agent">
+        <PropertyRef Name="subscriptionid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__agent_ins__agent">
+    <End Role="agent" Type="Self.agent" Multiplicity="1" />
+    <End Role="agent_instance" Type="Self.agent_instance" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="agent">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="agent_instance">
+        <PropertyRef Name="agentid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ScheduleT__SyncG">
+    <End Role="syncgroup" Type="Self.syncgroup" Multiplicity="1" />
+    <End Role="ScheduleTask" Type="Self.ScheduleTask" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="syncgroup">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="ScheduleTask">
+        <PropertyRef Name="SyncGroupId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__syncgroup__subsc">
+    <End Role="subscription" Type="Self.subscription" Multiplicity="0..1" />
+    <End Role="syncgroup" Type="Self.syncgroup" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="subscription">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="syncgroup">
+        <PropertyRef Name="subscriptionid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__userdatab__subsc">
+    <End Role="subscription" Type="Self.subscription" Multiplicity="1" />
+    <End Role="userdatabase" Type="Self.userdatabase" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="subscription">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="userdatabase">
+        <PropertyRef Name="subscriptionid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__syncgroup__hub_m">
+    <End Role="userdatabase" Type="Self.userdatabase" Multiplicity="0..1" />
+    <End Role="syncgroup" Type="Self.syncgroup" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="userdatabase">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="syncgroup">
+        <PropertyRef Name="hub_memberid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__syncmember__syncg">
+    <End Role="syncgroup" Type="Self.syncgroup" Multiplicity="1" />
+    <End Role="syncgroupmember" Type="Self.syncgroupmember" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="syncgroup">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="syncgroupmember">
+        <PropertyRef Name="syncgroupid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__syncmember__datab">
+    <End Role="userdatabase" Type="Self.userdatabase" Multiplicity="1" />
+    <End Role="syncgroupmember" Type="Self.syncgroupmember" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="userdatabase">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="syncgroupmember">
+        <PropertyRef Name="databaseid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__MessageQu__JobId__09C96D33">
+    <End Role="Job" Type="Self.Job" Multiplicity="0..1" />
+    <End Role="MessageQueue" Type="Self.MessageQueue" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Job">
+        <PropertyRef Name="JobId" />
+      </Principal>
+      <Dependent Role="MessageQueue">
+        <PropertyRef Name="JobId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ScheduleT__Sched__1446FBA6">
+    <End Role="Schedule" Type="Self.Schedule" Multiplicity="0..1" />
+    <End Role="ScheduleTask1" Type="Self.ScheduleTask1" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Schedule">
+        <PropertyRef Name="ScheduleId" />
+      </Principal>
+      <Dependent Role="ScheduleTask1">
+        <PropertyRef Name="Schedule" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="taskdependency">
+    <End Role="task" Type="Self.task" Multiplicity="*" />
+    <End Role="task1" Type="Self.task" Multiplicity="*" />
+  </Association>
+  <EntityContainer Name="ECMills_DBConnection" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="provision_marker_dss" EntityType="Self.provision_marker_dss" />
+    <EntitySet Name="schema_info_dss" EntityType="Self.schema_info_dss" />
+    <EntitySet Name="scope_config_dss" EntityType="Self.scope_config_dss" />
+    <EntitySet Name="scope_info_dss" EntityType="Self.scope_info_dss" />
     <EntitySet Name="Ceremonies" EntityType="Self.Ceremony" />
     <EntitySet Name="Clients" EntityType="Self.Client" />
     <EntitySet Name="Coffins" EntityType="Self.Coffin" />
@@ -1276,6 +1806,26 @@
     <EntitySet Name="Suppliers" EntityType="Self.Supplier" />
     <EntitySet Name="TransportTypes" EntityType="Self.TransportType" />
     <EntitySet Name="Users" EntityType="Self.User" />
+    <EntitySet Name="actions" EntityType="Self.action" />
+    <EntitySet Name="agents" EntityType="Self.agent" />
+    <EntitySet Name="agent_instance" EntityType="Self.agent_instance" />
+    <EntitySet Name="agent_version" EntityType="Self.agent_version" />
+    <EntitySet Name="configurations" EntityType="Self.configuration" />
+    <EntitySet Name="EnumTypes" EntityType="Self.EnumType" />
+    <EntitySet Name="MetaInformations" EntityType="Self.MetaInformation" />
+    <EntitySet Name="scaleunitlimits" EntityType="Self.scaleunitlimit" />
+    <EntitySet Name="ScheduleTasks" EntityType="Self.ScheduleTask" />
+    <EntitySet Name="subscriptions" EntityType="Self.subscription" />
+    <EntitySet Name="syncgroups" EntityType="Self.syncgroup" />
+    <EntitySet Name="syncgroupmembers" EntityType="Self.syncgroupmember" />
+    <EntitySet Name="SyncObjectDatas" EntityType="Self.SyncObjectData" />
+    <EntitySet Name="tasks" EntityType="Self.task" />
+    <EntitySet Name="userdatabases" EntityType="Self.userdatabase" />
+    <EntitySet Name="Jobs" EntityType="Self.Job" />
+    <EntitySet Name="MessageQueues" EntityType="Self.MessageQueue" />
+    <EntitySet Name="MetaInformation1" EntityType="Self.MetaInformation1" />
+    <EntitySet Name="Schedules" EntityType="Self.Schedule" />
+    <EntitySet Name="ScheduleTask1" EntityType="Self.ScheduleTask1" />
     <EntitySet Name="DeceasedAddresses" EntityType="Self.DeceasedAddress" />
     <EntitySet Name="DeceasedContacts" EntityType="Self.DeceasedContact" />
     <EntitySet Name="DeceasedContactsPointOfContacts" EntityType="Self.DeceasedContactsPointOfContact" />
@@ -1285,11 +1835,13 @@
     <EntitySet Name="OrderItems" EntityType="Self.OrderItem" />
     <EntitySet Name="Transports" EntityType="Self.Transport" />
     <EntitySet Name="Visitors" EntityType="Self.Visitor" />
+    <EntitySet Name="UIHistories" EntityType="Self.UIHistory" />
     <EntitySet Name="vw_GetDeceasedAddressList" EntityType="Self.vw_GetDeceasedAddressList" />
     <EntitySet Name="vw_GetDeceasedContactsList" EntityType="Self.vw_GetDeceasedContactsList" />
     <EntitySet Name="vw_GetDeceasedList" EntityType="Self.vw_GetDeceasedList" />
     <EntitySet Name="vw_GetDeceasedProfile" EntityType="Self.vw_GetDeceasedProfile" />
     <EntitySet Name="vw_RowCountForAllTables" EntityType="Self.vw_RowCountForAllTables" />
+    <EntitySet Name="database_firewall_rules" EntityType="Self.database_firewall_rules" />
     <AssociationSet Name="FK_CommittalLocation_ID_Ceremony_CeremonyLocationID" Association="Self.FK_CommittalLocation_ID_Ceremony_CeremonyLocationID">
       <End Role="CommittalLocation" EntitySet="CommittalLocations" />
       <End Role="Ceremony" EntitySet="Ceremonies" />
@@ -1462,14 +2014,62 @@
       <End Role="TransportType" EntitySet="TransportTypes" />
       <End Role="Transport" EntitySet="Transports" />
     </AssociationSet>
-    <FunctionImport Name="sp_GetDeceasedAddressList" ReturnType="Collection(ECMills_DBModel_Namespace.sp_GetDeceasedAddressList_Result)">
+    <AssociationSet Name="FK__task__actionid" Association="Self.FK__task__actionid">
+      <End Role="action" EntitySet="actions" />
+      <End Role="task" EntitySet="tasks" />
+    </AssociationSet>
+    <AssociationSet Name="FK__agent__subscript" Association="Self.FK__agent__subscript">
+      <End Role="subscription" EntitySet="subscriptions" />
+      <End Role="agent" EntitySet="agents" />
+    </AssociationSet>
+    <AssociationSet Name="FK__agent_ins__agent" Association="Self.FK__agent_ins__agent">
+      <End Role="agent" EntitySet="agents" />
+      <End Role="agent_instance" EntitySet="agent_instance" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ScheduleT__SyncG" Association="Self.FK__ScheduleT__SyncG">
+      <End Role="syncgroup" EntitySet="syncgroups" />
+      <End Role="ScheduleTask" EntitySet="ScheduleTasks" />
+    </AssociationSet>
+    <AssociationSet Name="FK__syncgroup__subsc" Association="Self.FK__syncgroup__subsc">
+      <End Role="subscription" EntitySet="subscriptions" />
+      <End Role="syncgroup" EntitySet="syncgroups" />
+    </AssociationSet>
+    <AssociationSet Name="FK__userdatab__subsc" Association="Self.FK__userdatab__subsc">
+      <End Role="subscription" EntitySet="subscriptions" />
+      <End Role="userdatabase" EntitySet="userdatabases" />
+    </AssociationSet>
+    <AssociationSet Name="FK__syncgroup__hub_m" Association="Self.FK__syncgroup__hub_m">
+      <End Role="userdatabase" EntitySet="userdatabases" />
+      <End Role="syncgroup" EntitySet="syncgroups" />
+    </AssociationSet>
+    <AssociationSet Name="FK__syncmember__syncg" Association="Self.FK__syncmember__syncg">
+      <End Role="syncgroup" EntitySet="syncgroups" />
+      <End Role="syncgroupmember" EntitySet="syncgroupmembers" />
+    </AssociationSet>
+    <AssociationSet Name="FK__syncmember__datab" Association="Self.FK__syncmember__datab">
+      <End Role="userdatabase" EntitySet="userdatabases" />
+      <End Role="syncgroupmember" EntitySet="syncgroupmembers" />
+    </AssociationSet>
+    <AssociationSet Name="FK__MessageQu__JobId__09C96D33" Association="Self.FK__MessageQu__JobId__09C96D33">
+      <End Role="Job" EntitySet="Jobs" />
+      <End Role="MessageQueue" EntitySet="MessageQueues" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ScheduleT__Sched__1446FBA6" Association="Self.FK__ScheduleT__Sched__1446FBA6">
+      <End Role="Schedule" EntitySet="Schedules" />
+      <End Role="ScheduleTask1" EntitySet="ScheduleTask1" />
+    </AssociationSet>
+    <AssociationSet Name="taskdependency" Association="Self.taskdependency">
+      <End Role="task" EntitySet="tasks" />
+      <End Role="task1" EntitySet="tasks" />
+    </AssociationSet>
+    <FunctionImport Name="sp_GetDeceasedAddressList" ReturnType="Collection(ECMills_DatabaseModel.sp_GetDeceasedAddressList_Result)">
       <Parameter Name="DeceasedID" Mode="In" Type="Int16" />
     </FunctionImport>
-    <FunctionImport Name="sp_GetDeceasedContactsList" ReturnType="Collection(ECMills_DBModel_Namespace.sp_GetDeceasedContactsList_Result)">
+    <FunctionImport Name="sp_GetDeceasedContactsList" ReturnType="Collection(ECMills_DatabaseModel.sp_GetDeceasedContactsList_Result)">
       <Parameter Name="DeceasedID" Mode="In" Type="Int16" />
     </FunctionImport>
-    <FunctionImport Name="sp_GetDeceasedList" ReturnType="Collection(ECMills_DBModel_Namespace.sp_GetDeceasedList_Result)" />
-    <FunctionImport Name="sp_GetDeceasedProfile" ReturnType="Collection(ECMills_DBModel_Namespace.sp_GetDeceasedProfile_Result)">
+    <FunctionImport Name="sp_GetDeceasedList" ReturnType="Collection(ECMills_DatabaseModel.sp_GetDeceasedList_Result)" />
+    <FunctionImport Name="sp_GetDeceasedProfile" ReturnType="Collection(ECMills_DatabaseModel.sp_GetDeceasedProfile_Result)">
       <Parameter Name="DeceasedID" Mode="In" Type="Int16" />
     </FunctionImport>
   </EntityContainer>
