@@ -21,8 +21,11 @@
                     DeceasedContactID = DeceasedContactID + 1;
 
                     // Add address details into the dictionary array called "AddressDictionaryArray"
-                   // ContactDictionaryArray.Add(String.Format("AddressType_{0}", DeceasedContactID.ToString()), DeceasedContactID.AddressType);
-
+                    ContactDictionaryArray.Add(String.Format("ContactType_{0}", DeceasedContactID.ToString()), DeceasedContactList.ContactType);
+                    ContactDictionaryArray.Add(String.Format("AddressLine1_{0}", DeceasedContactID.ToString()), DeceasedContactList.AddressLine1);
+                    ContactDictionaryArray.Add(String.Format("AddressLine2_{0}", DeceasedContactID.ToString()), DeceasedContactList.AddressLine2);
+                    ContactDictionaryArray.Add(String.Format("City_{0}", DeceasedContactID.ToString()), DeceasedContactList.City);
+                    ContactDictionaryArray.Add(String.Format("Postcode_{0}", DeceasedContactID.ToString()), DeceasedContactList.PostCode);
                     <tr>
                         <td>
                             <button id="@DeceasedContactID" type="button" onclick="GetDeceasedAddressDetails(@DeceasedContactID)" class="ContactsButton btn btn-outline-primary text-left col-md-12">

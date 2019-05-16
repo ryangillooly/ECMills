@@ -48,6 +48,7 @@ namespace ECMills.Controllers
         {
             dynamic dynamicObject = new ExpandoObject();
             dynamicObject.DeceasedContactList = sp_GetDeceasedContactsList(id);
+
             return View(dynamicObject);
         }
 
