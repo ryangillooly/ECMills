@@ -1,0 +1,62 @@
+﻿
+@using ECMills.Models;
+@model dynamic
+
+@{
+    ViewBag.Title = "Arrangement";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row col-md-6">
+    <div class="card col-md-12">
+        <div class="card-body">
+            Listed Contacts
+            <hr />
+            <div class="container col-md-12">
+                <nav class="navbar-absolute">
+                    <div class="container-fluid">
+                        <div class="navbar-wrapper">
+                            <button type="button" class="CeremonyButton btn btn-outline-primary text-left col-md-3">Ceremony</button>
+                            <button type="button" class="CommittalButton btn btn-outline-primary text-left col-md-3">Committal</button>
+                            <button type="button" class="ReceptionButton btn btn-outline-primary text-left col-md-3">Reception</button>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+            <table class="table-responsive col-md-12">
+                <tr>
+                    <td>
+                        <div class="col-md-4">
+                            <label class="bmd-label-static">
+                                Place Of Ceremony
+                            </label>
+                            <div id="CeremonyLocation" class="form-control">
+                                <p>
+                                    Woodvale Crematorium
+                                    Lewis Road
+                                    Brighton
+                                    CN2 3SN
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-md-4 pull-center">
+                            <label class="bmd-label-static">
+                                Date/Time Of Ceremony
+                            </label>
+                            <div id="DateTimeOfCeremony" class="form-control">
+                                11 April 2019 13:00
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+     </div>
+</div>
+
+<!-- ## JAVASCRIPT CODE ##  -->
+@section scripts {
+    <script type="text/javascript">
+
+    </script>
+}

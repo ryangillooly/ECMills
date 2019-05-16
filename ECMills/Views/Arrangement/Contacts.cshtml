@@ -21,20 +21,20 @@
                     DeceasedContactID = DeceasedContactID + 1;
 
                     // Add address details into the dictionary array called "AddressDictionaryArray"
-                    ContactDictionaryArray.Add(String.Format("Name_{0}", DeceasedContactID.ToString()), DeceasedContactList.Name);
-                    ContactDictionaryArray.Add(String.Format("ContactType_{0}", DeceasedContactID.ToString()), DeceasedContactList.ContactType);
-                    ContactDictionaryArray.Add(String.Format("AddressLine1_{0}", DeceasedContactID.ToString()), DeceasedContactList.AddressLine1);
-                    ContactDictionaryArray.Add(String.Format("AddressLine2_{0}", DeceasedContactID.ToString()), DeceasedContactList.AddressLine2);
-                    ContactDictionaryArray.Add(String.Format("City_{0}", DeceasedContactID.ToString()), DeceasedContactList.City);
-                    ContactDictionaryArray.Add(String.Format("Postcode_{0}", DeceasedContactID.ToString()), DeceasedContactList.PostCode);
-                    ContactDictionaryArray.Add(String.Format("DOB_{0}", DeceasedContactID.ToString()), DeceasedContactList.DateOfBirth);
-                    ContactDictionaryArray.Add(String.Format("Occupation_{0}", DeceasedContactID.ToString()), DeceasedContactList.Occupation);
-                    ContactDictionaryArray.Add(String.Format("PointOfContactType_{0}", DeceasedContactID.ToString()), DeceasedContactList.PointOfContactType);
-                    ContactDictionaryArray.Add(String.Format("PointOfContactValue_{0}", DeceasedContactID.ToString()), DeceasedContactList.PointOfContactValue);
-                    ContactDictionaryArray.Add(String.Format("Relationship_{0}", DeceasedContactID.ToString()), DeceasedContactList.Relationship);
-                    ContactDictionaryArray.Add(String.Format("Notes_{0}", DeceasedContactID.ToString()), DeceasedContactList.Notes);
-                    ContactDictionaryArray.Add(String.Format("ConsentToBeContacted_{0}", DeceasedContactID.ToString()), DeceasedContactList.ConsentToBeContacted);
-                    ContactDictionaryArray.Add(String.Format("AccountModerator_{0}", DeceasedContactID.ToString()), DeceasedContactList.AccountModerator);
+                    ContactDictionaryArray.Add(String.Format("Name_{0}"                 , DeceasedContactID.ToString()), DeceasedContactList.Name);
+                    ContactDictionaryArray.Add(String.Format("ContactType_{0}"          , DeceasedContactID.ToString()), DeceasedContactList.ContactType);
+                    ContactDictionaryArray.Add(String.Format("AddressLine1_{0}"         , DeceasedContactID.ToString()), DeceasedContactList.AddressLine1);
+                    ContactDictionaryArray.Add(String.Format("AddressLine2_{0}"         , DeceasedContactID.ToString()), DeceasedContactList.AddressLine2);
+                    ContactDictionaryArray.Add(String.Format("City_{0}"                 , DeceasedContactID.ToString()), DeceasedContactList.City);
+                    ContactDictionaryArray.Add(String.Format("Postcode_{0}"             , DeceasedContactID.ToString()), DeceasedContactList.PostCode);
+                    ContactDictionaryArray.Add(String.Format("DOB_{0}"                  , DeceasedContactID.ToString()), DeceasedContactList.DateOfBirth);
+                    ContactDictionaryArray.Add(String.Format("Occupation_{0}"           , DeceasedContactID.ToString()), DeceasedContactList.Occupation);
+                    ContactDictionaryArray.Add(String.Format("PointOfContactType_{0}"   , DeceasedContactID.ToString()), DeceasedContactList.PointOfContactType);
+                    ContactDictionaryArray.Add(String.Format("PointOfContactValue_{0}"  , DeceasedContactID.ToString()), DeceasedContactList.PointOfContactValue);
+                    ContactDictionaryArray.Add(String.Format("Relationship_{0}"         , DeceasedContactID.ToString()), DeceasedContactList.Relationship);
+                    ContactDictionaryArray.Add(String.Format("Notes_{0}"                , DeceasedContactID.ToString()), DeceasedContactList.Notes);
+                    ContactDictionaryArray.Add(String.Format("ConsentToBeContacted_{0}" , DeceasedContactID.ToString()), DeceasedContactList.ConsentToBeContacted);
+                    ContactDictionaryArray.Add(String.Format("AccountModerator_{0}"     , DeceasedContactID.ToString()), DeceasedContactList.AccountModerator);
                     <tr>
                         <td>
                             <button id="@DeceasedContactID" type="button" onclick="GetDeceasedContactDetails(@DeceasedContactID)" class="ContactsButton btn btn-outline-primary text-left col-md-12">
@@ -81,9 +81,9 @@
                     <div class="col-md-6">
                         <div class="form-group bmd-form-group">
                             <label class="bmd-label-static">
-                                Address Line 1
+                                Relationship
                             </label>
-                            <div id="AddressLine1" class="form-control">
+                            <div id="Relationship" class="form-control">
 
                             </div>
                         </div>
@@ -91,9 +91,9 @@
                     <div class="col-md-6">
                         <div class="form-group bmd-form-group">
                             <label class="bmd-label-static">
-                                Address Line 2
+                                Name
                             </label>
-                            <div id="AddressLine2" class="form-control">
+                            <div id="Name" class="form-control">
 
                             </div>
                         </div>
@@ -104,9 +104,9 @@
                     <div class="col-md-4">
                         <div class="form-group bmd-form-group">
                             <label class="bmd-label-static">
-                                City
+                                Date of Birth
                             </label>
-                            <div id="City" class="form-control">
+                            <div id="DOB" class="form-control">
 
                             </div>
                         </div>
@@ -114,9 +114,9 @@
                     <div class="col-md-4">
                         <div class="form-group bmd-form-group">
                             <label class="bmd-label-static">
-                                PostCode
+                                Occupation
                             </label>
-                            <div id="PostCode" class="form-control">
+                            <div id="Occupation" class="form-control">
 
                             </div>
                         </div>
@@ -126,9 +126,9 @@
                     <div class="col-md-6">
                         <div class="form-group bmd-form-group">
                             <label class="bmd-label-static">
-                                Contact Name
+                                Accounts Moderator
                             </label>
-                            <div id="ContactName" class="form-control">
+                            <div id="AccountsModerator" class="form-control">
 
                             </div>
                         </div>
@@ -136,20 +136,29 @@
                     <div class="col-md-6">
                         <div class="form-group bmd-form-group">
                             <label class="bmd-label-static">
-                                Contact Points
+                                Address
                             </label>
-                            <div id="ContactPoints" class="form-control">
+                            <div id="Address" class="form-control">
 
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="form-group">
-                            <label>Notes</label>
-                            <!-- <textarea class="form-control" rows="3"></textarea> -->
+                    <div class="col-md-6">
+                        <div class="form-group bmd-form-group">
+                            <label class="bmd-label-static">
+                                Notes
+                            </label>
                             <div id="Notes" class="form-control">
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group bmd-form-group">
+                            <label class="bmd-label-static">
+                                Client Has Consented To Be Contacted
+                            </label>
+                            <div id="ConsentToBeContacted" class="form-control">
 
                             </div>
                         </div>
@@ -163,50 +172,41 @@
     <script type="text/javascript">
         function GetDeceasedContactDetails(DeceasedContactID)
         {   // Clear the current address detail values from the page to get ready for the new values
-            $("#ContactType").empty();
-            $("#AddressLine1").empty();
-            $("#AddressLine2").empty();
-            $("#City").empty();
-            $("#PostCode").empty();
-            $("#ContactName").empty();
-            $("#ContactPoints").empty();
-            $("#Noted").empty();
+            $('#ContactType'         ).empty();
+            $("#Relationship"        ).empty();     
+            $("#Name"                ).empty();        
+            $("#DOB"                 ).empty();        
+            $("#Occupation"          ).empty();       
+            $('#AccountsModerator'   ).empty();   
+            $('#Address'             ).empty();    
+            $('#Notes'               ).empty();     
+            $('#ConsentToBeContacted').empty();
 
             // Add the correct address detail for the selected address
-            if (DeceasedContacts == 1)
+            if (DeceasedContactID == 1)
             {
-                $('#ContactType').append("@ContactDictionaryArray["ContactType_1"]");
-                $("#AddressLine1").append("@ContactDictionaryArray["AddressLine1_1"]");
-                $("#AddressLine2").append("@ContactDictionaryArray["AddressLine2_1"]");
-                $("#City").append("@ContactDictionaryArray["City_1"]");
-                $("#PostCode").append("@ContactDictionaryArray["PostCode_1"]");
-                $('#ContactName').append("@ContactDictionaryArray["ContactName_1"]");
-                $('#ContactPoints').append("@ContactDictionaryArray["ContactPoints_1"]");
-                $('#Notes').append("@ContactDictionaryArray["Notes_1"]");
+                $('#ContactType'            ).append("@ContactDictionaryArray["ContactType_1"]");
+                $("#Relationship"           ).append("@ContactDictionaryArray["Relationship_1"]");
+                $("#Name"                   ).append("@ContactDictionaryArray["Name_1"]");
+                $("#DOB"                    ).append("@ContactDictionaryArray["DOB_1"]");
+                $("#Occupation"             ).append("@ContactDictionaryArray["Occupation_1"]");
+                $('#AccountsModerator'      ).append("@ContactDictionaryArray["AccountModerator_1"]");
+                $('#Address'                ).append("@ContactDictionaryArray["AddressLine1_1"]");
+                $('#Notes'                  ).append("@ContactDictionaryArray["Notes_1"]");
+                $('#ConsentToBeContacted'   ).append("@ContactDictionaryArray["ConsentToBeContacted_1"]");
             }
-            else if (DeceasedContacts == 2)
+            else if (DeceasedContactID == 2)
             {
-                $('#ContactType').append("@ContactDictionaryArray["ContactType_1"]");
-                $("#AddressLine1").append("@ContactDictionaryArray["AddressLine1_1"]");
-                $("#AddressLine2").append("@ContactDictionaryArray["AddressLine2_1"]");
-                $("#City").append("@ContactDictionaryArray["City_1"]");
-                $("#PostCode").append("@ContactDictionaryArray["PostCode_1"]");
-                $('#ContactName').append("@ContactDictionaryArray["ContactName_1"]");
-                $('#ContactPoints').append("@ContactDictionaryArray["ContactPoints_1"]");
-                $('#Notes').append("@ContactDictionaryArray["Notes_1"]");
+                $('#ContactType'            ).append("@ContactDictionaryArray["ContactType_2"]");
+                $("#Relationship"           ).append("@ContactDictionaryArray["Relationship_2"]");
+                $("#Name"                   ).append("@ContactDictionaryArray["Name_2"]");
+                $("#DOB"                    ).append("@ContactDictionaryArray["DOB_2"]");
+                $("#Occupation"             ).append("@ContactDictionaryArray["Occupation_2"]");
+                $('#AccountsModerator'      ).append("@ContactDictionaryArray["AccountModerator_2"]");
+                $('#Address'                ).append("@ContactDictionaryArray["AddressLine1_2"]");
+                $('#Notes'                  ).append("@ContactDictionaryArray["Notes_2"]");
+                $('#ConsentToBeContacted'   ).append("@ContactDictionaryArray["ConsentToBeContacted_2"]");
             } 
-            else if (DeceasedContacts == 3)
-            {
-                $('#ContactType').append("@ContactDictionaryArray["ContactType_3"]");
-                $("#AddressLine1").append("@ContactDictionaryArray["AddressLine1_3"]");
-                $("#AddressLine2").append("@ContactDictionaryArray["AddressLine2_3"]");
-                $("#City").append("@ContactDictionaryArray["City_1"]");
-                $("#PostCode").append("@ContactDictionaryArray["PostCode_1"]");
-                $('#ContactName').append("@ContactDictionaryArray["ContactName_1"]");
-                $('#ContactPoints').append("@ContactDictionaryArray["ContactPoints_1"]");
-                $('#Notes').append("@ContactDictionaryArray["Notes_1"]");
-            }
         };
-    };
     </script>
 }

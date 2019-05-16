@@ -65,6 +65,11 @@ namespace ECMills.Controllers
            
         }
 
+        public ActionResult Ceremony(Int16 id)
+        {
+            return View(id);
+        }
+
         public List<sp_GetDeceasedList_Result> sp_GetDeceasedList()
         {
             return DBContext.sp_GetDeceasedList().ToList();
