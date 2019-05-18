@@ -398,6 +398,7 @@
     <Content Include="Content\material-dashboard-rtl.css" />
     <Content Include="Content\material-dashboard.css" />
     <Content Include="Content\material-dashboard.min.css" />
+    <Content Include="Content\MyCSS\Layout.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
@@ -710,6 +711,7 @@
     <Content Include="Views\Arrangement\GridViewTest.cshtml" />
     <Content Include="Views\Shared\TestLayout.cshtml" />
     <Content Include="Views\Shared\TestNavbar.cshtml" />
+    <Content Include="Views\Arrangement\Deceased - Backup.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

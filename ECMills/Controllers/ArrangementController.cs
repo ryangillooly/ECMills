@@ -16,6 +16,7 @@ namespace ECMills.Controllers
         {
             DBContext = new ECMills_DBConnection();
         }
+
         public ActionResult Home()
         {
             ViewBag.CurrentPage = "Home";
