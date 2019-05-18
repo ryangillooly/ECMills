@@ -6,206 +6,243 @@
     ViewBag.Title = "Arrangement";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<ul>
-    <li>
-        @foreach (sp_GetDeceasedProfile_Result DeceasedProfile in Model.DeceasedProfile)
-        {
-            <div class="card RemoveMargins" id="DeceasedProfileCard">
-                <div class="card-header card-header-primary">
-                    <h4 class="card-title">@DeceasedProfile.Name</h4>
-                    <p class="card-category">@DeceasedProfile.Reference</p>
-                </div>
-                <div class="card-body">
-                    <form method="post" onsubmit="return SubmitProfileUpdates();" id="DeceasedProfileForm">
 
-                        <article class="form-group bmd-form-group DeceasedProfileForm" id="DeceasedProfileName">
+@foreach (sp_GetDeceasedProfile_Result DeceasedProfile in Model.DeceasedProfile)
+{
+    <div class="card col-md-5">
+        <div class="card-header card-header-primary">
+            <h4 class="card-title">@DeceasedProfile.Name</h4>
+            <p class="card-category">@DeceasedProfile.Reference</p>
+        </div>
+        <div class="card-body">
+            <form method="post" onsubmit="return SubmitProfileUpdates();" >
+                <br />
+                <div class="row">
+                    <div class="col-md-8">
+                        <div class="form-group bmd-form-group DeceasedProfileForm">
                             <label class="bmd-label-static">Name</label>
                             <div class="form-control" id="ReadOnlyInput-Name">@DeceasedProfile.Name</div>
-                        </article>
-
-                        <article class="form-group bmd-form-group DeceasedProfileForm" id="DeceasedProfileKnownAs">
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group bmd-form-group DeceasedProfileForm">
                             <label class="bmd-label-static">Known As</label>
                             <div class="form-control" id="ReadOnlyInput-Known_As">@DeceasedProfile.Known_As</div>
-                        </article>
-
-                        <article class="form-group bmd-form-group DeceasedProfileForm" id="DeceasedProfileGender">
+                        </div>
+                    </div>
+                </div>
+                <br />
+                <div class="row">
+                    <div class="col-md-2">
+                        <div class="form-group bmd-form-group DeceasedProfileForm">
                             <label class="bmd-label-static">Gender</label>
                             <div class="form-control" id="ReadOnlyInput-Gender">@DeceasedProfile.Gender</div>
-                        </article>
-
-                        <article class="form-group bmd-form-group DeceasedProfileForm" id="DeceasedProfileAge">
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="form-group bmd-form-group DeceasedProfileForm">
                             <label class="bmd-label-static">Age</label>
                             <div class="form-control" id="ReadOnlyInput-Age">@DeceasedProfile.Age</div>
-                        </article>
-
-
-                        <div class="form-group bmd-form-group DeceasedProfileForm" id="DeceasedProfileDOB">
-                            <label class="bmd-label-static">Date of Birth</label>
-
-                            @{
-                                DateTime DT = (DateTime)@DeceasedProfile.DOB;
-                                string DOB = DT.ToShortDateString();
-                            }
-
-                            <div class="form-control" id="ReadOnlyInput-DOB">@DOB</div>
                         </div>
-
-                        <div class="form-group bmd-form-group DeceasedProfileForm" id="DeceasedProfileTimeOfDeath">
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group bmd-form-group DeceasedProfileForm">
+                            <label class="bmd-label-static">Date of Birth</label>
+                            <div class="form-control" id="ReadOnlyInput-DOB">@DeceasedProfile.DOB</div>
+                        </div>
+                    </div>
+                    <div class="col-md-5">
+                        <div class="form-group bmd-form-group DeceasedProfileForm">
                             <label class="bmd-label-static">Date/Time of Death</label>
                             <div class="form-control" id="ReadOnlyInput-TimeOfDeath">@DeceasedProfile.TimeOfDeath</div>
                         </div>
+                    </div>
 
-                        <div class="form-group bmd-form-group DeceasedProfileForm" id="DeceasedProfileMaritalStatus">
+                </div>
+                <br />
+                <div class="row">
+                    <div class="col-md-5">
+                        <div class="form-group bmd-form-group DeceasedProfileForm">
                             <label class="bmd-label-static">Marital Status</label>
                             <div class="form-control" id="ReadOnlyInput-MaritalStatus">@DeceasedProfile.MaritalStatus</div>
                         </div>
-
-                        <div class="form-group bmd-form-group DeceasedProfileForm" id="DeceasedProfileOccupation">
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group bmd-form-group DeceasedProfileForm">
                             <label class="bmd-label-static">Occupation</label>
                             <div class="form-control" id="ReadOnlyInput-Occupation">@DeceasedProfile.Occupation</div>
                         </div>
-
-                        <div class="form-group bmd-form-group DeceasedProfileForm" id="DeceasedProfileReligion">
+                    </div>
+                </div>
+                <br />
+                <div class="row">
+                    <div class="col-md-5">
+                        <div class="form-group bmd-form-group DeceasedProfileForm">
                             <label class="bmd-label-static">Religion</label>
                             <div class="form-control" id="ReadOnlyInput-Religion">@DeceasedProfile.Religion</div>
                         </div>
-
-                        <div class="form-group bmd-form-group DeceasedProfileForm" id="DeceasedProfileRelDom">
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group bmd-form-group DeceasedProfileForm">
                             <label class="bmd-label-static">Religious Denomination</label>
                             <div class="form-control" id="ReadOnlyInput-RelDom">@DeceasedProfile.ReligiousDenomination</div>
                         </div>
+                    </div>
+                </div>
 
-                        <button type="button" id="EditProfile_Button" class="btn btn-primary pull-left" onclick="EditDeceasedProfile('@DeceasedProfile.Name', '@DeceasedProfile.Known_As', '@DeceasedProfile.Gender', '@DeceasedProfile.Age', '@DeceasedProfile.DOB', '@DeceasedProfile.TimeOfDeath', '@DeceasedProfile.MaritalStatus', '@DeceasedProfile.Occupation', '@DeceasedProfile.Religion', '@DeceasedProfile.ReligiousDenomination')">
-                            Edit Profile
-                        </button>
+                <button type="button" id="EditProfile_Button" class="btn btn-primary pull-left" onclick="EditDeceasedProfile('@DeceasedProfile.Name', '@DeceasedProfile.Known_As', '@DeceasedProfile.Gender', '@DeceasedProfile.Age', '@DeceasedProfile.DOB', '@DeceasedProfile.TimeOfDeath', '@DeceasedProfile.MaritalStatus', '@DeceasedProfile.Occupation', '@DeceasedProfile.Religion', '@DeceasedProfile.ReligiousDenomination')"> 
+                    Edit Profile
+                </button>
 
-                        <div id="UpdateProfileDiv">
+                <div id="UpdateProfileDiv">
 
+                </div>
+
+                <div class="clearfix"></div>
+            </form>
+        </div>
+    </div>
+}
+
+<div class="row col-md-12">
+    <div class="card col-md-5">
+        <div class="card-body">
+            Listed Addresses
+            <hr />
+            <table class="table-responsive table-hover">
+                @{
+                    Int32 DeceasedAddressID = 0;
+                    Dictionary<string, string> AddressDictionaryArray = new Dictionary<string, string>();
+                }
+                @foreach (sp_GetDeceasedAddressList_Result DeceasedAddressList in Model.DeceasedAddressList)
+                {
+                    DeceasedAddressID = DeceasedAddressID + 1;
+
+                    // Add address details into the dictionary array called "AddressDictionaryArray"
+                    AddressDictionaryArray.Add(String.Format("AddressType_{0}", DeceasedAddressID.ToString()), DeceasedAddressList.AddressType);
+                    AddressDictionaryArray.Add(String.Format("AddressLine1_{0}", DeceasedAddressID.ToString()), DeceasedAddressList.AddressLine1);
+                    AddressDictionaryArray.Add(String.Format("AddressLine2_{0}", DeceasedAddressID.ToString()), DeceasedAddressList.AddressLine2);
+                    AddressDictionaryArray.Add(String.Format("City_{0}", DeceasedAddressID.ToString()), DeceasedAddressList.City);
+                    AddressDictionaryArray.Add(String.Format("PostCode_{0}", DeceasedAddressID.ToString()), DeceasedAddressList.PostCode);
+                    AddressDictionaryArray.Add(String.Format("ContactName_{0}", DeceasedAddressID.ToString()), DeceasedAddressList.ContactName);
+                    AddressDictionaryArray.Add(String.Format("ContactPoints_{0}", DeceasedAddressID.ToString()), DeceasedAddressList.ContactNo);
+                    <tr>
+                        <td>
+                            <button id="@DeceasedAddressID" type="button" onclick="GetDeceasedAddressDetails(@DeceasedAddressID)" class="AddressButton btn btn-outline-primary text-left col-md-12">
+                                @DeceasedAddressList.AddressType
+                                <br />
+                                @DeceasedAddressList.AddressLine1, @DeceasedAddressList.AddressLine2, @DeceasedAddressList.City, @DeceasedAddressList.PostCode
+                            </button>
+                        </td>
+                    </tr>
+                }
+            </table>
+        </div>
+    </div>
+
+    <div class="col-md-1">
+
+    </div>
+
+    <div class="card table-responsive col-md-5">
+        <div class="card-body">
+            Address Details
+            <hr />
+            <div id="testerdiv">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group bmd-form-group">
+                            <label class="bmd-label-static">
+                                Address Type
+                            </label>
+                            <div id="AddressType" class="form-control">
+
+                            </div>
                         </div>
-
-                        <div class="clearfix"></div>
-                    </form>
-                </div>
-            </div>
-            }
-    </li>
-    <li>
-        <div class="card RemoveMargins" id="ListedAddressCard">
-            <div class="card-body">
-                Listed Addresses
-                <hr />
-                <table class="table-responsive table-hover">
-                    @{
-                        Int32 DeceasedAddressID = 0;
-                        Dictionary<string, string> AddressDictionaryArray = new Dictionary<string, string>();
-                    }
-                    @foreach (sp_GetDeceasedAddressList_Result DeceasedAddressList in Model.DeceasedAddressList)
-                    {
-                        DeceasedAddressID = DeceasedAddressID + 1;
-
-                        // Add address details into the dictionary array called "AddressDictionaryArray"
-                        AddressDictionaryArray.Add(String.Format("AddressType_{0}", DeceasedAddressID.ToString()), DeceasedAddressList.AddressType);
-                        AddressDictionaryArray.Add(String.Format("AddressLine1_{0}", DeceasedAddressID.ToString()), DeceasedAddressList.AddressLine1);
-                        AddressDictionaryArray.Add(String.Format("AddressLine2_{0}", DeceasedAddressID.ToString()), DeceasedAddressList.AddressLine2);
-                        AddressDictionaryArray.Add(String.Format("City_{0}", DeceasedAddressID.ToString()), DeceasedAddressList.City);
-                        AddressDictionaryArray.Add(String.Format("PostCode_{0}", DeceasedAddressID.ToString()), DeceasedAddressList.PostCode);
-                        AddressDictionaryArray.Add(String.Format("ContactName_{0}", DeceasedAddressID.ToString()), DeceasedAddressList.ContactName);
-                        AddressDictionaryArray.Add(String.Format("ContactPoints_{0}", DeceasedAddressID.ToString()), DeceasedAddressList.ContactNo);
-                        <tr>
-                            <td>
-                                <button id="@DeceasedAddressID" type="button" onclick="GetDeceasedAddressDetails(@DeceasedAddressID)" class="AddressButton btn btn-outline-primary text-left col-md-12">
-                                    @DeceasedAddressList.AddressType
-                                    <br />
-                                    @DeceasedAddressList.AddressLine1, @DeceasedAddressList.AddressLine2, @DeceasedAddressList.City, @DeceasedAddressList.PostCode
-                                </button>
-                            </td>
-                        </tr>
-                    }
-                </table>
-            </div>
-        </div>
-    </li>
-    <li>
-        <div class="card RemoveMargins" id="AddressDetailsCard">
-            <div class="card-body">
-                Address Details
-
-                <hr />
-
-                <div class="form-group bmd-form-group">
-                    <label class="bmd-label-static">
-                        Address Type
-                    </label>
-                    <div id="AddressType" class="form-control">
-
                     </div>
                 </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group bmd-form-group">
+                            <label class="bmd-label-static">
+                                Address Line 1
+                            </label>
+                            <div id="AddressLine1" class="form-control">
 
-                <div class="form-group bmd-form-group">
-                    <label class="bmd-label-static">
-                        Address Line 1
-                    </label>
-                    <div id="AddressLine1" class="form-control">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group bmd-form-group">
+                            <label class="bmd-label-static">
+                                Address Line 2
+                            </label>
+                            <div id="AddressLine2" class="form-control">
 
+                            </div>
+                        </div>
                     </div>
                 </div>
-
-                <div class="form-group bmd-form-group">
-                    <label class="bmd-label-static">
-                        Address Line 2
-                    </label>
-                    <div id="AddressLine2" class="form-control">
-
-                    </div>
-                </div>
-
-                <div class="form-group bmd-form-group">
-                    <label class="bmd-label-static">
-                        City
-                    </label>
-                    <div id="City" class="form-control">
-
-                    </div>
-                </div>
-
-                <div class="form-group bmd-form-group">
-                    <label class="bmd-label-static">
-                        PostCode
-                    </label>
-                    <div id="PostCode" class="form-control">
-
-                    </div>
-                </div>
-
-                <div class="form-group bmd-form-group">
-                    <label class="bmd-label-static">
-                        Contact Name
-                    </label>
-                    <div id="ContactName" class="form-control">
-
-                    </div>
-                </div>
-
-                <div class="form-group bmd-form-group">
-                    <label class="bmd-label-static">
-                        Contact Points
-                    </label>
-                    <div id="ContactPoints" class="form-control">
-
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label>Notes</label>
-                    <textarea class="form-control" rows="3"></textarea>
-                </div>
-            </div>
-        </div>
-    </li>
-</ul>
+                <br />
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group bmd-form-group">
+                            <label class="bmd-label-static">
+                                City
+                            </label>
+                           <div id="City" class="form-control">
                                 
-    @section scripts {
-        <script type="text/javascript">
+                            </div>  
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group bmd-form-group">
+                            <label class="bmd-label-static">
+                                PostCode
+                            </label>
+                            <div id="PostCode" class="form-control">
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group bmd-form-group">
+                            <label class="bmd-label-static">
+                                Contact Name
+                            </label>
+                            <div id="ContactName" class="form-control">
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group bmd-form-group">
+                            <label class="bmd-label-static">
+                                Contact Points
+                            </label>
+                            <div id="ContactPoints" class="form-control">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label>Notes</label>
+                            <textarea class="form-control" rows="3"></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts {
+    <script type="text/javascript">
         function GetDeceasedAddressDetails(DeceasedAddressID)
         {   // Clear the current address detail values from the page to get ready for the new values
             $("#AddressType").empty();
@@ -220,35 +257,35 @@
             if (DeceasedAddressID == 1)
             {
                 $('#AddressType').append("@AddressDictionaryArray["AddressType_1"]");
-                $("#AddressLine1").append("@AddressDictionaryArray["AddressLine1_1"]");
-                $("#AddressLine2").append("@AddressDictionaryArray["AddressLine2_1"]");
-                $("#City").append("@AddressDictionaryArray["City_1"]");
-                $("#PostCode").append("@AddressDictionaryArray["PostCode_1"]");
+                $("#AddressLine1").append("@AddressDictionaryArray["AddressLine1_1"]"); 
+                $("#AddressLine2").append("@AddressDictionaryArray["AddressLine2_1"]"); 
+                $("#City").append("@AddressDictionaryArray["City_1"]"); 
+                $("#PostCode").append("@AddressDictionaryArray["PostCode_1"]");  
                 $('#ContactName').append("@AddressDictionaryArray["ContactName_1"]");
                 $('#ContactPoints').append("@AddressDictionaryArray["ContactPoints_1"]");
             } else
             if (DeceasedAddressID == 2)
             {
                 $('#AddressType').append("@AddressDictionaryArray["AddressType_2"]");
-                $("#AddressLine1").append("@AddressDictionaryArray["AddressLine1_2"]");
-                $("#AddressLine2").append("@AddressDictionaryArray["AddressLine2_2"]");
-                $("#City").append("@AddressDictionaryArray["City_2"]");
-                $("#PostCode").append("@AddressDictionaryArray["PostCode_2"]");
+                $("#AddressLine1").append("@AddressDictionaryArray["AddressLine1_2"]"); 
+                $("#AddressLine2").append("@AddressDictionaryArray["AddressLine2_2"]"); 
+                $("#City").append("@AddressDictionaryArray["City_2"]"); 
+                $("#PostCode").append("@AddressDictionaryArray["PostCode_2"]");  
                 $('#ContactName').append("@AddressDictionaryArray["ContactName_2"]");
-                $('#ContactPoints').append("@AddressDictionaryArray["ContactPoints_2"]");
+                $('#ContactPoints').append("@AddressDictionaryArray["ContactPoints_2"]"); 
             } else
             if (DeceasedAddressID == 3)
             {
                 $('#AddressType').append("@AddressDictionaryArray["AddressType_3"]");
-                $("#AddressLine1").append("@AddressDictionaryArray["AddressLine1_3"]");
-                $("#AddressLine2").append("@AddressDictionaryArray["AddressLine2_3"]");
-                $("#City").append("@AddressDictionaryArray["City_3"]");
-                $("#PostCode").append("@AddressDictionaryArray["PostCode_3"]");
+                $("#AddressLine1").append("@AddressDictionaryArray["AddressLine1_3"]"); 
+                $("#AddressLine2").append("@AddressDictionaryArray["AddressLine2_3"]"); 
+                $("#City").append("@AddressDictionaryArray["City_3"]"); 
+                $("#PostCode").append("@AddressDictionaryArray["PostCode_3"]");  
                 $('#ContactName').append("@AddressDictionaryArray["ContactName_3"]");
-                $('#ContactPoints').append("@AddressDictionaryArray["ContactPoints_3"]");
-            }
+                $('#ContactPoints').append("@AddressDictionaryArray["ContactPoints_3"]"); 
+            } 
         };
-
+        
         // backslash + quote is an escape character for single quote (e.g  \' )
         function EditDeceasedProfile(Name, Known_As, Gender, Age, DOB, TimeOfDeath, MaritalStatus, Occupation, Religion, ReligiousDenomination)
         {
@@ -264,7 +301,7 @@
             $('#ReadOnlyInput-Occupation'   ).replaceWith('<input name="Occupation"      id="ReadWriteInput-Occupation"    type="text" class="form-control" placeholder="' + Occupation            + '" />');
             $('#ReadOnlyInput-Religion'     ).replaceWith('<input name="Religion"        id="ReadWriteInput-Religion"      type="text" class="form-control" placeholder="' + Religion              + '" />');
             $('#ReadOnlyInput-RelDom'       ).replaceWith('<input name="RelDom"          id="ReadWriteInput-RelDom"        type="text" class="form-control" placeholder="' + ReligiousDenomination + '" />');
-
+ 
             $('#EditProfile_Button').replaceWith('<button type="button" id="CancelDeceasedProfileEdit_Button" class="btn btn-primary pull-left" onclick="CancelDeceasedProfileEdit(\'' + Name + '\',\'' + Known_As + '\',\'' + Gender + '\',\'' + Age + '\',\'' + DOB + '\',\'' + TimeOfDeath + '\',\'' + MaritalStatus + '\',\'' + Occupation + '\',\'' + Religion + '\',\'' + ReligiousDenomination + '\')">Cancel</button>');
            // $('#UpdateProfileDiv').append('<button type="button" onclick="SubmitProfileUpdates()" class="btn btn-primary pull-right">Update Profile</button>')
             $('#UpdateProfileDiv').append('<input type="submit" class="btn btn-primary pull-right" />')
@@ -285,7 +322,7 @@
             $('#ReadWriteInput-RelDom'       ).replaceWith('<div class="form-control" id="ReadOnlyInput-RelDom">'           + ReligiousDenomination + '</div>');
 
             $('#CancelDeceasedProfileEdit_Button').replaceWith('<button type="button" id="EditProfile_Button" class="btn btn-primary pull-left" onclick="EditDeceasedProfile(\'' + Name + '\',\'' + Known_As + '\',\'' + Gender + '\',\'' + Age + '\',\'' + DOB + '\',\'' + TimeOfDeath + '\',\'' + MaritalStatus + '\',\'' + Occupation + '\',\'' + Religion + '\',\'' + ReligiousDenomination + '\')">Edit Profile</button>');
-            $('#UpdateProfileDiv').empty();
+            $('#UpdateProfileDiv').empty();       
         };
 
     function SubmitProfileUpdates() {
@@ -303,7 +340,7 @@
         var Occupation      =   document.getElementById("ReadWriteInput-Occupation").value;
         var Religion        =   document.getElementById("ReadWriteInput-Religion").value;
         var RelDom          =   document.getElementById("ReadWriteInput-RelDom").value;
-
+        
         var form = $(this);
         var url = form.attr('action');
 
@@ -344,5 +381,5 @@
         });
 
     };
-        </script>
+    </script>
     }
