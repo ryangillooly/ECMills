@@ -59,3 +59,27 @@
   height: calc(100vh - 70px);
   margin-top: 70px;
 }
+
+
+
+
+.GridBodyContainer {
+    height: 100%;
+    display: grid;
+    grid-template-rows: 4em 42em 3.7em;
+    grid-template-columns: 9em 59em;
+}
+
+.NavigationBar {
+    grid-row: 1/4;
+    grid-column: 1/2;
+    background-color: yellow;
+}
+
+.SideBarNav {
+{
+    display: grid;
+    grid-template-rows: 5em repeat(10, 4em);
+}
+}
+

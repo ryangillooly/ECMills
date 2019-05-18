@@ -17,6 +17,11 @@ namespace ECMills.Controllers
             DBContext = new ECMills_DBConnection();
         }
 
+        public ActionResult GridViewTest()
+        {
+            return View();
+        }
+
         public ActionResult Home()
         {
             ViewBag.CurrentPage = "Home";
