@@ -2,23 +2,65 @@
     width: 100%;
 }
 
-#DeceasedProfileAddressCards {
-    grid-column: 2/10;
-    grid-row: 7/11;
+ul {
+    list-style: none;
 }
 
 .content > ul {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(507px, 1fr));
+    grid-template-columns: 1fr 1fr;
     grid-gap: 1rem;
-    list-style: none;
+    padding-left: 1em;
+    padding-right: 1em;
+    grid-template-rows: repeat(10, 6.7vh);
+    grid-template-areas: "Profile       AddressDetails"
+                         "Profile       AddressDetails"
+                         "Profile       AddressDetails"
+                         "Profile       AddressDetails"
+                         "Profile       AddressDetails"
+                         "AddressList   AddressDetails"
+                         "AddressList   AddressDetails"
+                         "AddressList   AddressDetails"
+                         "AddressList   AddressDetails"
+                         "AddressList   AddressDetails"
+                         "AddressList   AddressDetails";
+}
+
+#DeceasedProfileForm > ul {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-gap: 1rem;
     padding-left: 1em;
     padding-right: 1em;
 }
 
-.RemoveMargins  {
+#ListedAddressCard > div > ul {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 1rem;
+    padding-left: 0px;
+}
+
+.RemoveMargins {
     margin-bottom: 0px;
     margin-top: 0px;
+}
+
+.FullHeightWidth {
+    height: 100%;
+    width: 100%;
+}
+
+#ProfileCardListItem {
+    grid-area: Profile;
+}
+
+#AddressListListItem {
+    grid-area: AddressList;
+}
+
+#AddressDetailsListItem {
+    grid-area: AddressDetails;
 }
 
 
