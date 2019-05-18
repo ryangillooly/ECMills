@@ -8,22 +8,12 @@ ul {
 
 .content > ul {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(2, minmax(358px, 1fr));
     grid-gap: 1rem;
     padding-left: 1em;
     padding-right: 1em;
     grid-template-rows: repeat(10, 6.7vh);
-    grid-template-areas: "Profile       AddressDetails"
-                         "Profile       AddressDetails"
-                         "Profile       AddressDetails"
-                         "Profile       AddressDetails"
-                         "Profile       AddressDetails"
-                         "AddressList   AddressDetails"
-                         "AddressList   AddressDetails"
-                         "AddressList   AddressDetails"
-                         "AddressList   AddressDetails"
-                         "AddressList   AddressDetails"
-                         "AddressList   AddressDetails";
+    grid-template-areas: "Profile       AddressDetails" "Profile       AddressDetails" "Profile       AddressDetails" "Profile       AddressDetails" "Profile       AddressDetails" "AddressList   AddressDetails" "AddressList   AddressDetails" "AddressList   AddressDetails" "AddressList   AddressDetails" "AddressList   AddressDetails" "AddressList   AddressDetails";
 }
 
 #DeceasedProfileForm > ul {
