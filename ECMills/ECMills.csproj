@@ -325,6 +325,9 @@
     <Compile Include="Models\sp_GetDeceasedAddressList_Result.cs">
       <DependentUpon>ECMills_DBModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\sp_GetDeceasedContactsContactDetails_Result.cs">
+      <DependentUpon>ECMills_DBModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\sp_GetDeceasedContactsList_Result.cs">
       <DependentUpon>ECMills_DBModel.tt</DependentUpon>
     </Compile>
@@ -371,6 +374,9 @@
       <DependentUpon>ECMills_DBModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\vw_GetDeceasedAddressList.cs">
+      <DependentUpon>ECMills_DBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\vw_GetDeceasedContactsContactDetails.cs">
       <DependentUpon>ECMills_DBModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\vw_GetDeceasedContactsList.cs">
@@ -709,9 +715,8 @@
     <Content Include="Views\Arrangement\Contacts.cshtml" />
     <Content Include="Views\Arrangement\Ceremony.cshtml" />
     <Content Include="Views\Arrangement\GridViewTest.cshtml" />
-    <Content Include="Views\Shared\TestLayout.cshtml" />
-    <Content Include="Views\Shared\TestNavbar.cshtml" />
     <Content Include="Views\Arrangement\Deceased - Backup.cshtml" />
+    <Content Include="Views\Shared\SideBar.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

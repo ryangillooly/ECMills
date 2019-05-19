@@ -15,26 +15,14 @@ namespace ECMills.Models
 using System;
     using System.Collections.Generic;
     
-public partial class Organist
+public partial class vw_GetDeceasedContactsContactDetails
 {
 
-    public short OrderID { get; set; }
+    public short DeceasedID { get; set; }
 
-    public byte LineItem { get; set; }
+    public string PointOfContactType { get; set; }
 
-    public string Venue { get; set; }
-
-    public string Music { get; set; }
-
-    public string Type { get; set; }
-
-    public string Musician { get; set; }
-
-    public string OnEntry { get; set; }
-
-
-
-    public virtual Order Order { get; set; }
+    public string PointOfContactValue { get; set; }
 
 }
 

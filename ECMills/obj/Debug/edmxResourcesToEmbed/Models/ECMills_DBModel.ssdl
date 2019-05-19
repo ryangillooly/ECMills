@@ -1,52 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="ECMills_DatabaseModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-  <EntityType Name="provision_marker_dss">
-    <Key>
-      <PropertyRef Name="object_id" />
-      <PropertyRef Name="owner_scope_local_id" />
-    </Key>
-    <Property Name="object_id" Type="int" Nullable="false" />
-    <Property Name="owner_scope_local_id" Type="int" Nullable="false" />
-    <Property Name="provision_scope_local_id" Type="int" />
-    <Property Name="provision_timestamp" Type="bigint" Nullable="false" />
-    <Property Name="provision_local_peer_key" Type="int" Nullable="false" />
-    <Property Name="provision_scope_peer_key" Type="int" />
-    <Property Name="provision_scope_peer_timestamp" Type="bigint" />
-    <Property Name="provision_datetime" Type="datetime" />
-    <Property Name="state" Type="int" />
-    <Property Name="version" Type="timestamp" StoreGeneratedPattern="Computed" Nullable="false" />
-  </EntityType>
-  <EntityType Name="schema_info_dss">
-    <Key>
-      <PropertyRef Name="schema_major_version" />
-      <PropertyRef Name="schema_minor_version" />
-    </Key>
-    <Property Name="schema_major_version" Type="int" Nullable="false" />
-    <Property Name="schema_minor_version" Type="int" Nullable="false" />
-    <Property Name="schema_extended_info" Type="nvarchar" MaxLength="100" Nullable="false" />
-  </EntityType>
-  <EntityType Name="scope_config_dss">
-    <Key>
-      <PropertyRef Name="config_id" />
-    </Key>
-    <Property Name="config_id" Type="uniqueidentifier" Nullable="false" />
-    <Property Name="config_data" Type="xml" Nullable="false" />
-    <Property Name="scope_status" Type="char" MaxLength="1" />
-  </EntityType>
-  <EntityType Name="scope_info_dss">
-    <Key>
-      <PropertyRef Name="sync_scope_name" />
-    </Key>
-    <Property Name="scope_local_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="scope_id" Type="uniqueidentifier" Nullable="false" />
-    <Property Name="sync_scope_name" Type="nvarchar" MaxLength="100" Nullable="false" />
-    <Property Name="scope_sync_knowledge" Type="varbinary(max)" />
-    <Property Name="scope_tombstone_cleanup_knowledge" Type="varbinary(max)" />
-    <Property Name="scope_timestamp" Type="timestamp" StoreGeneratedPattern="Computed" />
-    <Property Name="scope_config_id" Type="uniqueidentifier" />
-    <Property Name="scope_restore_count" Type="int" Nullable="false" />
-    <Property Name="scope_user_comment" Type="nvarchar(max)" />
-  </EntityType>
   <EntityType Name="Ceremony">
     <Key>
       <PropertyRef Name="OrderID" />
@@ -614,319 +567,6 @@ warning 6002: The table/view 'ECMills_NewDesign.dbo.Visitors' does not have a pr
     <Property Name="Relationship" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="Time" Type="datetime" Nullable="false" />
   </EntityType>
-  <EntityType Name="action">
-    <Key>
-      <PropertyRef Name="id" />
-    </Key>
-    <Property Name="id" Type="uniqueidentifier" Nullable="false" />
-    <Property Name="syncgroupid" Type="uniqueidentifier" />
-    <Property Name="type" Type="int" Nullable="false" />
-    <Property Name="state" Type="int" Nullable="false" />
-    <Property Name="creationtime" Type="datetime" />
-    <Property Name="lastupdatetime" Type="datetime" />
-  </EntityType>
-  <EntityType Name="agent">
-    <Key>
-      <PropertyRef Name="id" />
-    </Key>
-    <Property Name="id" Type="uniqueidentifier" Nullable="false" />
-    <Property Name="name" Type="nvarchar" MaxLength="140" />
-    <Property Name="subscriptionid" Type="uniqueidentifier" />
-    <Property Name="state" Type="int" />
-    <Property Name="lastalivetime" Type="datetime" />
-    <Property Name="is_on_premise" Type="bit" Nullable="false" />
-    <Property Name="version" Type="nvarchar" MaxLength="40" />
-    <Property Name="password_hash" Type="varbinary" MaxLength="256" />
-    <Property Name="password_salt" Type="varbinary" MaxLength="256" />
-  </EntityType>
-  <EntityType Name="agent_instance">
-    <Key>
-      <PropertyRef Name="id" />
-    </Key>
-    <Property Name="id" Type="uniqueidentifier" Nullable="false" />
-    <Property Name="agentid" Type="uniqueidentifier" Nullable="false" />
-    <Property Name="lastalivetime" Type="datetime" />
-    <Property Name="version" Type="nvarchar" MaxLength="40" Nullable="false" />
-  </EntityType>
-  <EntityType Name="agent_version">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="int" Nullable="false" />
-    <Property Name="Version" Type="nvarchar" MaxLength="50" Nullable="false" />
-    <Property Name="ExpiresOn" Type="datetime" Nullable="false" />
-    <Property Name="Comment" Type="nvarchar" MaxLength="200" />
-  </EntityType>
-  <EntityType Name="configuration">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="int" Nullable="false" />
-    <Property Name="ConfigKey" Type="nvarchar" MaxLength="100" Nullable="false" />
-    <Property Name="ConfigValue" Type="nvarchar" MaxLength="256" Nullable="false" />
-    <Property Name="LastModified" Type="datetime" Nullable="false" />
-  </EntityType>
-  <EntityType Name="EnumType">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="int" Nullable="false" />
-    <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
-    <Property Name="Type" Type="varchar" MaxLength="100" Nullable="false" />
-    <Property Name="EnumId" Type="int" Nullable="false" />
-    <Property Name="LastModified" Type="datetime" Nullable="false" />
-  </EntityType>
-  <EntityType Name="MetaInformation">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="VersionMajor" Type="int" Nullable="false" />
-    <Property Name="VersionMinor" Type="int" Nullable="false" />
-    <Property Name="VersionBuild" Type="int" Nullable="false" />
-    <Property Name="VersionService" Type="int" Nullable="false" />
-    <Property Name="VersionString" Type="varchar" MaxLength="50" />
-    <Property Name="Version" Type="bigint" />
-    <Property Name="State" Type="bit" Nullable="false" />
-    <Property Name="Timestamp" Type="datetime" Nullable="false" />
-  </EntityType>
-  <EntityType Name="scaleunitlimits">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="int" Nullable="false" />
-    <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
-    <Property Name="MaxValue" Type="int" Nullable="false" />
-    <Property Name="LastModified" Type="datetime" Nullable="false" />
-  </EntityType>
-  <EntityType Name="ScheduleTask">
-    <Key>
-      <PropertyRef Name="SyncGroupId" />
-    </Key>
-    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
-    <Property Name="SyncGroupId" Type="uniqueidentifier" Nullable="false" />
-    <Property Name="Interval" Type="bigint" Nullable="false" />
-    <Property Name="LastUpdate" Type="datetime" Nullable="false" />
-    <Property Name="State" Type="tinyint" Nullable="false" />
-    <Property Name="ExpirationTime" Type="datetime" />
-    <Property Name="PopReceipt" Type="uniqueidentifier" />
-    <Property Name="DequeueCount" Type="tinyint" Nullable="false" />
-    <Property Name="Type" Type="int" Nullable="false" />
-  </EntityType>
-  <EntityType Name="subscription">
-    <Key>
-      <PropertyRef Name="id" />
-    </Key>
-    <Property Name="id" Type="uniqueidentifier" Nullable="false" />
-    <Property Name="name" Type="nvarchar" MaxLength="140" />
-    <Property Name="creationtime" Type="datetime" />
-    <Property Name="lastlogintime" Type="datetime" />
-    <Property Name="tombstoneretentionperiodindays" Type="int" Nullable="false" />
-    <Property Name="policyid" Type="int" />
-    <Property Name="subscriptionstate" Type="tinyint" Nullable="false" />
-    <Property Name="WindowsAzureSubscriptionId" Type="uniqueidentifier" />
-    <Property Name="EnableDetailedProviderTracing" Type="bit" />
-    <Property Name="syncserveruniquename" Type="nvarchar" MaxLength="256" />
-    <Property Name="version" Type="nvarchar" MaxLength="40" />
-  </EntityType>
-  <EntityType Name="syncgroup">
-    <Key>
-      <PropertyRef Name="id" />
-    </Key>
-    <Property Name="id" Type="uniqueidentifier" Nullable="false" />
-    <Property Name="name" Type="nvarchar" MaxLength="140" />
-    <Property Name="subscriptionid" Type="uniqueidentifier" />
-    <Property Name="schema_description" Type="xml" />
-    <Property Name="state" Type="int" />
-    <Property Name="hub_memberid" Type="uniqueidentifier" />
-    <Property Name="conflict_resolution_policy" Type="int" Nullable="false" />
-    <Property Name="sync_interval" Type="int" Nullable="false" />
-    <Property Name="sync_enabled" Type="bit" Nullable="false" />
-    <Property Name="lastupdatetime" Type="datetime" />
-    <Property Name="ocsschemadefinition" Type="nvarchar(max)" />
-    <Property Name="hubhasdata" Type="bit" />
-    <Property Name="ConflictLoggingEnabled" Type="bit" Nullable="false" />
-    <Property Name="ConflictTableRetentionInDays" Type="int" Nullable="false" />
-  </EntityType>
-  <EntityType Name="syncgroupmember">
-    <Key>
-      <PropertyRef Name="id" />
-    </Key>
-    <Property Name="id" Type="uniqueidentifier" Nullable="false" />
-    <Property Name="name" Type="nvarchar" MaxLength="140" Nullable="false" />
-    <Property Name="scopename" Type="nvarchar" MaxLength="100" Nullable="false" />
-    <Property Name="syncgroupid" Type="uniqueidentifier" Nullable="false" />
-    <Property Name="syncdirection" Type="int" Nullable="false" />
-    <Property Name="databaseid" Type="uniqueidentifier" Nullable="false" />
-    <Property Name="memberstate" Type="int" Nullable="false" />
-    <Property Name="hubstate" Type="int" Nullable="false" />
-    <Property Name="memberstate_lastupdated" Type="datetime" Nullable="false" />
-    <Property Name="hubstate_lastupdated" Type="datetime" Nullable="false" />
-    <Property Name="lastsynctime" Type="datetime" />
-    <Property Name="lastsynctime_zerofailures_member" Type="datetime" />
-    <Property Name="lastsynctime_zerofailures_hub" Type="datetime" />
-    <Property Name="jobId" Type="uniqueidentifier" />
-    <Property Name="hubJobId" Type="uniqueidentifier" />
-    <Property Name="noinitsync" Type="bit" Nullable="false" />
-    <Property Name="memberhasdata" Type="bit" />
-  </EntityType>
-  <EntityType Name="SyncObjectData">
-    <Key>
-      <PropertyRef Name="ObjectId" />
-      <PropertyRef Name="DataType" />
-    </Key>
-    <Property Name="ObjectId" Type="uniqueidentifier" Nullable="false" />
-    <Property Name="DataType" Type="int" Nullable="false" />
-    <Property Name="CreatedTime" Type="datetime2" Precision="7" Nullable="false" />
-    <Property Name="DroppedTime" Type="datetime2" Precision="7" />
-    <Property Name="LastModified" Type="timestamp" StoreGeneratedPattern="Computed" Nullable="false" />
-    <Property Name="ObjectData" Type="varbinary(max)" Nullable="false" />
-  </EntityType>
-  <EntityType Name="task">
-    <Key>
-      <PropertyRef Name="id" />
-    </Key>
-    <Property Name="id" Type="uniqueidentifier" Nullable="false" />
-    <Property Name="actionid" Type="uniqueidentifier" Nullable="false" />
-    <Property Name="taskNumber" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="lastheartbeat" Type="datetime" />
-    <Property Name="state" Type="int" />
-    <Property Name="type" Type="int" />
-    <Property Name="agentid" Type="uniqueidentifier" />
-    <Property Name="owning_instanceid" Type="uniqueidentifier" />
-    <Property Name="creationtime" Type="datetime" />
-    <Property Name="pickuptime" Type="datetime" />
-    <Property Name="completedtime" Type="datetime" />
-    <Property Name="request" Type="varbinary(max)" />
-    <Property Name="response" Type="varbinary(max)" />
-    <Property Name="priority" Type="int" />
-    <Property Name="retry_count" Type="int" Nullable="false" />
-    <Property Name="dependency_count" Type="int" Nullable="false" />
-    <Property Name="version" Type="bigint" Nullable="false" />
-    <Property Name="lastresettime" Type="datetime" />
-  </EntityType>
-  <EntityType Name="taskdependency">
-    <Key>
-      <PropertyRef Name="nexttaskid" />
-      <PropertyRef Name="prevtaskid" />
-    </Key>
-    <Property Name="nexttaskid" Type="uniqueidentifier" Nullable="false" />
-    <Property Name="prevtaskid" Type="uniqueidentifier" Nullable="false" />
-  </EntityType>
-  <!--Errors Found During Generation:
-warning 6002: The table/view 'ECMills_NewDesign.dss.UIHistory' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
-  <EntityType Name="UIHistory">
-    <Key>
-      <PropertyRef Name="id" />
-      <PropertyRef Name="completionTime" />
-      <PropertyRef Name="taskType" />
-      <PropertyRef Name="recordType" />
-      <PropertyRef Name="serverid" />
-      <PropertyRef Name="agentid" />
-      <PropertyRef Name="databaseid" />
-      <PropertyRef Name="syncgroupId" />
-      <PropertyRef Name="detailEnumId" />
-    </Key>
-    <Property Name="id" Type="uniqueidentifier" Nullable="false" />
-    <Property Name="completionTime" Type="datetime2" Precision="7" Nullable="false" />
-    <Property Name="taskType" Type="int" Nullable="false" />
-    <Property Name="recordType" Type="int" Nullable="false" />
-    <Property Name="serverid" Type="uniqueidentifier" Nullable="false" />
-    <Property Name="agentid" Type="uniqueidentifier" Nullable="false" />
-    <Property Name="databaseid" Type="uniqueidentifier" Nullable="false" />
-    <Property Name="syncgroupId" Type="uniqueidentifier" Nullable="false" />
-    <Property Name="detailEnumId" Type="nvarchar" MaxLength="400" Nullable="false" />
-    <Property Name="detailStringParameters" Type="nvarchar(max)" />
-    <Property Name="isWritable" Type="bit" />
-  </EntityType>
-  <EntityType Name="userdatabase">
-    <Key>
-      <PropertyRef Name="id" />
-    </Key>
-    <Property Name="id" Type="uniqueidentifier" Nullable="false" />
-    <Property Name="server" Type="nvarchar" MaxLength="256" />
-    <Property Name="database" Type="nvarchar" MaxLength="256" />
-    <Property Name="state" Type="int" Nullable="false" />
-    <Property Name="subscriptionid" Type="uniqueidentifier" Nullable="false" />
-    <Property Name="agentid" Type="uniqueidentifier" Nullable="false" />
-    <Property Name="connection_string" Type="varbinary(max)" />
-    <Property Name="db_schema" Type="nvarchar(max)" />
-    <Property Name="is_on_premise" Type="bit" Nullable="false" />
-    <Property Name="sqlazure_info" Type="xml" />
-    <Property Name="last_schema_updated" Type="datetime" />
-    <Property Name="last_tombstonecleanup" Type="datetime" />
-    <Property Name="region" Type="nvarchar" MaxLength="256" />
-    <Property Name="jobId" Type="uniqueidentifier" />
-  </EntityType>
-  <EntityType Name="Job">
-    <Key>
-      <PropertyRef Name="JobId" />
-    </Key>
-    <Property Name="JobId" Type="uniqueidentifier" Nullable="false" />
-    <Property Name="IsCancelled" Type="bit" Nullable="false" />
-    <Property Name="InitialInsertTimeUTC" Type="datetime" Nullable="false" />
-    <Property Name="JobType" Type="int" Nullable="false" />
-    <Property Name="InputData" Type="nvarchar(max)" />
-    <Property Name="TaskCount" Type="int" Nullable="false" />
-    <Property Name="CompletedTaskCount" Type="int" Nullable="false" />
-    <Property Name="TracingId" Type="uniqueidentifier" />
-  </EntityType>
-  <EntityType Name="MessageQueue">
-    <Key>
-      <PropertyRef Name="MessageId" />
-    </Key>
-    <Property Name="MessageId" Type="uniqueidentifier" Nullable="false" />
-    <Property Name="JobId" Type="uniqueidentifier" />
-    <Property Name="MessageType" Type="int" Nullable="false" />
-    <Property Name="MessageData" Type="nvarchar(max)" />
-    <Property Name="InitialInsertTimeUTC" Type="datetime" Nullable="false" />
-    <Property Name="InsertTimeUTC" Type="datetime" Nullable="false" />
-    <Property Name="UpdateTimeUTC" Type="datetime" />
-    <Property Name="ExecTimes" Type="tinyint" Nullable="false" />
-    <Property Name="ResetTimes" Type="int" Nullable="false" />
-    <Property Name="Version" Type="bigint" Nullable="false" />
-    <Property Name="TracingId" Type="uniqueidentifier" />
-    <Property Name="QueueId" Type="uniqueidentifier" />
-    <Property Name="WorkerId" Type="uniqueidentifier" />
-  </EntityType>
-  <EntityType Name="MetaInformation1">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="VersionMajor" Type="int" Nullable="false" />
-    <Property Name="VersionMinor" Type="int" Nullable="false" />
-    <Property Name="VersionBuild" Type="int" Nullable="false" />
-    <Property Name="VersionService" Type="int" Nullable="false" />
-    <Property Name="VersionString" Type="varchar" MaxLength="50" />
-    <Property Name="Version" Type="bigint" />
-    <Property Name="State" Type="bit" Nullable="false" />
-    <Property Name="Timestamp" Type="datetime" Nullable="false" />
-  </EntityType>
-  <EntityType Name="Schedule">
-    <Key>
-      <PropertyRef Name="ScheduleId" />
-    </Key>
-    <Property Name="ScheduleId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="FreqType" Type="int" Nullable="false" />
-    <Property Name="FreqInterval" Type="int" Nullable="false" />
-  </EntityType>
-  <EntityType Name="ScheduleTask1">
-    <Key>
-      <PropertyRef Name="ScheduleTaskId" />
-    </Key>
-    <Property Name="ScheduleTaskId" Type="uniqueidentifier" Nullable="false" />
-    <Property Name="TaskType" Type="int" Nullable="false" />
-    <Property Name="TaskName" Type="nvarchar" MaxLength="128" Nullable="false" />
-    <Property Name="Schedule" Type="int" />
-    <Property Name="State" Type="int" Nullable="false" />
-    <Property Name="NextRunTime" Type="datetime" Nullable="false" />
-    <Property Name="MessageId" Type="uniqueidentifier" />
-    <Property Name="TaskInput" Type="nvarchar(max)" />
-    <Property Name="QueueId" Type="uniqueidentifier" Nullable="false" />
-    <Property Name="TracingId" Type="uniqueidentifier" Nullable="false" />
-    <Property Name="JobId" Type="uniqueidentifier" Nullable="false" />
-  </EntityType>
   <!--Errors Found During Generation:
 warning 6002: The table/view 'ECMills_NewDesign.dbo.vw_GetDeceasedAddressList' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
   <EntityType Name="vw_GetDeceasedAddressList">
@@ -946,6 +586,18 @@ warning 6002: The table/view 'ECMills_NewDesign.dbo.vw_GetDeceasedAddressList' d
     <Property Name="ContactName" Type="nvarchar" MaxLength="100" />
     <Property Name="ContactNo" Type="nvarchar" MaxLength="13" />
     <Property Name="Notes" Type="nvarchar(max)" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'ECMills_NewDesign.dbo.vw_GetDeceasedContactsContactDetails' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="vw_GetDeceasedContactsContactDetails">
+    <Key>
+      <PropertyRef Name="DeceasedID" />
+      <PropertyRef Name="PointOfContactType" />
+      <PropertyRef Name="PointOfContactValue" />
+    </Key>
+    <Property Name="DeceasedID" Type="smallint" Nullable="false" />
+    <Property Name="PointOfContactType" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="PointOfContactValue" Type="nvarchar" MaxLength="100" Nullable="false" />
   </EntityType>
   <!--Errors Found During Generation:
 warning 6002: The table/view 'ECMills_NewDesign.dbo.vw_GetDeceasedContactsList' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -971,8 +623,6 @@ warning 6002: The table/view 'ECMills_NewDesign.dbo.vw_GetDeceasedContactsList' 
     <Property Name="Notes" Type="nvarchar(max)" />
     <Property Name="ConsentToBeContacted" Type="bit" Nullable="false" />
     <Property Name="AccountModerator" Type="bit" Nullable="false" />
-    <Property Name="PointOfContactType" Type="nvarchar" MaxLength="50" />
-    <Property Name="PointOfContactValue" Type="nvarchar" MaxLength="100" />
   </EntityType>
   <!--Errors Found During Generation:
 warning 6002: The table/view 'ECMills_NewDesign.dbo.vw_GetDeceasedList' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -1049,162 +699,6 @@ warning 6002: The table/view 'ECMills_NewDesign.sys.database_firewall_rules' doe
     <Property Name="create_date" Type="datetime" Nullable="false" />
     <Property Name="modify_date" Type="datetime" Nullable="false" />
   </EntityType>
-  <Association Name="FK__agent__subscript">
-    <End Role="subscription" Type="Self.subscription" Multiplicity="0..1" />
-    <End Role="agent" Type="Self.agent" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="subscription">
-        <PropertyRef Name="id" />
-      </Principal>
-      <Dependent Role="agent">
-        <PropertyRef Name="subscriptionid" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK__agent_ins__agent">
-    <End Role="agent" Type="Self.agent" Multiplicity="1" />
-    <End Role="agent_instance" Type="Self.agent_instance" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="agent">
-        <PropertyRef Name="id" />
-      </Principal>
-      <Dependent Role="agent_instance">
-        <PropertyRef Name="agentid" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK__MessageQu__JobId__09C96D33">
-    <End Role="Job" Type="Self.Job" Multiplicity="0..1" />
-    <End Role="MessageQueue" Type="Self.MessageQueue" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Job">
-        <PropertyRef Name="JobId" />
-      </Principal>
-      <Dependent Role="MessageQueue">
-        <PropertyRef Name="JobId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK__ScheduleT__Sched__1446FBA6">
-    <End Role="Schedule" Type="Self.Schedule" Multiplicity="0..1" />
-    <End Role="ScheduleTask1" Type="Self.ScheduleTask1" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Schedule">
-        <PropertyRef Name="ScheduleId" />
-      </Principal>
-      <Dependent Role="ScheduleTask1">
-        <PropertyRef Name="Schedule" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK__ScheduleT__SyncG">
-    <End Role="syncgroup" Type="Self.syncgroup" Multiplicity="1" />
-    <End Role="ScheduleTask" Type="Self.ScheduleTask" Multiplicity="0..1" />
-    <ReferentialConstraint>
-      <Principal Role="syncgroup">
-        <PropertyRef Name="id" />
-      </Principal>
-      <Dependent Role="ScheduleTask">
-        <PropertyRef Name="SyncGroupId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK__syncgroup__hub_m">
-    <End Role="userdatabase" Type="Self.userdatabase" Multiplicity="0..1" />
-    <End Role="syncgroup" Type="Self.syncgroup" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="userdatabase">
-        <PropertyRef Name="id" />
-      </Principal>
-      <Dependent Role="syncgroup">
-        <PropertyRef Name="hub_memberid" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK__syncgroup__subsc">
-    <End Role="subscription" Type="Self.subscription" Multiplicity="0..1" />
-    <End Role="syncgroup" Type="Self.syncgroup" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="subscription">
-        <PropertyRef Name="id" />
-      </Principal>
-      <Dependent Role="syncgroup">
-        <PropertyRef Name="subscriptionid" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK__syncmember__datab">
-    <End Role="userdatabase" Type="Self.userdatabase" Multiplicity="1" />
-    <End Role="syncgroupmember" Type="Self.syncgroupmember" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="userdatabase">
-        <PropertyRef Name="id" />
-      </Principal>
-      <Dependent Role="syncgroupmember">
-        <PropertyRef Name="databaseid" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK__syncmember__syncg">
-    <End Role="syncgroup" Type="Self.syncgroup" Multiplicity="1" />
-    <End Role="syncgroupmember" Type="Self.syncgroupmember" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="syncgroup">
-        <PropertyRef Name="id" />
-      </Principal>
-      <Dependent Role="syncgroupmember">
-        <PropertyRef Name="syncgroupid" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK__task__actionid">
-    <End Role="action" Type="Self.action" Multiplicity="1" />
-    <End Role="task" Type="Self.task" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="action">
-        <PropertyRef Name="id" />
-      </Principal>
-      <Dependent Role="task">
-        <PropertyRef Name="actionid" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK__taskdepen__nextt">
-    <End Role="task" Type="Self.task" Multiplicity="1" />
-    <End Role="taskdependency" Type="Self.taskdependency" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="task">
-        <PropertyRef Name="id" />
-      </Principal>
-      <Dependent Role="taskdependency">
-        <PropertyRef Name="nexttaskid" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK__taskdepen__prevt">
-    <End Role="task" Type="Self.task" Multiplicity="1" />
-    <End Role="taskdependency" Type="Self.taskdependency" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="task">
-        <PropertyRef Name="id" />
-      </Principal>
-      <Dependent Role="taskdependency">
-        <PropertyRef Name="prevtaskid" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK__userdatab__subsc">
-    <End Role="subscription" Type="Self.subscription" Multiplicity="1" />
-    <End Role="userdatabase" Type="Self.userdatabase" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="subscription">
-        <PropertyRef Name="id" />
-      </Principal>
-      <Dependent Role="userdatabase">
-        <PropertyRef Name="subscriptionid" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="FK_2133">
     <End Role="OrderItemType" Type="Self.OrderItemType" Multiplicity="1" />
     <End Role="OrderItemSubType" Type="Self.OrderItemSubType" Multiplicity="*" />
@@ -1724,6 +1218,9 @@ warning 6002: The table/view 'ECMills_NewDesign.sys.database_firewall_rules' doe
   <Function Name="sp_GetDeceasedAddressList" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="DeceasedID" Type="smallint" Mode="In" />
   </Function>
+  <Function Name="sp_GetDeceasedContactsContactDetails" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="DeceasedID" Type="smallint" Mode="In" />
+  </Function>
   <Function Name="sp_GetDeceasedContactsList" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="DeceasedID" Type="smallint" Mode="In" />
   </Function>
@@ -1731,39 +1228,7 @@ warning 6002: The table/view 'ECMills_NewDesign.sys.database_firewall_rules' doe
   <Function Name="sp_GetDeceasedProfile" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="DeceasedID" Type="smallint" Mode="In" />
   </Function>
-  <Function Name="CheckOnPremiseSyncGroupMemberLimit" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dss" ReturnType="int">
-    <Parameter Name="SyncGroupId" Type="uniqueidentifier" Mode="In" />
-  </Function>
-  <Function Name="CheckSyncGroupLimit" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dss" ReturnType="int">
-    <Parameter Name="SubscriptionId" Type="uniqueidentifier" Mode="In" />
-  </Function>
-  <Function Name="CheckSyncGroupMemberLimit" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dss" ReturnType="int">
-    <Parameter Name="SubscriptionId" Type="uniqueidentifier" Mode="In" />
-  </Function>
-  <Function Name="IsAgentInstanceValid" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dss" ReturnType="int">
-    <Parameter Name="AgentId" Type="uniqueidentifier" Mode="In" />
-    <Parameter Name="AgentInstanceId" Type="uniqueidentifier" Mode="In" />
-  </Function>
-  <Function Name="IsDatabaseInDeletingState" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dss" ReturnType="bit">
-    <Parameter Name="DatabaseId" Type="uniqueidentifier" Mode="In" />
-  </Function>
-  <Function Name="IsDatabaseSyncGroupMemberLimitExceeded" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dss" ReturnType="int">
-    <Parameter Name="DatabaseID" Type="uniqueidentifier" Mode="In" />
-  </Function>
-  <Function Name="IsSyncGroupActive" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dss" ReturnType="bit">
-    <Parameter Name="SyncGroupId" Type="uniqueidentifier" Mode="In" />
-  </Function>
-  <Function Name="IsSyncGroupActiveOrNotReady" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dss" ReturnType="bit">
-    <Parameter Name="SyncGroupId" Type="uniqueidentifier" Mode="In" />
-  </Function>
-  <Function Name="GetNextRunTime" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="TaskHosting" ReturnType="datetime">
-    <Parameter Name="ScheduleId" Type="int" Mode="In" />
-  </Function>
   <EntityContainer Name="ECMills_DatabaseModelStoreContainer">
-    <EntitySet Name="provision_marker_dss" EntityType="Self.provision_marker_dss" Schema="DataSync" store:Type="Tables" />
-    <EntitySet Name="schema_info_dss" EntityType="Self.schema_info_dss" Schema="DataSync" store:Type="Tables" />
-    <EntitySet Name="scope_config_dss" EntityType="Self.scope_config_dss" Schema="DataSync" store:Type="Tables" />
-    <EntitySet Name="scope_info_dss" EntityType="Self.scope_info_dss" Schema="DataSync" store:Type="Tables" />
     <EntitySet Name="Ceremony" EntityType="Self.Ceremony" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Client" EntityType="Self.Client" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Coffin" EntityType="Self.Coffin" Schema="dbo" store:Type="Tables" />
@@ -1794,27 +1259,6 @@ warning 6002: The table/view 'ECMills_NewDesign.sys.database_firewall_rules' doe
     <EntitySet Name="Supplier" EntityType="Self.Supplier" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TransportType" EntityType="Self.TransportType" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="action" EntityType="Self.action" Schema="dss" store:Type="Tables" />
-    <EntitySet Name="agent" EntityType="Self.agent" Schema="dss" store:Type="Tables" />
-    <EntitySet Name="agent_instance" EntityType="Self.agent_instance" Schema="dss" store:Type="Tables" />
-    <EntitySet Name="agent_version" EntityType="Self.agent_version" Schema="dss" store:Type="Tables" />
-    <EntitySet Name="configuration" EntityType="Self.configuration" Schema="dss" store:Type="Tables" />
-    <EntitySet Name="EnumType" EntityType="Self.EnumType" Schema="dss" store:Type="Tables" />
-    <EntitySet Name="MetaInformation" EntityType="Self.MetaInformation" Schema="dss" store:Type="Tables" />
-    <EntitySet Name="scaleunitlimits" EntityType="Self.scaleunitlimits" Schema="dss" store:Type="Tables" />
-    <EntitySet Name="ScheduleTask" EntityType="Self.ScheduleTask" Schema="dss" store:Type="Tables" />
-    <EntitySet Name="subscription" EntityType="Self.subscription" Schema="dss" store:Type="Tables" />
-    <EntitySet Name="syncgroup" EntityType="Self.syncgroup" Schema="dss" store:Type="Tables" />
-    <EntitySet Name="syncgroupmember" EntityType="Self.syncgroupmember" Schema="dss" store:Type="Tables" />
-    <EntitySet Name="SyncObjectData" EntityType="Self.SyncObjectData" Schema="dss" store:Type="Tables" />
-    <EntitySet Name="task" EntityType="Self.task" Schema="dss" store:Type="Tables" />
-    <EntitySet Name="taskdependency" EntityType="Self.taskdependency" Schema="dss" store:Type="Tables" />
-    <EntitySet Name="userdatabase" EntityType="Self.userdatabase" Schema="dss" store:Type="Tables" />
-    <EntitySet Name="Job" EntityType="Self.Job" Schema="TaskHosting" store:Type="Tables" />
-    <EntitySet Name="MessageQueue" EntityType="Self.MessageQueue" Schema="TaskHosting" store:Type="Tables" />
-    <EntitySet Name="MetaInformation1" EntityType="Self.MetaInformation1" Schema="TaskHosting" Table="MetaInformation" store:Type="Tables" />
-    <EntitySet Name="Schedule" EntityType="Self.Schedule" Schema="TaskHosting" store:Type="Tables" />
-    <EntitySet Name="ScheduleTask1" EntityType="Self.ScheduleTask1" Schema="TaskHosting" Table="ScheduleTask" store:Type="Tables" />
     <EntitySet Name="DeceasedAddress" EntityType="Self.DeceasedAddress" store:Type="Tables" store:Schema="dbo">
       <DefiningQuery>SELECT 
     [DeceasedAddress].[DeceasedID] AS [DeceasedID], 
@@ -1934,21 +1378,6 @@ warning 6002: The table/view 'ECMills_NewDesign.sys.database_firewall_rules' doe
     [Visitors].[Time] AS [Time]
     FROM [dbo].[Visitors] AS [Visitors]</DefiningQuery>
     </EntitySet>
-    <EntitySet Name="UIHistory" EntityType="Self.UIHistory" store:Type="Tables" store:Schema="dss">
-      <DefiningQuery>SELECT 
-    [UIHistory].[id] AS [id], 
-    [UIHistory].[completionTime] AS [completionTime], 
-    [UIHistory].[taskType] AS [taskType], 
-    [UIHistory].[recordType] AS [recordType], 
-    [UIHistory].[serverid] AS [serverid], 
-    [UIHistory].[agentid] AS [agentid], 
-    [UIHistory].[databaseid] AS [databaseid], 
-    [UIHistory].[syncgroupId] AS [syncgroupId], 
-    [UIHistory].[detailEnumId] AS [detailEnumId], 
-    [UIHistory].[detailStringParameters] AS [detailStringParameters], 
-    [UIHistory].[isWritable] AS [isWritable]
-    FROM [dss].[UIHistory] AS [UIHistory]</DefiningQuery>
-    </EntitySet>
     <EntitySet Name="vw_GetDeceasedAddressList" EntityType="Self.vw_GetDeceasedAddressList" store:Type="Views" store:Schema="dbo">
       <DefiningQuery>SELECT 
     [vw_GetDeceasedAddressList].[DeceasedID] AS [DeceasedID], 
@@ -1961,6 +1390,13 @@ warning 6002: The table/view 'ECMills_NewDesign.sys.database_firewall_rules' doe
     [vw_GetDeceasedAddressList].[ContactNo] AS [ContactNo], 
     [vw_GetDeceasedAddressList].[Notes] AS [Notes]
     FROM [dbo].[vw_GetDeceasedAddressList] AS [vw_GetDeceasedAddressList]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="vw_GetDeceasedContactsContactDetails" EntityType="Self.vw_GetDeceasedContactsContactDetails" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [vw_GetDeceasedContactsContactDetails].[DeceasedID] AS [DeceasedID], 
+    [vw_GetDeceasedContactsContactDetails].[PointOfContactType] AS [PointOfContactType], 
+    [vw_GetDeceasedContactsContactDetails].[PointOfContactValue] AS [PointOfContactValue]
+    FROM [dbo].[vw_GetDeceasedContactsContactDetails] AS [vw_GetDeceasedContactsContactDetails]</DefiningQuery>
     </EntitySet>
     <EntitySet Name="vw_GetDeceasedContactsList" EntityType="Self.vw_GetDeceasedContactsList" store:Type="Views" store:Schema="dbo">
       <DefiningQuery>SELECT 
@@ -1976,9 +1412,7 @@ warning 6002: The table/view 'ECMills_NewDesign.sys.database_firewall_rules' doe
     [vw_GetDeceasedContactsList].[PostCode] AS [PostCode], 
     [vw_GetDeceasedContactsList].[Notes] AS [Notes], 
     [vw_GetDeceasedContactsList].[ConsentToBeContacted] AS [ConsentToBeContacted], 
-    [vw_GetDeceasedContactsList].[AccountModerator] AS [AccountModerator], 
-    [vw_GetDeceasedContactsList].[PointOfContactType] AS [PointOfContactType], 
-    [vw_GetDeceasedContactsList].[PointOfContactValue] AS [PointOfContactValue]
+    [vw_GetDeceasedContactsList].[AccountModerator] AS [AccountModerator]
     FROM [dbo].[vw_GetDeceasedContactsList] AS [vw_GetDeceasedContactsList]</DefiningQuery>
     </EntitySet>
     <EntitySet Name="vw_GetDeceasedList" EntityType="Self.vw_GetDeceasedList" store:Type="Views" store:Schema="dbo">
@@ -2025,58 +1459,6 @@ warning 6002: The table/view 'ECMills_NewDesign.sys.database_firewall_rules' doe
     [database_firewall_rules].[modify_date] AS [modify_date]
     FROM [sys].[database_firewall_rules] AS [database_firewall_rules]</DefiningQuery>
     </EntitySet>
-    <AssociationSet Name="FK__agent__subscript" Association="Self.FK__agent__subscript">
-      <End Role="subscription" EntitySet="subscription" />
-      <End Role="agent" EntitySet="agent" />
-    </AssociationSet>
-    <AssociationSet Name="FK__agent_ins__agent" Association="Self.FK__agent_ins__agent">
-      <End Role="agent" EntitySet="agent" />
-      <End Role="agent_instance" EntitySet="agent_instance" />
-    </AssociationSet>
-    <AssociationSet Name="FK__MessageQu__JobId__09C96D33" Association="Self.FK__MessageQu__JobId__09C96D33">
-      <End Role="Job" EntitySet="Job" />
-      <End Role="MessageQueue" EntitySet="MessageQueue" />
-    </AssociationSet>
-    <AssociationSet Name="FK__ScheduleT__Sched__1446FBA6" Association="Self.FK__ScheduleT__Sched__1446FBA6">
-      <End Role="Schedule" EntitySet="Schedule" />
-      <End Role="ScheduleTask1" EntitySet="ScheduleTask1" />
-    </AssociationSet>
-    <AssociationSet Name="FK__ScheduleT__SyncG" Association="Self.FK__ScheduleT__SyncG">
-      <End Role="syncgroup" EntitySet="syncgroup" />
-      <End Role="ScheduleTask" EntitySet="ScheduleTask" />
-    </AssociationSet>
-    <AssociationSet Name="FK__syncgroup__hub_m" Association="Self.FK__syncgroup__hub_m">
-      <End Role="userdatabase" EntitySet="userdatabase" />
-      <End Role="syncgroup" EntitySet="syncgroup" />
-    </AssociationSet>
-    <AssociationSet Name="FK__syncgroup__subsc" Association="Self.FK__syncgroup__subsc">
-      <End Role="subscription" EntitySet="subscription" />
-      <End Role="syncgroup" EntitySet="syncgroup" />
-    </AssociationSet>
-    <AssociationSet Name="FK__syncmember__datab" Association="Self.FK__syncmember__datab">
-      <End Role="userdatabase" EntitySet="userdatabase" />
-      <End Role="syncgroupmember" EntitySet="syncgroupmember" />
-    </AssociationSet>
-    <AssociationSet Name="FK__syncmember__syncg" Association="Self.FK__syncmember__syncg">
-      <End Role="syncgroup" EntitySet="syncgroup" />
-      <End Role="syncgroupmember" EntitySet="syncgroupmember" />
-    </AssociationSet>
-    <AssociationSet Name="FK__task__actionid" Association="Self.FK__task__actionid">
-      <End Role="action" EntitySet="action" />
-      <End Role="task" EntitySet="task" />
-    </AssociationSet>
-    <AssociationSet Name="FK__taskdepen__nextt" Association="Self.FK__taskdepen__nextt">
-      <End Role="task" EntitySet="task" />
-      <End Role="taskdependency" EntitySet="taskdependency" />
-    </AssociationSet>
-    <AssociationSet Name="FK__taskdepen__prevt" Association="Self.FK__taskdepen__prevt">
-      <End Role="task" EntitySet="task" />
-      <End Role="taskdependency" EntitySet="taskdependency" />
-    </AssociationSet>
-    <AssociationSet Name="FK__userdatab__subsc" Association="Self.FK__userdatab__subsc">
-      <End Role="subscription" EntitySet="subscription" />
-      <End Role="userdatabase" EntitySet="userdatabase" />
-    </AssociationSet>
     <AssociationSet Name="FK_2133" Association="Self.FK_2133">
       <End Role="OrderItemType" EntitySet="OrderItemType" />
       <End Role="OrderItemSubType" EntitySet="OrderItemSubType" />

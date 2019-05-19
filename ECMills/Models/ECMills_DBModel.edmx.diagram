@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="7727f654b59741beb39bee596dc7a6fc" Name="Diagram1">
+      <Diagram DiagramId="7727f654b59741beb39bee596dc7a6fc" Name="Diagram1" ZoomLevel="67">
         <EntityTypeShape EntityType="ECMills_DatabaseModel.provision_marker_dss" Width="1.5" PointX="0.75" PointY="7.75" IsExpanded="true" />
         <EntityTypeShape EntityType="ECMills_DatabaseModel.schema_info_dss" Width="1.5" PointX="2.75" PointY="7.75" IsExpanded="true" />
         <EntityTypeShape EntityType="ECMills_DatabaseModel.scope_config_dss" Width="1.5" PointX="10.75" PointY="0.75" IsExpanded="true" />
@@ -130,6 +130,7 @@
         <AssociationConnector Association="ECMills_DatabaseModel.FK__MessageQu__JobId__09C96D33" ManuallyRouted="false" />
         <AssociationConnector Association="ECMills_DatabaseModel.FK__ScheduleT__Sched__1446FBA6" ManuallyRouted="false" />
         <AssociationConnector Association="ECMills_DatabaseModel.taskdependency" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="ECMills_DatabaseModel.vw_GetDeceasedContactsContactDetails" Width="1.5" PointX="22.375" PointY="7.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

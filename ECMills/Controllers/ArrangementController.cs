@@ -47,10 +47,12 @@ namespace ECMills.Controllers
         public ActionResult Contacts(Int16 id)
         {
             dynamic dynamicObject = new ExpandoObject();
-            dynamicObject.DeceasedContactList = sp_GetDeceasedContactsList(id);
+            dynamicObject.DeceasedContactList            = sp_GetDeceasedContactsList(id);
+            dynamicObject.DeceasedContactsContactDetails = sp_GetDeceasedContactsContactDetails(id);
 
             return View(dynamicObject);
         }
+
 
         public ActionResult ProfileUpdate(string Name, string Known_As, string Gender, int Age, DateTime DOB,
                                           DateTime TimeOfDeath, string MaritalStatus, string Occupation,
@@ -89,5 +91,12 @@ namespace ECMills.Controllers
         {
             return DBContext.sp_GetDeceasedContactsList(id).ToList();
         }
+
+        
+        public List<sp_GetDeceasedContactsContactDetails_Result> sp_GetDeceasedContactsContactDetails(Int16 id)
+        {
+            return DBContext.sp_GetDeceasedContactsContactDetails(id).ToList();
+        }
+        
     }
 }

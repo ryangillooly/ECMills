@@ -13,7 +13,31 @@ ul {
     padding-left: 1em;
     padding-right: 1em;
     grid-template-rows: repeat(10, 6.7vh);
-    grid-template-areas: "Profile       AddressDetails" "Profile       AddressDetails" "Profile       AddressDetails" "Profile       AddressDetails" "Profile       AddressDetails" "AddressList   AddressDetails" "AddressList   AddressDetails" "AddressList   AddressDetails" "AddressList   AddressDetails" "AddressList   AddressDetails" "AddressList   AddressDetails";
+}
+
+#DeceasedPage {
+    grid-template-areas: 
+        "Profile       AddressDetails" 
+        "Profile       AddressDetails" 
+        "Profile       AddressDetails" 
+        "Profile       AddressDetails" 
+        "Profile       AddressDetails" 
+        "AddressList   AddressDetails" 
+        "AddressList   AddressDetails" 
+        "AddressList   AddressDetails" 
+        "AddressList   AddressDetails" 
+        "AddressList   AddressDetails" 
+        "AddressList   AddressDetails";
+}
+
+#ContactsPage {
+    grid-template-areas: "ContactList ContactDetails"
+                         "ContactList ContactDetails"
+                         "ContactList ContactDetails"
+                         "ContactList ContactDetails"
+                         "ContactList ContactDetails"
+                         "ContactList ContactDetails"
+                         "ContactList ContactDetails";
 }
 
 #DeceasedProfileForm > ul {
@@ -36,6 +60,10 @@ ul {
     margin-top: 0px;
 }
 
+.RemovePadding {
+    padding-left: 0px;
+}
+
 .FullHeightWidth {
     height: 100%;
     width: 100%;
@@ -53,7 +81,50 @@ ul {
     grid-area: AddressDetails;
 }
 
+#ContactListItem {
+    grid-area: ContactList;
+}
 
+#ContactDetailsListItem {
+    grid-area: ContactDetails;
+}
+
+
+#ListedContactsCard > div > ul {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 1rem;
+    padding-left: 0px;
+}
+
+#ListedAddressCard > div > ul {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 1rem;
+    padding-left: 0px;
+}
+
+.FourByFourGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    grid-template-rows: 2vh 2vh;
+
+    grid-template-areas: "Col1Row1  Col2Row1"
+                         "Col1Row2 Col2Row2";
+}
+
+.Col1Row1 {
+    grid-area: Col1Row1;
+}
+.Col2Row1 {
+    grid-area: Col2Row1;
+}
+.Col1Row2 {
+    grid-area: Col1Row2;
+}
+.Col2Row2 {
+    grid-area: Col2Row2;
+}
 
 /*
 

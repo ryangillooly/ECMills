@@ -1,55 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
   <EntityContainerMapping StorageEntityContainer="ECMills_DatabaseModelStoreContainer" CdmEntityContainer="ECMills_DBConnection">
-    <EntitySetMapping Name="provision_marker_dss">
-      <EntityTypeMapping TypeName="ECMills_DatabaseModel.provision_marker_dss">
-        <MappingFragment StoreEntitySet="provision_marker_dss">
-          <ScalarProperty Name="object_id" ColumnName="object_id" />
-          <ScalarProperty Name="owner_scope_local_id" ColumnName="owner_scope_local_id" />
-          <ScalarProperty Name="provision_scope_local_id" ColumnName="provision_scope_local_id" />
-          <ScalarProperty Name="provision_timestamp" ColumnName="provision_timestamp" />
-          <ScalarProperty Name="provision_local_peer_key" ColumnName="provision_local_peer_key" />
-          <ScalarProperty Name="provision_scope_peer_key" ColumnName="provision_scope_peer_key" />
-          <ScalarProperty Name="provision_scope_peer_timestamp" ColumnName="provision_scope_peer_timestamp" />
-          <ScalarProperty Name="provision_datetime" ColumnName="provision_datetime" />
-          <ScalarProperty Name="state" ColumnName="state" />
-          <ScalarProperty Name="version" ColumnName="version" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="schema_info_dss">
-      <EntityTypeMapping TypeName="ECMills_DatabaseModel.schema_info_dss">
-        <MappingFragment StoreEntitySet="schema_info_dss">
-          <ScalarProperty Name="schema_major_version" ColumnName="schema_major_version" />
-          <ScalarProperty Name="schema_minor_version" ColumnName="schema_minor_version" />
-          <ScalarProperty Name="schema_extended_info" ColumnName="schema_extended_info" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="scope_config_dss">
-      <EntityTypeMapping TypeName="ECMills_DatabaseModel.scope_config_dss">
-        <MappingFragment StoreEntitySet="scope_config_dss">
-          <ScalarProperty Name="config_id" ColumnName="config_id" />
-          <ScalarProperty Name="config_data" ColumnName="config_data" />
-          <ScalarProperty Name="scope_status" ColumnName="scope_status" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="scope_info_dss">
-      <EntityTypeMapping TypeName="ECMills_DatabaseModel.scope_info_dss">
-        <MappingFragment StoreEntitySet="scope_info_dss">
-          <ScalarProperty Name="scope_local_id" ColumnName="scope_local_id" />
-          <ScalarProperty Name="scope_id" ColumnName="scope_id" />
-          <ScalarProperty Name="sync_scope_name" ColumnName="sync_scope_name" />
-          <ScalarProperty Name="scope_sync_knowledge" ColumnName="scope_sync_knowledge" />
-          <ScalarProperty Name="scope_tombstone_cleanup_knowledge" ColumnName="scope_tombstone_cleanup_knowledge" />
-          <ScalarProperty Name="scope_timestamp" ColumnName="scope_timestamp" />
-          <ScalarProperty Name="scope_config_id" ColumnName="scope_config_id" />
-          <ScalarProperty Name="scope_restore_count" ColumnName="scope_restore_count" />
-          <ScalarProperty Name="scope_user_comment" ColumnName="scope_user_comment" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="Ceremonies">
       <EntityTypeMapping TypeName="ECMills_DatabaseModel.Ceremony">
         <MappingFragment StoreEntitySet="Ceremony">
@@ -456,304 +407,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="actions">
-      <EntityTypeMapping TypeName="ECMills_DatabaseModel.action">
-        <MappingFragment StoreEntitySet="action">
-          <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="syncgroupid" ColumnName="syncgroupid" />
-          <ScalarProperty Name="type" ColumnName="type" />
-          <ScalarProperty Name="state" ColumnName="state" />
-          <ScalarProperty Name="creationtime" ColumnName="creationtime" />
-          <ScalarProperty Name="lastupdatetime" ColumnName="lastupdatetime" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="agents">
-      <EntityTypeMapping TypeName="ECMills_DatabaseModel.agent">
-        <MappingFragment StoreEntitySet="agent">
-          <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="name" ColumnName="name" />
-          <ScalarProperty Name="subscriptionid" ColumnName="subscriptionid" />
-          <ScalarProperty Name="state" ColumnName="state" />
-          <ScalarProperty Name="lastalivetime" ColumnName="lastalivetime" />
-          <ScalarProperty Name="is_on_premise" ColumnName="is_on_premise" />
-          <ScalarProperty Name="version" ColumnName="version" />
-          <ScalarProperty Name="password_hash" ColumnName="password_hash" />
-          <ScalarProperty Name="password_salt" ColumnName="password_salt" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="agent_instance">
-      <EntityTypeMapping TypeName="ECMills_DatabaseModel.agent_instance">
-        <MappingFragment StoreEntitySet="agent_instance">
-          <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="agentid" ColumnName="agentid" />
-          <ScalarProperty Name="lastalivetime" ColumnName="lastalivetime" />
-          <ScalarProperty Name="version" ColumnName="version" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="agent_version">
-      <EntityTypeMapping TypeName="ECMills_DatabaseModel.agent_version">
-        <MappingFragment StoreEntitySet="agent_version">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="Version" ColumnName="Version" />
-          <ScalarProperty Name="ExpiresOn" ColumnName="ExpiresOn" />
-          <ScalarProperty Name="Comment" ColumnName="Comment" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="configurations">
-      <EntityTypeMapping TypeName="ECMills_DatabaseModel.configuration">
-        <MappingFragment StoreEntitySet="configuration">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="ConfigKey" ColumnName="ConfigKey" />
-          <ScalarProperty Name="ConfigValue" ColumnName="ConfigValue" />
-          <ScalarProperty Name="LastModified" ColumnName="LastModified" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="EnumTypes">
-      <EntityTypeMapping TypeName="ECMills_DatabaseModel.EnumType">
-        <MappingFragment StoreEntitySet="EnumType">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="Name" ColumnName="Name" />
-          <ScalarProperty Name="Type" ColumnName="Type" />
-          <ScalarProperty Name="EnumId" ColumnName="EnumId" />
-          <ScalarProperty Name="LastModified" ColumnName="LastModified" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="MetaInformations">
-      <EntityTypeMapping TypeName="ECMills_DatabaseModel.MetaInformation">
-        <MappingFragment StoreEntitySet="MetaInformation">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="VersionMajor" ColumnName="VersionMajor" />
-          <ScalarProperty Name="VersionMinor" ColumnName="VersionMinor" />
-          <ScalarProperty Name="VersionBuild" ColumnName="VersionBuild" />
-          <ScalarProperty Name="VersionService" ColumnName="VersionService" />
-          <ScalarProperty Name="VersionString" ColumnName="VersionString" />
-          <ScalarProperty Name="Version" ColumnName="Version" />
-          <ScalarProperty Name="State" ColumnName="State" />
-          <ScalarProperty Name="Timestamp" ColumnName="Timestamp" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="scaleunitlimits">
-      <EntityTypeMapping TypeName="ECMills_DatabaseModel.scaleunitlimit">
-        <MappingFragment StoreEntitySet="scaleunitlimits">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="Name" ColumnName="Name" />
-          <ScalarProperty Name="MaxValue" ColumnName="MaxValue" />
-          <ScalarProperty Name="LastModified" ColumnName="LastModified" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="ScheduleTasks">
-      <EntityTypeMapping TypeName="ECMills_DatabaseModel.ScheduleTask">
-        <MappingFragment StoreEntitySet="ScheduleTask">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="SyncGroupId" ColumnName="SyncGroupId" />
-          <ScalarProperty Name="Interval" ColumnName="Interval" />
-          <ScalarProperty Name="LastUpdate" ColumnName="LastUpdate" />
-          <ScalarProperty Name="State" ColumnName="State" />
-          <ScalarProperty Name="ExpirationTime" ColumnName="ExpirationTime" />
-          <ScalarProperty Name="PopReceipt" ColumnName="PopReceipt" />
-          <ScalarProperty Name="DequeueCount" ColumnName="DequeueCount" />
-          <ScalarProperty Name="Type" ColumnName="Type" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="subscriptions">
-      <EntityTypeMapping TypeName="ECMills_DatabaseModel.subscription">
-        <MappingFragment StoreEntitySet="subscription">
-          <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="name" ColumnName="name" />
-          <ScalarProperty Name="creationtime" ColumnName="creationtime" />
-          <ScalarProperty Name="lastlogintime" ColumnName="lastlogintime" />
-          <ScalarProperty Name="tombstoneretentionperiodindays" ColumnName="tombstoneretentionperiodindays" />
-          <ScalarProperty Name="policyid" ColumnName="policyid" />
-          <ScalarProperty Name="subscriptionstate" ColumnName="subscriptionstate" />
-          <ScalarProperty Name="WindowsAzureSubscriptionId" ColumnName="WindowsAzureSubscriptionId" />
-          <ScalarProperty Name="EnableDetailedProviderTracing" ColumnName="EnableDetailedProviderTracing" />
-          <ScalarProperty Name="syncserveruniquename" ColumnName="syncserveruniquename" />
-          <ScalarProperty Name="version" ColumnName="version" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="syncgroups">
-      <EntityTypeMapping TypeName="ECMills_DatabaseModel.syncgroup">
-        <MappingFragment StoreEntitySet="syncgroup">
-          <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="name" ColumnName="name" />
-          <ScalarProperty Name="subscriptionid" ColumnName="subscriptionid" />
-          <ScalarProperty Name="schema_description" ColumnName="schema_description" />
-          <ScalarProperty Name="state" ColumnName="state" />
-          <ScalarProperty Name="hub_memberid" ColumnName="hub_memberid" />
-          <ScalarProperty Name="conflict_resolution_policy" ColumnName="conflict_resolution_policy" />
-          <ScalarProperty Name="sync_interval" ColumnName="sync_interval" />
-          <ScalarProperty Name="sync_enabled" ColumnName="sync_enabled" />
-          <ScalarProperty Name="lastupdatetime" ColumnName="lastupdatetime" />
-          <ScalarProperty Name="ocsschemadefinition" ColumnName="ocsschemadefinition" />
-          <ScalarProperty Name="hubhasdata" ColumnName="hubhasdata" />
-          <ScalarProperty Name="ConflictLoggingEnabled" ColumnName="ConflictLoggingEnabled" />
-          <ScalarProperty Name="ConflictTableRetentionInDays" ColumnName="ConflictTableRetentionInDays" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="syncgroupmembers">
-      <EntityTypeMapping TypeName="ECMills_DatabaseModel.syncgroupmember">
-        <MappingFragment StoreEntitySet="syncgroupmember">
-          <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="name" ColumnName="name" />
-          <ScalarProperty Name="scopename" ColumnName="scopename" />
-          <ScalarProperty Name="syncgroupid" ColumnName="syncgroupid" />
-          <ScalarProperty Name="syncdirection" ColumnName="syncdirection" />
-          <ScalarProperty Name="databaseid" ColumnName="databaseid" />
-          <ScalarProperty Name="memberstate" ColumnName="memberstate" />
-          <ScalarProperty Name="hubstate" ColumnName="hubstate" />
-          <ScalarProperty Name="memberstate_lastupdated" ColumnName="memberstate_lastupdated" />
-          <ScalarProperty Name="hubstate_lastupdated" ColumnName="hubstate_lastupdated" />
-          <ScalarProperty Name="lastsynctime" ColumnName="lastsynctime" />
-          <ScalarProperty Name="lastsynctime_zerofailures_member" ColumnName="lastsynctime_zerofailures_member" />
-          <ScalarProperty Name="lastsynctime_zerofailures_hub" ColumnName="lastsynctime_zerofailures_hub" />
-          <ScalarProperty Name="jobId" ColumnName="jobId" />
-          <ScalarProperty Name="hubJobId" ColumnName="hubJobId" />
-          <ScalarProperty Name="noinitsync" ColumnName="noinitsync" />
-          <ScalarProperty Name="memberhasdata" ColumnName="memberhasdata" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="SyncObjectDatas">
-      <EntityTypeMapping TypeName="ECMills_DatabaseModel.SyncObjectData">
-        <MappingFragment StoreEntitySet="SyncObjectData">
-          <ScalarProperty Name="ObjectId" ColumnName="ObjectId" />
-          <ScalarProperty Name="DataType" ColumnName="DataType" />
-          <ScalarProperty Name="CreatedTime" ColumnName="CreatedTime" />
-          <ScalarProperty Name="DroppedTime" ColumnName="DroppedTime" />
-          <ScalarProperty Name="LastModified" ColumnName="LastModified" />
-          <ScalarProperty Name="ObjectData" ColumnName="ObjectData" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="tasks">
-      <EntityTypeMapping TypeName="ECMills_DatabaseModel.task">
-        <MappingFragment StoreEntitySet="task">
-          <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="actionid" ColumnName="actionid" />
-          <ScalarProperty Name="taskNumber" ColumnName="taskNumber" />
-          <ScalarProperty Name="lastheartbeat" ColumnName="lastheartbeat" />
-          <ScalarProperty Name="state" ColumnName="state" />
-          <ScalarProperty Name="type" ColumnName="type" />
-          <ScalarProperty Name="agentid" ColumnName="agentid" />
-          <ScalarProperty Name="owning_instanceid" ColumnName="owning_instanceid" />
-          <ScalarProperty Name="creationtime" ColumnName="creationtime" />
-          <ScalarProperty Name="pickuptime" ColumnName="pickuptime" />
-          <ScalarProperty Name="completedtime" ColumnName="completedtime" />
-          <ScalarProperty Name="request" ColumnName="request" />
-          <ScalarProperty Name="response" ColumnName="response" />
-          <ScalarProperty Name="priority" ColumnName="priority" />
-          <ScalarProperty Name="retry_count" ColumnName="retry_count" />
-          <ScalarProperty Name="dependency_count" ColumnName="dependency_count" />
-          <ScalarProperty Name="version" ColumnName="version" />
-          <ScalarProperty Name="lastresettime" ColumnName="lastresettime" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="userdatabases">
-      <EntityTypeMapping TypeName="ECMills_DatabaseModel.userdatabase">
-        <MappingFragment StoreEntitySet="userdatabase">
-          <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="server" ColumnName="server" />
-          <ScalarProperty Name="database" ColumnName="database" />
-          <ScalarProperty Name="state" ColumnName="state" />
-          <ScalarProperty Name="subscriptionid" ColumnName="subscriptionid" />
-          <ScalarProperty Name="agentid" ColumnName="agentid" />
-          <ScalarProperty Name="connection_string" ColumnName="connection_string" />
-          <ScalarProperty Name="db_schema" ColumnName="db_schema" />
-          <ScalarProperty Name="is_on_premise" ColumnName="is_on_premise" />
-          <ScalarProperty Name="sqlazure_info" ColumnName="sqlazure_info" />
-          <ScalarProperty Name="last_schema_updated" ColumnName="last_schema_updated" />
-          <ScalarProperty Name="last_tombstonecleanup" ColumnName="last_tombstonecleanup" />
-          <ScalarProperty Name="region" ColumnName="region" />
-          <ScalarProperty Name="jobId" ColumnName="jobId" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Jobs">
-      <EntityTypeMapping TypeName="ECMills_DatabaseModel.Job">
-        <MappingFragment StoreEntitySet="Job">
-          <ScalarProperty Name="JobId" ColumnName="JobId" />
-          <ScalarProperty Name="IsCancelled" ColumnName="IsCancelled" />
-          <ScalarProperty Name="InitialInsertTimeUTC" ColumnName="InitialInsertTimeUTC" />
-          <ScalarProperty Name="JobType" ColumnName="JobType" />
-          <ScalarProperty Name="InputData" ColumnName="InputData" />
-          <ScalarProperty Name="TaskCount" ColumnName="TaskCount" />
-          <ScalarProperty Name="CompletedTaskCount" ColumnName="CompletedTaskCount" />
-          <ScalarProperty Name="TracingId" ColumnName="TracingId" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="MessageQueues">
-      <EntityTypeMapping TypeName="ECMills_DatabaseModel.MessageQueue">
-        <MappingFragment StoreEntitySet="MessageQueue">
-          <ScalarProperty Name="MessageId" ColumnName="MessageId" />
-          <ScalarProperty Name="JobId" ColumnName="JobId" />
-          <ScalarProperty Name="MessageType" ColumnName="MessageType" />
-          <ScalarProperty Name="MessageData" ColumnName="MessageData" />
-          <ScalarProperty Name="InitialInsertTimeUTC" ColumnName="InitialInsertTimeUTC" />
-          <ScalarProperty Name="InsertTimeUTC" ColumnName="InsertTimeUTC" />
-          <ScalarProperty Name="UpdateTimeUTC" ColumnName="UpdateTimeUTC" />
-          <ScalarProperty Name="ExecTimes" ColumnName="ExecTimes" />
-          <ScalarProperty Name="ResetTimes" ColumnName="ResetTimes" />
-          <ScalarProperty Name="Version" ColumnName="Version" />
-          <ScalarProperty Name="TracingId" ColumnName="TracingId" />
-          <ScalarProperty Name="QueueId" ColumnName="QueueId" />
-          <ScalarProperty Name="WorkerId" ColumnName="WorkerId" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="MetaInformation1">
-      <EntityTypeMapping TypeName="ECMills_DatabaseModel.MetaInformation1">
-        <MappingFragment StoreEntitySet="MetaInformation1">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="VersionMajor" ColumnName="VersionMajor" />
-          <ScalarProperty Name="VersionMinor" ColumnName="VersionMinor" />
-          <ScalarProperty Name="VersionBuild" ColumnName="VersionBuild" />
-          <ScalarProperty Name="VersionService" ColumnName="VersionService" />
-          <ScalarProperty Name="VersionString" ColumnName="VersionString" />
-          <ScalarProperty Name="Version" ColumnName="Version" />
-          <ScalarProperty Name="State" ColumnName="State" />
-          <ScalarProperty Name="Timestamp" ColumnName="Timestamp" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Schedules">
-      <EntityTypeMapping TypeName="ECMills_DatabaseModel.Schedule">
-        <MappingFragment StoreEntitySet="Schedule">
-          <ScalarProperty Name="ScheduleId" ColumnName="ScheduleId" />
-          <ScalarProperty Name="FreqType" ColumnName="FreqType" />
-          <ScalarProperty Name="FreqInterval" ColumnName="FreqInterval" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="ScheduleTask1">
-      <EntityTypeMapping TypeName="ECMills_DatabaseModel.ScheduleTask1">
-        <MappingFragment StoreEntitySet="ScheduleTask1">
-          <ScalarProperty Name="ScheduleTaskId" ColumnName="ScheduleTaskId" />
-          <ScalarProperty Name="TaskType" ColumnName="TaskType" />
-          <ScalarProperty Name="TaskName" ColumnName="TaskName" />
-          <ScalarProperty Name="Schedule" ColumnName="Schedule" />
-          <ScalarProperty Name="State" ColumnName="State" />
-          <ScalarProperty Name="NextRunTime" ColumnName="NextRunTime" />
-          <ScalarProperty Name="MessageId" ColumnName="MessageId" />
-          <ScalarProperty Name="TaskInput" ColumnName="TaskInput" />
-          <ScalarProperty Name="QueueId" ColumnName="QueueId" />
-          <ScalarProperty Name="TracingId" ColumnName="TracingId" />
-          <ScalarProperty Name="JobId" ColumnName="JobId" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="DeceasedAddresses">
       <EntityTypeMapping TypeName="ECMills_DatabaseModel.DeceasedAddress">
         <MappingFragment StoreEntitySet="DeceasedAddress">
@@ -891,23 +544,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="UIHistories">
-      <EntityTypeMapping TypeName="ECMills_DatabaseModel.UIHistory">
-        <MappingFragment StoreEntitySet="UIHistory">
-          <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="completionTime" ColumnName="completionTime" />
-          <ScalarProperty Name="taskType" ColumnName="taskType" />
-          <ScalarProperty Name="recordType" ColumnName="recordType" />
-          <ScalarProperty Name="serverid" ColumnName="serverid" />
-          <ScalarProperty Name="agentid" ColumnName="agentid" />
-          <ScalarProperty Name="databaseid" ColumnName="databaseid" />
-          <ScalarProperty Name="syncgroupId" ColumnName="syncgroupId" />
-          <ScalarProperty Name="detailEnumId" ColumnName="detailEnumId" />
-          <ScalarProperty Name="detailStringParameters" ColumnName="detailStringParameters" />
-          <ScalarProperty Name="isWritable" ColumnName="isWritable" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="vw_GetDeceasedAddressList">
       <EntityTypeMapping TypeName="ECMills_DatabaseModel.vw_GetDeceasedAddressList">
         <MappingFragment StoreEntitySet="vw_GetDeceasedAddressList">
@@ -939,8 +575,6 @@
           <ScalarProperty Name="Notes" ColumnName="Notes" />
           <ScalarProperty Name="ConsentToBeContacted" ColumnName="ConsentToBeContacted" />
           <ScalarProperty Name="AccountModerator" ColumnName="AccountModerator" />
-          <ScalarProperty Name="PointOfContactType" ColumnName="PointOfContactType" />
-          <ScalarProperty Name="PointOfContactValue" ColumnName="PointOfContactValue" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -996,14 +630,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <AssociationSetMapping Name="taskdependency" TypeName="ECMills_DatabaseModel.taskdependency" StoreEntitySet="taskdependency">
-      <EndProperty Name="task">
-        <ScalarProperty Name="id" ColumnName="nexttaskid" />
-      </EndProperty>
-      <EndProperty Name="task1">
-        <ScalarProperty Name="id" ColumnName="prevtaskid" />
-      </EndProperty>
-    </AssociationSetMapping>
     <FunctionImportMapping FunctionImportName="sp_GetDeceasedAddressList" FunctionName="ECMills_DatabaseModel.Store.sp_GetDeceasedAddressList">
       <ResultMapping>
         <ComplexTypeMapping TypeName="ECMills_DatabaseModel.sp_GetDeceasedAddressList_Result">
@@ -1035,8 +661,6 @@
           <ScalarProperty Name="Notes" ColumnName="Notes" />
           <ScalarProperty Name="ConsentToBeContacted" ColumnName="ConsentToBeContacted" />
           <ScalarProperty Name="AccountModerator" ColumnName="AccountModerator" />
-          <ScalarProperty Name="PointOfContactType" ColumnName="PointOfContactType" />
-          <ScalarProperty Name="PointOfContactValue" ColumnName="PointOfContactValue" />
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
@@ -1069,6 +693,24 @@
           <ScalarProperty Name="ReligiousDenomination" ColumnName="ReligiousDenomination" />
           <ScalarProperty Name="MaritalStatus" ColumnName="MaritalStatus" />
           <ScalarProperty Name="Occupation" ColumnName="Occupation" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="vw_GetDeceasedContactsContactDetails">
+      <EntityTypeMapping TypeName="ECMills_DatabaseModel.vw_GetDeceasedContactsContactDetails">
+        <MappingFragment StoreEntitySet="vw_GetDeceasedContactsContactDetails">
+          <ScalarProperty Name="PointOfContactValue" ColumnName="PointOfContactValue" />
+          <ScalarProperty Name="PointOfContactType" ColumnName="PointOfContactType" />
+          <ScalarProperty Name="DeceasedID" ColumnName="DeceasedID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="sp_GetDeceasedContactsContactDetails" FunctionName="ECMills_DatabaseModel.Store.sp_GetDeceasedContactsContactDetails">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ECMills_DatabaseModel.sp_GetDeceasedContactsContactDetails_Result">
+          <ScalarProperty Name="DeceasedID" ColumnName="DeceasedID" />
+          <ScalarProperty Name="PointOfContactType" ColumnName="PointOfContactType" />
+          <ScalarProperty Name="PointOfContactValue" ColumnName="PointOfContactValue" />
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>

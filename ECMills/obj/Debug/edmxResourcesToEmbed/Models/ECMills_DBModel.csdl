@@ -2072,6 +2072,10 @@
     <FunctionImport Name="sp_GetDeceasedProfile" ReturnType="Collection(ECMills_DatabaseModel.sp_GetDeceasedProfile_Result)">
       <Parameter Name="DeceasedID" Mode="In" Type="Int16" />
     </FunctionImport>
+    <EntitySet Name="vw_GetDeceasedContactsContactDetails" EntityType="ECMills_DatabaseModel.vw_GetDeceasedContactsContactDetails" />
+    <FunctionImport Name="sp_GetDeceasedContactsContactDetails" ReturnType="Collection(ECMills_DatabaseModel.sp_GetDeceasedContactsContactDetails_Result)">
+      <Parameter Name="DeceasedID" Mode="In" Type="Int16" />
+    </FunctionImport>
   </EntityContainer>
   <ComplexType Name="sp_GetDeceasedAddressList_Result">
     <Property Type="Int16" Name="DeceasedID" Nullable="false" />
@@ -2098,8 +2102,6 @@
     <Property Type="String" Name="Notes" Nullable="true" />
     <Property Type="Boolean" Name="ConsentToBeContacted" Nullable="false" />
     <Property Type="Boolean" Name="AccountModerator" Nullable="false" />
-    <Property Type="String" Name="PointOfContactType" Nullable="true" MaxLength="50" />
-    <Property Type="String" Name="PointOfContactValue" Nullable="true" MaxLength="100" />
   </ComplexType>
   <ComplexType Name="sp_GetDeceasedList_Result">
     <Property Type="Int16" Name="Reference" Nullable="false" />
@@ -2124,5 +2126,20 @@
     <Property Type="String" Name="ReligiousDenomination" Nullable="false" MaxLength="150" />
     <Property Type="String" Name="MaritalStatus" Nullable="false" MaxLength="50" />
     <Property Type="String" Name="Occupation" Nullable="true" MaxLength="100" />
+  </ComplexType>
+  <EntityType Name="vw_GetDeceasedContactsContactDetails">
+    <Key>
+      <PropertyRef Name="DeceasedID" />
+      <PropertyRef Name="PointOfContactType" />
+      <PropertyRef Name="PointOfContactValue" />
+    </Key>
+    <Property Name="DeceasedID" Type="Int16" Nullable="false" />
+    <Property Name="PointOfContactType" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="PointOfContactValue" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <ComplexType Name="sp_GetDeceasedContactsContactDetails_Result">
+    <Property Type="Int16" Name="DeceasedID" Nullable="false" />
+    <Property Type="String" Name="PointOfContactType" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="PointOfContactValue" Nullable="false" MaxLength="100" />
   </ComplexType>
 </Schema>

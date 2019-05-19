@@ -6,7 +6,7 @@
     ViewBag.Title = "Arrangement";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-    <ul>
+    <ul id="DeceasedPage">
         <li id="ProfileCardListItem">
             @foreach (sp_GetDeceasedProfile_Result DeceasedProfile in Model.DeceasedProfile)
             {
@@ -117,14 +117,14 @@
                             DeceasedAddressID = DeceasedAddressID + 1;
 
                             // Add address details into the dictionary array called "AddressDictionaryArray"
-                            AddressDictionaryArray.Add(String.Format("AddressType_{0}", DeceasedAddressID.ToString()), DeceasedAddressList.AddressType);
-                            AddressDictionaryArray.Add(String.Format("AddressLine1_{0}", DeceasedAddressID.ToString()), DeceasedAddressList.AddressLine1);
-                            AddressDictionaryArray.Add(String.Format("AddressLine2_{0}", DeceasedAddressID.ToString()), DeceasedAddressList.AddressLine2);
-                            AddressDictionaryArray.Add(String.Format("City_{0}", DeceasedAddressID.ToString()), DeceasedAddressList.City);
-                            AddressDictionaryArray.Add(String.Format("PostCode_{0}", DeceasedAddressID.ToString()), DeceasedAddressList.PostCode);
-                            AddressDictionaryArray.Add(String.Format("ContactName_{0}", DeceasedAddressID.ToString()), DeceasedAddressList.ContactName);
+                            AddressDictionaryArray.Add(String.Format("AddressType_{0}"  , DeceasedAddressID.ToString()), DeceasedAddressList.AddressType);
+                            AddressDictionaryArray.Add(String.Format("AddressLine1_{0}" , DeceasedAddressID.ToString()), DeceasedAddressList.AddressLine1);
+                            AddressDictionaryArray.Add(String.Format("AddressLine2_{0}" , DeceasedAddressID.ToString()), DeceasedAddressList.AddressLine2);
+                            AddressDictionaryArray.Add(String.Format("City_{0}"         , DeceasedAddressID.ToString()), DeceasedAddressList.City);
+                            AddressDictionaryArray.Add(String.Format("PostCode_{0}"     , DeceasedAddressID.ToString()), DeceasedAddressList.PostCode);
+                            AddressDictionaryArray.Add(String.Format("ContactName_{0}"  , DeceasedAddressID.ToString()), DeceasedAddressList.ContactName);
                             AddressDictionaryArray.Add(String.Format("ContactPoints_{0}", DeceasedAddressID.ToString()), DeceasedAddressList.ContactNo);
-                            <button id="@DeceasedAddressID" type="button" onclick="GetDeceasedAddressDetails(@DeceasedAddressID)" class="AddressButton btn btn-outline-primary text-left col-md-12">
+                            <button id="@DeceasedAddressID" type="button" onclick="GetDeceasedAddressDetails(@DeceasedAddressID)" class="AddressButton btn btn-outline-primary text-left">
                                 @DeceasedAddressList.AddressType
                                 <br />
                                 @DeceasedAddressList.AddressLine1, @DeceasedAddressList.AddressLine2, @DeceasedAddressList.City, @DeceasedAddressList.PostCode
