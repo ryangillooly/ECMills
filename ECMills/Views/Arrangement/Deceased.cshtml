@@ -48,7 +48,7 @@
 
                                         @{
                                             DateTime DT = (DateTime)@DeceasedProfile.DOB;
-                                            string DOB = DT.ToShortDateString();
+                                            string DOB = DT.ToLongDateString();
                                         }
 
                                         <div class="form-control" id="ReadOnlyInput-DOB">@DOB</div>
