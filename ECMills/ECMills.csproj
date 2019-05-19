@@ -714,8 +714,6 @@
     <Content Include="Scripts\popper-utils.js.map" />
     <Content Include="Views\Arrangement\Contacts.cshtml" />
     <Content Include="Views\Arrangement\Ceremony.cshtml" />
-    <Content Include="Views\Arrangement\GridViewTest.cshtml" />
-    <Content Include="Views\Arrangement\Deceased - Backup.cshtml" />
     <Content Include="Views\Shared\SideBar.cshtml" />
   </ItemGroup>
   <ItemGroup>

@@ -101,7 +101,7 @@
     <Property Name="LastModifiedBy" Type="tinyint" />
   </EntityType>
   <!--Errors Found During Generation:
-warning 6002: The table/view 'ECMills_NewDesign.dbo.DeceasedAddress' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'ECMills.dbo.DeceasedAddress' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
   <EntityType Name="DeceasedAddress">
     <Key>
       <PropertyRef Name="DeceasedID" />
@@ -128,7 +128,7 @@ warning 6002: The table/view 'ECMills_NewDesign.dbo.DeceasedAddress' does not ha
     <Property Name="Name" Type="nvarchar" MaxLength="30" Nullable="false" />
   </EntityType>
   <!--Errors Found During Generation:
-warning 6002: The table/view 'ECMills_NewDesign.dbo.DeceasedContacts' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'ECMills.dbo.DeceasedContacts' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
   <EntityType Name="DeceasedContacts">
     <Key>
       <PropertyRef Name="DeceasedID" />
@@ -167,7 +167,7 @@ warning 6002: The table/view 'ECMills_NewDesign.dbo.DeceasedContacts' does not h
     <Property Name="Type" Type="nvarchar" MaxLength="50" Nullable="false" />
   </EntityType>
   <!--Errors Found During Generation:
-warning 6002: The table/view 'ECMills_NewDesign.dbo.DeceasedContactsPointOfContact' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'ECMills.dbo.DeceasedContactsPointOfContact' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
   <EntityType Name="DeceasedContactsPointOfContact">
     <Key>
       <PropertyRef Name="DeceasedContactsID" />
@@ -195,7 +195,7 @@ warning 6002: The table/view 'ECMills_NewDesign.dbo.DeceasedContactsPointOfConta
     <Property Name="Fee" Type="decimal" Precision="6" Scale="2" Nullable="false" />
   </EntityType>
   <!--Errors Found During Generation:
-warning 6002: The table/view 'ECMills_NewDesign.dbo.Jewellery' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'ECMills.dbo.Jewellery' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
   <EntityType Name="Jewellery">
     <Key>
       <PropertyRef Name="OrderID" />
@@ -243,7 +243,7 @@ warning 6002: The table/view 'ECMills_NewDesign.dbo.Jewellery' does not have a p
     <Property Name="Value" Type="nvarchar" MaxLength="50" Nullable="false" />
   </EntityType>
   <!--Errors Found During Generation:
-warning 6002: The table/view 'ECMills_NewDesign.dbo.Music' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'ECMills.dbo.Music' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
   <EntityType Name="Music">
     <Key>
       <PropertyRef Name="OrderID" />
@@ -261,7 +261,7 @@ warning 6002: The table/view 'ECMills_NewDesign.dbo.Music' does not have a prima
     <Property Name="OnEntry" Type="nvarchar" MaxLength="50" Nullable="false" />
   </EntityType>
   <!--Errors Found During Generation:
-warning 6002: The table/view 'ECMills_NewDesign.dbo.Office' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'ECMills.dbo.Office' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
   <EntityType Name="Office">
     <Key>
       <PropertyRef Name="ID" />
@@ -367,7 +367,7 @@ warning 6002: The table/view 'ECMills_NewDesign.dbo.Office' does not have a prim
     <Property Name="GraveNo" Type="nvarchar" MaxLength="30" />
   </EntityType>
   <!--Errors Found During Generation:
-warning 6002: The table/view 'ECMills_NewDesign.dbo.OrderItems' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'ECMills.dbo.OrderItems' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
   <EntityType Name="OrderItems">
     <Key>
       <PropertyRef Name="OrderID" />
@@ -494,7 +494,7 @@ warning 6002: The table/view 'ECMills_NewDesign.dbo.OrderItems' does not have a 
     <Property Name="Email" Type="nvarchar" MaxLength="50" />
   </EntityType>
   <!--Errors Found During Generation:
-warning 6002: The table/view 'ECMills_NewDesign.dbo.Transport' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'ECMills.dbo.Transport' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
   <EntityType Name="Transport">
     <Key>
       <PropertyRef Name="OrderID" />
@@ -548,7 +548,7 @@ warning 6002: The table/view 'ECMills_NewDesign.dbo.Transport' does not have a p
     <Property Name="AccountActive" Type="bit" Nullable="false" />
   </EntityType>
   <!--Errors Found During Generation:
-warning 6002: The table/view 'ECMills_NewDesign.dbo.Visitors' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'ECMills.dbo.Visitors' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
   <EntityType Name="Visitors">
     <Key>
       <PropertyRef Name="OrderID" />
@@ -568,7 +568,7 @@ warning 6002: The table/view 'ECMills_NewDesign.dbo.Visitors' does not have a pr
     <Property Name="Time" Type="datetime" Nullable="false" />
   </EntityType>
   <!--Errors Found During Generation:
-warning 6002: The table/view 'ECMills_NewDesign.dbo.vw_GetDeceasedAddressList' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'ECMills.dbo.vw_GetDeceasedAddressList' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
   <EntityType Name="vw_GetDeceasedAddressList">
     <Key>
       <PropertyRef Name="DeceasedID" />
@@ -588,7 +588,7 @@ warning 6002: The table/view 'ECMills_NewDesign.dbo.vw_GetDeceasedAddressList' d
     <Property Name="Notes" Type="nvarchar(max)" />
   </EntityType>
   <!--Errors Found During Generation:
-warning 6002: The table/view 'ECMills_NewDesign.dbo.vw_GetDeceasedContactsContactDetails' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'ECMills.dbo.vw_GetDeceasedContactsContactDetails' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
   <EntityType Name="vw_GetDeceasedContactsContactDetails">
     <Key>
       <PropertyRef Name="DeceasedID" />
@@ -600,7 +600,7 @@ warning 6002: The table/view 'ECMills_NewDesign.dbo.vw_GetDeceasedContactsContac
     <Property Name="PointOfContactValue" Type="nvarchar" MaxLength="100" Nullable="false" />
   </EntityType>
   <!--Errors Found During Generation:
-warning 6002: The table/view 'ECMills_NewDesign.dbo.vw_GetDeceasedContactsList' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'ECMills.dbo.vw_GetDeceasedContactsList' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
   <EntityType Name="vw_GetDeceasedContactsList">
     <Key>
       <PropertyRef Name="DeceasedID" />
@@ -625,7 +625,7 @@ warning 6002: The table/view 'ECMills_NewDesign.dbo.vw_GetDeceasedContactsList' 
     <Property Name="AccountModerator" Type="bit" Nullable="false" />
   </EntityType>
   <!--Errors Found During Generation:
-warning 6002: The table/view 'ECMills_NewDesign.dbo.vw_GetDeceasedList' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'ECMills.dbo.vw_GetDeceasedList' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
   <EntityType Name="vw_GetDeceasedList">
     <Key>
       <PropertyRef Name="Reference" />
@@ -642,7 +642,7 @@ warning 6002: The table/view 'ECMills_NewDesign.dbo.vw_GetDeceasedList' does not
     <Property Name="Client Name" Type="nvarchar" MaxLength="132" Nullable="false" />
   </EntityType>
   <!--Errors Found During Generation:
-warning 6002: The table/view 'ECMills_NewDesign.dbo.vw_GetDeceasedProfile' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'ECMills.dbo.vw_GetDeceasedProfile' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
   <EntityType Name="vw_GetDeceasedProfile">
     <Key>
       <PropertyRef Name="Reference" />
@@ -673,7 +673,7 @@ warning 6002: The table/view 'ECMills_NewDesign.dbo.vw_GetDeceasedProfile' does 
     <Property Name="Occupation" Type="nvarchar" MaxLength="100" />
   </EntityType>
   <!--Errors Found During Generation:
-warning 6002: The table/view 'ECMills_NewDesign.dbo.vw_RowCountForAllTables' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'ECMills.dbo.vw_RowCountForAllTables' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
   <EntityType Name="vw_RowCountForAllTables">
     <Key>
       <PropertyRef Name="Table" />
@@ -682,7 +682,7 @@ warning 6002: The table/view 'ECMills_NewDesign.dbo.vw_RowCountForAllTables' doe
     <Property Name="RowCount" Type="int" />
   </EntityType>
   <!--Errors Found During Generation:
-warning 6002: The table/view 'ECMills_NewDesign.sys.database_firewall_rules' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'ECMills.sys.database_firewall_rules' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
   <EntityType Name="database_firewall_rules">
     <Key>
       <PropertyRef Name="id" />

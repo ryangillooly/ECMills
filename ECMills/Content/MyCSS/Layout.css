@@ -1,10 +1,26 @@
-﻿.DisplayAsGrid {
+﻿/*
+    Custom Classes
+################################################################################
+
+*/
+.RemoveMargins {
+    margin-bottom: 0px;
+    margin-top: 0px;
+}
+
+.RemovePadding {
+    padding-left: 0px;
+}
+
+.FullHeightWidth {
+    height: 100%;
     width: 100%;
 }
 
 ul {
     list-style: none;
 }
+/*################################################################################*/
 
 .content > ul {
     display: grid;
@@ -14,6 +30,8 @@ ul {
     padding-right: 1em;
     grid-template-rows: repeat(10, 6.7vh);
 }
+
+/*#######  PAGES   #######*/
 
 #DeceasedPage {
     grid-template-areas: 
@@ -27,18 +45,34 @@ ul {
         "AddressList   AddressDetails" 
         "AddressList   AddressDetails" 
         "AddressList   AddressDetails" 
-        "AddressList   AddressDetails";
 }
 
 #ContactsPage {
-    grid-template-areas: "ContactList ContactDetails"
-                         "ContactList ContactDetails"
-                         "ContactList ContactDetails"
-                         "ContactList ContactDetails"
-                         "ContactList ContactDetails"
-                         "ContactList ContactDetails"
-                         "ContactList ContactDetails";
+    grid-template-areas: 
+        "ContactList ContactDetails"
+        "ContactList ContactDetails"
+        "ContactList ContactDetails"
+        "ContactList ContactDetails"
+        "ContactList ContactDetails"
+        "ContactList ContactDetails"
+        "ContactList ContactDetails";
 }
+
+#CeremonyPage {
+    grid-template-areas: 
+        "Ceremony   Officiant" 
+        "Ceremony   Officiant" 
+        "Ceremony   Officiant" 
+        "Ceremony   Officiant" 
+        "Memorial   Officiant" 
+        "Memorial   Music" 
+        "Memorial   Music" 
+        "Memorial   Music" 
+        "Memorial   Music" 
+        "Memorial   Music";
+}
+
+/*#########################*/
 
 #DeceasedProfileForm > ul {
     display: grid;
@@ -54,41 +88,6 @@ ul {
     grid-gap: 1rem;
     padding-left: 0px;
 }
-
-.RemoveMargins {
-    margin-bottom: 0px;
-    margin-top: 0px;
-}
-
-.RemovePadding {
-    padding-left: 0px;
-}
-
-.FullHeightWidth {
-    height: 100%;
-    width: 100%;
-}
-
-#ProfileCardListItem {
-    grid-area: Profile;
-}
-
-#AddressListListItem {
-    grid-area: AddressList;
-}
-
-#AddressDetailsListItem {
-    grid-area: AddressDetails;
-}
-
-#ContactListItem {
-    grid-area: ContactList;
-}
-
-#ContactDetailsListItem {
-    grid-area: ContactDetails;
-}
-
 
 #ListedContactsCard > div > ul {
     display: grid;
@@ -113,6 +112,45 @@ ul {
                          "Col1Row2 Col2Row2";
 }
 
+
+/*####### GRID AREA DEFINITIONS ##########*/
+
+#CeremonyListItem {
+    grid-area: Ceremony;
+}
+
+#MemorialListItem {
+    grid-area: Memorial;
+}
+
+#OfficiantListItem {
+    grid-area: Officiant;
+}
+
+#MusicListItem {
+    grid-area: Music;
+}
+
+#ProfileCardListItem {
+    grid-area: Profile;
+}
+
+#AddressListListItem {
+    grid-area: AddressList;
+}
+
+#AddressDetailsListItem {
+    grid-area: AddressDetails;
+}
+
+#ContactListItem {
+    grid-area: ContactList;
+}
+
+#ContactDetailsListItem {
+    grid-area: ContactDetails;
+}
+
 .Col1Row1 {
     grid-area: Col1Row1;
 }
@@ -125,6 +163,8 @@ ul {
 .Col2Row2 {
     grid-area: Col2Row2;
 }
+
+/*#########################################*/
 
 /*
 
