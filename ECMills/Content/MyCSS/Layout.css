@@ -21,31 +21,70 @@ ul {
     list-style: none;
 }
 /*################################################################################*/
+@media only screen and (min-width: 1000px) {
+    .content > ul {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(358px, 1fr));
+        grid-gap: 1rem;
+        padding-left: 1em;
+        padding-right: 1em;
+        grid-template-rows: repeat(10, 6.7vh);
+    }
 
-.content > ul {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(358px, 1fr));
-    grid-gap: 1rem;
-    padding-left: 1em;
-    padding-right: 1em;
-    grid-template-rows: repeat(10, 6.7vh);
+    #DeceasedPage {
+        grid-template-areas: 
+            "Profile       AddressDetails" 
+            "Profile       AddressDetails" 
+            "Profile       AddressDetails" 
+            "Profile       AddressDetails" 
+            "Profile       AddressDetails" 
+            "AddressList   AddressDetails" 
+            "AddressList   AddressDetails" 
+            "AddressList   AddressDetails" 
+            "AddressList   AddressDetails" 
+            "AddressList   AddressDetails" ;
+    }
+
+
+    #DeceasedProfileForm > ul {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        grid-gap: 1rem;
+        padding-left: 1em;
+        padding-right: 1em;
+    }
 }
+
+@media only screen and (max-width: 1000px) {
+    .content > ul {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-gap: 1rem;
+        padding-left: 1em;
+        padding-right: 1em;
+        grid-template-rows: 1fr;
+    }
+
+    #DeceasedPage {
+        grid-template-areas: 
+            "Profile"
+            "AddressList"
+            "AddressDetails";
+    }
+
+
+    #DeceasedProfileForm > ul {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-gap: 1rem;
+        padding-left: 1em;
+        padding-right: 1em;
+    }
+} 
 
 /*#######  PAGES   #######*/
 
-#DeceasedPage {
-    grid-template-areas: 
-        "Profile       AddressDetails" 
-        "Profile       AddressDetails" 
-        "Profile       AddressDetails" 
-        "Profile       AddressDetails" 
-        "Profile       AddressDetails" 
-        "AddressList   AddressDetails" 
-        "AddressList   AddressDetails" 
-        "AddressList   AddressDetails" 
-        "AddressList   AddressDetails" 
-        "AddressList   AddressDetails" 
-}
+
 
 #ContactsPage {
     grid-template-areas: 
@@ -74,13 +113,6 @@ ul {
 
 /*#########################*/
 
-#DeceasedProfileForm > ul {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    grid-gap: 1rem;
-    padding-left: 1em;
-    padding-right: 1em;
-}
 
 #ListedAddressCard > div > ul {
     display: grid;
