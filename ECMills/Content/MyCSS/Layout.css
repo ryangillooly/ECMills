@@ -28,7 +28,7 @@ ul {
         grid-gap: 1rem;
         padding-left: 1em;
         padding-right: 1em;
-        grid-template-rows: repeat(10, 6.7vh);
+       /* grid-template-rows: repeat(10, 6.7vh); */
     }
 
     #DeceasedPage {
