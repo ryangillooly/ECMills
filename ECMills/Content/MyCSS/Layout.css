@@ -1,8 +1,9 @@
-﻿/*
-    Custom Classes
-################################################################################
+﻿ul, ol {
+    list-style: none;
+    margin: 0px;
+    padding: 0px;
+}
 
-*/
 .RemoveMargins {
     margin-bottom: 0px;
     margin-top: 0px;
@@ -17,85 +18,90 @@
     width: 100%;
 }
 
-ul {
-    list-style: none;
-}
-/*################################################################################*/
-@media only screen and (min-width: 1000px) {
-    .content > ul {
-        display: grid;
-        grid-template-columns: repeat(2, minmax(358px, 1fr));
-        grid-gap: 1rem;
-        padding-left: 1em;
-        padding-right: 1em;
-       /* grid-template-rows: repeat(10, 6.7vh); */
-    }
-
-    #DeceasedPage {
-        grid-template-areas: 
-            "Profile       AddressDetails" 
-            "Profile       AddressDetails" 
-            "Profile       AddressDetails" 
-            "Profile       AddressDetails" 
-            "Profile       AddressDetails" 
-            "AddressList   AddressDetails" 
-            "AddressList   AddressDetails" 
-            "AddressList   AddressDetails" 
-            "AddressList   AddressDetails" 
-            "AddressList   AddressDetails" ;
-    }
-
-
-    #DeceasedProfileForm > ul {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-        grid-gap: 1rem;
-        padding-left: 1em;
-        padding-right: 1em;
-    }
+.FluidGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-gap: 1.5em;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
 }
 
-@media only screen and (max-width: 1000px) {
-    .content > ul {
-        display: grid;
-        grid-template-columns: 100%;
-        grid-gap: 1rem;
-        padding-left: 1em;
-        padding-right: 1em;
-        grid-template-rows: 1fr;
-    }
-
-    #DeceasedPage {
-        grid-template-areas: 
-            "Profile"
-            "AddressList"
-            "AddressDetails";
-    }
-
-
-    #DeceasedProfileForm > ul {
-        display: grid;
-        grid-template-columns: 1fr;
-        grid-gap: 1rem;
-        padding-left: 1em;
-        padding-right: 1em;
-    }
-} 
-
-/*#######  PAGES   #######*/
-
-
-
-#ContactsPage {
-    grid-template-areas: 
-        "ContactList ContactDetails"
-        "ContactList ContactDetails"
-        "ContactList ContactDetails"
-        "ContactList ContactDetails"
-        "ContactList ContactDetails"
-        "ContactList ContactDetails"
-        "ContactList ContactDetails";
+.FluidGrid48Min {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(48%, 1fr));
+    grid-gap: 1.5em;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
 }
+
+.Fluid2-3Grid {
+    display: grid;
+    grid-template-columns: minmax(200px, 2fr) minmax(200px, 3fr);
+    grid-gap: 1.5em;
+}
+
+.FluidList {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 1em;
+}
+
+.Fluid4X4Grid {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 50% 50%;
+    grid-gap: 0.5em;
+}
+
+.Col1Row1 {
+    grid-column: 1;
+    grid-row: 1;
+    text-align: left;
+}
+
+.Col2Row1 {
+    grid-column: 2;
+    grid-row: 1;
+    text-align: right;
+}
+
+.Col1Row2 {
+    grid-column: 1;
+    grid-row: 2;
+    text-align: left;
+}
+
+.Col2Row2 {
+    grid-column: 2;
+    grid-row: 2;
+    text-align: right;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 #CeremonyPage {
     grid-template-areas: 
@@ -113,143 +119,3 @@ ul {
 
 /*#########################*/
 
-
-#ListedAddressCard > div > ul {
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-gap: 1rem;
-    padding-left: 0px;
-}
-
-#ListedContactsCard > div > ul {
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-gap: 1rem;
-    padding-left: 0px;
-}
-
-#ListedAddressCard > div > ul {
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-gap: 1rem;
-    padding-left: 0px;
-}
-
-.FourByFourGrid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    grid-template-rows: 2vh 2vh;
-
-    grid-template-areas: "Col1Row1  Col2Row1"
-                         "Col1Row2 Col2Row2";
-}
-
-
-/*####### GRID AREA DEFINITIONS ##########*/
-
-#CeremonyListItem {
-    grid-area: Ceremony;
-}
-
-#MemorialListItem {
-    grid-area: Memorial;
-}
-
-#OfficiantListItem {
-    grid-area: Officiant;
-}
-
-#MusicListItem {
-    grid-area: Music;
-}
-
-#ProfileCardListItem {
-    grid-area: Profile;
-}
-
-#AddressListListItem {
-    grid-area: AddressList;
-}
-
-#AddressDetailsListItem {
-    grid-area: AddressDetails;
-}
-
-#ContactListItem {
-    grid-area: ContactList;
-}
-
-#ContactDetailsListItem {
-    grid-area: ContactDetails;
-}
-
-.Col1Row1 {
-    grid-area: Col1Row1;
-}
-.Col2Row1 {
-    grid-area: Col2Row1;
-}
-.Col1Row2 {
-    grid-area: Col1Row2;
-}
-.Col2Row2 {
-    grid-area: Col2Row2;
-}
-
-/*#########################################*/
-
-/*
-
-#DeceasedProfileCard {
-    grid-column: 2/5;
-    grid-row: 1/7;
-}
-
-#DeceasedProfileName {
-    grid-area: Name;
-}
-#DeceasedProfileKnownAs {
-    grid-area: KnownAs;
-}
-#DeceasedProfileGender {
-    grid-area: Gender;
-}
-#DeceasedProfileAge {
-    grid-area: Age;
-}
-#DeceasedProfileDOB {
-    grid-area: DOB;
-}
-#DeceasedProfileTimeOfDeath {
-    grid-area: TOD;
-}
-#DeceasedProfileMaritalStatus {
-    grid-area: MaritalStatus;
-}
-#DeceasedProfileOccupation {
-    grid-area: Occupation;
-}
-#DeceasedProfileReligion {
-    grid-area: Religion;
-}
-#DeceasedProfileRelDom {
-    grid-area: RelDom;
-}
-#EditProfile_Button {
-    grid-area: Button;
-}
-
-#DeceasedProfileForm {
-    display: grid;
-    grid-gap: 1em;
-grid-template-rows: repeat(5, 1fr);
-grid-template-areas: "Name           Name            Name            Name            Name        Name        KnownAs     KnownAs     KnownAs     KnownAs"
-"Gender         Gender          Age             DOB             DOB         DOB         TOD         TOD         TOD         TOD"
-"MaritalStatus  MaritalStatus   MaritalStatus   MaritalStatus   Occupation  Occupation  Occupation  Occupation  Occupation  Occupation"
-"Religion       Religion        Religion        Religion        RelDom      RelDom      RelDom      RelDom      RelDom      RelDom"
-"Button         Button          Button          .               .           .           .           .           .           .";
-height: 100%;
-}
-
-
-*/

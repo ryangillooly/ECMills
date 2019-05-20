@@ -715,6 +715,7 @@
     <Content Include="Views\Arrangement\Contacts.cshtml" />
     <Content Include="Views\Arrangement\Ceremony.cshtml" />
     <Content Include="Views\Shared\SideBar.cshtml" />
+    <Content Include="Views\Arrangement\Contacts - Copy.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

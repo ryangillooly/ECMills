@@ -2,15 +2,14 @@
 @model dynamic
 
 
-@{
-    ViewBag.Title = "Arrangement";
-    Layout = "~/Views/Shared/_Layout.cshtml";
-}
-    <ul id="DeceasedPage">
-        <li id="ProfileCardListItem">
-            @foreach (sp_GetDeceasedProfile_Result DeceasedProfile in Model.DeceasedProfile)
+    <div class="FluidGrid">
+        @{
+            ViewBag.Title = "Arrangement";
+            Layout = "~/Views/Shared/_Layout.cshtml";
+
+            foreach (sp_GetDeceasedProfile_Result DeceasedProfile in Model.DeceasedProfile)
             {
-                <div class="card RemoveMargins FullHeightWidth" id="DeceasedProfileCard">
+                <div class="card RemoveMargins">
                     <div class="card-header card-header-primary">
                         <h4 class="card-title">@DeceasedProfile.Name</h4>
                         <p class="card-category">@DeceasedProfile.Reference</p>
@@ -96,18 +95,17 @@
                                     <div class="clearfix"></div>
                                 </li>
                             </ul>
-                    </form>
+                        </form>
+                    </div>
                 </div>
-            </div>
             }
-    </li>
-    <li id="AddressListListItem">
-        <div class="card RemoveMargins FullHeightWidth" id="ListedAddressCard">
+        }
+
+        <div class="card RemoveMargins">
             <div class="card-body">
                 Listed Addresses
                 <hr />
-                <ul class="RemovePadding">
-                    <li>
+                <div class="FluidList">
                         @{
                             Int32 DeceasedAddressID = 0;
                             Dictionary<string, string> AddressDictionaryArray = new Dictionary<string, string>();
@@ -117,12 +115,12 @@
                             DeceasedAddressID = DeceasedAddressID + 1;
 
                             // Add address details into the dictionary array called "AddressDictionaryArray"
-                            AddressDictionaryArray.Add(String.Format("AddressType_{0}"  , DeceasedAddressID.ToString()), DeceasedAddressList.AddressType);
-                            AddressDictionaryArray.Add(String.Format("AddressLine1_{0}" , DeceasedAddressID.ToString()), DeceasedAddressList.AddressLine1);
-                            AddressDictionaryArray.Add(String.Format("AddressLine2_{0}" , DeceasedAddressID.ToString()), DeceasedAddressList.AddressLine2);
-                            AddressDictionaryArray.Add(String.Format("City_{0}"         , DeceasedAddressID.ToString()), DeceasedAddressList.City);
-                            AddressDictionaryArray.Add(String.Format("PostCode_{0}"     , DeceasedAddressID.ToString()), DeceasedAddressList.PostCode);
-                            AddressDictionaryArray.Add(String.Format("ContactName_{0}"  , DeceasedAddressID.ToString()), DeceasedAddressList.ContactName);
+                            AddressDictionaryArray.Add(String.Format("AddressType_{0}", DeceasedAddressID.ToString()), DeceasedAddressList.AddressType);
+                            AddressDictionaryArray.Add(String.Format("AddressLine1_{0}", DeceasedAddressID.ToString()), DeceasedAddressList.AddressLine1);
+                            AddressDictionaryArray.Add(String.Format("AddressLine2_{0}", DeceasedAddressID.ToString()), DeceasedAddressList.AddressLine2);
+                            AddressDictionaryArray.Add(String.Format("City_{0}", DeceasedAddressID.ToString()), DeceasedAddressList.City);
+                            AddressDictionaryArray.Add(String.Format("PostCode_{0}", DeceasedAddressID.ToString()), DeceasedAddressList.PostCode);
+                            AddressDictionaryArray.Add(String.Format("ContactName_{0}", DeceasedAddressID.ToString()), DeceasedAddressList.ContactName);
                             AddressDictionaryArray.Add(String.Format("ContactPoints_{0}", DeceasedAddressID.ToString()), DeceasedAddressList.ContactNo);
                             <button id="@DeceasedAddressID" type="button" onclick="GetDeceasedAddressDetails(@DeceasedAddressID)" class="AddressButton btn btn-outline-primary text-left">
                                 @DeceasedAddressList.AddressType
@@ -130,13 +128,10 @@
                                 @DeceasedAddressList.AddressLine1, @DeceasedAddressList.AddressLine2, @DeceasedAddressList.City, @DeceasedAddressList.PostCode
                             </button>
                         }
-                    </li>
-                </ul>
-            </div>
+                    </div>
+                </div>
         </div>
-    </li>
-    <li id="AddressDetailsListItem">
-        <div class="card RemoveMargins FullHeightWidth" id="AddressDetailsCard">
+        <div class="card RemoveMargins">
             <div class="card-body">
                 Address Details
 
@@ -211,11 +206,10 @@
                 </div>
             </div>
         </div>
-    </li>
-</ul>
-                                
-    @section scripts {
-        <script type="text/javascript">
+     </div>       
+
+            @section scripts {
+                <script type="text/javascript">
         function GetDeceasedAddressDetails(DeceasedAddressID)
         {   // Clear the current address detail values from the page to get ready for the new values
             $("#AddressType").empty();
@@ -354,5 +348,5 @@
         });
 
     };
-        </script>
-    }
+                </script>
+            }
