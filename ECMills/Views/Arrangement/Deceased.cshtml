@@ -208,8 +208,8 @@
         </div>
      </div>       
 
-            @section scripts {
-                <script type="text/javascript">
+@section scripts {
+    <script type="text/javascript">
         function GetDeceasedAddressDetails(DeceasedAddressID)
         {   // Clear the current address detail values from the page to get ready for the new values
             $("#AddressType").empty();
@@ -262,8 +262,8 @@
             $('#ReadOnlyInput-Known_As'     ).replaceWith('<input name="Known_As"        id="ReadWriteInput-Known_As"      type="text" class="form-control" placeholder="' + Known_As              + '" />');
             $('#ReadOnlyInput-Gender'       ).replaceWith('<input name="Gender"          id="ReadWriteInput-Gender"        type="text" class="form-control" placeholder="' + Gender                + '" />');
             $('#ReadOnlyInput-Age'          ).replaceWith('<input name="Age"             id="ReadWriteInput-Age"           type="text" class="form-control" placeholder="' + Age                   + '" />');
-            $('#ReadOnlyInput-DOB'          ).replaceWith('<input name="DOB"             id="ReadWriteInput-DOB"           type="text" class="form-control" placeholder="' + DOB                   + '" />');
-            $('#ReadOnlyInput-TimeOfDeath'  ).replaceWith('<input name="TimeOfDeath"     id="ReadWriteInput-TimeOfDeath"   type="text" class="form-control" placeholder="' + TimeOfDeath           + '" />');
+            $('#ReadOnlyInput-DOB'          ).replaceWith('<input name="DOB"             id="ReadWriteInput-DOB"           type="text" class="form-control datetimepicker" placeholder="' + DOB                   + '" />');
+            $('#ReadOnlyInput-TimeOfDeath'  ).replaceWith('<input name="TimeOfDeath"     id="ReadWriteInput-TimeOfDeath"   type="text" class="form-control datetimepicker" placeholder="' + TimeOfDeath           + '" />');
             $('#ReadOnlyInput-MaritalStatus').replaceWith('<input name="MaritalStatus"   id="ReadWriteInput-MaritalStatus" type="text" class="form-control" placeholder="' + MaritalStatus         + '" />');
             $('#ReadOnlyInput-Occupation'   ).replaceWith('<input name="Occupation"      id="ReadWriteInput-Occupation"    type="text" class="form-control" placeholder="' + Occupation            + '" />');
             $('#ReadOnlyInput-Religion'     ).replaceWith('<input name="Religion"        id="ReadWriteInput-Religion"      type="text" class="form-control" placeholder="' + Religion              + '" />');
@@ -272,6 +272,20 @@
             $('#EditProfile_Button').replaceWith('<button type="button" id="CancelDeceasedProfileEdit_Button" class="btn btn-primary pull-left" onclick="CancelDeceasedProfileEdit(\'' + Name + '\',\'' + Known_As + '\',\'' + Gender + '\',\'' + Age + '\',\'' + DOB + '\',\'' + TimeOfDeath + '\',\'' + MaritalStatus + '\',\'' + Occupation + '\',\'' + Religion + '\',\'' + ReligiousDenomination + '\')">Cancel</button>');
            // $('#UpdateProfileDiv').append('<button type="button" onclick="SubmitProfileUpdates()" class="btn btn-primary pull-right">Update Profile</button>')
             $('#UpdateProfileDiv').append('<input type="submit" class="btn btn-primary pull-right" />')
+
+                $('.datetimepicker').datetimepicker({
+            icons: {
+                time: "fa fa-clock-o",
+                date: "fa fa-calendar",
+                up: "fa fa-chevron-up",
+                down: "fa fa-chevron-down",
+                previous: 'fa fa-chevron-left',
+                next: 'fa fa-chevron-right',
+                today: 'fa fa-screenshot',
+                clear: 'fa fa-trash',
+                close: 'fa fa-remove'
+            }
+        });
         };
 
         // backslash + quote is an escape character for single quote (e.g  \' )
@@ -347,6 +361,6 @@
                     }
         });
 
-    };
-                </script>
-            }
+            };
+    </script>
+}

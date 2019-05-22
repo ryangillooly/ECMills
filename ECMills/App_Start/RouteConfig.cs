@@ -22,8 +22,14 @@ namespace ECMills
                 defaults: new { controller = "Arrangement" },
                 constraints: new { id = @"\d+" }
             );
-            
-            
+
+            routes.MapRoute(
+                name: "Login",
+                url: "Login",
+                defaults: new { controller = "Login", action = "Index"}
+            );
+
+
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}",

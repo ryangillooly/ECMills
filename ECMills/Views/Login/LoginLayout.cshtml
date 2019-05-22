@@ -1,0 +1,47 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <link rel="apple-touch-icon" sizes="76x76" href="~/Images/MaterialDash/apple-icon.png">
+    <link rel="icon" type="image/png" href="~/Images/MaterialDash/favicon.png">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>
+        ECMills Ltd.
+    </title>
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
+
+    <!--     Fonts and icons     -->
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
+    <!-- CSS Files -->
+    <link href="~/Content/material-dashboard.css?v=2.1.1" rel="stylesheet" />
+    <link href="~/Content/MyCSS/Layout.css" rel="stylesheet" />
+
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/jquery")
+</head>
+<body>
+
+    <div class="main-panel FullHeightWidth">
+         @RenderBody()
+
+        <!--   Core JS Files   -->
+        <script src="~/Scripts/core/jquery.min.js"></script>
+        <script src="~/Scripts/core/popper.min.js"></script>
+        <script src="~/Scripts/core/bootstrap-material-design.min.js"></script>
+        <script src="~/Scripts/plugins/perfect-scrollbar.jquery.min.js"></script>
+        <!-- Plugin for the momentJs  -->
+        <script src="~/Scripts/plugins/moment.min.js"></script>
+        <!--  Plugin for Sweet Alert -->
+        <script src="~/Scripts/plugins/sweetalert2.js"></script>
+        <!-- Forms Validations Plugin -->
+        <script src="~/Scripts/plugins/jquery.validate.min.js"></script>
+        <!--  Notifications Plugin    -->
+        <script src="~/Scripts/plugins/bootstrap-notify.js"></script>
+        <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
+        <script src="~/Scripts/material-dashboard.js?v=2.1.1" type="text/javascript"></script>
+
+        @RenderSection("scripts", required: false)
+    </div>
+</body>
+</html>

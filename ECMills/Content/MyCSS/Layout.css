@@ -18,9 +18,80 @@
     width: 100%;
 }
 
+.BreakLine[data-color="purple"] {
+    height: 1vh;
+    background-color: #9c27b0;
+    margin-bottom: 1em;
+}
+
+.BreakLine[data-color="white"] {
+    height: 1vh;
+    background-color: #fff;
+    margin-bottom: 1em;
+}
+
+.BreakLine[data-color="azure"] {
+    height: 1vh;
+    background-color: #00bcd4;
+    margin-bottom: 1em;
+}
+
+.BreakLine[data-color="green"] {
+    height: 1vh;
+    background-color: #4caf50;
+    margin-bottom: 1em;
+}
+
+.BreakLine[data-color="orange"] {
+    height: 1vh;
+    background-color: #ff9800;
+    margin-bottom: 1em;
+}
+
+.BreakLine[data-color="danger"] {
+    height: 1vh;
+    background-color: #f44336;
+    margin-bottom: 1em;
+}
+
+.BreakLine[data-color="rose"] {
+    height: 1vh;
+    background-color: #e91e63;
+    margin-bottom: 1em;
+}
+
+
+
+
+
+GridTmplRows-3x1fr {
+    grid-template-rows: repeat(3, 1fr);
+}
+
+.GridTmplRows-75vh {
+    grid-template-rows: 75vh;
+}
+
 .FluidGrid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-gap: 1.5em;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+}
+
+.FluidGrid10x10 {
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    grid-template-rows: repeat(10, 10vh);
+    grid-gap: 1.5em;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+}
+
+.FluidGrid140Min {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
     grid-gap: 1.5em;
     padding-left: 0.5em;
     padding-right: 0.5em;
@@ -44,6 +115,13 @@
     display: grid;
     grid-template-columns: 1fr;
     grid-gap: 1em;
+}
+
+.Fluid4X3Grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    grid-gap: 0.5em;
 }
 
 .Fluid4X4Grid {
@@ -76,7 +154,6 @@
     grid-row: 2;
     text-align: right;
 }
-
 
 
 

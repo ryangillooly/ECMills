@@ -44,6 +44,19 @@ namespace ECMills.Controllers
             return View(dynamicObject);
         }
 
+        public ActionResult ProfileUpdate(string Name, string Known_As, string Gender, int Age, DateTime DOB,
+                                  DateTime TimeOfDeath, string MaritalStatus, string Occupation,
+                                  string Religion, string Reldom)
+        {
+
+            /*
+             string SQLQuery = "Here we go...";
+              SQLQuery = SQLQuery + Name + ", " + Reldom;
+              */
+            return Content("YEP");
+
+        }
+
         public ActionResult Contacts(Int16 id)
         {
             dynamic dynamicObject = new ExpandoObject();
@@ -53,23 +66,19 @@ namespace ECMills.Controllers
             return View(dynamicObject);
         }
 
-
-        public ActionResult ProfileUpdate(string Name, string Known_As, string Gender, int Age, DateTime DOB,
-                                          DateTime TimeOfDeath, string MaritalStatus, string Occupation,
-                                          string Religion, string Reldom)
-        {
-
-          /*
-           string SQLQuery = "Here we go...";
-            SQLQuery = SQLQuery + Name + ", " + Reldom;
-            */
-            return Content("YEP");
-           
-        }
-
         public ActionResult Ceremony(Int16 id)
         {
             return View(id);
+        }
+
+        public ActionResult Coffin(Int16 id)
+        {
+            return View();
+        }
+
+        public ActionResult Transport(Int16 id)
+        {
+            return View();
         }
 
         public List<sp_GetDeceasedList_Result> sp_GetDeceasedList()

@@ -1,9 +1,9 @@
 ﻿<div class="sidebar" data-color="purple" data-background-color="white" data-image="~/Images/MaterialDash/sidebar-1.jpg">
     <!--
-        Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
+            Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
 
-        Tip 2: you can also add an image using data-image tag
-    -->
+            Tip 2: you can also add an image using data-image tag
+        -->
     <div class="logo">
         <a href="https://millsfunerals.com" class="simple-text logo-normal">
             E.C. Mills Funerals
@@ -46,15 +46,21 @@
                     <p>Ceremony</p>
                 </a>
             </li>
-            <li class="nav-item ">
-                <a class="nav-link" href="./icons.html">
-                    <i class="material-icons">bubble_chart</i>
+            <li class="nav-item @(ViewContext.RouteData.Values["Controller"].ToString() == "Arrangement" &&
+                                   (
+                                     ViewContext.RouteData.Values["Action"].ToString()     == "Coffin"
+                                   )? "active" : "")">
+                <a class="nav-link" href="@Url.Action("Coffin", "Arrangement", new { id = string.Empty }, null)">
+                    <i class="material-icons">library_books</i>
                     <p>Coffin</p>
                 </a>
             </li>
-            <li class="nav-item ">
-                <a class="nav-link" href="./map.html">
-                    <i class="material-icons">location_ons</i>
+            <li class="nav-item @(ViewContext.RouteData.Values["Controller"].ToString() == "Arrangement" &&
+                                   (
+                                     ViewContext.RouteData.Values["Action"].ToString()     == "Transport"
+                                   )? "active" : "")">
+                <a class="nav-link" href="@Url.Action("Transport", "Arrangement", new { id = string.Empty }, null)">
+                    <i class="material-icons">library_books</i>
                     <p>Transport</p>
                 </a>
             </li>
