@@ -81,6 +81,11 @@ namespace ECMills.Controllers
             return View();
         }
 
+        public ActionResult Documents(Int16 id)
+        {
+            return View();
+        }
+
         public List<sp_GetDeceasedList_Result> sp_GetDeceasedList()
         {
             return DBContext.sp_GetDeceasedList().ToList();

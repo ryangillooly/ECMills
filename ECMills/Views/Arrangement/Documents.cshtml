@@ -1,0 +1,77 @@
+﻿@using ECMills.Models;
+@model dynamic
+
+@{
+                /**/
+
+                ViewBag.Title = "Documents";
+                Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="FluidList FullHeightWidth">
+    <div class="card RemoveMargins">
+        <div class="card-header card-header-primary">
+            <h4 class="card-title">Mrs Violet Anthoinette Crooks</h4>
+            <p class="card-category">Documents</p>
+        </div>
+        <div class="card-body FluidList">
+            <div>
+                <ul>
+                    <li><a>Forms</a></li>
+                    <li><a>Letters</a></li>
+                    <li><a>Miscellaneous Documents</a></li>
+                    <li><a>Accounts Documents</a></li>
+                </ul>
+            </div>
+            <div>
+                <ul>
+                    <li><a>Upload</a></li>
+                    <li><a>Delete</a></li>
+                    <li><a>Edit</a></li>
+                    <li><a>Refresh</a></li>
+                </ul>
+            </div>
+            <table class="table table-hover">
+                <thead class="text-primary">
+                    <tr>
+                        <th>Name</th>
+                        <th>Type</th>
+                        <th>Document Type</th>
+                        <th>Size</th>
+                        <th>Last Updated</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Medical Certificate - Ryan</td>
+                        <td>PDF</td>
+                        <td>Cremation Form - 4</td>
+                        <td>3.45 MB</td>
+                        <td>6 Days Ago</td>
+                    </tr>
+                    <tr>
+                        <td>Medical Certificate - Ryan</td>
+                        <td>PDF</td>
+                        <td>Cremation Form - 4</td>
+                        <td>3.45 MB</td>
+                        <td>6 Days Ago</td>
+                    </tr>
+                    <tr>
+                        <td>Medical Certificate - Ryan</td>
+                        <td>PDF</td>
+                        <td>Cremation Form - 4</td>
+                        <td>3.45 MB</td>
+                        <td>6 Days Ago</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+@section scripts {
+    <script>
+
+    </script>
+}

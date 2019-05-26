@@ -806,6 +806,8 @@
     <Content Include="Views\Arrangement\Coffin.cshtml" />
     <Content Include="Views\Login\Index.cshtml" />
     <Content Include="Views\Login\LoginLayout.cshtml" />
+    <Content Include="Views\Arrangement\Transport.cshtml" />
+    <Content Include="Views\Arrangement\Documents.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
