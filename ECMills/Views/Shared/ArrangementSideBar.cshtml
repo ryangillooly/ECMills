@@ -19,11 +19,8 @@
                 </a>
             </li>
             <li class="nav-item @(ViewContext.RouteData.Values["Controller"].ToString() == "Arrangement" &&
-                                   (
-                                     ViewContext.RouteData.Values["Action"].ToString()     == "List"      ||
-                                     ViewContext.RouteData.Values["Action"].ToString()     == "Deceased"
-                                   )? "active" : "")">
-                <a class="nav-link" href="@Url.Action("List", "Arrangement", new { id = string.Empty }, null)">
+                                  ViewContext.RouteData.Values["Action"].ToString()     == "Deceased"? "active" : "")">
+                <a class="nav-link" href="@Url.Action("Deceased", "Arrangement", new { id = string.Empty }, null)">
                     <i class="material-icons">person</i>
                     <p>Deceased</p>
                 </a>
@@ -94,8 +91,9 @@
                     <p>Correspondence</p>
                 </a>
             </li>
-            <li class="nav-item ">
-                <a class="nav-link" href="./upgrade.html">
+            <li class="nav-item  @(ViewContext.RouteData.Values["Controller"].ToString() == "Arrangement" &&
+                                   ViewContext.RouteData.Values["Action"].ToString()     == "Documents" ? "active" : "")">
+                <a class="nav-link" href="@Url.Action("Documents", "Arrangement", new { id = string.Empty }, null)">
                     <i class="material-icons">insert_drive_file</i>
                     <p>Documents</p>
                 </a>
@@ -103,3 +101,7 @@
         </ul>
     </div>
 </div>
+
+@section scripts {
+
+}

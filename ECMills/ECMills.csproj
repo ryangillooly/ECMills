@@ -144,7 +144,6 @@
     <Compile Include="Controllers\FirstCallsController.cs" />
     <Compile Include="Controllers\FuneralPlanEnquiriesController.cs" />
     <Compile Include="Controllers\FuneralPlansController.cs" />
-    <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\ReportsController.cs" />
     <Compile Include="Global.asax.cs">
@@ -787,9 +786,9 @@
     <Content Include="Views\Shared\NavBar.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Scripts\material-dashboard.js.map" />
-    <Content Include="Views\Shared\SecondNavbar.cshtml" />
+    <Content Include="Views\Shared\HomeSideBar.cshtml" />
     <Content Include="Views\Arrangement\Deceased.cshtml" />
-    <Content Include="Views\Arrangement\List.cshtml" />
+    <Content Include="Views\Arrangement\Index.cshtml" />
     <Content Include="Views\Arrangement\Home.cshtml" />
     <Content Include="Scripts\umd\popper.min.js.map" />
     <Content Include="Scripts\umd\popper.js.map" />
@@ -808,6 +807,8 @@
     <Content Include="Views\Login\LoginLayout.cshtml" />
     <Content Include="Views\Arrangement\Transport.cshtml" />
     <Content Include="Views\Arrangement\Documents.cshtml" />
+    <Content Include="Views\Dashboard\Index.cshtml" />
+    <Content Include="Views\Dashboard\Arrangements.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -815,13 +816,11 @@
     <Folder Include="Views\Accounts\" />
     <Folder Include="Views\Community\" />
     <Folder Include="Views\Contacts\" />
-    <Folder Include="Views\Dashboard\" />
     <Folder Include="Views\Diary\" />
     <Folder Include="Views\Finance\" />
     <Folder Include="Views\FirstCalls\" />
     <Folder Include="Views\FuneralPlanEnquiries\" />
     <Folder Include="Views\FuneralPlans\" />
-    <Folder Include="Views\Home\" />
     <Folder Include="Views\Reports\" />
   </ItemGroup>
   <ItemGroup>

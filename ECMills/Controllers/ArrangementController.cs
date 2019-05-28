@@ -10,7 +10,7 @@ namespace ECMills.Controllers
 {
     public class ArrangementController : Controller
     {
-        private ECMills_DBConnection DBContext;
+        private readonly ECMills_DBConnection DBContext;
 
         public ArrangementController()
         {
@@ -23,7 +23,7 @@ namespace ECMills.Controllers
             return View();
         }
 
-        public ActionResult List()
+        public ActionResult Index()
         {
             ViewBag.CurrentPage = "List";
             var deceased = sp_GetDeceasedList();

@@ -19,57 +19,70 @@
 }
 
 .BreakLine[data-color="purple"] {
-    height: 1vh;
+    height: 0.5vh;
     background-color: #9c27b0;
     margin-bottom: 1em;
 }
 
 .BreakLine[data-color="white"] {
-    height: 1vh;
+    height: 0.5vh;
     background-color: #fff;
     margin-bottom: 1em;
 }
 
 .BreakLine[data-color="azure"] {
-    height: 1vh;
+    height: 0.5vh;
     background-color: #00bcd4;
     margin-bottom: 1em;
 }
 
 .BreakLine[data-color="green"] {
-    height: 1vh;
+    height: 0.5vh;
     background-color: #4caf50;
     margin-bottom: 1em;
 }
 
 .BreakLine[data-color="orange"] {
-    height: 1vh;
+    height: 0.5vh;
     background-color: #ff9800;
     margin-bottom: 1em;
 }
 
 .BreakLine[data-color="danger"] {
-    height: 1vh;
+    height: 0.5vh;
     background-color: #f44336;
     margin-bottom: 1em;
 }
 
 .BreakLine[data-color="rose"] {
-    height: 1vh;
+    height: 0.5vh;
     background-color: #e91e63;
     margin-bottom: 1em;
 }
 
 
 
-
+#DocumentNav > ul > li{
+    display: inline;
+}
 
 GridTmplRows-3x1fr {
     grid-template-rows: repeat(3, 1fr);
 }
 
+GridTmplRows-4x1fr {
+    grid-template-rows: repeat(4, 1fr);
+}
+
 .GridTmplRows-75vh {
     grid-template-rows: 75vh;
+}
+
+.FluidGridDocuments {
+    display: grid;
+    align-items: center;
+    text-align: center;
+    grid-template-columns: repeat(2, minmax(40px, 60px)) minmax(100px, 180px) minmax(100px, 150px);
 }
 
 .FluidGrid {

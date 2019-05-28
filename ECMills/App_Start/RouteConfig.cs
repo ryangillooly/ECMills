@@ -29,11 +29,10 @@ namespace ECMills
                 defaults: new { controller = "Login", action = "Index"}
             );
 
-
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}",
-                defaults: new { controller = "Arrangement", action = "Home" }
+                defaults: new { controller = "Dashboard", action = "Index" }
             );
         }
     }

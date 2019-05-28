@@ -11,76 +11,66 @@
     </div>
     <div class="sidebar-wrapper">
         <ul class="nav">
-            <li class="nav-item  @(ViewContext.RouteData.Values["Controller"].ToString() == "Home" ? "active" : "")">
-                <a class="nav-link" href="@Url.Action("Index", "Home", null, null)">
-                <i class="material-icons">dashboard</i>
-                <p>Home</p>
+            <li class="nav-item  @(ViewContext.RouteData.Values["Controller"].ToString() == "Dashboard" &&
+                                    ViewContext.RouteData.Values["Action"].ToString() == "Index" ? "active" : "")">
+                <a class="nav-link" href="@Url.Action("Index", "Dashboard", null, null)">
+                    <i class="material-icons">dashboard</i>
+                    <p>Dashboard</p>
                 </a>
             </li>
-            <li class="nav-item @(ViewContext.RouteData.Values["Controller"].ToString() == "Deceased" ? "active" : "")">
-                <a class="nav-link" href="@Url.Action("List", "Deceased", null, null)">
+            <li class="nav-item @(ViewContext.RouteData.Values["Controller"].ToString() == "FirstCalls" ? "active" : "")">
+                <a class="nav-link" href="@Url.Action("Index", "FirstCalls", null, null)">
                     <i class="material-icons">person</i>
-                    <p>Deceased</p>
+                    <p>First Calls</p>
                 </a>
             </li>
-            <li class="nav-item ">
-                <a class="nav-link" href="./tables.html">
+            <li class="nav-item  @(ViewContext.RouteData.Values["Controller"].ToString() == "Dashboard" &&
+                                    ViewContext.RouteData.Values["Action"].ToString() == "Arrangements" ? "active" : "")">
+                <a class="nav-link" href="@Url.Action("Arrangements", "Dashboard", null, null)">
                     <i class="material-icons">content_paste</i>
-                    <p>Contacts</p>
+                    <p>Arrangements</p>
                 </a>
             </li>
             <li class="nav-item ">
                 <a class="nav-link" href="./typography.html">
                     <i class="material-icons">library_books</i>
-                    <p>Ceremony</p>
+                    <p>Diary</p>
                 </a>
             </li>
             <li class="nav-item ">
                 <a class="nav-link" href="./icons.html">
                     <i class="material-icons">bubble_chart</i>
-                    <p>Coffin</p>
+                    <p>Community</p>
                 </a>
             </li>
             <li class="nav-item ">
                 <a class="nav-link" href="./map.html">
                     <i class="material-icons">location_ons</i>
-                    <p>Transport</p>
+                    <p>Funeral Plan Enquiries</p>
                 </a>
             </li>
             <li class="nav-item ">
                 <a class="nav-link" href="./notifications.html">
                     <i class="material-icons">notifications</i>
-                    <p>Additions</p>
+                    <p>Funeral Plans</p>
                 </a>
             </li>
             <li class="nav-item ">
                 <a class="nav-link" href="./rtl.html">
                     <i class="material-icons">language</i>
-                    <p>Notes</p>
+                    <p>Accounts</p>
                 </a>
             </li>
             <li class="nav-item ">
                 <a class="nav-link" href="./upgrade.html">
                     <i class="material-icons">unarchive</i>
-                    <p>Donations</p>
+                    <p>Contacts</p>
                 </a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="./upgrade.html">
                     <i class="material-icons">unarchive</i>
-                    <p>Finance</p>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="./upgrade.html">
-                    <i class="material-icons">unarchive</i>
-                    <p>Correspondence</p>
-                </a>
-            </li>
-            <li class="nav-item ">
-                <a class="nav-link" href="./upgrade.html">
-                    <i class="material-icons">unarchive</i>
-                    <p>Documents</p>
+                    <p>Reports</p>
                 </a>
             </li>
         </ul>
