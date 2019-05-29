@@ -1,7 +1,31 @@
 ﻿<nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
     <div class="container-fluid">
         <div class="navbar-wrapper">
-            <a class="navbar-brand" href="@Url.Action("List", "Arrangement", new { id = string.Empty }, null)">...</a> / @ViewBag.CurrentPage
+            @if (
+                    System.Web.HttpContext.Current.Session["PreviousPage"]       != null &&
+                    System.Web.HttpContext.Current.Session["PreviousController"] != null &&
+                    System.Web.HttpContext.Current.Session["CurrentPage"]        != null
+                )
+                {
+                    if(System.Web.HttpContext.Current.Session["DeceasedID"] != null)
+                    {
+                        ViewBag.DeceasedID = System.Web.HttpContext.Current.Session["DeceasedID"].ToString();
+                    }
+                    else
+                    {
+                        ViewBag.DeceasedID = string.Empty;
+                    }
+                    <a class="navbar-brand" href="@Url.Action(
+                                                                System.Web.HttpContext.Current.Session["PreviousPage"].ToString(),
+                                                                System.Web.HttpContext.Current.Session["PreviousController"].ToString(),
+                                                                new { id = ViewBag.DeceasedID },
+                                                                null
+                                                              )">
+                        <text>...</text>
+                    </a>
+                     <text>/ </text>
+                     @System.Web.HttpContext.Current.Session["CurrentPage"];
+                }
         </div>
         <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
             <span class="sr-only">Toggle navigation</span>

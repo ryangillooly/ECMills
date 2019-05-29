@@ -8,33 +8,51 @@ using System.Web.Mvc;
 
 namespace ECMills.Controllers
 {
+    [RoutePrefix("Arrangement/{id:int}")]
     public class ArrangementController : Controller
     {
         private readonly ECMills_DBConnection DBContext;
-
+      
         public ArrangementController()
         {
             DBContext = new ECMills_DBConnection();
+            System.Web.HttpContext.Current.Session["PreviousController"] = System.Web.HttpContext.Current.Session["CurrentController"];
+            System.Web.HttpContext.Current.Session["CurrentController"] = "Arrangement";
         }
 
-        public ActionResult Home()
+        [Route("Info")]
+        public ActionResult Info(Int16 id)
         {
-            ViewBag.CurrentPage = "Home";
+            System.Web.HttpContext.Current.Session["PreviousPage"] = System.Web.HttpContext.Current.Session["CurrentPage"];
+            System.Web.HttpContext.Current.Session["CurrentPage"] = "Info";
+
             return View();
         }
 
-        public ActionResult Index()
+        [Route("~/Arrangement/List")]
+        public ActionResult ArrangementList()
         {
-            ViewBag.CurrentPage = "List";
+            Session["PreviousPage"] = Session["CurrentPage"];
+            Session["CurrentPage"] = "List";
             var deceased = sp_GetDeceasedList();
+ 
             return View(deceased);
         }
 
+        public ActionResult CaptureID(Int16 id)
+        {
+            Session["DeceasedID"] = id;
+
+            return RedirectToAction("Info", id);
+        }
+
         [HttpGet]
+        [Route("Deceased")]
         public ActionResult Deceased(Int16 id)
         {
             Int16 DeceasedID = id;
-            ViewBag.CurrentPage = "Deceased";
+            Session["PreviousPage"] = Session["CurrentPage"];
+            Session["CurrentPage"] = "Deceased";
             ViewBag.DeceasedID = DeceasedID.ToString();
 
             dynamic dynamicObject             = new ExpandoObject();
@@ -48,17 +66,13 @@ namespace ECMills.Controllers
                                   DateTime TimeOfDeath, string MaritalStatus, string Occupation,
                                   string Religion, string Reldom)
         {
-
-            /*
-             string SQLQuery = "Here we go...";
-              SQLQuery = SQLQuery + Name + ", " + Reldom;
-              */
             return Content("YEP");
-
         }
 
         public ActionResult Contacts(Int16 id)
         {
+            Session["PreviousPage"] = Session["CurrentPage"];
+            Session["CurrentPage"] = "Contacts";
             dynamic dynamicObject = new ExpandoObject();
             dynamicObject.DeceasedContactList            = sp_GetDeceasedContactsList(id);
             dynamicObject.DeceasedContactsContactDetails = sp_GetDeceasedContactsContactDetails(id);
@@ -68,6 +82,8 @@ namespace ECMills.Controllers
 
         public ActionResult Ceremony(Int16 id)
         {
+            Session["PreviousPage"] = Session["CurrentPage"];
+            Session["CurrentPage"] = "Ceremony";
             return View(id);
         }
 
@@ -78,11 +94,15 @@ namespace ECMills.Controllers
 
         public ActionResult Transport(Int16 id)
         {
+            Session["PreviousPage"] = Session["CurrentPage"];
+            Session["CurrentPage"] = "Transport";
             return View();
         }
 
         public ActionResult Documents(Int16 id)
         {
+            Session["PreviousPage"] = Session["CurrentPage"];
+            Session["CurrentPage"] = "Documents";
             return View();
         }
 

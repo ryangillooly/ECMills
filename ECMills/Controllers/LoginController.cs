@@ -6,9 +6,11 @@ using System.Web.Mvc;
 
 namespace ECMills.Controllers
 {
+    [RoutePrefix("Login")]
     public class LoginController : Controller
     {
         // GET: Login
+        [Route("")]
         public ActionResult Index()
         {
             return View();

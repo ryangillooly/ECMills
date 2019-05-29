@@ -42,8 +42,11 @@
                         </span>
                     </label>
                 </div>
-                <button type="submit" class="btn btn-primary">Forgot Password</button>
-                <button type="submit" class="btn btn-primary">Login</button>
+                <!--
+                    <button type="submit" class="btn btn-primary">Login</button>
+                -->
+                <button type="submit" onclick="Redir" class="btn btn-primary">Forgot Password</button>
+                <button type="button" class="btn btn-primary" onclick="location.href='@Url.Action("Index", "Dashboard")'">Submit</button>
             </div>
         </div>
     </div>

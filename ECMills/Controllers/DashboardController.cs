@@ -7,6 +7,7 @@ using System.Web.Mvc;
 
 namespace ECMills.Controllers
 {
+    [RoutePrefix("Dashboard")]
     public class DashboardController : Controller
     {
         private readonly ECMills_DBConnection DBContext;
@@ -14,23 +15,26 @@ namespace ECMills.Controllers
         public DashboardController()
         {
             DBContext = new ECMills_DBConnection();
+
+            if (System.Web.HttpContext.Current.Session["CurrentController"] == null)
+            {
+                System.Web.HttpContext.Current.Session["PreviousController"] = "";
+            }
+            else
+            {
+                System.Web.HttpContext.Current.Session["PreviousController"] = System.Web.HttpContext.Current.Session["CurrentController"];
+            }
+
+            System.Web.HttpContext.Current.Session["CurrentController"] = "Arrangement";
         }
 
         // GET: Dashboard
+        [Route("")]
         public ActionResult Index()
         {
+            System.Web.HttpContext.Current.Session["PreviousPage"] = System.Web.HttpContext.Current.Session["CurrentPage"];
+            System.Web.HttpContext.Current.Session["CurrentPage"] = "Dashboard";
             return View();
-        }
-
-        public ActionResult Arrangements()
-        {
-            var deceased = sp_GetDeceasedList();
-            return View(deceased);
-        }
-
-        public List<sp_GetDeceasedList_Result> sp_GetDeceasedList()
-        {
-            return DBContext.sp_GetDeceasedList().ToList();
         }
     }
 }

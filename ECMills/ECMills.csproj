@@ -788,8 +788,8 @@
     <Content Include="Scripts\material-dashboard.js.map" />
     <Content Include="Views\Shared\HomeSideBar.cshtml" />
     <Content Include="Views\Arrangement\Deceased.cshtml" />
-    <Content Include="Views\Arrangement\Index.cshtml" />
-    <Content Include="Views\Arrangement\Home.cshtml" />
+    <Content Include="Views\Arrangement\ArrangementList.cshtml" />
+    <Content Include="Views\Arrangement\Info.cshtml" />
     <Content Include="Scripts\umd\popper.min.js.map" />
     <Content Include="Scripts\umd\popper.js.map" />
     <Content Include="Scripts\umd\popper-utils.min.js.map" />
