@@ -23,11 +23,13 @@
 </head>
 <body>
     @{ 
-        if (ViewContext.RouteData.Values["Controller"].ToString() != "Arrangement")
+        if (ViewContext.RouteData.Values["Controller"].ToString() == "Dashboard" ||
+            ViewContext.RouteData.Values["Action"].ToString() == "ArrangementList")
         {
             @Html.Partial("HomeSideBar");
         }
-        else if(ViewContext.RouteData.Values["Controller"].ToString() == "Arrangement")
+        else if(ViewContext.RouteData.Values["Controller"].ToString() == "Arrangement" &&
+                ViewContext.RouteData.Values["Action"].ToString() != "ArrangementList")
         {
             @Html.Partial("ArrangementSideBar");
         }
