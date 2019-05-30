@@ -6,7 +6,7 @@ using System.Web.Mvc;
 
 namespace ECMills.Controllers
 {
-    [RoutePrefix("Login")]
+    [Route("~/", Name = "Login")]
     public class LoginController : Controller
     {
         // GET: Login

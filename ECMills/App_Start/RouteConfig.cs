@@ -14,12 +14,6 @@ namespace ECMills
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             routes.MapMvcAttributeRoutes();
-
-            routes.MapRoute(
-                name: "Default",
-                url: "{controller}",
-                defaults: new { controller = "Login", action = "Index" }
-            );
         }
     }
 }

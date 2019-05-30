@@ -8,7 +8,7 @@ using System.Web.Mvc;
 
 namespace ECMills.Controllers
 {
-    [RoutePrefix("Arrangement/{id:int}")]
+    [Route("Arrangement")]
     public class ArrangementController : Controller
     {
         private readonly ECMills_DBConnection DBContext;
@@ -16,44 +16,33 @@ namespace ECMills.Controllers
         public ArrangementController()
         {
             DBContext = new ECMills_DBConnection();
-            System.Web.HttpContext.Current.Session["PreviousController"] = System.Web.HttpContext.Current.Session["CurrentController"];
-            System.Web.HttpContext.Current.Session["CurrentController"] = "Arrangement";
-        }
-
-        [Route("Info")]
-        public ActionResult Info(Int16 id)
-        {
-            System.Web.HttpContext.Current.Session["PreviousPage"] = System.Web.HttpContext.Current.Session["CurrentPage"];
-            System.Web.HttpContext.Current.Session["CurrentPage"] = "Info";
-
-            return View();
         }
 
         [Route("~/Arrangement/List")]
         public ActionResult ArrangementList()
         {
-            Session["PreviousPage"] = Session["CurrentPage"];
-            Session["CurrentPage"] = "List";
             var deceased = sp_GetDeceasedList();
- 
             return View(deceased);
         }
 
+        [Route("{id}/Info")]
+        public ActionResult Info(Int16 id)
+        {
+            return View();
+        }
+        
+        [HttpGet]
         public ActionResult CaptureID(Int16 id)
         {
             Session["DeceasedID"] = id;
-
-            return RedirectToAction("Info", id);
+            return RedirectToAction("Info", "Arrangement", new { id });
         }
 
         [HttpGet]
-        [Route("Deceased")]
+        [Route("{id}/Deceased")]
         public ActionResult Deceased(Int16 id)
         {
             Int16 DeceasedID = id;
-            Session["PreviousPage"] = Session["CurrentPage"];
-            Session["CurrentPage"] = "Deceased";
-            ViewBag.DeceasedID = DeceasedID.ToString();
 
             dynamic dynamicObject             = new ExpandoObject();
             dynamicObject.DeceasedProfile     = sp_GetDeceasedProfile(DeceasedID);
@@ -69,10 +58,9 @@ namespace ECMills.Controllers
             return Content("YEP");
         }
 
+        [Route("{id}/Contacts")]
         public ActionResult Contacts(Int16 id)
         {
-            Session["PreviousPage"] = Session["CurrentPage"];
-            Session["CurrentPage"] = "Contacts";
             dynamic dynamicObject = new ExpandoObject();
             dynamicObject.DeceasedContactList            = sp_GetDeceasedContactsList(id);
             dynamicObject.DeceasedContactsContactDetails = sp_GetDeceasedContactsContactDetails(id);
@@ -80,29 +68,27 @@ namespace ECMills.Controllers
             return View(dynamicObject);
         }
 
+        [Route("{id}/Ceremony")]
         public ActionResult Ceremony(Int16 id)
         {
-            Session["PreviousPage"] = Session["CurrentPage"];
-            Session["CurrentPage"] = "Ceremony";
             return View(id);
         }
 
+        [Route("{id}/Coffin")]
         public ActionResult Coffin(Int16 id)
         {
             return View();
         }
 
+        [Route("{id}/Transport")]
         public ActionResult Transport(Int16 id)
         {
-            Session["PreviousPage"] = Session["CurrentPage"];
-            Session["CurrentPage"] = "Transport";
             return View();
         }
 
+        [Route("{id}/Documents")]
         public ActionResult Documents(Int16 id)
         {
-            Session["PreviousPage"] = Session["CurrentPage"];
-            Session["CurrentPage"] = "Documents";
             return View();
         }
 
@@ -125,7 +111,6 @@ namespace ECMills.Controllers
         {
             return DBContext.sp_GetDeceasedContactsList(id).ToList();
         }
-
         
         public List<sp_GetDeceasedContactsContactDetails_Result> sp_GetDeceasedContactsContactDetails(Int16 id)
         {
