@@ -20,10 +20,10 @@
     @Scripts.Render("~/bundles/modernizr")
     @Scripts.Render("~/bundles/jquery")
 </head>
-<body>
-
-    <div class="main-panel FullHeightWidth">
-         @RenderBody()
+<body style="height: 100vh; overflow: hidden;">
+        <div class="content">
+            @RenderBody()
+        </div>
 
         <!--   Core JS Files   -->
         <script src="~/Scripts/core/jquery.min.js"></script>
@@ -42,6 +42,5 @@
         <script src="~/Scripts/material-dashboard.js?v=2.1.1" type="text/javascript"></script>
 
         @RenderSection("scripts", required: false)
-    </div>
 </body>
 </html>
