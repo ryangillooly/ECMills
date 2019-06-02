@@ -24,15 +24,16 @@
                     <p>First Calls</p>
                 </a>
             </li>
-            <li class="nav-item  @(ViewContext.RouteData.Values["Controller"].ToString() == "Arrangements" &&
+            <li class="nav-item  @(ViewContext.RouteData.Values["Controller"].ToString() == "Arrangement" &&
                                     ViewContext.RouteData.Values["Action"].ToString() == "ArrangementList" ? "active" : "")">
                 <a class="nav-link" href="@Url.Action("ArrangementList", "Arrangement", null, null)">
                     <i class="material-icons">content_paste</i>
                     <p>Arrangements</p>
                 </a>
             </li>
-            <li class="nav-item ">
-                <a class="nav-link" href="./typography.html">
+            <li class="nav-item  @(ViewContext.RouteData.Values["Controller"].ToString() == "Dashboard" &&
+                                    ViewContext.RouteData.Values["Action"].ToString() == "Diary" ? "active" : "")">
+                <a class="nav-link" href="@Url.Action("Diary", "Dashboard", null, null)">
                     <i class="material-icons">library_books</i>
                     <p>Diary</p>
                 </a>

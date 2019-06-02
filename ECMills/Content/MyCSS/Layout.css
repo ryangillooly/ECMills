@@ -5,17 +5,37 @@
 }
 
 .RemoveMargins {
-    margin-bottom: 0px;
-    margin-top: 0px;
+    margin-bottom: 0px !important;
+    margin-top: 0px !important;
 }
 
 .RemovePadding {
-    padding-left: 0px;
+    padding: 0px !important;
 }
 
 .FullHeightWidth {
     height: 100%;
     width: 100%;
+}
+
+.FullWidth {
+    width: 100% !important;
+}
+
+.FullViewHeight {
+    height: 100vh !important;
+}
+
+.Height45vh {
+    height: 45vh !important;
+}
+
+.Height41vh{
+    height: 41vh !important;
+}
+
+.OverflowScroll {
+    overflow: scroll !important;
 }
 
 .BreakLine[data-color="purple"] {
@@ -60,7 +80,23 @@
     margin-bottom: 1em;
 }
 
+.CalendarItem-Funeral {
+    background-color: #ff9800 !important;
+    border: 1px solid #ff9800 !important;
+}
 
+.CalendarItem-Funeral > div {
+    color: white !important;
+}
+
+.CalendarItem-Cremation {
+    background-color: #00bcd4 !important;
+    border: 1px solid #00bcd4 !important;
+}
+
+.CalendarItem-Cremation > div {
+    color: white !important;
+}
 
 #DocumentNav > ul > li{
     display: inline;

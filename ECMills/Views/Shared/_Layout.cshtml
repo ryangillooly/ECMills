@@ -18,6 +18,8 @@
     <link href="~/Content/MyCSS/Layout.css" rel="stylesheet" />
     <link href="~/Content/bootstrap-datetimepicker.css" rel="stylesheet" />
 
+    @RenderSection("css", required:false)
+
     @Scripts.Render("~/bundles/modernizr")
     @Scripts.Render("~/bundles/jquery")
 </head>
@@ -34,7 +36,7 @@
             @Html.Partial("ArrangementSideBar");
         }
     }
-    <div class="main-panel">
+    <div class="main-panel FullViewHeight">
             @Html.Partial("NavBar")
         <div class="content">
             @RenderBody()

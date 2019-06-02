@@ -15,25 +15,19 @@ namespace ECMills.Controllers
         public DashboardController()
         {
             DBContext = new ECMills_DBConnection();
-
-            if (System.Web.HttpContext.Current.Session["CurrentController"] == null)
-            {
-                System.Web.HttpContext.Current.Session["PreviousController"] = "";
-            }
-            else
-            {
-                System.Web.HttpContext.Current.Session["PreviousController"] = System.Web.HttpContext.Current.Session["CurrentController"];
-            }
-
-            System.Web.HttpContext.Current.Session["CurrentController"] = "Arrangement";
         }
 
         // GET: Dashboard
         [Route("")]
         public ActionResult Index()
         {
-            System.Web.HttpContext.Current.Session["PreviousPage"] = System.Web.HttpContext.Current.Session["CurrentPage"];
-            System.Web.HttpContext.Current.Session["CurrentPage"] = "Dashboard";
+            return View();
+
+        }
+
+        [Route("Diary")]
+        public ActionResult Diary()
+        {
             return View();
         }
     }

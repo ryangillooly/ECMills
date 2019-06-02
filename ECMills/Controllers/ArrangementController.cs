@@ -8,7 +8,7 @@ using System.Web.Mvc;
 
 namespace ECMills.Controllers
 {
-    [Route("Arrangement")]
+    [RoutePrefix("Arrangement")]
     public class ArrangementController : Controller
     {
         private readonly ECMills_DBConnection DBContext;
@@ -28,6 +28,8 @@ namespace ECMills.Controllers
         [Route("{id}/Info")]
         public ActionResult Info(Int16 id)
         {
+            Session["DeceasedID"] = id;
+
             return View();
         }
         

@@ -4,6 +4,9 @@
 
             Tip 2: you can also add an image using data-image tag
         -->
+    @{
+        string PreviousController = Request.UrlReferrer.AbsolutePath.Split('/')[1];
+    }
     <div class="logo">
         <a href="https://millsfunerals.com" class="simple-text logo-normal">
             E.C. Mills Funerals
@@ -14,7 +17,7 @@
             <li class="nav-item  @(ViewContext.RouteData.Values["Controller"].ToString() == "Arrangement" &&
                                    ViewContext.RouteData.Values["Action"].ToString() == "Info" ? "active" : "")">
                 <a class="nav-link" href="@Url.Action("Info", "Arrangement", new { id = Session["DeceasedID"] }, null)">
-                    <i class="material-icons">dashboard</i>
+                    <i class="material-icons">info_outline</i>
                     <p>Info</p>
                 </a>
             </li>
@@ -96,6 +99,12 @@
                 <a class="nav-link" href="@Url.Action("Documents", "Arrangement", new { id = Session["DeceasedID"] }, null)">
                     <i class="material-icons">insert_drive_file</i>
                     <p>Documents</p>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="@Url.Action("Index", "Dashboard", null)">
+                    <i class="material-icons">dashboard</i>
+                    <p>Back to Dashboard</p>
                 </a>
             </li>
         </ul>
