@@ -15,32 +15,30 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
     <!-- CSS Files -->
     <link href="~/Content/material-dashboard.css?v=2.1.1" rel="stylesheet" />
+    <link href="~/Content/demo.css" rel="stylesheet" />
     <link href="~/Content/MyCSS/Layout.css" rel="stylesheet" />
 
     @Scripts.Render("~/bundles/modernizr")
     @Scripts.Render("~/bundles/jquery")
 </head>
-<body style="height: 100vh; overflow: hidden;">
-        <div class="content">
-            @RenderBody()
-        </div>
+<body class="off-canvas-sidebar">
+     
+    @RenderBody()
 
-        <!--   Core JS Files   -->
-        <script src="~/Scripts/core/jquery.min.js"></script>
-        <script src="~/Scripts/core/popper.min.js"></script>
-        <script src="~/Scripts/core/bootstrap-material-design.min.js"></script>
-        <script src="~/Scripts/plugins/perfect-scrollbar.jquery.min.js"></script>
-        <!-- Plugin for the momentJs  -->
-        <script src="~/Scripts/plugins/moment.min.js"></script>
-        <!--  Plugin for Sweet Alert -->
-        <script src="~/Scripts/plugins/sweetalert2.js"></script>
-        <!-- Forms Validations Plugin -->
-        <script src="~/Scripts/plugins/jquery.validate.min.js"></script>
-        <!--  Notifications Plugin    -->
-        <script src="~/Scripts/plugins/bootstrap-notify.js"></script>
-        <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
-        <script src="~/Scripts/material-dashboard.js?v=2.1.1" type="text/javascript"></script>
+    <!--   Core JS Files   -->
+    <script src="~/Scripts/core/jquery.min.js"></script>
+    <script src="~/Scripts/core/popper.min.js"></script>
+    <script src="~/Scripts/core/bootstrap-material-design.min.js"></script>
+    <script src="~/Scripts/plugins/perfect-scrollbar.jquery.min.js"></script>
+    <!-- Chartist JS -->
+    <script src="~/Scripts/plugins/chartist.min.js"></script>
+    <!--  Notifications Plugin    -->
+    <script src="~/Scripts/plugins/bootstrap-notify.js"></script>
+    <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
+    <script src="~/Scripts/material-dashboard.js?v=2.1.0" type="text/javascript"></script>
+    <!-- Material Dashboard DEMO methods, don't include it in your project! -->
+    <script src="~/Scripts/demo.js"></script>
 
-        @RenderSection("scripts", required: false)
+    @RenderSection("scripts", required: false)
 </body>
 </html>
