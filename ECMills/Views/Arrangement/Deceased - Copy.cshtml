@@ -279,20 +279,20 @@
             $('#ReadOnlyInput-RelDom'       ).replaceWith('<input name="RelDom"          id="ReadWriteInput-RelDom"        type="text" class="form-control" placeholder="' + ReligiousDenomination + '" />');
 
             $('#EditProfile_Button').replaceWith('<button type="button" id="CancelDeceasedProfileEdit_Button" class="btn btn-primary pull-left col-md-3" onclick="CancelDeceasedProfileEdit(\'' + Name + '\',\'' + Known_As + '\',\'' + Gender + '\',\'' + Age + '\',\'' + DOB + '\',\'' + TimeOfDeath + '\',\'' + MaritalStatus + '\',\'' + Occupation + '\',\'' + Religion + '\',\'' + ReligiousDenomination + '\')">Cancel</button>');
-           // $('#UpdateProfileDiv').append('<button type="button" onclick="SubmitProfileUpdates()" class="btn btn-primary pull-right">Update Profile</button>')
+
             $('#UpdateProfileDiv').append('<input type="submit" class="btn btn-primary pull-right col-md-3" />')
 
                 $('.datetimepicker').datetimepicker({
-            icons: {
-                time: "fa fa-clock-o",
-                date: "fa fa-calendar",
-                up: "fa fa-chevron-up",
-                down: "fa fa-chevron-down",
-                previous: 'fa fa-chevron-left',
-                next: 'fa fa-chevron-right',
-                today: 'fa fa-screenshot',
-                clear: 'fa fa-trash',
-                close: 'fa fa-remove'
+                icons: {
+                    time: "fa fa-clock-o",
+                    date: "fa fa-calendar",
+                    up: "fa fa-chevron-up",
+                    down: "fa fa-chevron-down",
+                    previous: 'fa fa-chevron-left',
+                    next: 'fa fa-chevron-right',
+                    today: 'fa fa-screenshot',
+                    clear: 'fa fa-trash',
+                    close: 'fa fa-remove'
             }
         });
         };

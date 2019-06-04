@@ -5,48 +5,101 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<div class="col-md-12">
-    <div class="card">
-        <div class="card-header card-header-primary">
-            <h4 class="card-title">Deceased Persons</h4>
-            <p class="card-category">ID's 0 - 30</p>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header card-header-primary card-header-icon">
+                    <div class="card-icon">
+                        <i class="material-icons">assignment</i>
+                    </div>
+                    <h4 class="card-title">Deceased Persons</h4>
+                </div>
+                <div class="card-body">
+                    <div class="toolbar">
+                        <!--        Here you can write extra buttons/actions for the toolbar              -->
+                    </div>
+                    <div class="material-datatables">
+                        <table id="datatables" class="table table-striped table-no-bordered table-hover" cellspacing="0" width="100%" style="width:100%">
+                            <thead>
+                                <tr>
+                                    <th>Reference</th>
+                                    <th>Type</th>
+                                    <th>SubType</th>
+                                    <th>Status</th>
+                                    <th>Deceased Name</th>
+                                    <th>Client Name</th>
+                                    <th class="disabled-sorting text-right">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var deceased in Model)
+                                {
+                                    <tr>
+                                        <td>@deceased.Reference</td>
+                                        <td>@deceased.Type</td>
+                                        <td>@deceased.SubType</td>
+                                        <td>@deceased.Status</td>
+                                        <td>@deceased.Deceased_Name</td>
+                                        <td>@deceased.Client_Name</td>
+                                        <td class="text-right">
+                                            <button type="button" rel="tooltip" class="btn btn-info">
+                                                <a href="@Url.Action("Info", "Arrangement", new { id = deceased.Reference }, null)">
+                                                    <i class="material-icons">person</i>
+                                                </a>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <!-- end content-->
+            </div>
+            <!--  end card  -->
         </div>
-        <div class="card-body table-responsive">
-            <table class="table table-hover">
-                <thead class="text-primary">
-                    <tr>
-                        <th>Reference</th>
-                        <th>Type</th>
-                        <th>SubType</th>
-                        <th>Status</th>
-                        <th>Deceased Name</th>
-                        <th>Client Name</th>
-                        <th>Actions</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach (var deceased in Model)
-                    {
-                        <tr>
-                            <td>@deceased.Reference</td>
-                            <td>@deceased.Type</td>
-                            <td>@deceased.SubType</td>
-                            <td>@deceased.Status</td>
-                            <td>@deceased.Deceased_Name</td>
-                            <td>@deceased.Client_Name</td>
-                            <td class="td-actions">
-                                <button type="button" rel="tooltip" class="btn btn-info" >
-                                    <a href="@Url.Action("Info", "Arrangement", new { id = deceased.Reference }, null)">
-                                        <i class="material-icons">person</i>
-                                    </a>
-                                </button>
-                            </td>
-                        </tr>
-                    }
-                </tbody>
-            </table>
-        </div>
+        <!-- end col-md-12 -->
     </div>
+    <!-- end row -->
 </div>
 
+@section scripts {
+    <script>
+        $(document).ready(function() {
+          $('#datatables').DataTable({
+            "pagingType": "full_numbers",
+            "lengthMenu": [
+              [10, 25, 50, -1],
+              [10, 25, 50, "All"]
+            ],
+            responsive: true,
+            language: {
+              search: "_INPUT_",
+              searchPlaceholder: "Search records",
+            }
+          });
 
+          var table = $('#datatable').DataTable();
+
+          // Edit record
+          table.on('click', '.edit', function() {
+            $tr = $(this).closest('tr');
+            var data = table.row($tr).data();
+            alert('You press on Row: ' + data[0] + ' ' + data[1] + ' ' + data[2] + '\'s row.');
+          });
+
+          // Delete a record
+          table.on('click', '.remove', function(e) {
+            $tr = $(this).closest('tr');
+            table.row($tr).remove().draw();
+            e.preventDefault();
+          });
+
+          //Like record
+          table.on('click', '.like', function() {
+            alert('You clicked on Like button');
+          });
+        });
+    </script>
+}

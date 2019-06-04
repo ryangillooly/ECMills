@@ -4,6 +4,10 @@
     padding: 0px;
 }
 
+.logo > .logo-mini {
+    margin-right: 7px !important;
+}
+
 .RemoveMargins {
     margin-bottom: 0px !important;
     margin-top: 0px !important;

@@ -8,7 +8,7 @@
         <a href="https://millsfunerals.com" class="simple-text logo-mini">
             E.C.
         </a>
-        <a href="https://millsfunerals.com" class="simple-text logo-mini">
+        <a href="https://millsfunerals.com" class="simple-text logo-normal">
             Mills Funerals
         </a>
     </div>
@@ -49,51 +49,37 @@
             </div>
         </div>
         <ul class="nav">
-            <li class="nav-item  @(ViewContext.RouteData.Values["Controller"].ToString() == "Arrangement" &&
-                                   ViewContext.RouteData.Values["Action"].ToString() == "Info" ? "active" : "")">
+            <li class="nav-item">
                 <a class="nav-link" href="@Url.Action("Info", "Arrangement", new { id = Session["DeceasedID"] }, null)">
                     <i class="material-icons">info_outline</i>
                     <p>Info</p>
                 </a>
             </li>
-            <li class="nav-item @(ViewContext.RouteData.Values["Controller"].ToString() == "Arrangement" &&
-                                  ViewContext.RouteData.Values["Action"].ToString() == "Deceased"? "active" : "")">
+            <li class="nav-item">
                 <a class="nav-link" href="@Url.Action("Deceased", "Arrangement", new { id = Session["DeceasedID"] }, null)">
                     <i class="material-icons">person</i>
                     <p>Deceased</p>
                 </a>
             </li>
-            <li class="nav-item @(ViewContext.RouteData.Values["Controller"].ToString() == "Arrangement" &&
-                                   (
-                                     ViewContext.RouteData.Values["Action"].ToString() == "Contacts"
-                                   )? "active" : "")">
+            <li class="nav-item">
                 <a class="nav-link" href="@Url.Action("Contacts", "Arrangement", new { id = Session["DeceasedID"] }, null)">
                     <i class="material-icons">call</i>
                     <p>Contacts</p>
                 </a>
             </li>
-            <li class="nav-item @(ViewContext.RouteData.Values["Controller"].ToString() == "Arrangement" &&
-                                   (
-                                     ViewContext.RouteData.Values["Action"].ToString() == "Ceremony"
-                                   )? "active" : "")">
+            <li class="nav-item">
                 <a class="nav-link" href="@Url.Action("Ceremony", "Arrangement", new { id = Session["DeceasedID"] }, null)">
                     <i class="material-icons">library_books</i>
                     <p>Ceremony</p>
                 </a>
             </li>
-            <li class="nav-item @(ViewContext.RouteData.Values["Controller"].ToString() == "Arrangement" &&
-                                   (
-                                     ViewContext.RouteData.Values["Action"].ToString() == "Coffin"
-                                   )? "active" : "")">
+            <li class="nav-item">
                 <a class="nav-link" href="@Url.Action("Coffin", "Arrangement", new { id = Session["DeceasedID"] }, null)">
                     <i class="material-icons">library_books</i>
                     <p>Coffin</p>
                 </a>
             </li>
-            <li class="nav-item @(ViewContext.RouteData.Values["Controller"].ToString() == "Arrangement" &&
-                                   (
-                                     ViewContext.RouteData.Values["Action"].ToString() == "Transport"
-                                   )? "active" : "")">
+            <li class="nav-item">
                 <a class="nav-link" href="@Url.Action("Transport", "Arrangement", new { id = Session["DeceasedID"] }, null)">
                     <i class="material-icons">directions_car</i>
                     <p>Transport</p>
@@ -129,8 +115,7 @@
                     <p>Correspondence</p>
                 </a>
             </li>
-            <li class="nav-item  @(ViewContext.RouteData.Values["Controller"].ToString() == "Arrangement" &&
-                                   ViewContext.RouteData.Values["Action"].ToString()     == "Documents" ? "active" : "")">
+            <li class="nav-item">
                 <a class="nav-link" href="@Url.Action("Documents", "Arrangement", new { id = Session["DeceasedID"] }, null)">
                     <i class="material-icons">insert_drive_file</i>
                     <p>Documents</p>
