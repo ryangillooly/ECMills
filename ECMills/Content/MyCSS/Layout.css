@@ -4,6 +4,16 @@
     padding: 0px;
 }
 
+/* Overwrite some material dash padding / margins*/
+.main-panel > .content {
+    padding: 15px !important;
+}
+
+.card {
+    margin-bottom: 0px !important;
+}
+/*************************************************/
+
 .logo > .logo-mini {
     margin-right: 7px !important;
 }
