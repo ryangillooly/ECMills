@@ -4,13 +4,17 @@
     padding: 0px;
 }
 
+.TxtAlignLeft {
+    text-align: left;
+}
+
+.TxtAlignRight {
+    text-align: right;
+}
+
 /* Overwrite some material dash padding / margins*/
 .main-panel > .content {
     padding: 15px !important;
-}
-
-.card {
-    margin-bottom: 0px !important;
 }
 /*************************************************/
 
