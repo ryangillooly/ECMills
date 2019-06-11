@@ -4,6 +4,44 @@
     padding: 0px;
 }
 
+
+/*******/
+
+.header-fixed {
+    width: 100%
+}
+
+    .header-fixed > thead,
+    .header-fixed > tbody,
+    .header-fixed > thead > tr,
+    .header-fixed > tbody > tr,
+    .header-fixed > thead > tr > th,
+    .header-fixed > tbody > tr > td {
+        display: block;
+    }
+
+        .header-fixed > tbody > tr:after,
+        .header-fixed > thead > tr:after {
+            content: ' ';
+            display: block;
+            visibility: hidden;
+            clear: both;
+        }
+
+    .header-fixed > tbody {
+        overflow-y: auto;
+        height: 70vh;
+    }
+
+        .header-fixed > tbody > tr > td,
+        .header-fixed > thead > tr > th {
+            width: 33%;
+            float: left;
+        }
+
+/*******/
+
+
 .TxtAlignLeft {
     text-align: left;
 }
@@ -48,12 +86,24 @@
     height: 45vh !important;
 }
 
+.Height85vh {
+    height: 85vh !important;
+}
+
 .Height41vh{
     height: 41vh !important;
 }
 
 .OverflowScroll {
     overflow: scroll !important;
+}
+
+.OverflowYScroll {
+    overflow-y: scroll !important;
+}
+
+.TextAlignCenter {
+    text-align: center;
 }
 
 .BreakLine[data-color="purple"] {

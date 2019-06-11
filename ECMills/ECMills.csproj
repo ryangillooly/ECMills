@@ -933,11 +933,8 @@
     <Content Include="Views\Dashboard\Diary.cshtml" />
     <Content Include="Scripts\material-dashboard.js.map" />
     <Content Include="Views\Shared\ArrangementSideBar - Copy.cshtml" />
-    <Content Include="Views\Arrangement\Deceased - Copy.cshtml" />
     <Content Include="Views\Arrangement\New_Form_Template_File.cshtml" />
     <Content Include="Views\Shared\ThemeChangePlugin.cshtml" />
-    <Content Include="Views\Arrangement\ArrangementList - Copy.cshtml" />
-    <Content Include="Views\Arrangement\Contacts - Copy.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
