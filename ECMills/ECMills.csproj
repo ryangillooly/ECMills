@@ -139,6 +139,7 @@
     <Compile Include="Controllers\CommunityController.cs" />
     <Compile Include="Controllers\ContactsController.cs" />
     <Compile Include="Controllers\DashboardController.cs" />
+    <Compile Include="Controllers\DiaryController.cs" />
     <Compile Include="Controllers\FinanceController.cs" />
     <Compile Include="Controllers\FirstCallsController.cs" />
     <Compile Include="Controllers\FuneralPlanEnquiriesController.cs" />
@@ -502,6 +503,7 @@
     <Content Include="Content\FullCalendar\timegrid\main.js" />
     <Content Include="Content\FullCalendar\timegrid\main.min.css" />
     <Content Include="Content\FullCalendar\timegrid\main.min.js" />
+    <Content Include="Content\material-bootstrap-wizard.css" />
     <Content Include="Content\material-dashboard-rtl.css" />
     <Content Include="Content\material-dashboard.css" />
     <Content Include="Content\material-dashboard.min.css" />
@@ -864,6 +866,7 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\material-bootstrap-wizard.js" />
     <Content Include="Scripts\material-dashboard.js" />
     <Content Include="Scripts\material-dashboard.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
@@ -930,11 +933,11 @@
     <Content Include="Views\Arrangement\Transport.cshtml" />
     <Content Include="Views\Arrangement\Documents.cshtml" />
     <Content Include="Views\Dashboard\Index.cshtml" />
-    <Content Include="Views\Dashboard\Diary.cshtml" />
+    <Content Include="Views\Diary\Index.cshtml" />
     <Content Include="Scripts\material-dashboard.js.map" />
-    <Content Include="Views\Shared\ArrangementSideBar - Copy.cshtml" />
     <Content Include="Views\Arrangement\New_Form_Template_File.cshtml" />
     <Content Include="Views\Shared\ThemeChangePlugin.cshtml" />
+    <Content Include="Views\FirstCalls\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -943,7 +946,6 @@
     <Folder Include="Views\Community\" />
     <Folder Include="Views\Contacts\" />
     <Folder Include="Views\Finance\" />
-    <Folder Include="Views\FirstCalls\" />
     <Folder Include="Views\FuneralPlanEnquiries\" />
     <Folder Include="Views\FuneralPlans\" />
     <Folder Include="Views\Reports\" />

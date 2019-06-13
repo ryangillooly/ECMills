@@ -56,7 +56,8 @@
                     <p>Dashboard</p>
                 </a>
             </li>
-            <li class="nav-item @(ViewContext.RouteData.Values["Controller"].ToString() == "FirstCalls" ? "active" : "")">
+            <li class="nav-item  @(ViewContext.RouteData.Values["Controller"].ToString() == "FirstCalls" &&
+                                    ViewContext.RouteData.Values["Action"].ToString() == "Index" ? "active" : "")">
                 <a class="nav-link" href="@Url.Action("Index", "FirstCalls", null, null)">
                     <i class="material-icons">person</i>
                     <p>First Calls</p>
@@ -69,9 +70,9 @@
                     <p>Arrangements</p>
                 </a>
             </li>
-            <li class="nav-item  @(ViewContext.RouteData.Values["Controller"].ToString() == "Dashboard" &&
-                                    ViewContext.RouteData.Values["Action"].ToString() == "Diary" ? "active" : "")">
-                <a class="nav-link" href="@Url.Action("Diary", "Dashboard", null, null)">
+            <li class="nav-item  @(ViewContext.RouteData.Values["Controller"].ToString() == "Diary" &&
+                                    ViewContext.RouteData.Values["Action"].ToString() == "Index" ? "active" : "")">
+                <a class="nav-link" href="@Url.Action("Index", "Diary", null, null)">
                     <i class="material-icons">date_range</i>
                     <p>Diary</p>
                 </a>
@@ -97,7 +98,7 @@
             <li class="nav-item ">
                 <a class="nav-link" data-toggle="collapse" href="#AccountsDropdown" aria-expanded="false" aria-controls="AccountsDropdown">
                     <i class="fas fa-pound-sign"></i>
-                    <p>Accounts</p>
+                    <p>Accounts <b class="caret"></b></p>
                 </a>
                 <ul class="collapse" id="AccountsDropdown">
                     <li class="nav-item  @(ViewContext.RouteData.Values["Controller"].ToString() == "Accounts" &&
@@ -119,13 +120,13 @@
             <li class="nav-item ">
                 <a class="nav-link" data-toggle="collapse" href="#ContactsDropdown" aria-expanded="false" aria-controls="ContactsDropdown">
                     <i class="material-icons">unarchive</i>
-                    <p>Contacts</p>
+                    <p>Contacts <b class="caret"></b></p>
                 </a>
                 <ul class="collapse" id="ContactsDropdown">
                     <li class="nav-item  @(ViewContext.RouteData.Values["Controller"].ToString() == "Contacts" &&
                                     ViewContext.RouteData.Values["Action"].ToString() == "Suppliers" ? "active" : "")">
                         <a class="nav-link" href="@Url.Action("Suppliers", "Contacts", null, null)">
-                            c
+                            <i class="fas fa-pound-sign"></i>
                             <p>Suppliers</p>
                         </a>
                     </li>
@@ -148,7 +149,7 @@
             <li class="nav-item ">
                 <a class="nav-link" data-toggle="collapse" href="#ReportsDropdown" aria-expanded="false" aria-controls="ReportsDropdown">
                     <i class="material-icons">unarchive</i>
-                    <p>Reports</p>
+                    <p>Reports <b class="caret"></b></p>
                 </a>
                 <ul class="collapse" id="ReportsDropdown">
                     <li class="nav-item  @(ViewContext.RouteData.Values["Controller"].ToString() == "Reports" &&

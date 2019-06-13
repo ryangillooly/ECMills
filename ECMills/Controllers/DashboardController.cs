@@ -22,13 +22,6 @@ namespace ECMills.Controllers
         public ActionResult Index()
         {
             return View();
-
-        }
-
-        [Route("Diary")]
-        public ActionResult Diary()
-        {
-            return View();
         }
     }
 }
