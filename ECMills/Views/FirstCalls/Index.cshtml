@@ -7,49 +7,193 @@
 }
 
 <div class="container-fluid">
-        <!--      Wizard container        -->
-        <div class="wizard-container col-md-10 col-12 mr-auto ml-auto" style="padding-top: 0px !important;">
-            <div class="card wizard-card" data-color="rose" id="wizardProfile">
-                <form action="" method="">
-                    <!--        You can switch " data-color="purple" "  with one of the next bright colors: "green", "orange", "red", "blue"       -->
+    <!--      Wizard container        -->
+    <div class="wizard-container col-md-10 col-12 mr-auto ml-auto">
+        <div class="card wizard-card" data-color="rose" id="wizardProfile">
+            <form action="" method="">
+                <!--        You can switch " data-color="purple" "  with one of the next bright colors: "green", "orange", "red", "blue"       -->
 
-                    <div class="wizard-header">
-                        <h3 class="wizard-title">
-                            First Call
-                        </h3>
-                        <h5>Log a Clients First Call</h5>
-                    </div>
-                    <div class="wizard-navigation">
-                        <ul>
-                            <li><a href="#calldetails" data-toggle="tab">Call Details</a></li>
-                            <li><a href="#deceasedperson" data-toggle="tab">Deceased Person</a></li>
-                            <li><a href="#contactdetails" data-toggle="tab">Contact Details</a></li>
-                            <li><a href="#appointment" data-toggle="tab">Appointment</a></li>
-                        </ul>
-                    </div>
+                <div class="wizard-header">
+                    <h3 class="wizard-title">
+                        First Call
+                    </h3>
+                    <h5>Log a Clients First Call</h5>
+                </div>
+                <div class="wizard-navigation">
+                    <ul>
+                        <li><a href="#calldetails" data-toggle="tab">Call Details</a></li>
+                        <li><a href="#deceasedperson" data-toggle="tab">Deceased Person</a></li>
+                        <li><a href="#contactdetails" data-toggle="tab">Contact Details</a></li>
+                        <li><a href="#appointment" data-toggle="tab">Appointment</a></li>
+                    </ul>
+                </div>
 
-                    <div class="tab-content">
-                        <div class="tab-pane" id="calldetails">
-                            <div class="row">
-                                <div class="card-body" style="padding-top: 3rem;">
+                <div class="tab-content">
+                    <div class="tab-pane" id="calldetails">
+                        <div class="row">
+                            <div class="col-xl-10 col-lg-11 col-md-12 ml-auto mr-auto">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-xl-8 col-lg-10 col-md-10 col-sm-12">
+                                            <div class="row">
+                                                <div class="col-md-5 col-sm-6">
+                                                    <div class="form-group select-wizard bmd-form-group">
+                                                        <label class="bmd-label-static">Job Type</label>
+                                                        <div class="dropdown bootstrap-select">
+                                                            <div class="dropdown bootstrap-select" style="text-transform: none !important;">
+                                                                <select class="selectpicker" data-size="7" data-style="select-with-transition" title="" tabindex="-98">
+                                                                    <option value="Mr">  </option>
+                                                                    <option value="Afghanistan"> Funeral </option>
+                                                                    <option value="Albania"> Sundry </option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-5 col-sm-6">
+                                                    <div class="form-group select-wizard bmd-form-group">
+                                                        <label class="bmd-label-static">Job Sub Type</label>
+                                                        <div class="dropdown bootstrap-select">
+                                                            <div class="dropdown bootstrap-select" style="text-transform: none !important;">
+                                                                <select class="selectpicker" data-size="7" data-style="select-with-transition" title="" tabindex="-98">
+                                                                    <option value="Mr">  </option>
+                                                                    <option value="Funeral"> Funeral </option>
+                                                                    <option value="FuneralPlan"> Funeral Plan </option>
+                                                                    <option value="Cremation"> Cremation </option>
+                                                                    <option value="DirectCremation"> Direct Cremation </option>
+                                                                    <option value="Sundry"> Sundry </option>
+                                                                    <option value="Transport"> Transport </option>
+                                                                    <option value="Quote"> Quote </option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-xl-11 col-lg-12">
+                                            <div class="row">
+                                                <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-4">
+                                                    <div class="form-group select-wizard bmd-form-group">
+                                                        <label class="bmd-label-static">Title</label>
+                                                        <div class="dropdown bootstrap-select">
+                                                            <div class="dropdown bootstrap-select">
+                                                                <select class="selectpicker" data-size="7" data-style="select-with-transition" title="" tabindex="-98">
+                                                                    <option value="Mr">  </option>
+                                                                    <option value="Mr"> Mr </option>
+                                                                    <option value="Mrs"> Mrs </option>
+                                                                    <option value="Miss"> Miss </option>
+                                                                    <option value="Ms"> Ms. </option>
+                                                                    <option value="Miss"> Miss </option>
+                                                                    <option value="Doctor"> Doctor </option>
+                                                                    <option value="Nurse"> Nurse </option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-8">
+                                                    <div class="form-group bmd-form-group">
+                                                        <label class="bmd-label-static">Forename(s)</label>
+                                                        <input name="Name" type="text" class="form-control" placeholder="" />
+                                                    </div>
+                                                </div>
+                                                <div class="col-xl-5 col-lg-5 col-md-5 col-sm-5 col-xs-12">
+                                                    <div class="form-group bmd-form-group">
+                                                        <label class="bmd-label-static">Surname</label>
+                                                        <input name="Name" type="text" class="form-control" placeholder="" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-xl-12">
+                                            <div class="row">
+                                                <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12">
+                                                    <div class="form-group bmd-form-group">
+                                                        <div class="form-group select-wizard bmd-form-group">
+                                                            <label class="bmd-label-static">Contacts</label>
+                                                            <div class="dropdown bootstrap-select">
+                                                                <div class="dropdown bootstrap-select" style="text-transform: none !important;">
+                                                                    <select class="selectpicker" data-size="7" data-style="select-with-transition" title="" tabindex="-98">
+                                                                        <option value="Funeral">  </option>
+                                                                        <option value="Funeral"> Home Phone </option>
+                                                                        <option value="FuneralPlan"> Mobile Phone </option>
+                                                                        <option value="Cremation"> E-Mail </option>
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-xl-8 col-lg-8 col-md-8 col-sm-12">
+                                                    <div class="form-group bmd-form-group">
+                                                        <label class="bmd-label-static">Value</label>
+                                                        <input name="Name" type="text" class="form-control" placeholder="" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group select-wizard bmd-form-group">
-                                                <label class="bmd-label-static">Job Type</label>
+                                                <label class="bmd-label-static">Relationship To Deceased</label>
                                                 <div class="dropdown bootstrap-select">
                                                     <div class="dropdown bootstrap-select" style="text-transform: none !important;">
                                                         <select class="selectpicker" data-size="7" data-style="select-with-transition" title="" tabindex="-98">
-                                                            <option value="Afghanistan"> Funeral </option>
-                                                            <option value="Albania"> Funeral Plan </option>
-                                                            <option value="Algeria"> Cremation </option>
-                                                            <option value="American Ashes"> American Samoa </option>
-                                                            <option value="Andorra"> Transport </option>
+                                                            <option value="Funeral">  </option>
+                                                            <option value="Funeral"> Son </option>
+                                                            <option value="FuneralPlan"> Daughter </option>
+                                                            <option value="FuneralPlan"> Father </option>
+                                                            <option value="Cremation"> Mother </option>
+                                                            <option value="Cremation"> Doctor </option>
+                                                            <option value="Cremation"> Nurse </option>
+                                                            <option value="Cremation"> Other </option>
                                                         </select>
                                                     </div>
                                                 </div>
-                                                </div>
+                                            </div>
                                         </div>
-
+                                        <div class="col-md-6">
+                                            <div class="form-group select-wizard bmd-form-group">
+                                                <label class="bmd-label-static">Deceased Source</label>
+                                                <div class="dropdown bootstrap-select">
+                                                    <div class="dropdown bootstrap-select" style="text-transform: none !important;">
+                                                        <select class="selectpicker" data-size="7" data-style="select-with-transition" title="" tabindex="-98">
+                                                            <option value="Funeral">  </option>
+                                                            <option value="Funeral"> Home </option>
+                                                            <option value="FuneralPlan"> Hospice </option>
+                                                            <option value="FuneralPlan"> Care Home </option>
+                                                            <option value="Cremation"> Hospital </option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <div class="form-group bmd-form-group">
+                                                    <label class="bmd-label-floating">Additional Notes</label>
+                                                    <textarea class="form-control" rows="3"></textarea>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane" id="deceasedperson">
+                        <div class="row">
+                            <div class="col-xl-10 col-lg-11 col-md-12 ml-auto mr-auto">
+                                <div class="card-body">
+                                    <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group bmd-form-group">
                                                 <label class="bmd-label-static">Known As</label>
@@ -125,56 +269,59 @@
                                             </div>
                                         </div>
                                     </div>
-                                 
                                 </div>
                             </div>
                         </div>
-                        <div class="tab-pane" id="deceasedperson">
-                            <h4 class="info-text"> What are you doing? (checkboxes) </h4>
-                            <div class="row">
-                                
-
-                                <!-- DATTTTAAAAAAA  -->
+                    </div>
+                    <div class="tab-pane" id="contactdetails">
+                        <h4 class="info-text"> What are you doing? (checkboxes) </h4>
+                        <div class="row">
 
 
-                            </div>
-                        </div>
-                        <div class="tab-pane" id="appointment">
-                            <h4 class="info-text"> What are you doing? (checkboxes) </h4>
-                            <div class="row">
+                            <!-- DATTTTAAAAAAA  -->
 
 
-                                <!-- DATTTTAAAAAAA  -->
-
-
-                            </div>
                         </div>
                     </div>
-                    <div class="wizard-footer">
-                        <div class="pull-right">
-                            <input type='button' class='btn btn-next btn-rose btn-fill btn-wd' name='next' value='Next' />
-                            <input type='button' class='btn btn-finish btn-fill btn-wd' name='finish' value='Finish' />
-                        </div>
+                    <div class="tab-pane" id="appointment">
+                        <h4 class="info-text"> What are you doing? (checkboxes) </h4>
+                        <div class="row">
 
-                        <div class="pull-left">
-                            <input type='button' class='btn btn-previous btn-rose btn-fill btn-default btn-wd' name='previous' value='Previous' />
+
+                            <!-- DATTTTAAAAAAA  -->
+
+
                         </div>
-                        <div class="clearfix"></div>
                     </div>
-                </form>
-            </div>
+                </div>
+                <div class="wizard-footer">
+                    <div class="pull-right">
+                        <input type='button' class='btn btn-next btn-rose btn-fill btn-wd' name='next' value='Next' />
+                        <input type='button' class='btn btn-finish btn-fill btn-wd' name='finish' value='Finish' />
+                    </div>
+
+                    <div class="pull-left">
+                        <input type='button' class='btn btn-previous btn-rose btn-fill btn-default btn-wd' name='previous' value='Previous' />
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+            </form>
         </div>
-        <!-- wizard container -->
+    </div>
+    <!-- wizard container -->
 </div>
 
 @section scripts {
-    <script src="~/Scripts/test/bootstrap.min.js" type="text/javascript"></script>
-    <script src="~/Scripts/test/jquery.bootstrap.js" type="text/javascript"></script>
-
     <!--  Plugin for the Wizard -->
     <script src="~/Scripts/test/material-bootstrap-wizard.js"></script>
 
+    <script src="~/Scripts/test/bootstrap.min.js" type="text/javascript"></script>
+    <script src="~/Scripts/test/jquery.bootstrap.js" type="text/javascript"></script>
+
     <!--  More information about jquery.validate here: http://jqueryvalidation.org/	 -->
-    <script src="~/Scripts/test/jquery.validate.min.js"></script>
+    <!--script src="~/Scripts/test/jquery.validate.min.js"></script> -->
 }
 
+@section css {
+    <link href="~/Content/test/material-bootstrap-wizard.css" rel="stylesheet" />
+}

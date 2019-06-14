@@ -5,7 +5,32 @@
 }
 
 
+
+@media (min-width: 576px) {
+    .wizard-navigation ul {
+        margin-bottom: 3rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .wizard-navigation ul {
+        margin-bottom: 0;
+    }
+
+    .wizard-navigation ul li {
+        margin-top: 5%;
+        margin-bottom: 5%;
+    }
+
+    .wizard-navigation .moving-tab {
+        margin-top: 5%;
+    }
+
+}
+
+
 /*******/
+
 
 .header-fixed {
     width: 100%
