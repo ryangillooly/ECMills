@@ -5,29 +5,14 @@
 }
 
 
-
-@media (min-width: 576px) {
-    .wizard-navigation ul {
-        margin-bottom: 3rem;
-    }
+.wizard-navigation .moving-tab {
+    margin-top: -0.2rem;
 }
 
-@media (max-width: 576px) {
-    .wizard-navigation ul {
-        margin-bottom: 0;
-    }
-
-    .wizard-navigation ul li {
-        margin-top: 5%;
-        margin-bottom: 5%;
-    }
-
-    .wizard-navigation .moving-tab {
-        margin-top: 5%;
-    }
-
+.wizard-navigation ul li {
+   padding-bottom: 0.3rem;
+   padding-top: 0.3rem;
 }
-
 
 /*******/
 
@@ -36,33 +21,33 @@
     width: 100%
 }
 
-    .header-fixed > thead,
-    .header-fixed > tbody,
-    .header-fixed > thead > tr,
-    .header-fixed > tbody > tr,
-    .header-fixed > thead > tr > th,
-    .header-fixed > tbody > tr > td {
+.header-fixed > thead,
+.header-fixed > tbody,
+.header-fixed > thead > tr,
+.header-fixed > tbody > tr,
+.header-fixed > thead > tr > th,
+.header-fixed > tbody > tr > td {
+    display: block;
+}
+
+    .header-fixed > tbody > tr:after,
+    .header-fixed > thead > tr:after {
+        content: ' ';
         display: block;
+        visibility: hidden;
+        clear: both;
     }
 
-        .header-fixed > tbody > tr:after,
-        .header-fixed > thead > tr:after {
-            content: ' ';
-            display: block;
-            visibility: hidden;
-            clear: both;
-        }
+.header-fixed > tbody {
+    overflow-y: auto;
+    height: 70vh;
+}
 
-    .header-fixed > tbody {
-        overflow-y: auto;
-        height: 70vh;
-    }
-
-        .header-fixed > tbody > tr > td,
-        .header-fixed > thead > tr > th {
-            width: 33%;
-            float: left;
-        }
+.header-fixed > tbody > tr > td,
+.header-fixed > thead > tr > th {
+    width: 33%;
+    float: left;
+}
 
 /*******/
 
@@ -296,26 +281,6 @@ GridTmplRows-4x1fr {
     grid-row: 2;
     text-align: right;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
