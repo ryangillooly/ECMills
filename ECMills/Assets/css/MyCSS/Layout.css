@@ -4,16 +4,6 @@
     padding: 0px;
 }
 
-
-.wizard-navigation .moving-tab {
-    margin-top: -0.2rem;
-}
-
-.wizard-navigation ul li {
-   padding-bottom: 0.3rem;
-   padding-top: 0.3rem;
-}
-
 /*******/
 
 
@@ -40,7 +30,6 @@
 
 .header-fixed > tbody {
     overflow-y: auto;
-    height: 70vh;
 }
 
 .header-fixed > tbody > tr > td,
@@ -58,16 +47,6 @@
 
 .TxtAlignRight {
     text-align: right;
-}
-
-/* Overwrite some material dash padding / margins*/
-.main-panel > .content {
-    padding: 15px !important;
-}
-/*************************************************/
-
-.logo > .logo-mini {
-    margin-right: 7px !important;
 }
 
 .RemoveMargins {
@@ -158,23 +137,6 @@
     margin-bottom: 1em;
 }
 
-.CalendarItem-Funeral {
-    background-color: #ff9800 !important;
-    border: 1px solid #ff9800 !important;
-}
-
-.CalendarItem-Funeral > div {
-    color: white !important;
-}
-
-.CalendarItem-Cremation {
-    background-color: #00bcd4 !important;
-    border: 1px solid #00bcd4 !important;
-}
-
-.CalendarItem-Cremation > div {
-    color: white !important;
-}
 
 #DocumentNav > ul > li{
     display: inline;

@@ -562,7 +562,7 @@
     <Content Include="Content\FullCalendar\timegrid\main.js" />
     <Content Include="Content\FullCalendar\timegrid\main.min.css" />
     <Content Include="Content\FullCalendar\timegrid\main.min.js" />
-    <Content Include="Content\MyCSS\Layout.css" />
+    <Content Include="Assets\css\MyCSS\Layout.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <EntityDeploy Include="Models\ECMills_DBModel.edmx">
