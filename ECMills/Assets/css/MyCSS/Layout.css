@@ -4,9 +4,12 @@
     padding: 0px;
 }
 
+
+.bootstrap-select button.dropdown-toggle {
+    margin-top: 2px;
+}
+
 /*******/
-
-
 .header-fixed {
     width: 100%
 }

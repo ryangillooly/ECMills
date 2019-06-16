@@ -5,12 +5,17 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+@section css {
+    <link href='~/Content/FullCalendar/core/main.css' rel='stylesheet' />
+    <link href='~/Content/FullCalendar/daygrid/main.css' rel='stylesheet' />
+}
+
 <div class="container-fluid">
     <div class="col-md-8 col-12 mr-auto ml-auto">
         <!--      Wizard container        -->
         <div class="wizard-container">
             <div class="card card-wizard active" data-color="rose" id="wizardProfile">
-                <form action=""  novalidate="novalidate">
+                <form action="" novalidate="novalidate">
                     <!--        You can switch " data-color="primary" "  with one of the next bright colors: "green", "orange", "red", "blue"       -->
                     <div class="card-header text-center">
                         <h3 class="card-title">
@@ -46,33 +51,57 @@
                         </div>
                     </div>
                     <div class="card-body">
-                        <div class="tab-content">
+                        <div class="tab-content" style="padding-top: 30px;">
                             <div class="tab-pane active" id="calldetails">
                                 <div class="row justify-content-center">
-                                    <div class="col-lg-10" style="padding-top: 30px;">
+                                    <div class="col-lg-10">
                                         <div class="row">
                                             <div class="col-md-12">
                                                 <div class="row">
-                                                    <div class="col-md-3">
+                                                    <div class="col-md-4">
                                                         <div class="form-group bmd-form-group">
                                                             <label class="bmd-label-static">Job Type</label>
                                                             <div class="dropdown bootstrap-select">
-                                                                <div class="dropdown bootstrap-select">
-                                                                    <select class="selectpicker" data-size="7" data-style="select-with-transition" title="" tabindex="-98">
+                                                                <div class="dropdown bootstrap-select form-control">
+                                                                    <select class="selectpicker" data-size="7" name="JobType" aria-invalid="true" required="true" data-style="select-with-transition" title="" tabindex="-98">
+                                                                        <option selected></option>
                                                                         <option value="Funeral"> Funeral </option>
-                                                                        <option value="FuneralPlan"> Sundry</option>
+                                                                        <option value="FuneralPlan"> Sundry </option>
+                                                                    </select>
+                                                                    <!--<label id="required-error" class="error" for="JobType">This field is required.</label>-->
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-5">
+                                                        <div class="form-group bmd-form-group">
+                                                            <label class="bmd-label-static">Job Sub Type</label>
+                                                            <div class="dropdown bootstrap-select">
+                                                                <div class="dropdown bootstrap-select form-control">
+                                                                    <select class="selectpicker" required="true" data-size="7" data-style="select-with-transition" title="" tabindex="-98">
+                                                                        <option selected></option>
+                                                                        <option value="Funeral"> Funeral </option>
+                                                                        <option value="FuneralPlan"> Funeral Plan </option>
+                                                                        <option value="FuneralPlan"> Cremation </option>
+                                                                        <option value="FuneralPlan"> Direct Cremation </option>
+                                                                        <option value="FuneralPlan"> Transport </option>
+                                                                        <option value="FuneralPlan"> Quotation </option>
                                                                     </select>
                                                                 </div>
                                                             </div>
                                                         </div>
                                                     </div>
-
-
-
                                                     <div class="col-md-3">
                                                         <div class="form-group bmd-form-group">
-                                                            <label class="bmd-label-static">Job Sub Type</label>
-                                                            <div class="form-control"></div>
+                                                            <div class="form-check mr-auto">
+                                                                <label class="form-check-label">
+                                                                    <input class="form-check-input" type="checkbox" value="" checked="">
+                                                                    <span class="form-check-sign">
+                                                                        <span class="check"></span>
+                                                                    </span>
+                                                                    Death Registered?
+                                                                </label>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -80,19 +109,35 @@
                                                     <div class="col-md-3">
                                                         <div class="form-group bmd-form-group">
                                                             <label class="bmd-label-static">Title</label>
-                                                            <div class="form-control"></div>
+                                                            <div class="dropdown bootstrap-select">
+                                                                <div class="dropdown bootstrap-select form-control">
+                                                                    <select class="selectpicker" required="true" data-size="7" data-style="select-with-transition" title="" tabindex="-98">
+                                                                        <option selected></option>
+                                                                        <option value="Funeral"> Mr </option>
+                                                                        <option value="FuneralPlan"> Mrs </option>
+                                                                        <option value="FuneralPlan"> Miss </option>
+                                                                        <option value="FuneralPlan"> Ms </option>
+                                                                        <option value="FuneralPlan"> Doctor </option>
+                                                                        <option value="FuneralPlan"> Nurse </option>
+                                                                        <option value="FuneralPlan"> Father </option>
+                                                                        <option value="FuneralPlan"> Reverand </option>
+                                                                        <option value="FuneralPlan"> Mrs </option>
+                                                                    </select>
+                                                                </div>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                     <div class="col-md-4">
                                                         <div class="form-group bmd-form-group">
                                                             <label class="bmd-label-static">Forename(s)</label>
-                                                            <div class="form-control"></div>
+                                                            <div class="form-control" required="true" name="Forenames" aria-required="true" aria-invalid="true" type="text"></div>
+                                                            <label id="required-error" class="error" for="Forenames">This field is required.</label>
                                                         </div>
                                                     </div>
                                                     <div class="col-md-5">
                                                         <div class="form-group bmd-form-group">
                                                             <label class="bmd-label-static">Surname</label>
-                                                            <div class="form-control"></div>
+                                                            <div class="form-control" required="true"></div>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -100,7 +145,23 @@
                                                     <div class="col-md-6">
                                                         <div class="form-group bmd-form-group">
                                                             <label class="bmd-label-static">Relationship To Deceased</label>
-                                                            <div class="form-control"></div>
+                                                            <div class="dropdown bootstrap-select">
+                                                                <div class="dropdown bootstrap-select">
+                                                                    <select class="selectpicker" data-size="7" data-style="select-with-transition" title="" tabindex="-98">
+                                                                        <option selected></option>
+                                                                        <option value="Funeral"> Son </option>
+                                                                        <option value="FuneralPlan"> Daughter </option>
+                                                                        <option value="FuneralPlan"> Mother </option>
+                                                                        <option value="FuneralPlan"> Father </option>
+                                                                        <option value="FuneralPlan"> Brother </option>
+                                                                        <option value="FuneralPlan"> Sister </option>
+                                                                        <option value="FuneralPlan"> Cousin </option>
+                                                                        <option value="FuneralPlan"> Aunt </option>
+                                                                        <option value="FuneralPlan"> Uncle </option>
+                                                                        <option value="FuneralPlan"> Other </option>
+                                                                    </select>
+                                                                </div>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                     <div class="col-md-6">
@@ -181,27 +242,62 @@
                                         <div class="row">
                                             <div class="col-md-12">
                                                 <div class="row">
-                                                    <div class="col-md-6">
+                                                    <div class="col-md-3">
                                                         <div class="form-group bmd-form-group">
-                                                            <label class="bmd-label-static">Name</label>
+                                                            <label class="bmd-label-static">Title</label>
+                                                            <div class="dropdown bootstrap-select">
+                                                                <div class="dropdown bootstrap-select">
+                                                                    <select class="selectpicker" data-size="7" data-style="select-with-transition" title="" tabindex="-98">
+                                                                        <option selected></option>
+                                                                        <option value="Funeral"> Mr </option>
+                                                                        <option value="FuneralPlan"> Mrs </option>
+                                                                        <option value="FuneralPlan"> Miss </option>
+                                                                        <option value="FuneralPlan"> Ms </option>
+                                                                        <option value="FuneralPlan"> Doctor </option>
+                                                                        <option value="FuneralPlan"> Nurse </option>
+                                                                        <option value="FuneralPlan"> Father </option>
+                                                                        <option value="FuneralPlan"> Reverand </option>
+                                                                        <option value="FuneralPlan"> Mrs </option>
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="form-group bmd-form-group">
+                                                            <label class="bmd-label-static">Forename(s)</label>
                                                             <div class="form-control" id="ReadOnlyInput-Name"></div>
                                                         </div>
                                                     </div>
-                                                    <div class="col-md-6">
+                                                    <div class="col-md-5">
+                                                        <div class="form-group bmd-form-group">
+                                                            <label class="bmd-label-static">Surname</label>
+                                                            <div class="form-control" id="ReadOnlyInput-Name"></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-4">
                                                         <div class="form-group bmd-form-group">
                                                             <label class="bmd-label-static">Known As</label>
                                                             <div class="form-control" id="ReadOnlyInput-Known_As"></div>
                                                         </div>
                                                     </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-md-6">
+                                                    <div class="col-md-4">
                                                         <div class="form-group bmd-form-group">
                                                             <label class="bmd-label-static">Gender</label>
-                                                            <div class="form-control" id="ReadOnlyInput-Gender"></div>
+                                                            <div class="dropdown bootstrap-select">
+                                                                <div class="dropdown bootstrap-select">
+                                                                    <select class="selectpicker" data-size="7" data-style="select-with-transition" title="" tabindex="-98">
+                                                                        <option selected></option>
+                                                                        <option value="Funeral"> Male </option>
+                                                                        <option value="FuneralPlan"> Female </option>
+                                                                    </select>
+                                                                </div>
+                                                            </div>
                                                         </div>
                                                     </div>
-                                                    <div class="col-md-6">
+                                                    <div class="col-md-4">
                                                         <div class="form-group bmd-form-group">
                                                             <label class="bmd-label-static">Age</label>
                                                             <div class="form-control" id="ReadOnlyInput-Age"></div>
@@ -234,9 +330,9 @@
                                                         <div class="form-group bmd-form-group">
                                                             <label class="bmd-label-static">Occupation</label>
                                                             <div class="form-control" id="ReadOnlyInput-Occupation"></div>
-                                                            </div>
                                                         </div>
                                                     </div>
+                                                </div>
                                                 <div class="row">
                                                     <div class="col-md-6">
                                                         <div class="form-group bmd-form-group">
@@ -256,7 +352,149 @@
                                     </div>
                                 </div>
                             </div>
-                            
+                            <div class="tab-pane" id="contactdetails">
+                                <div class="row justify-content-center">
+                                    <div class="col-lg-10">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="row">
+                                                    <div class="col-md-3">
+                                                        <div class="form-group bmd-form-group">
+                                                            <label class="bmd-label-static">Title</label>
+                                                            <div class="dropdown bootstrap-select">
+                                                                <div class="dropdown bootstrap-select">
+                                                                    <select class="selectpicker" data-size="7" data-style="select-with-transition" title="" tabindex="-98">
+                                                                        <option selected></option>
+                                                                        <option value="Funeral"> Mr </option>
+                                                                        <option value="FuneralPlan"> Mrs </option>
+                                                                        <option value="FuneralPlan"> Miss </option>
+                                                                        <option value="FuneralPlan"> Ms </option>
+                                                                        <option value="FuneralPlan"> Doctor </option>
+                                                                        <option value="FuneralPlan"> Nurse </option>
+                                                                        <option value="FuneralPlan"> Father </option>
+                                                                        <option value="FuneralPlan"> Reverand </option>
+                                                                        <option value="FuneralPlan"> Mrs </option>
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="form-group bmd-form-group">
+                                                            <label class="bmd-label-static">Forename(s)</label>
+                                                            <div class="form-control" id="ReadOnlyInput-Name"></div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-5">
+                                                        <div class="form-group bmd-form-group">
+                                                            <label class="bmd-label-static">Surname</label>
+                                                            <div class="form-control" id="ReadOnlyInput-Name"></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-4">
+                                                        <div class="form-group bmd-form-group">
+                                                            <label class="bmd-label-static">Known As</label>
+                                                            <div class="form-control" id="ReadOnlyInput-Known_As"></div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="form-group bmd-form-group">
+                                                            <label class="bmd-label-static">Gender</label>
+                                                            <div class="dropdown bootstrap-select">
+                                                                <div class="dropdown bootstrap-select">
+                                                                    <select class="selectpicker" data-size="7" data-style="select-with-transition" title="" tabindex="-98">
+                                                                        <option selected></option>
+                                                                        <option value="Funeral"> Male </option>
+                                                                        <option value="FuneralPlan"> Female </option>
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="form-group bmd-form-group">
+                                                            <label class="bmd-label-static">Age</label>
+                                                            <div class="form-control" id="ReadOnlyInput-Age"></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <div class="form-group bmd-form-group">
+                                                            <label class="bmd-label-static">Date of Birth</label>
+                                                            <div class="form-control" id="ReadOnlyInput-DOB"></div>
+
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <div class="form-group bmd-form-group">
+                                                            <label class="bmd-label-static">Date/Time of Death</label>
+                                                            <div class="form-control" id="ReadOnlyInput-TimeOfDeath"></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <div class="form-group bmd-form-group">
+                                                            <label class="bmd-label-static">Marital Status</label>
+                                                            <div class="form-control" id="ReadOnlyInput-MaritalStatus"></div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <div class="form-group bmd-form-group">
+                                                            <label class="bmd-label-static">Occupation</label>
+                                                            <div class="form-control" id="ReadOnlyInput-Occupation"></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <div class="form-group bmd-form-group">
+                                                            <label class="bmd-label-static">Religion</label>
+                                                            <div class="form-control" id="ReadOnlyInput-Religion"></div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <div class="form-group bmd-form-group">
+                                                            <label class="bmd-label-static">Religious Denomination</label>
+                                                            <div class="form-control" id="ReadOnlyInput-RelDom"></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane" id="appointment">
+                                <div class="row justify-content-center">
+                                    <div class="col-lg-10">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#appointmentpicker">View Diary</button>
+
+                                                        <div class="modal fade" id="appointmentpicker" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                                                            <div class="modal-dialog modal-lg">
+                                                                <div class="modal-content">
+                                                                    <div class="card-body">
+                                                                        <div id='fullCalendar'>
+
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="card-footer">
@@ -285,5 +523,131 @@
             $('.card.card-wizard').addClass('active');
           }, 600);
         });
+    </script>
+
+    <script src='~/Content/FullCalendar/core/main.js'></script>
+    <script src='~/Content/FullCalendar/interaction/main.js'></script>
+    <script src='~/Content/FullCalendar/daygrid/main.js'></script>
+    <script>
+
+    $calendar = $('#fullCalendar');
+
+    today = new Date();
+    y = today.getFullYear();
+    m = today.getMonth();
+    d = today.getDate();
+
+    $calendar.fullCalendar({
+        viewRender: function (view, element) {
+            // We make sure that we activate the perfect scrollbar when the view isn't on Month
+            if (view.name != 'month') {
+                $(element).find('.fc-scroller').perfectScrollbar();
+            }
+        },
+        header: {
+            left: 'title',
+            center: 'Month,Week,Day',
+            right: 'prev,next,today'
+        },
+        defaultDate: today,
+        selectable: true,
+        selectHelper: true,
+        views: {
+            month: { // name of view
+                titleFormat: 'MMMM YYYY'
+                // other view-specific options here
+            },
+            week: {
+                titleFormat: " MMMM D YYYY"
+            },
+            day: {
+                titleFormat: 'D MMM, YYYY'
+            }
+        },
+
+        select: function (start, end) {
+
+            // on select we show the Sweet Alert modal with an input
+            swal({
+                title: 'Create an Event',
+                html: '<div class="form-group">' +
+                    '<input class="form-control" placeholder="Event Title" id="input-field">' +
+                    '</div>',
+                showCancelButton: true,
+                confirmButtonClass: 'btn btn-success',
+                cancelButtonClass: 'btn btn-danger',
+                buttonsStyling: false
+            }).then(function (result) {
+
+                var eventData;
+                event_title = $('#input-field').val();
+
+                if (event_title) {
+                    eventData = {
+                        title: event_title,
+                        start: start,
+                        end: end
+                    };
+                    $calendar.fullCalendar('renderEvent', eventData, true); // stick? = true
+                }
+
+                $calendar.fullCalendar('unselect');
+
+            });
+        },
+        editable: true,
+        eventLimit: true, // allow "more" link when too many events
+
+
+        // color classes: [ event-blue | event-azure | event-green | event-orange | event-red ]
+        events: [
+            {
+                title: 'All Day Event',
+                start: new Date(y, m, 1),
+                className: 'CalendarItem-Cremation'
+            },
+            {
+                title: 'Meeting',
+                start: new Date(y, m, d - 1, 10, 30),
+                allDay: false,
+                className: 'CalendarItem-Funeral'
+            },
+            {
+                title: 'Lunch',
+                start: new Date(y, m, d + 7, 12, 0),
+                end: new Date(y, m, d + 7, 14, 0),
+                allDay: false,
+                className: 'CalendarItem-Cremation'
+            },
+            {
+                title: 'Nud-pro Launch',
+                start: new Date(y, m, d - 2, 12, 0),
+                allDay: true,
+                className: 'CalendarItem-Funeral'
+            },
+            {
+                title: 'Birthday Party',
+                start: new Date(y, m, d + 1, 19, 0),
+                end: new Date(y, m, d + 1, 22, 30),
+                allDay: false,
+                className: 'CalendarItem-Funeral'
+            },
+            {
+                title: 'Click for Creative Tim',
+                start: new Date(y, m, 21),
+                end: new Date(y, m, 22),
+                url: 'http://www.creative-tim.com/',
+                className: 'CalendarItem-Cremation'
+            },
+            {
+                title: 'Click for Google',
+                start: new Date(y, m, 21),
+                end: new Date(y, m, 22),
+                url: 'http://www.creative-tim.com/',
+                className: 'CalendarItem-Cremation'
+            }
+        ]
+    });
+
     </script>
 }
