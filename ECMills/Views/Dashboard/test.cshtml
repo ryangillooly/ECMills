@@ -1,11 +1,11 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-    <title>Gmail API Quickstart</title>
+    <title>Google Calendar API Quickstart</title>
     <meta charset="utf-8" />
 </head>
 <body>
-    <p>Gmail API Quickstart</p>
+    <p>Google Calendar API Quickstart</p>
 
     <!--Add buttons to initiate auth sequence and sign out-->
     <button id="authorize_button" style="display: none;">Authorize</button>
@@ -19,11 +19,11 @@
       var API_KEY = 'AIzaSyDZpQAdiZczNipebu-EHE2vZsblyxGRpoc';
 
       // Array of API discovery doc URLs for APIs used by the quickstart
-      var DISCOVERY_DOCS = ["https://www.googleapis.com/discovery/v1/apis/gmail/v1/rest"];
+      var DISCOVERY_DOCS = ["https://www.googleapis.com/discovery/v1/apis/calendar/v3/rest"];
 
       // Authorization scopes required by the API; multiple scopes can be
       // included, separated by spaces.
-      var SCOPES = 'https://www.googleapis.com/auth/gmail.readonly';
+      var SCOPES = "https://www.googleapis.com/auth/calendar.readonly";
 
       var authorizeButton = document.getElementById('authorize_button');
       var signoutButton = document.getElementById('signout_button');
@@ -66,7 +66,7 @@
         if (isSignedIn) {
           authorizeButton.style.display = 'none';
           signoutButton.style.display = 'block';
-          listLabels();
+          listUpcomingEvents();
         } else {
           authorizeButton.style.display = 'block';
           signoutButton.style.display = 'none';
@@ -91,7 +91,7 @@
        * Append a pre element to the body containing the given message
        * as its text node. Used to display the results of the API call.
        *
-       * param {string} message Text to be placed in pre element.
+       * @param {string} message Text to be placed in pre element.
        */
       function appendPre(message) {
         var pre = document.getElementById('content');
@@ -100,23 +100,33 @@
       }
 
       /**
-       * Print all Labels in the authorized user's inbox. If no labels
-       * are found an appropriate message is printed.
+       * Print the summary and start datetime/date of the next ten events in
+       * the authorized user's calendar. If no events are found an
+       * appropriate message is printed.
        */
-      function listLabels() {
-        gapi.client.gmail.users.labels.list({
-          'userId': 'me'
+      function listUpcomingEvents() {
+        gapi.client.calendar.events.list({
+          'calendarId': 'primary',
+          'timeMin': (new Date()).toISOString(),
+          'showDeleted': false,
+          'singleEvents': true,
+          'maxResults': 10,
+          'orderBy': 'startTime'
         }).then(function(response) {
-          var labels = response.result.labels;
-          appendPre('Labels:');
+          var events = response.result.items;
+          appendPre('Upcoming events:');
 
-          if (labels && labels.length > 0) {
-            for (i = 0; i < labels.length; i++) {
-              var label = labels[i];
-              appendPre(label.name)
+          if (events.length > 0) {
+            for (i = 0; i < events.length; i++) {
+              var event = events[i];
+              var when = event.start.dateTime;
+              if (!when) {
+                when = event.start.date;
+              }
+              appendPre(event.summary + ' (' + when + ')')
             }
           } else {
-            appendPre('No Labels found.');
+            appendPre('No upcoming events found.');
           }
         });
       }
