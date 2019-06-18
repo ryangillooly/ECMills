@@ -23,5 +23,11 @@ namespace ECMills.Controllers
         {
             return View();
         }
+
+        [Route("test")]
+        public ActionResult test()
+        {
+            return View();
+        }
     }
 }
