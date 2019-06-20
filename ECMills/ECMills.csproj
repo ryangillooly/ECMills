@@ -154,6 +154,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AccountsController.cs" />
     <Compile Include="Controllers\ArrangementController.cs" />
+    <Compile Include="Controllers\CalendarQuickstartController.cs" />
     <Compile Include="Controllers\CommunityController.cs" />
     <Compile Include="Controllers\ContactsController.cs" />
     <Compile Include="Controllers\DashboardController.cs" />
@@ -854,6 +855,7 @@
     <Folder Include="Scripts\" />
     <Folder Include="ViewModels\" />
     <Folder Include="Views\Accounts\" />
+    <Folder Include="Views\CalendarQuickstart\" />
     <Folder Include="Views\Community\" />
     <Folder Include="Views\Contacts\" />
     <Folder Include="Views\Finance\" />

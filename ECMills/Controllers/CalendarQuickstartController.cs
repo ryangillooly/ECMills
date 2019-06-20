@@ -1,40 +1,38 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
-
-using Google.Apis.Auth.OAuth2;
+﻿using Google.Apis.Auth.OAuth2;
 using Google.Apis.Calendar.v3;
 using Google.Apis.Calendar.v3.Data;
 using Google.Apis.Services;
 using Google.Apis.Util.Store;
+using System;
+using System.Collections.Generic;
 using System.IO;
+using System.Linq;
+using System.Text;
 using System.Threading;
-using System.Collections;
+using System.Threading.Tasks;
+using System.Web.Mvc;
 
 namespace ECMills.Controllers
 {
-    [RoutePrefix("Diary")]
-    public class DiaryController : Controller
+    [RoutePrefix("Calendar")]
+    public class CalendarQuickstartController : Controller
     {
         // If modifying these scopes, delete your previously saved credentials
         // at ~/.credentials/calendar-dotnet-quickstart.json
         static string[] Scopes = { CalendarService.Scope.CalendarReadonly };
         static string ApplicationName = "Google Calendar API .NET Quickstart";
 
-        // GET: Diary
         [Route("")]
-        public ActionResult Index()
+        static void Main(string[] args)
         {
             UserCredential credential;
 
             using (var stream =
-                new FileStream("\\\\Mac\\Home\\Documents\\GitHub\\ECMills\\ECMills\\Content\\credentials.json", FileMode.Open, FileAccess.Read))
+                new FileStream("~/Content/credentials.json", FileMode.Open, FileAccess.Read))
             {
                 // The file token.json stores the user's access and refresh tokens, and is created
                 // automatically when the authorization flow completes for the first time.
-                string credPath = "\\\\Mac\\Home\\Documents\\GitHub\\ECMills\\ECMills\\Content\\token.json";
+                string credPath = "token.json";
                 credential = GoogleWebAuthorizationBroker.AuthorizeAsync(
                     GoogleClientSecrets.Load(stream).Secrets,
                     Scopes,
@@ -61,9 +59,7 @@ namespace ECMills.Controllers
 
             // List events.
             Events events = request.Execute();
-            string[] teststring = { };
-            Hashtable HashTable = new Hashtable();
-
+            Console.WriteLine("Upcoming events:");
             if (events.Items != null && events.Items.Count > 0)
             {
                 foreach (var eventItem in events.Items)
@@ -73,25 +69,15 @@ namespace ECMills.Controllers
                     {
                         when = eventItem.Start.Date;
                     }
-
-                    //HashTable.Add(eventItem.Summary.ToString(), eventItem.Start.DateTime.ToString(), eventItem.Organizer.Email.ToString());
-
-                    //return Content(when);
+                    Console.WriteLine("{0} ({1})", eventItem.Summary, when);
                 }
             }
             else
             {
-                return Content("No events..");
+                Console.WriteLine("No upcoming events found.");
             }
+            Console.Read();
 
-            
-            return View();
         }
-
     }
 }
-
-
-
-
-

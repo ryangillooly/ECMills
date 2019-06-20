@@ -63,7 +63,7 @@
                                                             <label class="bmd-label-static">Job Type</label>
                                                             <div class="dropdown bootstrap-select">
                                                                 <div class="dropdown bootstrap-select form-control">
-                                                                    <select class="selectpicker" data-size="7" name="JobType" aria-invalid="true" required="true" data-style="select-with-transition" title="" tabindex="-98">
+                                                                    <select class="selectpicker" data-size="7" name="JobType" aria-invalid="true" required data-style="select-with-transition" title="" tabindex="-98">
                                                                         <option selected></option>
                                                                         <option value="Funeral"> Funeral </option>
                                                                         <option value="FuneralPlan"> Sundry </option>
@@ -78,8 +78,7 @@
                                                             <label class="bmd-label-static">Job Sub Type</label>
                                                             <div class="dropdown bootstrap-select">
                                                                 <div class="dropdown bootstrap-select form-control">
-                                                                    <select class="selectpicker" required="true" data-size="7" data-style="select-with-transition" title="" tabindex="-98">
-                                                                        <option selected></option>
+                                                                    <select class="selectpicker" required data-size="7" data-style="select-with-transition" title="" tabindex="-98">
                                                                         <option value="Funeral"> Funeral </option>
                                                                         <option value="FuneralPlan"> Funeral Plan </option>
                                                                         <option value="FuneralPlan"> Cremation </option>
@@ -111,8 +110,7 @@
                                                             <label class="bmd-label-static">Title</label>
                                                             <div class="dropdown bootstrap-select">
                                                                 <div class="dropdown bootstrap-select form-control">
-                                                                    <select class="selectpicker" required="true" data-size="7" data-style="select-with-transition" title="" tabindex="-98">
-                                                                        <option selected></option>
+                                                                    <select class="selectpicker" required data-size="7" data-style="select-with-transition" title="" tabindex="-98">
                                                                         <option value="Funeral"> Mr </option>
                                                                         <option value="FuneralPlan"> Mrs </option>
                                                                         <option value="FuneralPlan"> Miss </option>
@@ -129,15 +127,14 @@
                                                     </div>
                                                     <div class="col-md-4">
                                                         <div class="form-group bmd-form-group">
-                                                            <label class="bmd-label-static">Forename(s)</label>
-                                                            <div class="form-control" required="true" name="Forenames" aria-required="true" aria-invalid="true" type="text"></div>
-                                                            <label id="required-error" class="error" for="Forenames">This field is required.</label>
+                                                            <label class="bmd-label-floating">Forename(s)</label>
+                                                            <input class="form-control" type="text" name="forenames" required aria-required="true" aria-invalid="true">
                                                         </div>
                                                     </div>
                                                     <div class="col-md-5">
                                                         <div class="form-group bmd-form-group">
-                                                            <label class="bmd-label-static">Surname</label>
-                                                            <div class="form-control" required="true"></div>
+                                                            <label class="bmd-label-floating">Surname</label>
+                                                            <input class="form-control" type="text" name="surname" required aria-required="true" aria-invalid="true">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -166,8 +163,8 @@
                                                     </div>
                                                     <div class="col-md-6">
                                                         <div class="form-group bmd-form-group">
-                                                            <label class="bmd-label-static">Deceased Picked Up From</label>
-                                                            <div class="form-control"></div>
+                                                            <label class="bmd-label-floating">Deceased Picked Up From</label>
+                                                            <input class="form-control" type="text" name="pickedupfrom" required aria-required="true" aria-invalid="true">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -265,22 +262,22 @@
                                                     </div>
                                                     <div class="col-md-4">
                                                         <div class="form-group bmd-form-group">
-                                                            <label class="bmd-label-static">Forename(s)</label>
-                                                            <div class="form-control" id="ReadOnlyInput-Name"></div>
+                                                            <label class="bmd-label-floating">Forename(s)</label>
+                                                            <input class="form-control" type="text" name="forenames2" required aria-required="true" aria-invalid="true">
                                                         </div>
                                                     </div>
                                                     <div class="col-md-5">
                                                         <div class="form-group bmd-form-group">
-                                                            <label class="bmd-label-static">Surname</label>
-                                                            <div class="form-control" id="ReadOnlyInput-Name"></div>
+                                                            <label class="bmd-label-floating">Surname</label>
+                                                            <input class="form-control" type="text" name="surname2" required aria-required="true" aria-invalid="true">
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div class="row">
                                                     <div class="col-md-4">
                                                         <div class="form-group bmd-form-group">
-                                                            <label class="bmd-label-static">Known As</label>
-                                                            <div class="form-control" id="ReadOnlyInput-Known_As"></div>
+                                                            <label class="bmd-label-floating">Known As</label>
+                                                            <input class="form-control" type="text" name="knownas" aria-required="true" aria-invalid="true">
                                                         </div>
                                                     </div>
                                                     <div class="col-md-4">
@@ -299,22 +296,22 @@
                                                     </div>
                                                     <div class="col-md-4">
                                                         <div class="form-group bmd-form-group">
-                                                            <label class="bmd-label-static">Age</label>
-                                                            <div class="form-control" id="ReadOnlyInput-Age"></div>
+                                                            <label class="bmd-label-floating">Age</label>
+                                                            <input class="form-control" type="text" name="age" required aria-required="true" aria-invalid="true" range="[0,140]">
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div class="row">
                                                     <div class="col-md-6">
                                                         <div class="form-group bmd-form-group">
-                                                            <label class="bmd-label-static">Date of Birth</label>
+                                                            <label class="bmd-label-floating">Date of Birth</label>
                                                             <div class="form-control" id="ReadOnlyInput-DOB"></div>
 
                                                         </div>
                                                     </div>
                                                     <div class="col-md-6">
                                                         <div class="form-group bmd-form-group">
-                                                            <label class="bmd-label-static">Date/Time of Death</label>
+                                                            <label class="bmd-label-floating">Date/Time of Death</label>
                                                             <div class="form-control" id="ReadOnlyInput-TimeOfDeath"></div>
                                                         </div>
                                                     </div>
@@ -322,28 +319,28 @@
                                                 <div class="row">
                                                     <div class="col-md-6">
                                                         <div class="form-group bmd-form-group">
-                                                            <label class="bmd-label-static">Marital Status</label>
-                                                            <div class="form-control" id="ReadOnlyInput-MaritalStatus"></div>
+                                                            <label class="bmd-label-floating">Marital Status</label>
+                                                            <input class="form-control" type="text" name="maritalstatus" required aria-required="true" aria-invalid="true">
                                                         </div>
                                                     </div>
                                                     <div class="col-md-6">
                                                         <div class="form-group bmd-form-group">
-                                                            <label class="bmd-label-static">Occupation</label>
-                                                            <div class="form-control" id="ReadOnlyInput-Occupation"></div>
+                                                            <label class="bmd-label-floating">Occupation</label>
+                                                            <input class="form-control" type="text" name="occupation" required aria-required="true" aria-invalid="true">
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div class="row">
                                                     <div class="col-md-6">
                                                         <div class="form-group bmd-form-group">
-                                                            <label class="bmd-label-static">Religion</label>
-                                                            <div class="form-control" id="ReadOnlyInput-Religion"></div>
+                                                            <label class="bmd-label-floating">Religion</label>
+                                                            <input class="form-control" type="text" name="religion" required aria-required="true" aria-invalid="true">
                                                         </div>
                                                     </div>
                                                     <div class="col-md-6">
                                                         <div class="form-group bmd-form-group">
-                                                            <label class="bmd-label-static">Religious Denomination</label>
-                                                            <div class="form-control" id="ReadOnlyInput-RelDom"></div>
+                                                            <label class="bmd-label-floating">Religious Denomination</label>
+                                                            <input class="form-control" type="text" name="religiousdenomination" required aria-required="true" aria-invalid="true">
                                                         </div>
                                                     </div>
                                                 </div>

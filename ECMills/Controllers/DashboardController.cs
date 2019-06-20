@@ -5,6 +5,7 @@ using System.Web;
 using ECMills.Models;
 using System.Web.Mvc;
 
+
 namespace ECMills.Controllers
 {
     [RoutePrefix("Dashboard")]
@@ -20,12 +21,6 @@ namespace ECMills.Controllers
         // GET: Dashboard
         [Route("")]
         public ActionResult Index()
-        {
-            return View();
-        }
-
-        [Route("test")]
-        public ActionResult test()
         {
             return View();
         }

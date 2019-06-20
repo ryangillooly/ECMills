@@ -118,6 +118,6 @@ namespace ECMills.Controllers
         {
             return DBContext.sp_GetDeceasedContactsContactDetails(id).ToList();
         }
-        
+
     }
 }
