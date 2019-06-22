@@ -1,0 +1,2145 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ECMills_DatabaseModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="provision_marker_dss">
+    <Key>
+      <PropertyRef Name="object_id" />
+      <PropertyRef Name="owner_scope_local_id" />
+    </Key>
+    <Property Name="object_id" Type="Int32" Nullable="false" />
+    <Property Name="owner_scope_local_id" Type="Int32" Nullable="false" />
+    <Property Name="provision_scope_local_id" Type="Int32" />
+    <Property Name="provision_timestamp" Type="Int64" Nullable="false" />
+    <Property Name="provision_local_peer_key" Type="Int32" Nullable="false" />
+    <Property Name="provision_scope_peer_key" Type="Int32" />
+    <Property Name="provision_scope_peer_timestamp" Type="Int64" />
+    <Property Name="provision_datetime" Type="DateTime" Precision="3" />
+    <Property Name="state" Type="Int32" />
+    <Property Name="version" Type="Binary" MaxLength="8" FixedLength="true" Nullable="false" annotation:StoreGeneratedPattern="Computed" />
+  </EntityType>
+  <EntityType Name="schema_info_dss">
+    <Key>
+      <PropertyRef Name="schema_major_version" />
+      <PropertyRef Name="schema_minor_version" />
+    </Key>
+    <Property Name="schema_major_version" Type="Int32" Nullable="false" />
+    <Property Name="schema_minor_version" Type="Int32" Nullable="false" />
+    <Property Name="schema_extended_info" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="scope_config_dss">
+    <Key>
+      <PropertyRef Name="config_id" />
+    </Key>
+    <Property Name="config_id" Type="Guid" Nullable="false" />
+    <Property Name="config_data" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="scope_status" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+  </EntityType>
+  <EntityType Name="scope_info_dss">
+    <Key>
+      <PropertyRef Name="sync_scope_name" />
+    </Key>
+    <Property Name="scope_local_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="scope_id" Type="Guid" Nullable="false" />
+    <Property Name="sync_scope_name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="scope_sync_knowledge" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="scope_tombstone_cleanup_knowledge" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="scope_timestamp" Type="Binary" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" />
+    <Property Name="scope_config_id" Type="Guid" />
+    <Property Name="scope_restore_count" Type="Int32" Nullable="false" />
+    <Property Name="scope_user_comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Ceremony">
+    <Key>
+      <PropertyRef Name="OrderID" />
+    </Key>
+    <Property Name="OrderID" Type="Int16" Nullable="false" />
+    <Property Name="CeremonyLocationID" Type="Int16" />
+    <Property Name="CeremonyDateTime" Type="DateTime" Precision="3" />
+    <Property Name="CeremonyNotes" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CommittalLocationID" Type="Int16" />
+    <Property Name="CommitalDateTime" Type="DateTime" Precision="3" />
+    <Property Name="CommittalNotes" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ReceptionAddress1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ReceptionAddress2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ReceptionCity" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ReceptionPostCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ReceptionDateTime" Type="DateTime" Precision="3" />
+    <Property Name="ReceptionNotes" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="OfficiantID" Type="Byte" Nullable="false" />
+    <Property Name="OfficiantNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="CommittalLocation" Relationship="Self.FK_CommittalLocation_ID_Ceremony_CeremonyLocationID" FromRole="Ceremony" ToRole="CommittalLocation" />
+    <NavigationProperty Name="CommittalLocation1" Relationship="Self.FK_CommittalLocation_ID_Ceremony_CommittalLocationID" FromRole="Ceremony" ToRole="CommittalLocation" />
+    <NavigationProperty Name="Officiant" Relationship="Self.FK_Officiant_ID_Ceremony_OfficiantID" FromRole="Ceremony" ToRole="Officiant" />
+    <NavigationProperty Name="Order" Relationship="Self.FK_Orders_ID_Ceremony_OrderID" FromRole="Ceremony" ToRole="Orders" />
+  </EntityType>
+  <EntityType Name="Client">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Forenames" Type="String" MaxLength="60" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Surname" Type="String" MaxLength="60" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="AddressLine1" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="AddressLine2" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="City" Type="String" MaxLength="85" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="PostCode" Type="String" MaxLength="8" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ContactNo" Type="String" MaxLength="13" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Relationship" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CreationTime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CreatedBy" Type="Byte" Nullable="false" />
+    <Property Name="LastModifiedTime" Type="DateTime" Precision="3" />
+    <Property Name="LastModifiedBy" Type="Byte" />
+    <NavigationProperty Name="Orders" Relationship="Self.FK_Client_ID_Orders_ClientID" FromRole="Client" ToRole="Orders" />
+    <NavigationProperty Name="User" Relationship="Self.FK_Users_ID_Client_CreatedBy" FromRole="Client" ToRole="Users" />
+    <NavigationProperty Name="User1" Relationship="Self.FK_Users_ID_Client_LastModifiedBy" FromRole="Client" ToRole="Users" />
+  </EntityType>
+  <EntityType Name="Coffin">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Byte" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Cost" Type="Decimal" Precision="7" Scale="2" Nullable="false" />
+    <Property Name="SupplierID" Type="Int16" Nullable="false" />
+    <Property Name="Lining" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Shape" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Fittings" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="AdditionalOrnaments" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Colour" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="OrderDetails" Relationship="Self.FK_Coffin_ID_OrderDetails_CoffinID" FromRole="Coffin" ToRole="OrderDetails" />
+    <NavigationProperty Name="Supplier" Relationship="Self.FK_Supplier_ID_Coffin_SupplierID" FromRole="Coffin" ToRole="Supplier" />
+  </EntityType>
+  <EntityType Name="CommitallLocationType">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Byte" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="CommittalLocations" Relationship="Self.FK_CommittalLocationType_ID_CommittalLocation_CommittalLocationTypeID" FromRole="CommitallLocationType" ToRole="CommittalLocation" />
+  </EntityType>
+  <EntityType Name="CommittalLocation">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CommittalLocationTypeID" Type="Byte" Nullable="false" />
+    <Property Name="AddressLine1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="AddressLine2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="City" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="PostCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ContactNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Website" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Ceremonies" Relationship="Self.FK_CommittalLocation_ID_Ceremony_CeremonyLocationID" FromRole="CommittalLocation" ToRole="Ceremony" />
+    <NavigationProperty Name="Ceremonies1" Relationship="Self.FK_CommittalLocation_ID_Ceremony_CommittalLocationID" FromRole="CommittalLocation" ToRole="Ceremony" />
+    <NavigationProperty Name="CommitallLocationType" Relationship="Self.FK_CommittalLocationType_ID_CommittalLocation_CommittalLocationTypeID" FromRole="CommittalLocation" ToRole="CommitallLocationType" />
+  </EntityType>
+  <EntityType Name="Deceased">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Fornames" Type="String" MaxLength="60" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Surname" Type="String" MaxLength="60" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="KnownAs" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+    <Property Name="DateOfBirth" Type="DateTime" Precision="0" />
+    <Property Name="Age" Type="Byte" Nullable="false" />
+    <Property Name="Gender" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="DateTimeOfDeath" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Occupation" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Length" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+    <Property Name="Width" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+    <Property Name="Depth" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+    <Property Name="MaritalStatusID" Type="Byte" />
+    <Property Name="DenominationID" Type="Int32" />
+    <Property Name="CreationTime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CreatedBy" Type="Byte" Nullable="false" />
+    <Property Name="LastModifiedTime" Type="DateTime" Precision="3" />
+    <Property Name="LastModifiedBy" Type="Byte" />
+    <NavigationProperty Name="DeceasedAddresses" Relationship="Self.FK_Deceased_ID_DeceasedAddress_DeceasedID" FromRole="Deceased" ToRole="DeceasedAddress" />
+    <NavigationProperty Name="DeceasedContacts" Relationship="Self.FK_Deceased_ID_DeceasedContacts_DeceasedID" FromRole="Deceased" ToRole="DeceasedContacts" />
+    <NavigationProperty Name="Orders" Relationship="Self.FK_Deceased_ID_Orders_DeceasedID" FromRole="Deceased" ToRole="Orders" />
+    <NavigationProperty Name="ReligiousDenomination" Relationship="Self.FK_DenominationID_Deceased_ID_Denomination" FromRole="Deceased" ToRole="ReligiousDenomination" />
+    <NavigationProperty Name="MaritalStatu" Relationship="Self.FK_MaritalStatus_ID_Deceased_MaritalStatusID" FromRole="Deceased" ToRole="MaritalStatus" />
+    <NavigationProperty Name="User" Relationship="Self.FK_Users_ID_Deceased_CreatedBy" FromRole="Deceased" ToRole="Users" />
+    <NavigationProperty Name="User1" Relationship="Self.FK_Users_ID_Deceased_LastModifiedBy" FromRole="Deceased" ToRole="Users" />
+  </EntityType>
+  <EntityType Name="DeceasedAddressType">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Byte" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="DeceasedContactsContactType">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Byte" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="DeceasedContacts" Relationship="Self.FK_ContactType_ID_DeceasedContacts_ContactTypeID" FromRole="DeceasedContactsContactType" ToRole="DeceasedContacts" />
+  </EntityType>
+  <EntityType Name="Doctor">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Byte" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Forenames" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Surname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Gender" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="Address1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Address2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="City" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="PostCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="PhoneNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Fee" Type="Decimal" Precision="6" Scale="2" Nullable="false" />
+    <NavigationProperty Name="DeceasedContacts" Relationship="Self.FK_Doctor_ID_DeceasedContacts_DoctorID" FromRole="Doctor" ToRole="DeceasedContacts" />
+  </EntityType>
+  <EntityType Name="MaritalStatu">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Byte" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Deceaseds" Relationship="Self.FK_MaritalStatus_ID_Deceased_MaritalStatusID" FromRole="MaritalStatus" ToRole="Deceased" />
+  </EntityType>
+  <EntityType Name="Memorial">
+    <Key>
+      <PropertyRef Name="OrderID" />
+    </Key>
+    <Property Name="OrderID" Type="Int16" Nullable="false" />
+    <Property Name="Requirement" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="MemorialBooked" Type="Boolean" />
+    <Property Name="MemorialRemovalBooked" Type="Boolean" />
+    <Property Name="Material" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Finish" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="FixingDate" Type="DateTime" Precision="3" />
+    <Property Name="MasonryQuoteRef" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="InscriptionText" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="InscriptionFont" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="InscriptionFinish" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Base" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Size" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="PhotoTaken" Type="Boolean" />
+    <Property Name="Desc" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="AshesIntermentReq" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="MemorialContactPoint" Relationship="Self.FK_Memorial_OrderID_MemorialContactPoint_OrderID" FromRole="Memorial" ToRole="MemorialContactPoint" />
+    <NavigationProperty Name="Order" Relationship="Self.FK_Orders_ID_Memorial_OrderID" FromRole="Memorial" ToRole="Orders" />
+  </EntityType>
+  <EntityType Name="MemorialContactPoint">
+    <Key>
+      <PropertyRef Name="OrderID" />
+    </Key>
+    <Property Name="OrderID" Type="Int16" Nullable="false" />
+    <Property Name="Type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Value" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Memorial" Relationship="Self.FK_Memorial_OrderID_MemorialContactPoint_OrderID" FromRole="MemorialContactPoint" ToRole="Memorial" />
+  </EntityType>
+  <EntityType Name="Officiant">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Byte" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Forenames" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Surname" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Gender" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="AddressLine1" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="AddressLine2" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="City" Type="String" MaxLength="85" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="PostCode" Type="String" MaxLength="8" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Ceremonies" Relationship="Self.FK_Officiant_ID_Ceremony_OfficiantID" FromRole="Officiant" ToRole="Ceremony" />
+    <NavigationProperty Name="OfficiantContactPoints" Relationship="Self.FK_Officiant_ID_OfficiantContactPoint_OfficiantID" FromRole="Officiant" ToRole="OfficiantContactPoint" />
+  </EntityType>
+  <EntityType Name="OfficiantContactPoint">
+    <Key>
+      <PropertyRef Name="OfficiantID" />
+      <PropertyRef Name="Type" />
+    </Key>
+    <Property Name="OfficiantID" Type="Byte" Nullable="false" />
+    <Property Name="Type" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Value" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Officiant" Relationship="Self.FK_Officiant_ID_OfficiantContactPoint_OfficiantID" FromRole="OfficiantContactPoint" ToRole="Officiant" />
+  </EntityType>
+  <EntityType Name="OrderChecklist">
+    <Key>
+      <PropertyRef Name="OrderID" />
+    </Key>
+    <Property Name="OrderID" Type="Int16" Nullable="false" />
+    <Property Name="HospitalReleaseFormRecieved" Type="Byte" Nullable="false" />
+    <Property Name="DeceasedBroughtIntoCare" Type="Byte" Nullable="false" />
+    <Property Name="FuneralArrangementComplete" Type="Byte" Nullable="false" />
+    <Property Name="ItinerarySentToClient" Type="Byte" Nullable="false" />
+    <Property Name="CremCertificateRecieved" Type="Byte" Nullable="false" />
+    <Property Name="CremationBooked" Type="Byte" Nullable="false" />
+    <Property Name="OfficiantConfirmationSent" Type="Byte" Nullable="false" />
+    <Property Name="CremForm1Complete" Type="Byte" Nullable="false" />
+    <Property Name="CremForm2Complete" Type="Byte" Nullable="false" />
+    <Property Name="CremForm3Complete" Type="Byte" Nullable="false" />
+    <Property Name="CremFormsDelivered" Type="Byte" Nullable="false" />
+    <Property Name="CrematedRemainsInstructionsRecieved" Type="Byte" Nullable="false" />
+    <Property Name="ArrangementSignedAndUploaded" Type="Byte" Nullable="false" />
+    <Property Name="CoffinOrderPlace" Type="Byte" Nullable="false" />
+    <Property Name="CoffinRecievedAndFitted" Type="Byte" Nullable="false" />
+    <Property Name="ClientAdvisedVisitingIsReady" Type="Byte" Nullable="false" />
+    <Property Name="OrganistMusicConfirmed" Type="Byte" Nullable="false" />
+    <Property Name="FlowersOrdered" Type="Byte" Nullable="false" />
+    <Property Name="OrderOfServiceApproved" Type="Byte" Nullable="false" />
+    <Property Name="OrderOfServicePrinted" Type="Byte" Nullable="false" />
+    <Property Name="ObirAgreedAndSubmitted" Type="Byte" Nullable="false" />
+    <NavigationProperty Name="Order" Relationship="Self.FK_Orders_ID_OrderChecklist_OrderID" FromRole="OrderChecklist" ToRole="Orders" />
+  </EntityType>
+  <EntityType Name="OrderCost">
+    <Key>
+      <PropertyRef Name="OrderID" />
+    </Key>
+    <Property Name="OrderID" Type="Int16" Nullable="false" />
+    <Property Name="Cars" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="DeceasedRemoval" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="Estimated" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="Other" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="Sup" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="Total" Type="Decimal" Precision="10" Scale="2" />
+    <NavigationProperty Name="Order" Relationship="Self.FK_Orders_ID_OrderCost_OrderID" FromRole="OrderCost" ToRole="Orders" />
+  </EntityType>
+  <EntityType Name="OrderDetail">
+    <Key>
+      <PropertyRef Name="OrderID" />
+    </Key>
+    <Property Name="OrderID" Type="Int16" Nullable="false" />
+    <Property Name="IsContract" Type="Boolean" Nullable="false" />
+    <Property Name="BearersRequired" Type="Boolean" Nullable="false" />
+    <Property Name="Removed" Type="Boolean" Nullable="false" />
+    <Property Name="AshesNotes" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="GraveNotes" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="JewelleryNotes" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="MinisterInfo" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="MinisterTransport" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="CoffinID" Type="Byte" Nullable="false" />
+    <Property Name="CoffinNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CoffinLength" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CoffinWidth" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CoffinDepth" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="EmbalmingRequired" Type="Boolean" Nullable="false" />
+    <Property Name="EmbalmingPermissionObtained" Type="Boolean" Nullable="false" />
+    <Property Name="PostMortemComplete" Type="Boolean" Nullable="false" />
+    <Property Name="JewelleryDateCollected" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="JewelleryWhoCollected" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="JewelleryDateRemoved" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="JewelleryWhoRemoved" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="GraveNo" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Coffin" Relationship="Self.FK_Coffin_ID_OrderDetails_CoffinID" FromRole="OrderDetails" ToRole="Coffin" />
+    <NavigationProperty Name="Order" Relationship="Self.FK_Orders_ID_OrderDetails_OrderID" FromRole="OrderDetails" ToRole="Orders" />
+  </EntityType>
+  <EntityType Name="OrderItemSubType">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="OrderItemTypeID" Type="Byte" Nullable="false" />
+    <Property Name="ID" Type="Byte" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Subtype" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="OrderItemType" Relationship="Self.FK_2133" FromRole="OrderItemSubType" ToRole="OrderItemType" />
+    <NavigationProperty Name="OrderItems" Relationship="Self.FK_OrderItemSubType_ID_OrderItems_ItemSubTypeID" FromRole="OrderItemSubType" ToRole="OrderItems" />
+  </EntityType>
+  <EntityType Name="OrderItemType">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Byte" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="OrderItemSubTypes" Relationship="Self.FK_2133" FromRole="OrderItemType" ToRole="OrderItemSubType" />
+    <NavigationProperty Name="OrderItems" Relationship="Self.FK_OrderItemType_ID_OrderItems_ItemTypeID" FromRole="OrderItemType" ToRole="OrderItems" />
+  </EntityType>
+  <EntityType Name="Order">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ClientID" Type="Int16" Nullable="false" />
+    <Property Name="DeceasedID" Type="Int16" Nullable="false" />
+    <Property Name="OrderTypeID" Type="Byte" Nullable="false" />
+    <Property Name="OrderSubTypeID" Type="Byte" Nullable="false" />
+    <Property Name="OrderStatusID" Type="Byte" Nullable="false" />
+    <Property Name="OrderSubStatusID" Type="Byte" Nullable="false" />
+    <Property Name="CreationTime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CreatedBy" Type="Byte" Nullable="false" />
+    <Property Name="LastModifiedTime" Type="DateTime" Precision="3" />
+    <Property Name="LastModifiedBy" Type="Byte" />
+    <NavigationProperty Name="Ceremony" Relationship="Self.FK_Orders_ID_Ceremony_OrderID" FromRole="Orders" ToRole="Ceremony" />
+    <NavigationProperty Name="Client" Relationship="Self.FK_Client_ID_Orders_ClientID" FromRole="Orders" ToRole="Client" />
+    <NavigationProperty Name="Deceased" Relationship="Self.FK_Deceased_ID_Orders_DeceasedID" FromRole="Orders" ToRole="Deceased" />
+    <NavigationProperty Name="Memorial" Relationship="Self.FK_Orders_ID_Memorial_OrderID" FromRole="Orders" ToRole="Memorial" />
+    <NavigationProperty Name="OrderChecklist" Relationship="Self.FK_Orders_ID_OrderChecklist_OrderID" FromRole="Orders" ToRole="OrderChecklist" />
+    <NavigationProperty Name="OrderCost" Relationship="Self.FK_Orders_ID_OrderCost_OrderID" FromRole="Orders" ToRole="OrderCost" />
+    <NavigationProperty Name="OrderDetail" Relationship="Self.FK_Orders_ID_OrderDetails_OrderID" FromRole="Orders" ToRole="OrderDetails" />
+    <NavigationProperty Name="Jewelleries" Relationship="Self.FK_Orders_ID_Jewellery_OrderID" FromRole="Orders" ToRole="Jewellery" />
+    <NavigationProperty Name="Musics" Relationship="Self.FK_Orders_ID_Music_OrderID" FromRole="Orders" ToRole="Music" />
+    <NavigationProperty Name="OrderItems" Relationship="Self.FK_Orders_ID_OrderItems_OrderID" FromRole="Orders" ToRole="OrderItems" />
+    <NavigationProperty Name="Organists" Relationship="Self.FK_Orders_ID_Organist_OrderID" FromRole="Orders" ToRole="Organist" />
+    <NavigationProperty Name="Transports" Relationship="Self.FK_Orders_ID_Transport_OrderID" FromRole="Orders" ToRole="Transport" />
+    <NavigationProperty Name="Visitors" Relationship="Self.FK_Orders_ID_Visitors_OrderID" FromRole="Orders" ToRole="Visitors" />
+    <NavigationProperty Name="OrderStatu" Relationship="Self.FK_Orderstatus_ID_Orders_OrderStatusID" FromRole="Orders" ToRole="OrderStatus" />
+    <NavigationProperty Name="OrderSubStatu" Relationship="Self.FK_OrderSubStatus_ID_Orders_OrderSubStatusID" FromRole="Orders" ToRole="OrderSubStatus" />
+    <NavigationProperty Name="OrderSubType" Relationship="Self.FK_OrderSubType_ID_Orders_OrderSubTypeID" FromRole="Orders" ToRole="OrderSubType" />
+    <NavigationProperty Name="OrderType" Relationship="Self.FK_OrderType_ID_Orders_OrderTypeID" FromRole="Orders" ToRole="OrderType" />
+    <NavigationProperty Name="User" Relationship="Self.FK_Users_ID_Orders_CreatedBy" FromRole="Orders" ToRole="Users" />
+    <NavigationProperty Name="User1" Relationship="Self.FK_Users_ID_Orders_LastModifiedBy" FromRole="Orders" ToRole="Users" />
+  </EntityType>
+  <EntityType Name="OrderStatu">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Byte" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Orders" Relationship="Self.FK_Orderstatus_ID_Orders_OrderStatusID" FromRole="OrderStatus" ToRole="Orders" />
+  </EntityType>
+  <EntityType Name="OrderSubStatu">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Byte" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SubStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Orders" Relationship="Self.FK_OrderSubStatus_ID_Orders_OrderSubStatusID" FromRole="OrderSubStatus" ToRole="Orders" />
+  </EntityType>
+  <EntityType Name="OrderSubType">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Byte" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Type" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Orders" Relationship="Self.FK_OrderSubType_ID_Orders_OrderSubTypeID" FromRole="OrderSubType" ToRole="Orders" />
+  </EntityType>
+  <EntityType Name="OrderType">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Byte" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Type" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Orders" Relationship="Self.FK_OrderType_ID_Orders_OrderTypeID" FromRole="OrderType" ToRole="Orders" />
+  </EntityType>
+  <EntityType Name="Organist">
+    <Key>
+      <PropertyRef Name="OrderID" />
+      <PropertyRef Name="LineItem" />
+    </Key>
+    <Property Name="OrderID" Type="Int16" Nullable="false" />
+    <Property Name="LineItem" Type="Byte" Nullable="false" />
+    <Property Name="Venue" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Music" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Musician" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="OnEntry" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Order" Relationship="Self.FK_Orders_ID_Organist_OrderID" FromRole="Organist" ToRole="Orders" />
+  </EntityType>
+  <EntityType Name="Religion">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="ReligiousDenominations" Relationship="Self.FK_Religion_ID_ReligiousDenomination_ReligionID" FromRole="Religion" ToRole="ReligiousDenomination" />
+  </EntityType>
+  <EntityType Name="ReligiousDenomination">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ReligionID" Type="Int16" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Deceaseds" Relationship="Self.FK_DenominationID_Deceased_ID_Denomination" FromRole="ReligiousDenomination" ToRole="Deceased" />
+    <NavigationProperty Name="Religion" Relationship="Self.FK_Religion_ID_ReligiousDenomination_ReligionID" FromRole="ReligiousDenomination" ToRole="Religion" />
+  </EntityType>
+  <EntityType Name="Supplier">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="AddressLine1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="AddressLine2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="City" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="PostCode" Type="String" MaxLength="8" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ContactNo" Type="String" MaxLength="13" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Coffins" Relationship="Self.FK_Supplier_ID_Coffin_SupplierID" FromRole="Supplier" ToRole="Coffin" />
+    <NavigationProperty Name="Transports" Relationship="Self.FK_Supplier_ID_Transport_SupplierID" FromRole="Supplier" ToRole="Transport" />
+  </EntityType>
+  <EntityType Name="TransportType">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Price" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="Cost" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+    <NavigationProperty Name="Transports" Relationship="Self.FK_TransportType_ID_Transport_TypeID" FromRole="TransportType" ToRole="Transport" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Byte" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="OfficeID" Type="Byte" Nullable="false" />
+    <Property Name="Forenames" Type="String" MaxLength="60" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Surname" Type="String" MaxLength="60" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Username" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="320" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="AccountActive" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Clients" Relationship="Self.FK_Users_ID_Client_CreatedBy" FromRole="Users" ToRole="Client" />
+    <NavigationProperty Name="Clients1" Relationship="Self.FK_Users_ID_Client_LastModifiedBy" FromRole="Users" ToRole="Client" />
+    <NavigationProperty Name="Deceaseds" Relationship="Self.FK_Users_ID_Deceased_CreatedBy" FromRole="Users" ToRole="Deceased" />
+    <NavigationProperty Name="Deceaseds1" Relationship="Self.FK_Users_ID_Deceased_LastModifiedBy" FromRole="Users" ToRole="Deceased" />
+    <NavigationProperty Name="Orders" Relationship="Self.FK_Users_ID_Orders_CreatedBy" FromRole="Users" ToRole="Orders" />
+    <NavigationProperty Name="Orders1" Relationship="Self.FK_Users_ID_Orders_LastModifiedBy" FromRole="Users" ToRole="Orders" />
+  </EntityType>
+  <EntityType Name="action">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Guid" Nullable="false" />
+    <Property Name="syncgroupid" Type="Guid" />
+    <Property Name="type" Type="Int32" Nullable="false" />
+    <Property Name="state" Type="Int32" Nullable="false" />
+    <Property Name="creationtime" Type="DateTime" Precision="3" />
+    <Property Name="lastupdatetime" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="tasks" Relationship="Self.FK__task__actionid" FromRole="action" ToRole="task" />
+  </EntityType>
+  <EntityType Name="agent">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Guid" Nullable="false" />
+    <Property Name="name" Type="String" MaxLength="140" FixedLength="false" Unicode="true" />
+    <Property Name="subscriptionid" Type="Guid" />
+    <Property Name="state" Type="Int32" />
+    <Property Name="lastalivetime" Type="DateTime" Precision="3" />
+    <Property Name="is_on_premise" Type="Boolean" Nullable="false" />
+    <Property Name="version" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+    <Property Name="password_hash" Type="Binary" MaxLength="256" FixedLength="false" />
+    <Property Name="password_salt" Type="Binary" MaxLength="256" FixedLength="false" />
+    <NavigationProperty Name="subscription" Relationship="Self.FK__agent__subscript" FromRole="agent" ToRole="subscription" />
+    <NavigationProperty Name="agent_instance" Relationship="Self.FK__agent_ins__agent" FromRole="agent" ToRole="agent_instance" />
+  </EntityType>
+  <EntityType Name="agent_instance">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Guid" Nullable="false" />
+    <Property Name="agentid" Type="Guid" Nullable="false" />
+    <Property Name="lastalivetime" Type="DateTime" Precision="3" />
+    <Property Name="version" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="agent" Relationship="Self.FK__agent_ins__agent" FromRole="agent_instance" ToRole="agent" />
+  </EntityType>
+  <EntityType Name="agent_version">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Version" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ExpiresOn" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Comment" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="configuration">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="ConfigKey" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ConfigValue" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="LastModified" Type="DateTime" Nullable="false" Precision="3" />
+  </EntityType>
+  <EntityType Name="EnumType">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Type" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="EnumId" Type="Int32" Nullable="false" />
+    <Property Name="LastModified" Type="DateTime" Nullable="false" Precision="3" />
+  </EntityType>
+  <EntityType Name="MetaInformation">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="VersionMajor" Type="Int32" Nullable="false" />
+    <Property Name="VersionMinor" Type="Int32" Nullable="false" />
+    <Property Name="VersionBuild" Type="Int32" Nullable="false" />
+    <Property Name="VersionService" Type="Int32" Nullable="false" />
+    <Property Name="VersionString" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Version" Type="Int64" />
+    <Property Name="State" Type="Boolean" Nullable="false" />
+    <Property Name="Timestamp" Type="DateTime" Nullable="false" Precision="3" />
+  </EntityType>
+  <EntityType Name="scaleunitlimit">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="MaxValue" Type="Int32" Nullable="false" />
+    <Property Name="LastModified" Type="DateTime" Nullable="false" Precision="3" />
+  </EntityType>
+  <EntityType Name="ScheduleTask">
+    <Key>
+      <PropertyRef Name="SyncGroupId" />
+    </Key>
+    <Property Name="Id" Type="Guid" Nullable="false" />
+    <Property Name="SyncGroupId" Type="Guid" Nullable="false" />
+    <Property Name="Interval" Type="Int64" Nullable="false" />
+    <Property Name="LastUpdate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="State" Type="Byte" Nullable="false" />
+    <Property Name="ExpirationTime" Type="DateTime" Precision="3" />
+    <Property Name="PopReceipt" Type="Guid" />
+    <Property Name="DequeueCount" Type="Byte" Nullable="false" />
+    <Property Name="Type" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="syncgroup" Relationship="Self.FK__ScheduleT__SyncG" FromRole="ScheduleTask" ToRole="syncgroup" />
+  </EntityType>
+  <EntityType Name="subscription">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Guid" Nullable="false" />
+    <Property Name="name" Type="String" MaxLength="140" FixedLength="false" Unicode="true" />
+    <Property Name="creationtime" Type="DateTime" Precision="3" />
+    <Property Name="lastlogintime" Type="DateTime" Precision="3" />
+    <Property Name="tombstoneretentionperiodindays" Type="Int32" Nullable="false" />
+    <Property Name="policyid" Type="Int32" />
+    <Property Name="subscriptionstate" Type="Byte" Nullable="false" />
+    <Property Name="WindowsAzureSubscriptionId" Type="Guid" />
+    <Property Name="EnableDetailedProviderTracing" Type="Boolean" />
+    <Property Name="syncserveruniquename" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="version" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="agents" Relationship="Self.FK__agent__subscript" FromRole="subscription" ToRole="agent" />
+    <NavigationProperty Name="syncgroups" Relationship="Self.FK__syncgroup__subsc" FromRole="subscription" ToRole="syncgroup" />
+    <NavigationProperty Name="userdatabases" Relationship="Self.FK__userdatab__subsc" FromRole="subscription" ToRole="userdatabase" />
+  </EntityType>
+  <EntityType Name="syncgroup">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Guid" Nullable="false" />
+    <Property Name="name" Type="String" MaxLength="140" FixedLength="false" Unicode="true" />
+    <Property Name="subscriptionid" Type="Guid" />
+    <Property Name="schema_description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="state" Type="Int32" />
+    <Property Name="hub_memberid" Type="Guid" />
+    <Property Name="conflict_resolution_policy" Type="Int32" Nullable="false" />
+    <Property Name="sync_interval" Type="Int32" Nullable="false" />
+    <Property Name="sync_enabled" Type="Boolean" Nullable="false" />
+    <Property Name="lastupdatetime" Type="DateTime" Precision="3" />
+    <Property Name="ocsschemadefinition" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="hubhasdata" Type="Boolean" />
+    <Property Name="ConflictLoggingEnabled" Type="Boolean" Nullable="false" />
+    <Property Name="ConflictTableRetentionInDays" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="ScheduleTask" Relationship="Self.FK__ScheduleT__SyncG" FromRole="syncgroup" ToRole="ScheduleTask" />
+    <NavigationProperty Name="subscription" Relationship="Self.FK__syncgroup__subsc" FromRole="syncgroup" ToRole="subscription" />
+    <NavigationProperty Name="userdatabase" Relationship="Self.FK__syncgroup__hub_m" FromRole="syncgroup" ToRole="userdatabase" />
+    <NavigationProperty Name="syncgroupmembers" Relationship="Self.FK__syncmember__syncg" FromRole="syncgroup" ToRole="syncgroupmember" />
+  </EntityType>
+  <EntityType Name="syncgroupmember">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Guid" Nullable="false" />
+    <Property Name="name" Type="String" MaxLength="140" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="scopename" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="syncgroupid" Type="Guid" Nullable="false" />
+    <Property Name="syncdirection" Type="Int32" Nullable="false" />
+    <Property Name="databaseid" Type="Guid" Nullable="false" />
+    <Property Name="memberstate" Type="Int32" Nullable="false" />
+    <Property Name="hubstate" Type="Int32" Nullable="false" />
+    <Property Name="memberstate_lastupdated" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="hubstate_lastupdated" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="lastsynctime" Type="DateTime" Precision="3" />
+    <Property Name="lastsynctime_zerofailures_member" Type="DateTime" Precision="3" />
+    <Property Name="lastsynctime_zerofailures_hub" Type="DateTime" Precision="3" />
+    <Property Name="jobId" Type="Guid" />
+    <Property Name="hubJobId" Type="Guid" />
+    <Property Name="noinitsync" Type="Boolean" Nullable="false" />
+    <Property Name="memberhasdata" Type="Boolean" />
+    <NavigationProperty Name="syncgroup" Relationship="Self.FK__syncmember__syncg" FromRole="syncgroupmember" ToRole="syncgroup" />
+    <NavigationProperty Name="userdatabase" Relationship="Self.FK__syncmember__datab" FromRole="syncgroupmember" ToRole="userdatabase" />
+  </EntityType>
+  <EntityType Name="SyncObjectData">
+    <Key>
+      <PropertyRef Name="ObjectId" />
+      <PropertyRef Name="DataType" />
+    </Key>
+    <Property Name="ObjectId" Type="Guid" Nullable="false" />
+    <Property Name="DataType" Type="Int32" Nullable="false" />
+    <Property Name="CreatedTime" Type="DateTime" Nullable="false" Precision="7" />
+    <Property Name="DroppedTime" Type="DateTime" Precision="7" />
+    <Property Name="LastModified" Type="Binary" MaxLength="8" FixedLength="true" Nullable="false" annotation:StoreGeneratedPattern="Computed" />
+    <Property Name="ObjectData" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="task">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Guid" Nullable="false" />
+    <Property Name="actionid" Type="Guid" Nullable="false" />
+    <Property Name="taskNumber" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="lastheartbeat" Type="DateTime" Precision="3" />
+    <Property Name="state" Type="Int32" />
+    <Property Name="type" Type="Int32" />
+    <Property Name="agentid" Type="Guid" />
+    <Property Name="owning_instanceid" Type="Guid" />
+    <Property Name="creationtime" Type="DateTime" Precision="3" />
+    <Property Name="pickuptime" Type="DateTime" Precision="3" />
+    <Property Name="completedtime" Type="DateTime" Precision="3" />
+    <Property Name="request" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="response" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="priority" Type="Int32" />
+    <Property Name="retry_count" Type="Int32" Nullable="false" />
+    <Property Name="dependency_count" Type="Int32" Nullable="false" />
+    <Property Name="version" Type="Int64" Nullable="false" />
+    <Property Name="lastresettime" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="action" Relationship="Self.FK__task__actionid" FromRole="task" ToRole="action" />
+    <NavigationProperty Name="task1" Relationship="Self.taskdependency" FromRole="task" ToRole="task1" />
+    <NavigationProperty Name="tasks" Relationship="Self.taskdependency" FromRole="task1" ToRole="task" />
+  </EntityType>
+  <EntityType Name="userdatabase">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Guid" Nullable="false" />
+    <Property Name="server" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="database" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="state" Type="Int32" Nullable="false" />
+    <Property Name="subscriptionid" Type="Guid" Nullable="false" />
+    <Property Name="agentid" Type="Guid" Nullable="false" />
+    <Property Name="connection_string" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="db_schema" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="is_on_premise" Type="Boolean" Nullable="false" />
+    <Property Name="sqlazure_info" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="last_schema_updated" Type="DateTime" Precision="3" />
+    <Property Name="last_tombstonecleanup" Type="DateTime" Precision="3" />
+    <Property Name="region" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="jobId" Type="Guid" />
+    <NavigationProperty Name="subscription" Relationship="Self.FK__userdatab__subsc" FromRole="userdatabase" ToRole="subscription" />
+    <NavigationProperty Name="syncgroups" Relationship="Self.FK__syncgroup__hub_m" FromRole="userdatabase" ToRole="syncgroup" />
+    <NavigationProperty Name="syncgroupmembers" Relationship="Self.FK__syncmember__datab" FromRole="userdatabase" ToRole="syncgroupmember" />
+  </EntityType>
+  <EntityType Name="Job">
+    <Key>
+      <PropertyRef Name="JobId" />
+    </Key>
+    <Property Name="JobId" Type="Guid" Nullable="false" />
+    <Property Name="IsCancelled" Type="Boolean" Nullable="false" />
+    <Property Name="InitialInsertTimeUTC" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="JobType" Type="Int32" Nullable="false" />
+    <Property Name="InputData" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="TaskCount" Type="Int32" Nullable="false" />
+    <Property Name="CompletedTaskCount" Type="Int32" Nullable="false" />
+    <Property Name="TracingId" Type="Guid" />
+    <NavigationProperty Name="MessageQueues" Relationship="Self.FK__MessageQu__JobId__09C96D33" FromRole="Job" ToRole="MessageQueue" />
+  </EntityType>
+  <EntityType Name="MessageQueue">
+    <Key>
+      <PropertyRef Name="MessageId" />
+    </Key>
+    <Property Name="MessageId" Type="Guid" Nullable="false" />
+    <Property Name="JobId" Type="Guid" />
+    <Property Name="MessageType" Type="Int32" Nullable="false" />
+    <Property Name="MessageData" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="InitialInsertTimeUTC" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="InsertTimeUTC" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="UpdateTimeUTC" Type="DateTime" Precision="3" />
+    <Property Name="ExecTimes" Type="Byte" Nullable="false" />
+    <Property Name="ResetTimes" Type="Int32" Nullable="false" />
+    <Property Name="Version" Type="Int64" Nullable="false" />
+    <Property Name="TracingId" Type="Guid" />
+    <Property Name="QueueId" Type="Guid" />
+    <Property Name="WorkerId" Type="Guid" />
+    <NavigationProperty Name="Job" Relationship="Self.FK__MessageQu__JobId__09C96D33" FromRole="MessageQueue" ToRole="Job" />
+  </EntityType>
+  <EntityType Name="MetaInformation1">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="VersionMajor" Type="Int32" Nullable="false" />
+    <Property Name="VersionMinor" Type="Int32" Nullable="false" />
+    <Property Name="VersionBuild" Type="Int32" Nullable="false" />
+    <Property Name="VersionService" Type="Int32" Nullable="false" />
+    <Property Name="VersionString" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Version" Type="Int64" />
+    <Property Name="State" Type="Boolean" Nullable="false" />
+    <Property Name="Timestamp" Type="DateTime" Nullable="false" Precision="3" />
+  </EntityType>
+  <EntityType Name="Schedule">
+    <Key>
+      <PropertyRef Name="ScheduleId" />
+    </Key>
+    <Property Name="ScheduleId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FreqType" Type="Int32" Nullable="false" />
+    <Property Name="FreqInterval" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="ScheduleTask1" Relationship="Self.FK__ScheduleT__Sched__1446FBA6" FromRole="Schedule" ToRole="ScheduleTask1" />
+  </EntityType>
+  <EntityType Name="ScheduleTask1">
+    <Key>
+      <PropertyRef Name="ScheduleTaskId" />
+    </Key>
+    <Property Name="ScheduleTaskId" Type="Guid" Nullable="false" />
+    <Property Name="TaskType" Type="Int32" Nullable="false" />
+    <Property Name="TaskName" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Schedule" Type="Int32" />
+    <Property Name="State" Type="Int32" Nullable="false" />
+    <Property Name="NextRunTime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="MessageId" Type="Guid" />
+    <Property Name="TaskInput" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="QueueId" Type="Guid" Nullable="false" />
+    <Property Name="TracingId" Type="Guid" Nullable="false" />
+    <Property Name="JobId" Type="Guid" Nullable="false" />
+    <NavigationProperty Name="Schedule1" Relationship="Self.FK__ScheduleT__Sched__1446FBA6" FromRole="ScheduleTask1" ToRole="Schedule" />
+  </EntityType>
+  <EntityType Name="DeceasedAddress">
+    <Key>
+      <PropertyRef Name="DeceasedID" />
+      <PropertyRef Name="AddressTypeID" />
+      <PropertyRef Name="AddressLine1" />
+      <PropertyRef Name="City" />
+      <PropertyRef Name="PostCode" />
+    </Key>
+    <Property Name="DeceasedID" Type="Int16" Nullable="false" />
+    <Property Name="AddressTypeID" Type="Byte" Nullable="false" />
+    <Property Name="AddressLine1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="AddressLine2" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="City" Type="String" MaxLength="85" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="PostCode" Type="String" MaxLength="8" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ContactName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="ContactNo" Type="String" MaxLength="13" FixedLength="false" Unicode="true" />
+    <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Deceased" Relationship="Self.FK_Deceased_ID_DeceasedAddress_DeceasedID" FromRole="DeceasedAddress" ToRole="Deceased" />
+  </EntityType>
+  <EntityType Name="DeceasedContact">
+    <Key>
+      <PropertyRef Name="DeceasedID" />
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="ContactTypeID" />
+      <PropertyRef Name="Title" />
+      <PropertyRef Name="Forenames" />
+      <PropertyRef Name="Surname" />
+      <PropertyRef Name="Relationship" />
+      <PropertyRef Name="ConsentToBeContacted" />
+      <PropertyRef Name="AccountModerator" />
+    </Key>
+    <Property Name="DeceasedID" Type="Int16" Nullable="false" />
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ContactTypeID" Type="Byte" Nullable="false" />
+    <Property Name="Title" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Forenames" Type="String" MaxLength="60" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Surname" Type="String" MaxLength="60" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DateOfBirth" Type="DateTime" Precision="0" />
+    <Property Name="Occupation" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Relationship" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="AddressLine1" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="AddressLine2" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="City" Type="String" MaxLength="85" FixedLength="false" Unicode="true" />
+    <Property Name="PostCode" Type="String" MaxLength="8" FixedLength="false" Unicode="true" />
+    <Property Name="ConsentToBeContacted" Type="Boolean" Nullable="false" />
+    <Property Name="AccountModerator" Type="Boolean" Nullable="false" />
+    <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DoctorID" Type="Byte" />
+    <NavigationProperty Name="Deceased" Relationship="Self.FK_Deceased_ID_DeceasedContacts_DeceasedID" FromRole="DeceasedContacts" ToRole="Deceased" />
+    <NavigationProperty Name="DeceasedContactsContactType" Relationship="Self.FK_ContactType_ID_DeceasedContacts_ContactTypeID" FromRole="DeceasedContacts" ToRole="DeceasedContactsContactType" />
+    <NavigationProperty Name="Doctor" Relationship="Self.FK_Doctor_ID_DeceasedContacts_DoctorID" FromRole="DeceasedContacts" ToRole="Doctor" />
+  </EntityType>
+  <EntityType Name="DeceasedContactsPointOfContact">
+    <Key>
+      <PropertyRef Name="DeceasedContactsID" />
+      <PropertyRef Name="Type" />
+      <PropertyRef Name="Value" />
+    </Key>
+    <Property Name="DeceasedContactsID" Type="Int32" Nullable="false" />
+    <Property Name="Type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Value" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Jewellery">
+    <Key>
+      <PropertyRef Name="OrderID" />
+      <PropertyRef Name="LineItem" />
+      <PropertyRef Name="Item" />
+    </Key>
+    <Property Name="OrderID" Type="Int16" Nullable="false" />
+    <Property Name="LineItem" Type="Int32" Nullable="false" />
+    <Property Name="Item" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Order" Relationship="Self.FK_Orders_ID_Jewellery_OrderID" FromRole="Jewellery" ToRole="Orders" />
+  </EntityType>
+  <EntityType Name="Music">
+    <Key>
+      <PropertyRef Name="OrderID" />
+      <PropertyRef Name="LineItem" />
+      <PropertyRef Name="Venue" />
+      <PropertyRef Name="Hymn" />
+      <PropertyRef Name="Notes" />
+      <PropertyRef Name="OnEntry" />
+    </Key>
+    <Property Name="OrderID" Type="Int16" Nullable="false" />
+    <Property Name="LineItem" Type="Byte" Nullable="false" />
+    <Property Name="Venue" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Hymn" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Notes" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="OnEntry" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Order" Relationship="Self.FK_Orders_ID_Music_OrderID" FromRole="Music" ToRole="Orders" />
+  </EntityType>
+  <EntityType Name="Office">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="AddressLine1" />
+      <PropertyRef Name="City" />
+      <PropertyRef Name="PostCode" />
+      <PropertyRef Name="PhoneNo" />
+    </Key>
+    <Property Name="ID" Type="Byte" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AddressLine1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="AddressLine2" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="City" Type="String" MaxLength="85" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="PostCode" Type="String" MaxLength="8" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="PhoneNo" Type="String" MaxLength="13" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="OrderItem">
+    <Key>
+      <PropertyRef Name="OrderID" />
+      <PropertyRef Name="LineItem" />
+      <PropertyRef Name="ItemID" />
+      <PropertyRef Name="ItemTypeID" />
+      <PropertyRef Name="ItemSubTypeID" />
+      <PropertyRef Name="Description" />
+      <PropertyRef Name="Price" />
+      <PropertyRef Name="VAT" />
+      <PropertyRef Name="Total" />
+      <PropertyRef Name="Cost" />
+    </Key>
+    <Property Name="OrderID" Type="Int16" Nullable="false" />
+    <Property Name="LineItem" Type="Byte" Nullable="false" />
+    <Property Name="ItemID" Type="Int32" Nullable="false" />
+    <Property Name="ItemTypeID" Type="Byte" Nullable="false" />
+    <Property Name="ItemSubTypeID" Type="Byte" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Price" Type="Decimal" Precision="8" Scale="2" Nullable="false" />
+    <Property Name="VAT" Type="Decimal" Precision="8" Scale="2" Nullable="false" />
+    <Property Name="Total" Type="Decimal" Precision="8" Scale="2" Nullable="false" />
+    <Property Name="Cost" Type="Decimal" Precision="8" Scale="2" Nullable="false" />
+    <NavigationProperty Name="OrderItemSubType" Relationship="Self.FK_OrderItemSubType_ID_OrderItems_ItemSubTypeID" FromRole="OrderItems" ToRole="OrderItemSubType" />
+    <NavigationProperty Name="OrderItemType" Relationship="Self.FK_OrderItemType_ID_OrderItems_ItemTypeID" FromRole="OrderItems" ToRole="OrderItemType" />
+    <NavigationProperty Name="Order" Relationship="Self.FK_Orders_ID_OrderItems_OrderID" FromRole="OrderItems" ToRole="Orders" />
+  </EntityType>
+  <EntityType Name="Transport">
+    <Key>
+      <PropertyRef Name="OrderID" />
+      <PropertyRef Name="LineItem" />
+      <PropertyRef Name="TransportTypeID" />
+      <PropertyRef Name="SupplierID" />
+    </Key>
+    <Property Name="OrderID" Type="Int16" Nullable="false" />
+    <Property Name="LineItem" Type="Byte" Nullable="false" />
+    <Property Name="TransportTypeID" Type="Int32" Nullable="false" />
+    <Property Name="Vehicle" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="SupplierID" Type="Int16" Nullable="false" />
+    <Property Name="PickupTime" Type="DateTime" Precision="3" />
+    <Property Name="CollectionAddress1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CollectionAddress2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CollectionCity" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CollectionPostCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Destination1Address1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Destination1Address2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Destination1City" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Destination1PostCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Destination2Address1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Destination2Address2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Destination2City" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Destination2Postcode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ReturnAddress1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ReturnAddress2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ReturnCity" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ReturnPostCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Order" Relationship="Self.FK_Orders_ID_Transport_OrderID" FromRole="Transport" ToRole="Orders" />
+    <NavigationProperty Name="Supplier" Relationship="Self.FK_Supplier_ID_Transport_SupplierID" FromRole="Transport" ToRole="Supplier" />
+    <NavigationProperty Name="TransportType" Relationship="Self.FK_TransportType_ID_Transport_TypeID" FromRole="Transport" ToRole="TransportType" />
+  </EntityType>
+  <EntityType Name="Visitor">
+    <Key>
+      <PropertyRef Name="OrderID" />
+      <PropertyRef Name="LineItem" />
+      <PropertyRef Name="Title" />
+      <PropertyRef Name="Forenames" />
+      <PropertyRef Name="Surname" />
+      <PropertyRef Name="Relationship" />
+      <PropertyRef Name="Time" />
+    </Key>
+    <Property Name="OrderID" Type="Int16" Nullable="false" />
+    <Property Name="LineItem" Type="Byte" Nullable="false" />
+    <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Forenames" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Surname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Relationship" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Time" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="Order" Relationship="Self.FK_Orders_ID_Visitors_OrderID" FromRole="Visitors" ToRole="Orders" />
+  </EntityType>
+  <EntityType Name="UIHistory">
+    <Key>
+      <PropertyRef Name="id" />
+      <PropertyRef Name="completionTime" />
+      <PropertyRef Name="taskType" />
+      <PropertyRef Name="recordType" />
+      <PropertyRef Name="serverid" />
+      <PropertyRef Name="agentid" />
+      <PropertyRef Name="databaseid" />
+      <PropertyRef Name="syncgroupId" />
+      <PropertyRef Name="detailEnumId" />
+    </Key>
+    <Property Name="id" Type="Guid" Nullable="false" />
+    <Property Name="completionTime" Type="DateTime" Nullable="false" Precision="7" />
+    <Property Name="taskType" Type="Int32" Nullable="false" />
+    <Property Name="recordType" Type="Int32" Nullable="false" />
+    <Property Name="serverid" Type="Guid" Nullable="false" />
+    <Property Name="agentid" Type="Guid" Nullable="false" />
+    <Property Name="databaseid" Type="Guid" Nullable="false" />
+    <Property Name="syncgroupId" Type="Guid" Nullable="false" />
+    <Property Name="detailEnumId" Type="String" MaxLength="400" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="detailStringParameters" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="isWritable" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="vw_GetDeceasedAddressList">
+    <Key>
+      <PropertyRef Name="DeceasedID" />
+      <PropertyRef Name="AddressType" />
+      <PropertyRef Name="AddressLine1" />
+      <PropertyRef Name="City" />
+      <PropertyRef Name="PostCode" />
+    </Key>
+    <Property Name="DeceasedID" Type="Int16" Nullable="false" />
+    <Property Name="AddressType" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="AddressLine1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="AddressLine2" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="City" Type="String" MaxLength="85" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="PostCode" Type="String" MaxLength="8" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ContactName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="ContactNo" Type="String" MaxLength="13" FixedLength="false" Unicode="true" />
+    <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="vw_GetDeceasedContactsList">
+    <Key>
+      <PropertyRef Name="DeceasedID" />
+      <PropertyRef Name="ContactType" />
+      <PropertyRef Name="Relationship" />
+      <PropertyRef Name="Name" />
+      <PropertyRef Name="ConsentToBeContacted" />
+      <PropertyRef Name="AccountModerator" />
+    </Key>
+    <Property Name="DeceasedID" Type="Int16" Nullable="false" />
+    <Property Name="ContactType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Relationship" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="142" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DateOfBirth" Type="DateTime" Precision="0" />
+    <Property Name="Occupation" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="AddressLine1" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="AddressLine2" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="City" Type="String" MaxLength="85" FixedLength="false" Unicode="true" />
+    <Property Name="PostCode" Type="String" MaxLength="8" FixedLength="false" Unicode="true" />
+    <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ConsentToBeContacted" Type="Boolean" Nullable="false" />
+    <Property Name="AccountModerator" Type="Boolean" Nullable="false" />
+    <Property Name="PointOfContactType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="PointOfContactValue" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="vw_GetDeceasedList">
+    <Key>
+      <PropertyRef Name="Reference" />
+      <PropertyRef Name="Type" />
+      <PropertyRef Name="SubType" />
+      <PropertyRef Name="Status" />
+      <PropertyRef Name="Client_Name" />
+    </Key>
+    <Property Name="Reference" Type="Int16" Nullable="false" />
+    <Property Name="Type" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="SubType" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Deceased_Name" Type="String" MaxLength="132" FixedLength="false" Unicode="true" />
+    <Property Name="Client_Name" Type="String" MaxLength="132" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="vw_GetDeceasedProfile">
+    <Key>
+      <PropertyRef Name="Reference" />
+      <PropertyRef Name="Title" />
+      <PropertyRef Name="Forenames" />
+      <PropertyRef Name="Surname" />
+      <PropertyRef Name="Name" />
+      <PropertyRef Name="Age" />
+      <PropertyRef Name="Gender" />
+      <PropertyRef Name="TimeOfDeath" />
+      <PropertyRef Name="Religion" />
+      <PropertyRef Name="ReligiousDenomination" />
+      <PropertyRef Name="MaritalStatus" />
+    </Key>
+    <Property Name="Reference" Type="Int16" Nullable="false" />
+    <Property Name="Title" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Forenames" Type="String" MaxLength="60" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Surname" Type="String" MaxLength="60" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="132" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DOB" Type="DateTime" Precision="0" />
+    <Property Name="Known_As" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+    <Property Name="Age" Type="Byte" Nullable="false" />
+    <Property Name="Gender" Type="String" MaxLength="6" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="TimeOfDeath" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Religion" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ReligiousDenomination" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="MaritalStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Occupation" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="vw_RowCountForAllTables">
+    <Key>
+      <PropertyRef Name="Table" />
+    </Key>
+    <Property Name="Table" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="RowCount" Type="Int32" />
+  </EntityType>
+  <EntityType Name="database_firewall_rules">
+    <Key>
+      <PropertyRef Name="id" />
+      <PropertyRef Name="name" />
+      <PropertyRef Name="start_ip_address" />
+      <PropertyRef Name="end_ip_address" />
+      <PropertyRef Name="create_date" />
+      <PropertyRef Name="modify_date" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="start_ip_address" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="end_ip_address" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="create_date" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="modify_date" Type="DateTime" Nullable="false" Precision="3" />
+  </EntityType>
+  <Association Name="FK_CommittalLocation_ID_Ceremony_CeremonyLocationID">
+    <End Role="CommittalLocation" Type="Self.CommittalLocation" Multiplicity="0..1" />
+    <End Role="Ceremony" Type="Self.Ceremony" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CommittalLocation">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Ceremony">
+        <PropertyRef Name="CeremonyLocationID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CommittalLocation_ID_Ceremony_CommittalLocationID">
+    <End Role="CommittalLocation" Type="Self.CommittalLocation" Multiplicity="0..1" />
+    <End Role="Ceremony" Type="Self.Ceremony" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CommittalLocation">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Ceremony">
+        <PropertyRef Name="CommittalLocationID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Officiant_ID_Ceremony_OfficiantID">
+    <End Role="Officiant" Type="Self.Officiant" Multiplicity="1" />
+    <End Role="Ceremony" Type="Self.Ceremony" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Officiant">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Ceremony">
+        <PropertyRef Name="OfficiantID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Orders_ID_Ceremony_OrderID">
+    <End Role="Orders" Type="Self.Order" Multiplicity="1" />
+    <End Role="Ceremony" Type="Self.Ceremony" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Orders">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Ceremony">
+        <PropertyRef Name="OrderID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Client_ID_Orders_ClientID">
+    <End Role="Client" Type="Self.Client" Multiplicity="1" />
+    <End Role="Orders" Type="Self.Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Client">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Orders">
+        <PropertyRef Name="ClientID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Users_ID_Client_CreatedBy">
+    <End Role="Users" Type="Self.User" Multiplicity="1" />
+    <End Role="Client" Type="Self.Client" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Client">
+        <PropertyRef Name="CreatedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Users_ID_Client_LastModifiedBy">
+    <End Role="Users" Type="Self.User" Multiplicity="0..1" />
+    <End Role="Client" Type="Self.Client" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Client">
+        <PropertyRef Name="LastModifiedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Coffin_ID_OrderDetails_CoffinID">
+    <End Role="Coffin" Type="Self.Coffin" Multiplicity="1" />
+    <End Role="OrderDetails" Type="Self.OrderDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Coffin">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="OrderDetails">
+        <PropertyRef Name="CoffinID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Supplier_ID_Coffin_SupplierID">
+    <End Role="Supplier" Type="Self.Supplier" Multiplicity="1" />
+    <End Role="Coffin" Type="Self.Coffin" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Supplier">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Coffin">
+        <PropertyRef Name="SupplierID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CommittalLocationType_ID_CommittalLocation_CommittalLocationTypeID">
+    <End Role="CommitallLocationType" Type="Self.CommitallLocationType" Multiplicity="1" />
+    <End Role="CommittalLocation" Type="Self.CommittalLocation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CommitallLocationType">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="CommittalLocation">
+        <PropertyRef Name="CommittalLocationTypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Deceased_ID_DeceasedAddress_DeceasedID">
+    <End Role="Deceased" Type="Self.Deceased" Multiplicity="1" />
+    <End Role="DeceasedAddress" Type="Self.DeceasedAddress" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Deceased">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="DeceasedAddress">
+        <PropertyRef Name="DeceasedID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Deceased_ID_DeceasedContacts_DeceasedID">
+    <End Role="Deceased" Type="Self.Deceased" Multiplicity="1" />
+    <End Role="DeceasedContacts" Type="Self.DeceasedContact" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Deceased">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="DeceasedContacts">
+        <PropertyRef Name="DeceasedID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Deceased_ID_Orders_DeceasedID">
+    <End Role="Deceased" Type="Self.Deceased" Multiplicity="1" />
+    <End Role="Orders" Type="Self.Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Deceased">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Orders">
+        <PropertyRef Name="DeceasedID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DenominationID_Deceased_ID_Denomination">
+    <End Role="ReligiousDenomination" Type="Self.ReligiousDenomination" Multiplicity="0..1" />
+    <End Role="Deceased" Type="Self.Deceased" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ReligiousDenomination">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Deceased">
+        <PropertyRef Name="DenominationID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MaritalStatus_ID_Deceased_MaritalStatusID">
+    <End Role="MaritalStatus" Type="Self.MaritalStatu" Multiplicity="0..1" />
+    <End Role="Deceased" Type="Self.Deceased" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MaritalStatus">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Deceased">
+        <PropertyRef Name="MaritalStatusID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Users_ID_Deceased_CreatedBy">
+    <End Role="Users" Type="Self.User" Multiplicity="1" />
+    <End Role="Deceased" Type="Self.Deceased" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Deceased">
+        <PropertyRef Name="CreatedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Users_ID_Deceased_LastModifiedBy">
+    <End Role="Users" Type="Self.User" Multiplicity="0..1" />
+    <End Role="Deceased" Type="Self.Deceased" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Deceased">
+        <PropertyRef Name="LastModifiedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ContactType_ID_DeceasedContacts_ContactTypeID">
+    <End Role="DeceasedContactsContactType" Type="Self.DeceasedContactsContactType" Multiplicity="1" />
+    <End Role="DeceasedContacts" Type="Self.DeceasedContact" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DeceasedContactsContactType">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="DeceasedContacts">
+        <PropertyRef Name="ContactTypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Doctor_ID_DeceasedContacts_DoctorID">
+    <End Role="Doctor" Type="Self.Doctor" Multiplicity="0..1" />
+    <End Role="DeceasedContacts" Type="Self.DeceasedContact" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Doctor">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="DeceasedContacts">
+        <PropertyRef Name="DoctorID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Memorial_OrderID_MemorialContactPoint_OrderID">
+    <End Role="Memorial" Type="Self.Memorial" Multiplicity="1" />
+    <End Role="MemorialContactPoint" Type="Self.MemorialContactPoint" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Memorial">
+        <PropertyRef Name="OrderID" />
+      </Principal>
+      <Dependent Role="MemorialContactPoint">
+        <PropertyRef Name="OrderID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Orders_ID_Memorial_OrderID">
+    <End Role="Orders" Type="Self.Order" Multiplicity="1" />
+    <End Role="Memorial" Type="Self.Memorial" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Orders">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Memorial">
+        <PropertyRef Name="OrderID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Officiant_ID_OfficiantContactPoint_OfficiantID">
+    <End Role="Officiant" Type="Self.Officiant" Multiplicity="1" />
+    <End Role="OfficiantContactPoint" Type="Self.OfficiantContactPoint" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Officiant">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="OfficiantContactPoint">
+        <PropertyRef Name="OfficiantID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Orders_ID_OrderChecklist_OrderID">
+    <End Role="Orders" Type="Self.Order" Multiplicity="1" />
+    <End Role="OrderChecklist" Type="Self.OrderChecklist" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Orders">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="OrderChecklist">
+        <PropertyRef Name="OrderID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Orders_ID_OrderCost_OrderID">
+    <End Role="Orders" Type="Self.Order" Multiplicity="1" />
+    <End Role="OrderCost" Type="Self.OrderCost" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Orders">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="OrderCost">
+        <PropertyRef Name="OrderID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Orders_ID_OrderDetails_OrderID">
+    <End Role="Orders" Type="Self.Order" Multiplicity="1" />
+    <End Role="OrderDetails" Type="Self.OrderDetail" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Orders">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="OrderDetails">
+        <PropertyRef Name="OrderID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_2133">
+    <End Role="OrderItemType" Type="Self.OrderItemType" Multiplicity="1" />
+    <End Role="OrderItemSubType" Type="Self.OrderItemSubType" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OrderItemType">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="OrderItemSubType">
+        <PropertyRef Name="OrderItemTypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OrderItemSubType_ID_OrderItems_ItemSubTypeID">
+    <End Role="OrderItemSubType" Type="Self.OrderItemSubType" Multiplicity="1" />
+    <End Role="OrderItems" Type="Self.OrderItem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OrderItemSubType">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="OrderItems">
+        <PropertyRef Name="ItemSubTypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OrderItemType_ID_OrderItems_ItemTypeID">
+    <End Role="OrderItemType" Type="Self.OrderItemType" Multiplicity="1" />
+    <End Role="OrderItems" Type="Self.OrderItem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OrderItemType">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="OrderItems">
+        <PropertyRef Name="ItemTypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Orders_ID_Jewellery_OrderID">
+    <End Role="Orders" Type="Self.Order" Multiplicity="1" />
+    <End Role="Jewellery" Type="Self.Jewellery" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Orders">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Jewellery">
+        <PropertyRef Name="OrderID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Orders_ID_Music_OrderID">
+    <End Role="Orders" Type="Self.Order" Multiplicity="1" />
+    <End Role="Music" Type="Self.Music" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Orders">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Music">
+        <PropertyRef Name="OrderID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Orders_ID_OrderItems_OrderID">
+    <End Role="Orders" Type="Self.Order" Multiplicity="1" />
+    <End Role="OrderItems" Type="Self.OrderItem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Orders">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="OrderItems">
+        <PropertyRef Name="OrderID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Orders_ID_Organist_OrderID">
+    <End Role="Orders" Type="Self.Order" Multiplicity="1" />
+    <End Role="Organist" Type="Self.Organist" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Orders">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Organist">
+        <PropertyRef Name="OrderID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Orders_ID_Transport_OrderID">
+    <End Role="Orders" Type="Self.Order" Multiplicity="1" />
+    <End Role="Transport" Type="Self.Transport" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Orders">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Transport">
+        <PropertyRef Name="OrderID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Orders_ID_Visitors_OrderID">
+    <End Role="Orders" Type="Self.Order" Multiplicity="1" />
+    <End Role="Visitors" Type="Self.Visitor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Orders">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Visitors">
+        <PropertyRef Name="OrderID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Orderstatus_ID_Orders_OrderStatusID">
+    <End Role="OrderStatus" Type="Self.OrderStatu" Multiplicity="1" />
+    <End Role="Orders" Type="Self.Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OrderStatus">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Orders">
+        <PropertyRef Name="OrderStatusID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OrderSubStatus_ID_Orders_OrderSubStatusID">
+    <End Role="OrderSubStatus" Type="Self.OrderSubStatu" Multiplicity="1" />
+    <End Role="Orders" Type="Self.Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OrderSubStatus">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Orders">
+        <PropertyRef Name="OrderSubStatusID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OrderSubType_ID_Orders_OrderSubTypeID">
+    <End Role="OrderSubType" Type="Self.OrderSubType" Multiplicity="1" />
+    <End Role="Orders" Type="Self.Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OrderSubType">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Orders">
+        <PropertyRef Name="OrderSubTypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OrderType_ID_Orders_OrderTypeID">
+    <End Role="OrderType" Type="Self.OrderType" Multiplicity="1" />
+    <End Role="Orders" Type="Self.Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OrderType">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Orders">
+        <PropertyRef Name="OrderTypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Users_ID_Orders_CreatedBy">
+    <End Role="Users" Type="Self.User" Multiplicity="1" />
+    <End Role="Orders" Type="Self.Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Orders">
+        <PropertyRef Name="CreatedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Users_ID_Orders_LastModifiedBy">
+    <End Role="Users" Type="Self.User" Multiplicity="0..1" />
+    <End Role="Orders" Type="Self.Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Orders">
+        <PropertyRef Name="LastModifiedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Religion_ID_ReligiousDenomination_ReligionID">
+    <End Role="Religion" Type="Self.Religion" Multiplicity="1" />
+    <End Role="ReligiousDenomination" Type="Self.ReligiousDenomination" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Religion">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ReligiousDenomination">
+        <PropertyRef Name="ReligionID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Supplier_ID_Transport_SupplierID">
+    <End Role="Supplier" Type="Self.Supplier" Multiplicity="1" />
+    <End Role="Transport" Type="Self.Transport" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Supplier">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Transport">
+        <PropertyRef Name="SupplierID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TransportType_ID_Transport_TypeID">
+    <End Role="TransportType" Type="Self.TransportType" Multiplicity="1" />
+    <End Role="Transport" Type="Self.Transport" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TransportType">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Transport">
+        <PropertyRef Name="TransportTypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__task__actionid">
+    <End Role="action" Type="Self.action" Multiplicity="1" />
+    <End Role="task" Type="Self.task" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="action">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="task">
+        <PropertyRef Name="actionid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__agent__subscript">
+    <End Role="subscription" Type="Self.subscription" Multiplicity="0..1" />
+    <End Role="agent" Type="Self.agent" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="subscription">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="agent">
+        <PropertyRef Name="subscriptionid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__agent_ins__agent">
+    <End Role="agent" Type="Self.agent" Multiplicity="1" />
+    <End Role="agent_instance" Type="Self.agent_instance" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="agent">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="agent_instance">
+        <PropertyRef Name="agentid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ScheduleT__SyncG">
+    <End Role="syncgroup" Type="Self.syncgroup" Multiplicity="1" />
+    <End Role="ScheduleTask" Type="Self.ScheduleTask" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="syncgroup">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="ScheduleTask">
+        <PropertyRef Name="SyncGroupId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__syncgroup__subsc">
+    <End Role="subscription" Type="Self.subscription" Multiplicity="0..1" />
+    <End Role="syncgroup" Type="Self.syncgroup" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="subscription">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="syncgroup">
+        <PropertyRef Name="subscriptionid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__userdatab__subsc">
+    <End Role="subscription" Type="Self.subscription" Multiplicity="1" />
+    <End Role="userdatabase" Type="Self.userdatabase" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="subscription">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="userdatabase">
+        <PropertyRef Name="subscriptionid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__syncgroup__hub_m">
+    <End Role="userdatabase" Type="Self.userdatabase" Multiplicity="0..1" />
+    <End Role="syncgroup" Type="Self.syncgroup" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="userdatabase">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="syncgroup">
+        <PropertyRef Name="hub_memberid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__syncmember__syncg">
+    <End Role="syncgroup" Type="Self.syncgroup" Multiplicity="1" />
+    <End Role="syncgroupmember" Type="Self.syncgroupmember" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="syncgroup">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="syncgroupmember">
+        <PropertyRef Name="syncgroupid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__syncmember__datab">
+    <End Role="userdatabase" Type="Self.userdatabase" Multiplicity="1" />
+    <End Role="syncgroupmember" Type="Self.syncgroupmember" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="userdatabase">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="syncgroupmember">
+        <PropertyRef Name="databaseid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__MessageQu__JobId__09C96D33">
+    <End Role="Job" Type="Self.Job" Multiplicity="0..1" />
+    <End Role="MessageQueue" Type="Self.MessageQueue" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Job">
+        <PropertyRef Name="JobId" />
+      </Principal>
+      <Dependent Role="MessageQueue">
+        <PropertyRef Name="JobId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ScheduleT__Sched__1446FBA6">
+    <End Role="Schedule" Type="Self.Schedule" Multiplicity="0..1" />
+    <End Role="ScheduleTask1" Type="Self.ScheduleTask1" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Schedule">
+        <PropertyRef Name="ScheduleId" />
+      </Principal>
+      <Dependent Role="ScheduleTask1">
+        <PropertyRef Name="Schedule" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="taskdependency">
+    <End Role="task" Type="Self.task" Multiplicity="*" />
+    <End Role="task1" Type="Self.task" Multiplicity="*" />
+  </Association>
+  <EntityContainer Name="ECMills_DBConnection" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="provision_marker_dss" EntityType="Self.provision_marker_dss" />
+    <EntitySet Name="schema_info_dss" EntityType="Self.schema_info_dss" />
+    <EntitySet Name="scope_config_dss" EntityType="Self.scope_config_dss" />
+    <EntitySet Name="scope_info_dss" EntityType="Self.scope_info_dss" />
+    <EntitySet Name="Ceremonies" EntityType="Self.Ceremony" />
+    <EntitySet Name="Clients" EntityType="Self.Client" />
+    <EntitySet Name="Coffins" EntityType="Self.Coffin" />
+    <EntitySet Name="CommitallLocationTypes" EntityType="Self.CommitallLocationType" />
+    <EntitySet Name="CommittalLocations" EntityType="Self.CommittalLocation" />
+    <EntitySet Name="Deceaseds" EntityType="Self.Deceased" />
+    <EntitySet Name="DeceasedAddressTypes" EntityType="Self.DeceasedAddressType" />
+    <EntitySet Name="DeceasedContactsContactTypes" EntityType="Self.DeceasedContactsContactType" />
+    <EntitySet Name="Doctors" EntityType="Self.Doctor" />
+    <EntitySet Name="MaritalStatus" EntityType="Self.MaritalStatu" />
+    <EntitySet Name="Memorials" EntityType="Self.Memorial" />
+    <EntitySet Name="MemorialContactPoints" EntityType="Self.MemorialContactPoint" />
+    <EntitySet Name="Officiants" EntityType="Self.Officiant" />
+    <EntitySet Name="OfficiantContactPoints" EntityType="Self.OfficiantContactPoint" />
+    <EntitySet Name="OrderChecklists" EntityType="Self.OrderChecklist" />
+    <EntitySet Name="OrderCosts" EntityType="Self.OrderCost" />
+    <EntitySet Name="OrderDetails" EntityType="Self.OrderDetail" />
+    <EntitySet Name="OrderItemSubTypes" EntityType="Self.OrderItemSubType" />
+    <EntitySet Name="OrderItemTypes" EntityType="Self.OrderItemType" />
+    <EntitySet Name="Orders" EntityType="Self.Order" />
+    <EntitySet Name="OrderStatus" EntityType="Self.OrderStatu" />
+    <EntitySet Name="OrderSubStatus" EntityType="Self.OrderSubStatu" />
+    <EntitySet Name="OrderSubTypes" EntityType="Self.OrderSubType" />
+    <EntitySet Name="OrderTypes" EntityType="Self.OrderType" />
+    <EntitySet Name="Organists" EntityType="Self.Organist" />
+    <EntitySet Name="Religions" EntityType="Self.Religion" />
+    <EntitySet Name="ReligiousDenominations" EntityType="Self.ReligiousDenomination" />
+    <EntitySet Name="Suppliers" EntityType="Self.Supplier" />
+    <EntitySet Name="TransportTypes" EntityType="Self.TransportType" />
+    <EntitySet Name="Users" EntityType="Self.User" />
+    <EntitySet Name="actions" EntityType="Self.action" />
+    <EntitySet Name="agents" EntityType="Self.agent" />
+    <EntitySet Name="agent_instance" EntityType="Self.agent_instance" />
+    <EntitySet Name="agent_version" EntityType="Self.agent_version" />
+    <EntitySet Name="configurations" EntityType="Self.configuration" />
+    <EntitySet Name="EnumTypes" EntityType="Self.EnumType" />
+    <EntitySet Name="MetaInformations" EntityType="Self.MetaInformation" />
+    <EntitySet Name="scaleunitlimits" EntityType="Self.scaleunitlimit" />
+    <EntitySet Name="ScheduleTasks" EntityType="Self.ScheduleTask" />
+    <EntitySet Name="subscriptions" EntityType="Self.subscription" />
+    <EntitySet Name="syncgroups" EntityType="Self.syncgroup" />
+    <EntitySet Name="syncgroupmembers" EntityType="Self.syncgroupmember" />
+    <EntitySet Name="SyncObjectDatas" EntityType="Self.SyncObjectData" />
+    <EntitySet Name="tasks" EntityType="Self.task" />
+    <EntitySet Name="userdatabases" EntityType="Self.userdatabase" />
+    <EntitySet Name="Jobs" EntityType="Self.Job" />
+    <EntitySet Name="MessageQueues" EntityType="Self.MessageQueue" />
+    <EntitySet Name="MetaInformation1" EntityType="Self.MetaInformation1" />
+    <EntitySet Name="Schedules" EntityType="Self.Schedule" />
+    <EntitySet Name="ScheduleTask1" EntityType="Self.ScheduleTask1" />
+    <EntitySet Name="DeceasedAddresses" EntityType="Self.DeceasedAddress" />
+    <EntitySet Name="DeceasedContacts" EntityType="Self.DeceasedContact" />
+    <EntitySet Name="DeceasedContactsPointOfContacts" EntityType="Self.DeceasedContactsPointOfContact" />
+    <EntitySet Name="Jewelleries" EntityType="Self.Jewellery" />
+    <EntitySet Name="Musics" EntityType="Self.Music" />
+    <EntitySet Name="Offices" EntityType="Self.Office" />
+    <EntitySet Name="OrderItems" EntityType="Self.OrderItem" />
+    <EntitySet Name="Transports" EntityType="Self.Transport" />
+    <EntitySet Name="Visitors" EntityType="Self.Visitor" />
+    <EntitySet Name="UIHistories" EntityType="Self.UIHistory" />
+    <EntitySet Name="vw_GetDeceasedAddressList" EntityType="Self.vw_GetDeceasedAddressList" />
+    <EntitySet Name="vw_GetDeceasedContactsList" EntityType="Self.vw_GetDeceasedContactsList" />
+    <EntitySet Name="vw_GetDeceasedList" EntityType="Self.vw_GetDeceasedList" />
+    <EntitySet Name="vw_GetDeceasedProfile" EntityType="Self.vw_GetDeceasedProfile" />
+    <EntitySet Name="vw_RowCountForAllTables" EntityType="Self.vw_RowCountForAllTables" />
+    <EntitySet Name="database_firewall_rules" EntityType="Self.database_firewall_rules" />
+    <AssociationSet Name="FK_CommittalLocation_ID_Ceremony_CeremonyLocationID" Association="Self.FK_CommittalLocation_ID_Ceremony_CeremonyLocationID">
+      <End Role="CommittalLocation" EntitySet="CommittalLocations" />
+      <End Role="Ceremony" EntitySet="Ceremonies" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CommittalLocation_ID_Ceremony_CommittalLocationID" Association="Self.FK_CommittalLocation_ID_Ceremony_CommittalLocationID">
+      <End Role="CommittalLocation" EntitySet="CommittalLocations" />
+      <End Role="Ceremony" EntitySet="Ceremonies" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Officiant_ID_Ceremony_OfficiantID" Association="Self.FK_Officiant_ID_Ceremony_OfficiantID">
+      <End Role="Officiant" EntitySet="Officiants" />
+      <End Role="Ceremony" EntitySet="Ceremonies" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Orders_ID_Ceremony_OrderID" Association="Self.FK_Orders_ID_Ceremony_OrderID">
+      <End Role="Orders" EntitySet="Orders" />
+      <End Role="Ceremony" EntitySet="Ceremonies" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Client_ID_Orders_ClientID" Association="Self.FK_Client_ID_Orders_ClientID">
+      <End Role="Client" EntitySet="Clients" />
+      <End Role="Orders" EntitySet="Orders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Users_ID_Client_CreatedBy" Association="Self.FK_Users_ID_Client_CreatedBy">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Client" EntitySet="Clients" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Users_ID_Client_LastModifiedBy" Association="Self.FK_Users_ID_Client_LastModifiedBy">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Client" EntitySet="Clients" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Coffin_ID_OrderDetails_CoffinID" Association="Self.FK_Coffin_ID_OrderDetails_CoffinID">
+      <End Role="Coffin" EntitySet="Coffins" />
+      <End Role="OrderDetails" EntitySet="OrderDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Supplier_ID_Coffin_SupplierID" Association="Self.FK_Supplier_ID_Coffin_SupplierID">
+      <End Role="Supplier" EntitySet="Suppliers" />
+      <End Role="Coffin" EntitySet="Coffins" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CommittalLocationType_ID_CommittalLocation_CommittalLocationTypeID" Association="Self.FK_CommittalLocationType_ID_CommittalLocation_CommittalLocationTypeID">
+      <End Role="CommitallLocationType" EntitySet="CommitallLocationTypes" />
+      <End Role="CommittalLocation" EntitySet="CommittalLocations" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Deceased_ID_DeceasedAddress_DeceasedID" Association="Self.FK_Deceased_ID_DeceasedAddress_DeceasedID">
+      <End Role="Deceased" EntitySet="Deceaseds" />
+      <End Role="DeceasedAddress" EntitySet="DeceasedAddresses" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Deceased_ID_DeceasedContacts_DeceasedID" Association="Self.FK_Deceased_ID_DeceasedContacts_DeceasedID">
+      <End Role="Deceased" EntitySet="Deceaseds" />
+      <End Role="DeceasedContacts" EntitySet="DeceasedContacts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Deceased_ID_Orders_DeceasedID" Association="Self.FK_Deceased_ID_Orders_DeceasedID">
+      <End Role="Deceased" EntitySet="Deceaseds" />
+      <End Role="Orders" EntitySet="Orders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DenominationID_Deceased_ID_Denomination" Association="Self.FK_DenominationID_Deceased_ID_Denomination">
+      <End Role="ReligiousDenomination" EntitySet="ReligiousDenominations" />
+      <End Role="Deceased" EntitySet="Deceaseds" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MaritalStatus_ID_Deceased_MaritalStatusID" Association="Self.FK_MaritalStatus_ID_Deceased_MaritalStatusID">
+      <End Role="MaritalStatus" EntitySet="MaritalStatus" />
+      <End Role="Deceased" EntitySet="Deceaseds" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Users_ID_Deceased_CreatedBy" Association="Self.FK_Users_ID_Deceased_CreatedBy">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Deceased" EntitySet="Deceaseds" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Users_ID_Deceased_LastModifiedBy" Association="Self.FK_Users_ID_Deceased_LastModifiedBy">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Deceased" EntitySet="Deceaseds" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ContactType_ID_DeceasedContacts_ContactTypeID" Association="Self.FK_ContactType_ID_DeceasedContacts_ContactTypeID">
+      <End Role="DeceasedContactsContactType" EntitySet="DeceasedContactsContactTypes" />
+      <End Role="DeceasedContacts" EntitySet="DeceasedContacts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Doctor_ID_DeceasedContacts_DoctorID" Association="Self.FK_Doctor_ID_DeceasedContacts_DoctorID">
+      <End Role="Doctor" EntitySet="Doctors" />
+      <End Role="DeceasedContacts" EntitySet="DeceasedContacts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Memorial_OrderID_MemorialContactPoint_OrderID" Association="Self.FK_Memorial_OrderID_MemorialContactPoint_OrderID">
+      <End Role="Memorial" EntitySet="Memorials" />
+      <End Role="MemorialContactPoint" EntitySet="MemorialContactPoints" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Orders_ID_Memorial_OrderID" Association="Self.FK_Orders_ID_Memorial_OrderID">
+      <End Role="Orders" EntitySet="Orders" />
+      <End Role="Memorial" EntitySet="Memorials" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Officiant_ID_OfficiantContactPoint_OfficiantID" Association="Self.FK_Officiant_ID_OfficiantContactPoint_OfficiantID">
+      <End Role="Officiant" EntitySet="Officiants" />
+      <End Role="OfficiantContactPoint" EntitySet="OfficiantContactPoints" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Orders_ID_OrderChecklist_OrderID" Association="Self.FK_Orders_ID_OrderChecklist_OrderID">
+      <End Role="Orders" EntitySet="Orders" />
+      <End Role="OrderChecklist" EntitySet="OrderChecklists" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Orders_ID_OrderCost_OrderID" Association="Self.FK_Orders_ID_OrderCost_OrderID">
+      <End Role="Orders" EntitySet="Orders" />
+      <End Role="OrderCost" EntitySet="OrderCosts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Orders_ID_OrderDetails_OrderID" Association="Self.FK_Orders_ID_OrderDetails_OrderID">
+      <End Role="Orders" EntitySet="Orders" />
+      <End Role="OrderDetails" EntitySet="OrderDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_2133" Association="Self.FK_2133">
+      <End Role="OrderItemType" EntitySet="OrderItemTypes" />
+      <End Role="OrderItemSubType" EntitySet="OrderItemSubTypes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OrderItemSubType_ID_OrderItems_ItemSubTypeID" Association="Self.FK_OrderItemSubType_ID_OrderItems_ItemSubTypeID">
+      <End Role="OrderItemSubType" EntitySet="OrderItemSubTypes" />
+      <End Role="OrderItems" EntitySet="OrderItems" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OrderItemType_ID_OrderItems_ItemTypeID" Association="Self.FK_OrderItemType_ID_OrderItems_ItemTypeID">
+      <End Role="OrderItemType" EntitySet="OrderItemTypes" />
+      <End Role="OrderItems" EntitySet="OrderItems" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Orders_ID_Jewellery_OrderID" Association="Self.FK_Orders_ID_Jewellery_OrderID">
+      <End Role="Orders" EntitySet="Orders" />
+      <End Role="Jewellery" EntitySet="Jewelleries" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Orders_ID_Music_OrderID" Association="Self.FK_Orders_ID_Music_OrderID">
+      <End Role="Orders" EntitySet="Orders" />
+      <End Role="Music" EntitySet="Musics" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Orders_ID_OrderItems_OrderID" Association="Self.FK_Orders_ID_OrderItems_OrderID">
+      <End Role="Orders" EntitySet="Orders" />
+      <End Role="OrderItems" EntitySet="OrderItems" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Orders_ID_Organist_OrderID" Association="Self.FK_Orders_ID_Organist_OrderID">
+      <End Role="Orders" EntitySet="Orders" />
+      <End Role="Organist" EntitySet="Organists" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Orders_ID_Transport_OrderID" Association="Self.FK_Orders_ID_Transport_OrderID">
+      <End Role="Orders" EntitySet="Orders" />
+      <End Role="Transport" EntitySet="Transports" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Orders_ID_Visitors_OrderID" Association="Self.FK_Orders_ID_Visitors_OrderID">
+      <End Role="Orders" EntitySet="Orders" />
+      <End Role="Visitors" EntitySet="Visitors" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Orderstatus_ID_Orders_OrderStatusID" Association="Self.FK_Orderstatus_ID_Orders_OrderStatusID">
+      <End Role="OrderStatus" EntitySet="OrderStatus" />
+      <End Role="Orders" EntitySet="Orders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OrderSubStatus_ID_Orders_OrderSubStatusID" Association="Self.FK_OrderSubStatus_ID_Orders_OrderSubStatusID">
+      <End Role="OrderSubStatus" EntitySet="OrderSubStatus" />
+      <End Role="Orders" EntitySet="Orders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OrderSubType_ID_Orders_OrderSubTypeID" Association="Self.FK_OrderSubType_ID_Orders_OrderSubTypeID">
+      <End Role="OrderSubType" EntitySet="OrderSubTypes" />
+      <End Role="Orders" EntitySet="Orders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OrderType_ID_Orders_OrderTypeID" Association="Self.FK_OrderType_ID_Orders_OrderTypeID">
+      <End Role="OrderType" EntitySet="OrderTypes" />
+      <End Role="Orders" EntitySet="Orders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Users_ID_Orders_CreatedBy" Association="Self.FK_Users_ID_Orders_CreatedBy">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Orders" EntitySet="Orders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Users_ID_Orders_LastModifiedBy" Association="Self.FK_Users_ID_Orders_LastModifiedBy">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Orders" EntitySet="Orders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Religion_ID_ReligiousDenomination_ReligionID" Association="Self.FK_Religion_ID_ReligiousDenomination_ReligionID">
+      <End Role="Religion" EntitySet="Religions" />
+      <End Role="ReligiousDenomination" EntitySet="ReligiousDenominations" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Supplier_ID_Transport_SupplierID" Association="Self.FK_Supplier_ID_Transport_SupplierID">
+      <End Role="Supplier" EntitySet="Suppliers" />
+      <End Role="Transport" EntitySet="Transports" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TransportType_ID_Transport_TypeID" Association="Self.FK_TransportType_ID_Transport_TypeID">
+      <End Role="TransportType" EntitySet="TransportTypes" />
+      <End Role="Transport" EntitySet="Transports" />
+    </AssociationSet>
+    <AssociationSet Name="FK__task__actionid" Association="Self.FK__task__actionid">
+      <End Role="action" EntitySet="actions" />
+      <End Role="task" EntitySet="tasks" />
+    </AssociationSet>
+    <AssociationSet Name="FK__agent__subscript" Association="Self.FK__agent__subscript">
+      <End Role="subscription" EntitySet="subscriptions" />
+      <End Role="agent" EntitySet="agents" />
+    </AssociationSet>
+    <AssociationSet Name="FK__agent_ins__agent" Association="Self.FK__agent_ins__agent">
+      <End Role="agent" EntitySet="agents" />
+      <End Role="agent_instance" EntitySet="agent_instance" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ScheduleT__SyncG" Association="Self.FK__ScheduleT__SyncG">
+      <End Role="syncgroup" EntitySet="syncgroups" />
+      <End Role="ScheduleTask" EntitySet="ScheduleTasks" />
+    </AssociationSet>
+    <AssociationSet Name="FK__syncgroup__subsc" Association="Self.FK__syncgroup__subsc">
+      <End Role="subscription" EntitySet="subscriptions" />
+      <End Role="syncgroup" EntitySet="syncgroups" />
+    </AssociationSet>
+    <AssociationSet Name="FK__userdatab__subsc" Association="Self.FK__userdatab__subsc">
+      <End Role="subscription" EntitySet="subscriptions" />
+      <End Role="userdatabase" EntitySet="userdatabases" />
+    </AssociationSet>
+    <AssociationSet Name="FK__syncgroup__hub_m" Association="Self.FK__syncgroup__hub_m">
+      <End Role="userdatabase" EntitySet="userdatabases" />
+      <End Role="syncgroup" EntitySet="syncgroups" />
+    </AssociationSet>
+    <AssociationSet Name="FK__syncmember__syncg" Association="Self.FK__syncmember__syncg">
+      <End Role="syncgroup" EntitySet="syncgroups" />
+      <End Role="syncgroupmember" EntitySet="syncgroupmembers" />
+    </AssociationSet>
+    <AssociationSet Name="FK__syncmember__datab" Association="Self.FK__syncmember__datab">
+      <End Role="userdatabase" EntitySet="userdatabases" />
+      <End Role="syncgroupmember" EntitySet="syncgroupmembers" />
+    </AssociationSet>
+    <AssociationSet Name="FK__MessageQu__JobId__09C96D33" Association="Self.FK__MessageQu__JobId__09C96D33">
+      <End Role="Job" EntitySet="Jobs" />
+      <End Role="MessageQueue" EntitySet="MessageQueues" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ScheduleT__Sched__1446FBA6" Association="Self.FK__ScheduleT__Sched__1446FBA6">
+      <End Role="Schedule" EntitySet="Schedules" />
+      <End Role="ScheduleTask1" EntitySet="ScheduleTask1" />
+    </AssociationSet>
+    <AssociationSet Name="taskdependency" Association="Self.taskdependency">
+      <End Role="task" EntitySet="tasks" />
+      <End Role="task1" EntitySet="tasks" />
+    </AssociationSet>
+    <FunctionImport Name="sp_GetDeceasedAddressList" ReturnType="Collection(ECMills_DatabaseModel.sp_GetDeceasedAddressList_Result)">
+      <Parameter Name="DeceasedID" Mode="In" Type="Int16" />
+    </FunctionImport>
+    <FunctionImport Name="sp_GetDeceasedContactsList" ReturnType="Collection(ECMills_DatabaseModel.sp_GetDeceasedContactsList_Result)">
+      <Parameter Name="DeceasedID" Mode="In" Type="Int16" />
+    </FunctionImport>
+    <FunctionImport Name="sp_GetDeceasedList" ReturnType="Collection(ECMills_DatabaseModel.sp_GetDeceasedList_Result)" />
+    <FunctionImport Name="sp_GetDeceasedProfile" ReturnType="Collection(ECMills_DatabaseModel.sp_GetDeceasedProfile_Result)">
+      <Parameter Name="DeceasedID" Mode="In" Type="Int16" />
+    </FunctionImport>
+    <EntitySet Name="vw_GetDeceasedContactsContactDetails" EntityType="ECMills_DatabaseModel.vw_GetDeceasedContactsContactDetails" />
+    <FunctionImport Name="sp_GetDeceasedContactsContactDetails" ReturnType="Collection(ECMills_DatabaseModel.sp_GetDeceasedContactsContactDetails_Result)">
+      <Parameter Name="DeceasedID" Mode="In" Type="Int16" />
+    </FunctionImport>
+  </EntityContainer>
+  <ComplexType Name="sp_GetDeceasedAddressList_Result">
+    <Property Type="Int16" Name="DeceasedID" Nullable="false" />
+    <Property Type="String" Name="AddressType" Nullable="false" MaxLength="30" />
+    <Property Type="String" Name="AddressLine1" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="AddressLine2" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="City" Nullable="false" MaxLength="85" />
+    <Property Type="String" Name="PostCode" Nullable="false" MaxLength="8" />
+    <Property Type="String" Name="ContactName" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="ContactNo" Nullable="true" MaxLength="13" />
+    <Property Type="String" Name="Notes" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="sp_GetDeceasedContactsList_Result">
+    <Property Type="Int16" Name="DeceasedID" Nullable="false" />
+    <Property Type="String" Name="ContactType" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="Relationship" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="142" />
+    <Property Type="DateTime" Name="DateOfBirth" Nullable="true" />
+    <Property Type="String" Name="Occupation" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="AddressLine1" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="AddressLine2" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="City" Nullable="true" MaxLength="85" />
+    <Property Type="String" Name="PostCode" Nullable="true" MaxLength="8" />
+    <Property Type="String" Name="Notes" Nullable="true" />
+    <Property Type="Boolean" Name="ConsentToBeContacted" Nullable="false" />
+    <Property Type="Boolean" Name="AccountModerator" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="sp_GetDeceasedList_Result">
+    <Property Type="Int16" Name="Reference" Nullable="false" />
+    <Property Type="String" Name="Type" Nullable="false" MaxLength="30" />
+    <Property Type="String" Name="SubType" Nullable="false" MaxLength="30" />
+    <Property Type="String" Name="Status" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="Deceased_Name" Nullable="true" MaxLength="132" />
+    <Property Type="String" Name="Client_Name" Nullable="false" MaxLength="132" />
+  </ComplexType>
+  <ComplexType Name="sp_GetDeceasedProfile_Result">
+    <Property Type="Int16" Name="Reference" Nullable="false" />
+    <Property Type="String" Name="Title" Nullable="false" MaxLength="10" />
+    <Property Type="String" Name="Forenames" Nullable="false" MaxLength="60" />
+    <Property Type="String" Name="Surname" Nullable="false" MaxLength="60" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="132" />
+    <Property Type="DateTime" Name="DOB" Nullable="true" />
+    <Property Type="String" Name="Known_As" Nullable="true" MaxLength="60" />
+    <Property Type="Byte" Name="Age" Nullable="false" />
+    <Property Type="String" Name="Gender" Nullable="false" MaxLength="6" />
+    <Property Type="DateTime" Name="TimeOfDeath" Nullable="false" Precision="23" />
+    <Property Type="String" Name="Religion" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="ReligiousDenomination" Nullable="false" MaxLength="150" />
+    <Property Type="String" Name="MaritalStatus" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="Occupation" Nullable="true" MaxLength="100" />
+  </ComplexType>
+  <EntityType Name="vw_GetDeceasedContactsContactDetails">
+    <Key>
+      <PropertyRef Name="DeceasedID" />
+      <PropertyRef Name="PointOfContactType" />
+      <PropertyRef Name="PointOfContactValue" />
+    </Key>
+    <Property Name="DeceasedID" Type="Int16" Nullable="false" />
+    <Property Name="PointOfContactType" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="PointOfContactValue" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <ComplexType Name="sp_GetDeceasedContactsContactDetails_Result">
+    <Property Type="Int16" Name="DeceasedID" Nullable="false" />
+    <Property Type="String" Name="PointOfContactType" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="PointOfContactValue" Nullable="false" MaxLength="100" />
+  </ComplexType>
+</Schema>
