@@ -102,3 +102,4 @@ C:\WWW\ECMills\ECMills\obj\Release\ECMills.csproj.CoreCompileInputs.cache
 \\Mac\Home\Documents\GitHub\ECMills\ECMills\obj\Release\ECMills.csproj.CopyComplete
 \\Mac\Home\Documents\GitHub\ECMills\ECMills\obj\Release\ECMills.dll
 \\Mac\Home\Documents\GitHub\ECMills\ECMills\obj\Release\ECMills.pdb
+\\Mac\Home\Documents\GitHub\ECMills\ECMills\bin\WebActivatorEx.dll

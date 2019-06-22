@@ -32,13 +32,6 @@ namespace ECMills.Controllers
 
             return View();
         }
-        
-        [HttpGet]
-        public ActionResult CaptureID(Int16 id)
-        {
-            Session["DeceasedID"] = id;
-            return RedirectToAction("Info", "Arrangement", new { id });
-        }
 
         [HttpGet]
         [Route("{id}/Deceased")]

@@ -1,6 +1,93 @@
 ﻿@using ECMills.Models;
 @model dynamic
 
+<style>
+    .timeline > li > .timeline-panel {
+        margin-bottom: 0;
+        padding: 6px 20px 6px 20px;
+    }
+
+        .timeline > li > .timeline-panel:hover {
+            background: #ff2ff92e;
+        }
+
+            .timeline > li > .timeline-panel:hover:after {
+                background: #ff2ff92e;
+                border-right: 0 solid #ff2ff92e;
+            }
+
+        .timeline > li > .timeline-panel > .timeline-heading {
+            margin-bottom: 0;
+        }
+
+    .timeline > li > .timeline-badge {
+        top: 0px;
+    }
+
+    .timeline:before, .timeline > li > .timeline-badge {
+        left: 4%;
+    }
+
+    .timeline:before {
+        top: 26px;
+        bottom: 0;
+        position: absolute;
+        content: " ";
+        width: 3px;
+        background-color: #e5e5e5;
+        left: 50%;
+        margin-left: -1px;
+    }
+
+    .timeline > li > .timeline-badge {
+        color: #fff;
+        width: 35px;
+        height: 35px;
+        line-height: 51px;
+        font-size: 1.3em;
+        text-align: center;
+        position: absolute;
+        /* top: 16px; */
+        left: 50%;
+        margin-left: -17px;
+        z-index: 100;
+        border-top-right-radius: 50%;
+        border-top-left-radius: 50%;
+        border-bottom-right-radius: 50%;
+        border-bottom-left-radius: 50%;
+    }
+
+        .timeline > li > .timeline-badge [class*=" ti-"], .timeline > li > .timeline-badge [class=material-icons], .timeline > li > .timeline-badge [class^=ti-] {
+            font-size: large;
+            display: block;
+            line-height: 2;
+        }
+
+    .timeline > li > .timeline-panel:before {
+        position: absolute;
+        top: 5px;
+        right: -15px;
+        display: inline-block;
+        border-top: 14px solid transparent;
+        border-left: 14px solid #e4e4e4;
+        border-right: 0 solid #e4e4e4;
+        border-bottom: 14px solid transparent;
+        content: " ";
+    }
+
+    .timeline > li > .timeline-panel:after {
+        position: absolute;
+        top: 3px !important;
+        right: -14px;
+        display: inline-block;
+        border-top: 14px solid transparent;
+        border-left: 14px solid #fff;
+        border-right: 0 solid #fff;
+        border-bottom: 14px solid transparent;
+        content: " ";
+    }
+</style>
+
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-6">
@@ -33,13 +120,13 @@
                             <div class="col-md-6">
                                 <div class="form-group bmd-form-group">
                                     <label class="bmd-label-static">Name</label>
-                                    <div class="form-control" id="ReadOnlyInput-Name"></div>
+                                    <input class="form-control" style="padding-top: 17px;" type="text" name="forenames" placeholder="Miss Violet Crooks" disabled aria-required="true" aria-invalid="true">
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group bmd-form-group">
                                     <label class="bmd-label-static">Known As</label>
-                                    <div class="form-control" id="ReadOnlyInput-Known_As"></div>
+                                    <input class="form-control" style="padding-top: 17px;" type="text" name="forenames" placeholder="" disabled aria-required="true" aria-invalid="true">
                                 </div>
                             </div>
                         </div>
@@ -47,13 +134,13 @@
                             <div class="col-md-6">
                                 <div class="form-group bmd-form-group">
                                     <label class="bmd-label-static">Gender</label>
-                                    <div class="form-control" id="ReadOnlyInput-Gender"></div>
+                                    <input class="form-control" style="padding-top: 17px;" type="text" name="forenames" placeholder="Male" disabled aria-required="true" aria-invalid="true">
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group bmd-form-group">
                                     <label class="bmd-label-static">Age</label>
-                                    <div class="form-control" id="ReadOnlyInput-Age"></div>
+                                    <input class="form-control" style="padding-top: 17px;" type="text" name="forenames" placeholder="43" disabled aria-required="true" aria-invalid="true">
                                 </div>
                             </div>
                         </div>
@@ -61,15 +148,13 @@
                             <div class="col-md-6">
                                 <div class="form-group bmd-form-group">
                                     <label class="bmd-label-static">Date of Birth</label>
-
-                                    <div class="form-control" id="ReadOnlyInput-DOB"></div>
-
+                                    <input class="form-control" style="padding-top: 17px;" type="text" name="forenames" placeholder="5th December 1976" disabled aria-required="true" aria-invalid="true">
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group bmd-form-group">
                                     <label class="bmd-label-static">Date/Time of Death</label>
-                                    <div class="form-control" id="ReadOnlyInput-TimeOfDeath"></div>
+                                    <input class="form-control" style="padding-top: 17px;" type="text" name="forenames" placeholder="20th June 2019 02:32am" disabled aria-required="true" aria-invalid="true">
                                 </div>
                             </div>
                         </div>
@@ -77,13 +162,13 @@
                             <div class="col-md-6">
                                 <div class="form-group bmd-form-group">
                                     <label class="bmd-label-static">Marital Status</label>
-                                    <div class="form-control" id="ReadOnlyInput-MaritalStatus"></div>
+                                    <input class="form-control" style="padding-top: 17px;" type="text" name="forenames" placeholder="Single" disabled aria-required="true" aria-invalid="true">
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group bmd-form-group">
                                     <label class="bmd-label-static">Occupation</label>
-                                    <div class="form-control" id="ReadOnlyInput-Occupation"></div>
+                                    <input class="form-control" style="padding-top: 17px;" type="text" name="forenames" placeholder="I.T. Professional" disabled aria-required="true" aria-invalid="true">
                                 </div>
                             </div>
                         </div>
@@ -91,13 +176,13 @@
                             <div class="col-md-6">
                                 <div class="form-group bmd-form-group">
                                     <label class="bmd-label-static">Religion</label>
-                                    <div class="form-control" id="ReadOnlyInput-Religion"></div>
+                                    <input class="form-control" style="padding-top: 17px;" type="text" name="forenames" placeholder="Athiest" disabled aria-required="true" aria-invalid="true">
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group bmd-form-group">
                                     <label class="bmd-label-static">Religious Denomination</label>
-                                    <div class="form-control" id="ReadOnlyInput-RelDom"></div>
+                                    <input class="form-control" style="padding-top: 17px;" type="text" name="forenames" placeholder="Athiest" disabled aria-required="true" aria-invalid="true">
                                 </div>
                             </div>
                         </div>
@@ -111,68 +196,69 @@
                                 </div>
                             </div>
                         </div>
-                        <button type="submit" class="btn btn-rose pull-left">Edit Profile</button>
+                        <div id="buttonswitch">
+                            <button id="EditProfileBtn" onclick="editProfile()" class="btn btn-rose pull-left">Edit Profile</button>
+                        </div>
                         <div class="clearfix"></div>
                     </form>
                 </div>
             </div>
         </div>
         <div class="col-md-6">
-            <div class="card" style="margin-bottom: 0px !important;">
+            <div class="card" style="margin-bottom: 0px !important; overflow-y: scroll;">
                 <div class="card-body Height85vh">
                     Arrangement Checklist
 
-                    <hr />
+                    <hr>
 
-                    <div class="toolbar">
-                        <!--        Here you can write extra buttons/actions for the toolbar              -->
-                    </div>
-                    <div class="material-datatables">
-                        <table id="datatables" class="table header-fixed table-striped table-no-bordered table-hover TextAlignCenter" cellspacing="0" style="width:100%">
-                            <thead>
-                                <tr>
-                                    <th>Status</th>
-                                    <th>Task</th>
-                                    <th>Notes</th>
-                                </tr>
-                            </thead>
-                            <tbody style="height: 70vh;">
-                                @{
-                                    Int16 MaxCount = 15;
-                                    Int16 Count = 1;
-                                    while (Count <= MaxCount)
-                                    {
-                                        if (Count % 2 == 0)
-                                        {
-                                            <tr>
-                                                <td class="td-actions text-center">
-                                                    <button type="button" rel="tooltip" class="btn btn-success btn-round" style="padding: 1px !important;">
-                                                        <i class="material-icons">check</i>
-                                                    </button>
-                                                </td>
-                                                <td>Hospital Form Recieved</td>
-                                                <td>Note was delayed by 2 days</td>
-                                            </tr>
-                                        }
-                                        else
-                                        {
-                                            <tr>
-                                                <td class="td-actions text-center">
-                                                    <button type="button" rel="tooltip" class="btn btn-danger btn-round" style="padding: 1px !important;">
-                                                        <i class="material-icons">close</i>
-                                                    </button>
-                                                </td>
-                                                <td>Hospital Form Recieved</td>
-                                                <td>Note was delayed by 2 days</td>
-                                            </tr>
-                                        }
+                    <ul class="timeline timeline-simple">
+                        @{
+                            Int16 MaxCount = 15;
+                            Int16 Count = 1;
+                            while (Count <= MaxCount)
+                            {
+                                if (Count % 2 == 0)
+                                {
+                                    <li class="timeline-inverted">
+                                        <div class="timeline-badge success">
+                                            <i class="material-icons">mail</i>
+                                        </div>
+                                        <div class="timeline-panel">
+                                            <div class="timeline-heading">
+                                                <span class="badge badge-pill badge-success">Form</span> <text>Cremation 1</text>
+                                            </div>
+                                        </div>
+                                    </li>
 
-                                        Count++;
-                                    }
+                                    <li class="timeline-inverted">
+                                        <div class="timeline-badge danger">
+                                            <i class="material-icons">mail</i>
+                                        </div>
+                                        <div class="timeline-panel">
+                                            <div class="timeline-heading">
+                                                <span class="badge badge-pill badge-danger">Form</span> <text>Cremation 2</text>
+                                            </div>
+                                        </div>
+                                    </li>
                                 }
-                            </tbody>
-                        </table>
-                    </div>
+                                else
+                                {
+                                    <li class="timeline-inverted">
+                                        <div class="timeline-badge warning">
+                                            <i class="material-icons">mail</i>
+                                        </div>
+                                        <div class="timeline-panel">
+                                            <div class="timeline-heading">
+                                                <span class="badge badge-pill badge-warning">Form</span> <text>Cremation 3</text>
+                                            </div>
+                                        </div>
+                                    </li>
+                                }
+
+                                Count++;
+                            }
+                        }
+                    </ul>
                 </div>
             </div>
         </div>
@@ -181,6 +267,11 @@
 
 @section scripts {
     <script type="text/javascript">
-        
+        function editProfile() {
+            $(".formgroup>label").addClass("bmd-label-floating");
+            $(".formgroup>label").removeClass("bmd-label-static");
+            $("#EditProfileBtn").remove();
+            $("#buttonswitch").append("<button id='CancelProfileEditBtn'; onclick='cancelProfileEdit()' class='btn btn-rose pull-left'>Cancel</button>");
+        };
     </script>
 }

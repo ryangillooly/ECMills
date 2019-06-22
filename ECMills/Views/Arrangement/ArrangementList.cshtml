@@ -535,10 +535,8 @@
                                         <td>@deceased.Deceased_Name</td>
                                         <td>@deceased.Client_Name</td>
                                         <td class="text-right">
-                                            <button type="button" rel="tooltip" class="btn btn-info">
-                                                <a href="@Url.Action("Info", "Arrangement", new { id = deceased.Reference }, null)">
-                                                    <i class="material-icons">person</i>
-                                                </a>
+                                            <button type="button" onclick="@Url.Action("Info", "Arrangement", new { id = deceased.Reference }, null)" rel="tooltip" class="btn btn-info">
+                                                 <i class="material-icons">person</i>
                                             </button>
                                         </td>
                                     </tr>

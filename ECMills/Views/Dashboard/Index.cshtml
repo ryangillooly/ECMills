@@ -7,71 +7,397 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<div class="container">
+<div class="container-fluid">
     <div class="row">
-        <div class="col-md-6 ml-auto mr-auto text-center">
-            <h2 class="title">Pick the best plan for you</h2>
-            <h5 class="description">You have Free Unlimited Updates and Premium Support on each package.</h5>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-lg-3 col-md-6">
-            <div class="card card-pricing card-plain">
-                <h6 class="card-category"> Freelancer</h6>
-                <div class="card-body">
-                    <div class="card-icon icon-white ">
-                        <i class="material-icons">weekend</i>
+        <div class="col-lg-5 col-md-6">
+            <div class="card">
+                <a href="@Url.Action("ArrangementList","Arrangement")" style="text-align: center;">
+                    <div class="btn btn-info" style="margin-top: -20px; width: 90%;">
+                        <h4 class="card-title TextAlignCenter" style="text-transform: none; color: white; padding-bottom: 10px;">
+                            Upcoming Funerals
+                        </h4>
+                        <h3 class="card-subtitle TextAlignCenter">3</h3>
                     </div>
-                    <h3 class="card-title">Free</h3>
-                    <p class="card-description">This is good if your company size is between 2 and 10 Persons.</p>
+                </a>
+                <div class="card-body" style="text-align: center;">
+                    <hr style="margin: 0 !important;">
+                    <div id="accordion" role="tablist" style="">
+                        <div class="card card-collapse">
+                            <div role="tab" id="headingOne">
+                                <h5 class="mb-0">
+                                    <a class="Dashboard-A-Tag" data-toggle="collapse" href="#upcomingfunerals" aria-expanded="true" aria-controls="collapseOne" style="display: block; width: 100%;">
+                                        <i class="material-icons TextAlignCenter">keyboard_arrow_down</i>
+                                    </a>
+                                </h5>
+                            </div>
+
+                            <div id="upcomingfunerals" class="collapse" role="tabpanel" aria-labelledby="headingOne" data-parent="#accordion">
+                                <div class="card-body" style="padding: 0px 25px 0px;">
+                                    <div class="table-responsive">
+                                        <table class="table table-hover" style="margin-bottom: 0;">
+                                            <thead class="">
+                                                <tr>
+                                                    <th>Name</th>
+                                                    <th>Funeral Date</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr data-href="/Arrangement/7000/Info">
+                                                    <td>Mrs Violet Crooks</td>
+                                                    <td>23 July 2019</td>
+                                                </tr>
+                                                <tr data-href="/Arrangement/7001/Info">
+                                                    <td>Miss Anders</td>
+                                                    <td>29 Jul 2019</td>
+                                                </tr>
+                                                <tr data-href="/Arrangement/7001/Info">
+                                                    <td>Mr Jamie Anderson</td>
+                                                    <td>31 Jul 2019</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <hr style="margin: 0 !important;">
                 </div>
-                <div class="card-footer justify-content-center ">
-                    <a href="#pablo" class="btn btn-round btn-white">Choose Plan</a>
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-6">
+            <div class="card">
+                <a href="@Url.Action("ArrangementList","Arrangement")" style="text-align: center;">
+                    <div class="btn btn-success" style="margin-top: -20px; width: 90%;">
+                        <h4 class="card-title TextAlignCenter" style="text-transform: none; color: white; padding-bottom: 10px;">
+                            Debt Letters Due
+                        </h4>
+                        <h3 class="card-subtitle TextAlignCenter">1</h3>
+                    </div>
+                </a>
+                <div class="card-body" style="text-align: center;">
+                    <hr style="margin: 0 !important;">
+                    <div id="accordion" role="tablist" style="">
+                        <div class="card card-collapse">
+                            <div role="tab" id="headingOne">
+                                <h5 class="mb-0">
+                                    <a class="Dashboard-A-Tag" data-toggle="collapse" href="#debtletters" aria-expanded="true" aria-controls="collapseOne" style="display: block; width: 100%;">
+                                        <i class="material-icons TextAlignCenter">keyboard_arrow_down</i>
+                                    </a>
+                                </h5>
+                            </div>
+
+                            <div id="debtletters" class="collapse" role="tabpanel" aria-labelledby="headingOne" data-parent="#accordion">
+                                <div class="card-body" style="padding: 0px 25px 0px;">
+                                    <div class="table-responsive">
+                                        <table class="table table-hover" style="margin-bottom: 0;">
+                                            <thead class="">
+                                                <tr>
+                                                    <th>Name</th>
+                                                    <th>Funeral Date</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr data-href="/Arrangement/7000/Info">
+                                                    <td>Mrs Violet Crooks</td>
+                                                    <td>23 July 2019</td>
+                                                </tr>
+                                                <tr data-href="/Arrangement/7001/Info">
+                                                    <td>Miss Anders</td>
+                                                    <td>29 Jul 2019</td>
+                                                </tr>
+                                                <tr data-href="/Arrangement/7001/Info">
+                                                    <td>Mr Jamie Anderson</td>
+                                                    <td>31 Jul 2019</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <hr style="margin: 0 !important;">
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-6">
+            <div class="card">
+                <a href="@Url.Action("ArrangementList","Arrangement")" style="text-align: center;">
+                    <div class="btn btn-rose" style="margin-top: -20px; width: 90%;">
+                        <h4 class="card-title TextAlignCenter" style="text-transform: none; color: white; padding-bottom: 10px;">
+                            Aftercare Calls To Make
+                        </h4>
+                        <h3 class="card-subtitle TextAlignCenter">0</h3>
+                    </div>
+                </a>
+                <div class="card-body" style="text-align: center;">
+                    <hr style="margin: 0 !important;">
+                    <div id="accordion" role="tablist" style="">
+                        <div class="card card-collapse">
+                            <div role="tab" id="headingOne">
+                                <h5 class="mb-0">
+                                    <a class="Dashboard-A-Tag" data-toggle="collapse" href="#aftercare" aria-expanded="true" aria-controls="collapseOne" style="display: block; width: 100%;">
+                                        <i class="material-icons TextAlignCenter">keyboard_arrow_down</i>
+                                    </a>
+                                </h5>
+                            </div>
+
+                            <div id="aftercare" class="collapse" role="tabpanel" aria-labelledby="headingOne" data-parent="#accordion">
+                                <div class="card-body" style="padding: 0px 25px 0px;">
+                                    <div class="table-responsive">
+                                        <table class="table table-hover" style="margin-bottom: 0;">
+                                            <thead class="">
+                                                <tr>
+                                                    <th>Name</th>
+                                                    <th>Funeral Date</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr data-href="/Arrangement/7000/Info">
+                                                    <td>Mrs Violet Crooks</td>
+                                                    <td>23 July 2019</td>
+                                                </tr>
+                                                <tr data-href="/Arrangement/7001/Info">
+                                                    <td>Miss Anders</td>
+                                                    <td>29 Jul 2019</td>
+                                                </tr>
+                                                <tr data-href="/Arrangement/7001/Info">
+                                                    <td>Mr Jamie Anderson</td>
+                                                    <td>31 Jul 2019</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <hr style="margin: 0 !important;">
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-6">
+            <div class="card">
+                <a href="@Url.Action("ArrangementList","Arrangement")" style="text-align: center;">
+                    <div class="btn btn-info" style="margin-top: -20px; width: 90%;">
+                        <h4 class="card-title TextAlignCenter" style="text-transform: none; color: white; padding-bottom: 10px;">
+                            Open First Calls
+                        </h4>
+                        <h3 class="card-subtitle TextAlignCenter">23</h3>
+                    </div>
+                </a>
+                <div class="card-body" style="text-align: center;">
+                    <hr style="margin: 0 !important;">
+                    <div id="accordion" role="tablist" style="">
+                        <div class="card card-collapse">
+                            <div role="tab" id="headingOne">
+                                <h5 class="mb-0">
+                                    <a class="Dashboard-A-Tag" data-toggle="collapse" href="#openfirstcalls" aria-expanded="true" aria-controls="collapseOne" style="display: block; width: 100%;">
+                                        <i class="material-icons TextAlignCenter">keyboard_arrow_down</i>
+                                    </a>
+                                </h5>
+                            </div>
+
+                            <div id="openfirstcalls" class="collapse" role="tabpanel" aria-labelledby="headingOne" data-parent="#accordion">
+                                <div class="card-body" style="padding: 0px 25px 0px;">
+                                    <div class="table-responsive">
+                                        <table class="table table-hover" style="margin-bottom: 0;">
+                                            <thead class="">
+                                                <tr>
+                                                    <th>Name</th>
+                                                    <th>Funeral Date</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr data-href="/Arrangement/7000/Info">
+                                                    <td>Mrs Violet Crooks</td>
+                                                    <td>23 July 2019</td>
+                                                </tr>
+                                                <tr data-href="/Arrangement/7001/Info">
+                                                    <td>Miss Anders</td>
+                                                    <td>29 Jul 2019</td>
+                                                </tr>
+                                                <tr data-href="/Arrangement/7001/Info">
+                                                    <td>Mr Jamie Anderson</td>
+                                                    <td>31 Jul 2019</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <hr style="margin: 0 !important;">
                 </div>
             </div>
         </div>
         <div class="col-lg-3 col-md-6">
-            <div class="card card-pricing ">
-                <h6 class="card-category"> Small Company</h6>
-                <div class="card-body">
-                    <div class="card-icon icon-rose ">
-                        <i class="material-icons">home</i>
+            <div class="card">
+                <a href="@Url.Action("ArrangementList","Arrangement")" style="text-align: center;">
+                    <div class="btn btn-rose" style="margin-top: -20px; width: 90%;">
+                        <h4 class="card-title TextAlignCenter" style="text-transform: none; color: white; padding-bottom: 10px;">
+                            Ashes Interment Calls
+                        </h4>
+                        <h3 class="card-subtitle TextAlignCenter">2</h3>
                     </div>
-                    <h3 class="card-title">29$</h3>
-                    <p class="card-description">This is good if your company size is between 2 and 10 Persons.</p>
-                </div>
-                <div class="card-footer justify-content-center ">
-                    <a href="#pablo" class="btn btn-round btn-rose">Choose Plan</a>
+                </a>
+                <div class="card-body" style="text-align: center;">
+                    <hr style="margin: 0 !important;">
+                    <div id="accordion" role="tablist" style="">
+                        <div class="card card-collapse">
+                            <div role="tab" id="headingOne">
+                                <h5 class="mb-0">
+                                    <a class="Dashboard-A-Tag" data-toggle="collapse" href="#ashescalls" aria-expanded="true" aria-controls="collapseOne" style="display: block; width: 100%;">
+                                        <i class="material-icons TextAlignCenter">keyboard_arrow_down</i>
+                                    </a>
+                                </h5>
+                            </div>
+
+                            <div id="ashescalls" class="collapse" role="tabpanel" aria-labelledby="headingOne" data-parent="#accordion">
+                                <div class="card-body" style="padding: 0px 25px 0px;">
+                                    <div class="table-responsive">
+                                        <table class="table table-hover" style="margin-bottom: 0;">
+                                            <thead class="">
+                                                <tr>
+                                                    <th>Name</th>
+                                                    <th>Funeral Date</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr data-href="/Arrangement/7000/Info">
+                                                    <td>Mrs Violet Crooks</td>
+                                                    <td>23 July 2019</td>
+                                                </tr>
+                                                <tr data-href="/Arrangement/7001/Info">
+                                                    <td>Miss Anders</td>
+                                                    <td>29 Jul 2019</td>
+                                                </tr>
+                                                <tr data-href="/Arrangement/7001/Info">
+                                                    <td>Mr Jamie Anderson</td>
+                                                    <td>31 Jul 2019</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <hr style="margin: 0 !important;">
                 </div>
             </div>
         </div>
         <div class="col-lg-3 col-md-6">
-            <div class="card card-pricing card-plain">
-                <h6 class="card-category"> Medium Company</h6>
-                <div class="card-body">
-                    <div class="card-icon icon-white ">
-                        <i class="material-icons">business</i>
+            <div class="card">
+                <a href="@Url.Action("ArrangementList","Arrangement")" style="text-align: center;">
+                    <div class="btn btn-rose" style="margin-top: -20px; width: 90%;">
+                        <h4 class="card-title TextAlignCenter" style="text-transform: none; color: white; padding-bottom: 10px;">
+                            Aged Debt
+                        </h4>
+                        <h3 class="card-subtitle TextAlignCenter">£18,635.22</h3>
                     </div>
-                    <h3 class="card-title">69$</h3>
-                    <p class="card-description">This is good if your company size is between 11 and 99 Persons.</p>
-                </div>
-                <div class="card-footer justify-content-center ">
-                    <a href="#pablo" class="btn btn-round btn-white">Choose Plan</a>
+                </a>
+                <div class="card-body" style="text-align: center;">
+                    <hr style="margin: 0 !important;">
+                    <div id="accordion" role="tablist" style="">
+                        <div class="card card-collapse">
+                            <div role="tab" id="headingOne">
+                                <h5 class="mb-0">
+                                    <a class="Dashboard-A-Tag" data-toggle="collapse" href="#ageddebt" aria-expanded="true" aria-controls="collapseOne" style="display: block; width: 100%;">
+                                        <i class="material-icons TextAlignCenter">keyboard_arrow_down</i>
+                                    </a>
+                                </h5>
+                            </div>
+
+                            <div id="ageddebt" class="collapse" role="tabpanel" aria-labelledby="headingOne" data-parent="#accordion">
+                                <div class="card-body" style="padding: 0px 25px 0px;">
+                                    <div class="table-responsive">
+                                        <table class="table table-hover" style="margin-bottom: 0;">
+                                            <thead class="">
+                                                <tr>
+                                                    <th>Name</th>
+                                                    <th>Funeral Date</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr data-href="/Arrangement/7000/Info">
+                                                    <td>Mrs Violet Crooks</td>
+                                                    <td>23 July 2019</td>
+                                                </tr>
+                                                <tr data-href="/Arrangement/7001/Info">
+                                                    <td>Miss Anders</td>
+                                                    <td>29 Jul 2019</td>
+                                                </tr>
+                                                <tr data-href="/Arrangement/7001/Info">
+                                                    <td>Mr Jamie Anderson</td>
+                                                    <td>31 Jul 2019</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <hr style="margin: 0 !important;">
                 </div>
             </div>
         </div>
-        <div class="col-lg-3 col-md-6">
-            <div class="card card-pricing card-plain">
-                <h6 class="card-category"> Extra Pack</h6>
-                <div class="card-body">
-                    <div class="card-icon icon-white ">
-                        <i class="material-icons">account_balance</i>
+        <div class="col-lg-4 col-md-6">
+            <div class="card">
+                <a href="@Url.Action("ArrangementList","Arrangement")" style="text-align: center;">
+                    <div class="btn btn-rose" style="margin-top: -20px; width: 90%;">
+                        <h4 class="card-title TextAlignCenter" style="text-transform: none; color: white; padding-bottom: 10px;">
+                            Memorial Calls To Make
+                        </h4>
+                        <h3 class="card-subtitle TextAlignCenter">10</h3>
                     </div>
-                    <h3 class="card-title">159$</h3>
-                    <p class="card-description">This is good if your company size is 99+ Persons.</p>
-                </div>
-                <div class="card-footer justify-content-center ">
-                    <a href="#pablo" class="btn btn-round btn-white">Choose Plan</a>
+                </a>
+                <div class="card-body" style="text-align: center;">
+                    <hr style="margin: 0 !important;">
+                    <div id="accordion" role="tablist" style="">
+                        <div class="card card-collapse">
+                            <div role="tab" id="headingOne">
+                                <h5 class="mb-0">
+                                    <a class="Dashboard-A-Tag" data-toggle="collapse" href="#memorialcalls" aria-expanded="true" aria-controls="collapseOne" style="display: block; width: 100%;">
+                                        <i class="material-icons TextAlignCenter">keyboard_arrow_down</i>
+                                    </a>
+                                </h5>
+                            </div>
+
+                            <div id="memorialcalls" class="collapse" role="tabpanel" aria-labelledby="headingOne" data-parent="#accordion">
+                                <div class="card-body" style="padding: 0px 25px 0px;">
+                                    <div class="table-responsive">
+                                        <table class="table table-hover" style="margin-bottom: 0;">
+                                            <thead class="">
+                                                <tr>
+                                                    <th>Name</th>
+                                                    <th>Funeral Date</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr data-href="/Arrangement/7000/Info">
+                                                    <td>Mrs Violet Crooks</td>
+                                                    <td>23 July 2019</td>
+                                                </tr>
+                                                <tr data-href="/Arrangement/7001/Info">
+                                                    <td>Miss Anders</td>
+                                                    <td>29 Jul 2019</td>
+                                                </tr>
+                                                <tr data-href="/Arrangement/7001/Info">
+                                                    <td>Mr Jamie Anderson</td>
+                                                    <td>31 Jul 2019</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <hr style="margin: 0 !important;">
                 </div>
             </div>
         </div>
@@ -81,6 +407,8 @@
 
 @section scripts {
     <script>
-
+        $('tr[data-href]').on("click", function() {
+            document.location = $(this).data('href');
+        });
     </script>
 }

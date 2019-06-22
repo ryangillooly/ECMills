@@ -187,3 +187,4 @@ C:\WWW\ECMills\ECMills\bin\roslyn\System.Threading.Tasks.Extensions.dll
 \\Mac\Home\Documents\GitHub\ECMills\ECMills\bin\Google.Apis.Calendar.v3.xml
 \\Mac\Home\Documents\GitHub\ECMills\ECMills\bin\Google.Apis.Core.pdb
 \\Mac\Home\Documents\GitHub\ECMills\ECMills\bin\Google.Apis.Core.xml
+\\Mac\Home\Documents\GitHub\ECMills\ECMills\bin\WebActivatorEx.dll

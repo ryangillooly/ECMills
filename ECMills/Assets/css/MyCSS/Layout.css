@@ -4,6 +4,14 @@
     padding: 0px;
 }
 
+.Dashboard-A-Tag {
+    display: block;
+    width: 100%;
+}
+
+    .Dashboard-A-Tag:hover {
+        background: #c7c7c71c;
+    }
 
 .bootstrap-select button.dropdown-toggle {
     margin-top: 2px;
@@ -246,7 +254,6 @@ GridTmplRows-4x1fr {
     grid-row: 2;
     text-align: right;
 }
-
 
 
 
