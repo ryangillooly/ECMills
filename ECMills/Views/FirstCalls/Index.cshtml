@@ -5,11 +5,6 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-@section css {
-    <link href='~/Content/FullCalendar/core/main.css' rel='stylesheet' />
-    <link href='~/Content/FullCalendar/daygrid/main.css' rel='stylesheet' />
-}
-
 <div class="container-fluid">
     <div class="col-md-8 col-12 mr-auto ml-auto">
         <!--      Wizard container        -->
@@ -64,7 +59,6 @@
                                                             <div class="dropdown bootstrap-select">
                                                                 <div class="dropdown bootstrap-select form-control">
                                                                     <select class="selectpicker" data-size="7" name="JobType" aria-invalid="true" required data-style="select-with-transition" title="" tabindex="-98">
-                                                                        <option selected></option>
                                                                         <option value="Funeral"> Funeral </option>
                                                                         <option value="FuneralPlan"> Sundry </option>
                                                                     </select>
@@ -521,12 +515,7 @@
           }, 600);
         });
     </script>
-
-    <script src='~/Content/FullCalendar/core/main.js'></script>
-    <script src='~/Content/FullCalendar/interaction/main.js'></script>
-    <script src='~/Content/FullCalendar/daygrid/main.js'></script>
     <script>
-
     $calendar = $('#fullCalendar');
 
     today = new Date();

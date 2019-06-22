@@ -8,34 +8,43 @@ namespace ECMills
         // For more information on bundling, visit https://go.microsoft.com/fwlink/?LinkId=301862
         public static void RegisterBundles(BundleCollection bundles)
         {
-            bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
-                        "~/Assets/js/jquery-{version}.js"));
+            bundles.UseCdn = true;   //enable CDN support
 
-            bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
-                        "~/Assets/js/jquery.validate*",
-                        "~/Assets/js/jquery.unobtrusive-ajax.js",
-                        "~/Assets/js/jquery.unobtrusive-ajax.min.js",
-                        "~/Assets/js/jquery.validate.unobtrusive.js",
-                        "~/Assets/js/jquery.validate.unobtrusive.min.js"));
+            bundles.Add(new StyleBundle("~/MainCSS").Include(
+                "~/Assets/css/*.min.css",
+                "~/Assets/css/MyCSS/Layout.css"
+            ));
 
-            // Use the development version of Modernizr to develop with and learn from. Then, when you're
-            // ready for production, use the build tool at https://modernizr.com to pick only the tests you need.
-            bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
-                        "~/Assets/js/modernizr-*"));
+            bundles.Add(new ScriptBundle("~/CoreJS").Include(
+                "~/Assets/js/core/jquery.min.js",
+                "~/Assets/js/core/popper.min.js",
+                "~/Assets/js/core/bootstrap-material-design.min.js"
+            ));
 
-            bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
-                      "~/Assets/js/bootstrap.js"));
+         
+            bundles.Add(new ScriptBundle("~/MaterialJS").Include(
+                "~/Assets/js/plugins/perfect-scrollbar.jquery.min.js",
+                "~/Assets/js/plugins/moment.min.js",
+                "~/Assets/js/plugins/sweetalert2.js",
+                "~/Assets/js/plugins/jquery.validate.min.js",
+                "~/Assets/js/plugins/jquery.bootstrap-wizard.js",
+                "~/Assets/js/plugins/bootstrap-selectpicker.js",
+                "~/Assets/js/plugins/bootstrap-datetimepicker.min.js",
+                "~/Assets/js/plugins/jquery.datatables.min.js",
+                "~/Assets/js/plugins/bootstrap-tagsinput.js",
+                "~/Assets/js/plugins/jasny-bootstrap.min.js",
+                "~/Assets/js/plugins/fullcalendar.min.js",
+                "~/Assets/js/plugins/jquery-jvectormap.js",
+                "~/Assets/js/plugins/nouislider.min.js",
+                "~/Assets/js/plugins/arrive.min.js",
+                "~/Assets/js/plugins/chartist.min.js",
+                "~/Assets/js/plugins/bootstrap-notify.js",
+                "~/Assets/js/material-dashboard.js" ,
+                "~/Assets/js/demo.js"
+            ));
 
-            bundles.Add(new StyleBundle("~/Content/css").Include(
-                      "~/Assets/css/bootstrap.css",
-                      "~/Assets/css/site.css",
-                      "~/Assets/css//material-dashboard.css?v=2.1.1",
-                      "~/url/https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons",
-                      "~/url/https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css"));
+            BundleTable.EnableOptimizations = true;
 
-            bundles.Add(new StyleBundle("~/Content/Fonts").Include(
-                    "~/url/https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons",
-                    "~/url/https://use.fontawesome.com/releases/v5.8.1/css/all.css"));
         }
     }
 }
