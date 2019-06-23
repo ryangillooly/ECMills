@@ -1,17 +1,4 @@
-﻿
-@using ECMills.Models;
-@model dynamic
-
-@{
-    Layout = "~/Views/Shared/_Layout.cshtml";
-}
-
-@section css {
-    <link href='~/Content/FullCalendar/core/main.css' rel='stylesheet' />
-    <link href='~/Content/FullCalendar/daygrid/main.css' rel='stylesheet' />
-}
-
-<div class="card">
+﻿<div class="card">
     <div class="card-body">
         <div id='fullCalendar'>
 
@@ -65,7 +52,7 @@
 
             // on select we show the Sweet Alert modal with an input
             swal({
-                title: 'Create an Event',
+                title: 'Create a new Calander Event',
                 html: '<div class="form-group">' +
                     '<input class="form-control" placeholder="Event Title" id="input-field">' +
                     '</div>',

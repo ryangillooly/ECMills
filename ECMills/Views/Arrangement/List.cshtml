@@ -1,10 +1,5 @@
 ﻿@model IEnumerable<ECMills.Models.sp_GetDeceasedList_Result>
 
-@{
-    ViewBag.Title = "Arrangement";
-    Layout = "~/Views/Shared/_Layout.cshtml";
-}
-
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-12">
@@ -18,10 +13,18 @@
                 <div class="card-body">
                     <div class="toolbar">
                         <!--        Here you can write extra buttons/actions for the toolbar              -->
-                        <i class="material-icons" data-toggle="modal" data-target="#arrangementwizard" style="color: red;">add_circle</i>
+                        <button type="button" data-target="#arrangementwizard" data-toggle="modal" style="background-color: #f7f7f7;" rel="tooltip" title="" class="btn btn-success btn-link btn-sm" data-original-title="Add New Arrangement">
+                            <i class="material-icons">add</i>
+                        </button>
+                        <button type="button" onclick="EditArrangements()" style="background-color: #f7f7f7;" rel="tooltip" title="" class="btn btn-primary btn-link btn-sm" data-original-title="Edit Existing Arrangement">
+                            <i class="material-icons">edit</i>
+                        </button>
+                        <button type="button" style="background-color: #f7f7f7;" rel="tooltip" title="" class="btn btn-danger btn-link btn-sm" data-original-title="Remove Existing Arrangement">
+                            <i class="material-icons">close</i>
+                        </button>
 
                         <div class="modal fade" id="arrangementwizard" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-                            <div class="modal-dialog modal-lg">
+                            <div class="modal-dialog modal-lg" style="margin-top: 3vh !important;">
                                 <div class="modal-content">
                                     <div class="wizard-container">
                                         <div class="card-wizard active" data-color="rose" id="wizardProfile">
@@ -527,19 +530,21 @@
                             <tbody>
                                 @foreach (var deceased in Model)
                                 {
-                                    <tr>
-                                        <td>@deceased.Reference</td>
-                                        <td>@deceased.Type</td>
-                                        <td>@deceased.SubType</td>
-                                        <td>@deceased.Status</td>
-                                        <td>@deceased.Deceased_Name</td>
-                                        <td>@deceased.Client_Name</td>
-                                        <td class="text-right">
-                                            <button type="button" onclick="@Url.Action("Info", "Arrangement", new { id = deceased.Reference }, null)" rel="tooltip" class="btn btn-info">
-                                                 <i class="material-icons">person</i>
-                                            </button>
-                                        </td>
-                                    </tr>
+                                <tr>
+                                    <td>@deceased.Reference</td>
+                                    <td>@deceased.Type</td>
+                                    <td>@deceased.SubType</td>
+                                    <td>@deceased.Status</td>
+                                    <td>@deceased.Deceased_Name</td>
+                                    <td>@deceased.Client_Name</td>
+
+                                    <td class="text-right">
+                                        <button type="button" onclick="@Url.Action("Info", "Arrangement", new { id = deceased.Reference }, null)" style="background-color: #f7f7f7;" rel="tooltip" class="btn btn-info btn-link btn-sm" data-original-title="View Arrangement">
+                                            <i class="material-icons">person</i>
+                                            <div class="ripple-container"></div>
+                                        </button>
+                                    </td>
+                                </tr>
                                 }
                             </tbody>
                         </table>
@@ -556,8 +561,13 @@
 
 @section scripts {
     <script>
-        $(document).ready(function() {
+        function EditArrangements() {
 
+        }
+    </script>
+    <script>
+        $(document).ready(function() {
+        //########### Data Table JS ##################//
           $('#datatables').DataTable({
             "pagingType": "full_numbers",
             "lengthMenu": [
@@ -592,7 +602,6 @@
             alert('You clicked on Like button');
           });
         });
-
     </script>
     <script>
         $(document).ready(function() {

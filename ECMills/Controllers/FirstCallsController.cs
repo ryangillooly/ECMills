@@ -11,13 +11,7 @@ namespace ECMills.Controllers
     {
         // GET: FirstCalls
         [Route("")]
-        public ActionResult Index()
-        {
-            return View();
-        }
-
-        [Route("test")]
-        public ActionResult test()
+        public ActionResult FirstCalls()
         {
             return View();
         }

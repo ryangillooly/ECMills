@@ -843,7 +843,7 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Shared\HomeSideBar.cshtml" />
     <Content Include="Views\Arrangement\Deceased.cshtml" />
-    <Content Include="Views\Arrangement\ArrangementList.cshtml" />
+    <Content Include="Views\Arrangement\List.cshtml" />
     <Content Include="Views\Arrangement\Info.cshtml" />
     <Content Include="Views\Arrangement\Contacts.cshtml" />
     <Content Include="Views\Arrangement\Ceremony.cshtml" />
@@ -853,12 +853,10 @@
     <Content Include="Views\Login\LoginLayout.cshtml" />
     <Content Include="Views\Arrangement\Transport.cshtml" />
     <Content Include="Views\Arrangement\Documents.cshtml" />
-    <Content Include="Views\Dashboard\Index.cshtml" />
-    <Content Include="Views\Diary\Index.cshtml" />
-    <Content Include="Views\Arrangement\New_Form_Template_File.cshtml" />
+    <Content Include="Views\Dashboard\Dashboard.cshtml" />
+    <Content Include="Views\Diary\Diary.cshtml" />
     <Content Include="Views\Shared\ThemeChangePlugin.cshtml" />
-    <Content Include="Views\FirstCalls\Index.cshtml" />
-    <Content Include="Views\FirstCalls\test.cshtml" />
+    <Content Include="Views\FirstCalls\FirstCalls.cshtml" />
     <Content Include="Views\Dashboard\test.cshtml" />
   </ItemGroup>
   <ItemGroup>

@@ -19,7 +19,7 @@ namespace ECMills.Controllers
         }
 
         [Route("~/Arrangement/List")]
-        public ActionResult ArrangementList()
+        public ActionResult List()
         {
             var deceased = sp_GetDeceasedList();
             return View(deceased);

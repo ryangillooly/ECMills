@@ -20,7 +20,7 @@
     <div class="wrapper">
         @{
             if (ViewContext.RouteData.Values["Controller"].ToString() == "Arrangement" &&
-                    ViewContext.RouteData.Values["Action"].ToString() != "ArrangementList")
+                    ViewContext.RouteData.Values["Action"].ToString() != "List")
             {
                 @Html.Partial("ArrangementSideBar");
             }

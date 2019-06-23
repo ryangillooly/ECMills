@@ -20,7 +20,7 @@ namespace ECMills.Controllers
 
         // GET: Dashboard
         [Route("")]
-        public ActionResult Index()
+        public ActionResult Dashboard()
         {
             return View();
         }

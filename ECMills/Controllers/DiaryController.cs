@@ -25,8 +25,12 @@ namespace ECMills.Controllers
 
         // GET: Diary
         [Route("")]
-        public ActionResult Index()
+        public ActionResult Diary()
         {
+            // THIS IS HERE AS IM NOT TESTING GOOGLE CALENDAR AT THE MOMENT
+            return View();
+
+            // GOOGLE CALENDAR DATA FOR WHEN CONFIGURING IT
             UserCredential credential;
 
             using (var stream =

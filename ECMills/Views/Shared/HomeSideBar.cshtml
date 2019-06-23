@@ -51,28 +51,28 @@
         <ul class="nav">
             <li class="nav-item  @(ViewContext.RouteData.Values["Controller"].ToString() == "Dashboard" &&
                                     ViewContext.RouteData.Values["Action"].ToString() == "Index" ? "active" : "")">
-                <a class="nav-link" href="@Url.Action("Index", "Dashboard", null, null)">
+                <a class="nav-link" href="@Url.Action("Dashboard", "Dashboard", null, null)">
                     <i class="material-icons">dashboard</i>
                     <p>Dashboard</p>
                 </a>
             </li>
             <li class="nav-item  @(ViewContext.RouteData.Values["Controller"].ToString() == "FirstCalls" &&
                                     ViewContext.RouteData.Values["Action"].ToString() == "Index" ? "active" : "")">
-                <a class="nav-link" href="@Url.Action("Index", "FirstCalls", null, null)">
+                <a class="nav-link" href="@Url.Action("FirstCalls", "FirstCalls", null, null)">
                     <i class="material-icons">person</i>
                     <p>First Calls</p>
                 </a>
             </li>
             <li class="nav-item  @(ViewContext.RouteData.Values["Controller"].ToString() == "Arrangement" &&
                                     ViewContext.RouteData.Values["Action"].ToString() == "ArrangementList" ? "active" : "")">
-                <a class="nav-link" href="@Url.Action("ArrangementList", "Arrangement", null, null)">
+                <a class="nav-link" href="@Url.Action("List", "Arrangement", null, null)">
                     <i class="material-icons">content_paste</i>
                     <p>Arrangements</p>
                 </a>
             </li>
             <li class="nav-item  @(ViewContext.RouteData.Values["Controller"].ToString() == "Diary" &&
                                     ViewContext.RouteData.Values["Action"].ToString() == "Index" ? "active" : "")">
-                <a class="nav-link" href="@Url.Action("Index", "Diary", null, null)">
+                <a class="nav-link" href="@Url.Action("Diary", "Diary", null, null)">
                     <i class="material-icons">date_range</i>
                     <p>Diary</p>
                 </a>
