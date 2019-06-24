@@ -858,6 +858,8 @@
     <Content Include="Views\Shared\ThemeChangePlugin.cshtml" />
     <Content Include="Views\FirstCalls\FirstCalls.cshtml" />
     <Content Include="Views\Dashboard\test.cshtml" />
+    <Content Include="Views\Arrangement\CoffinBackup.cshtml" />
+    <Content Include="Views\Arrangement\Ceremony - Copy.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -121,13 +121,13 @@
                             <div class="col-md-6">
                                 <div class="form-group bmd-form-group">
                                     <label class="onclick bmd-label-static">Name</label>
-                                    <input class="form-control" style="padding-top: 17px;" type="text" name="forenames" placeholder="Miss Violet Crooks" disabled aria-required="true" aria-invalid="true">
+                                    <input class="form-control" style="padding-top: 17px;" type="text" name="forenames" placeholder="Miss Violet Crooks" readonly aria-required="true" aria-invalid="true">
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group bmd-form-group">
                                     <label class="onclick bmd-label-static">Known As</label>
-                                    <input class="form-control" style="padding-top: 17px;" type="text" name="forenames" placeholder="" disabled aria-required="true" aria-invalid="true">
+                                    <input class="form-control" style="padding-top: 17px;" type="text" name="forenames" placeholder="" readonly aria-required="true" aria-invalid="true">
                                 </div>
                             </div>
                         </div>
@@ -135,13 +135,13 @@
                             <div class="col-md-6">
                                 <div class="form-group bmd-form-group">
                                     <label class="onclick bmd-label-static">Gender</label>
-                                    <input class="form-control" style="padding-top: 17px;" type="text" name="forenames" placeholder="Male" disabled aria-required="true" aria-invalid="true">
+                                    <input class="form-control" style="padding-top: 17px;" type="text" name="forenames" placeholder="Male" readonly aria-required="true" aria-invalid="true">
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group bmd-form-group">
                                     <label class="onclick bmd-label-static">Age</label>
-                                    <input class="form-control" style="padding-top: 17px;" type="text" name="forenames" placeholder="43" disabled aria-required="true" aria-invalid="true">
+                                    <input class="form-control" style="padding-top: 17px;" type="text" name="forenames" placeholder="43" readonly aria-required="true" aria-invalid="true">
                                 </div>
                             </div>
                         </div>
@@ -149,13 +149,13 @@
                             <div class="col-md-6">
                                 <div class="form-group bmd-form-group">
                                     <label class="onclick bmd-label-static">Date of Birth</label>
-                                    <input class="form-control" style="padding-top: 17px;" type="text" name="forenames" placeholder="5th December 1976" disabled aria-required="true" aria-invalid="true">
+                                    <input class="form-control" style="padding-top: 17px;" type="text" name="forenames" placeholder="5th December 1976" readonly aria-required="true" aria-invalid="true">
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group bmd-form-group">
                                     <label class="onclick bmd-label-static">Date/Time of Death</label>
-                                    <input class="form-control" style="padding-top: 17px;" type="text" name="forenames" placeholder="20th June 2019 02:32am" disabled aria-required="true" aria-invalid="true">
+                                    <input class="form-control" style="padding-top: 17px;" type="text" name="forenames" placeholder="20th June 2019 02:32am" readonly aria-required="true" aria-invalid="true">
                                 </div>
                             </div>
                         </div>
@@ -163,13 +163,13 @@
                             <div class="col-md-6">
                                 <div class="form-group bmd-form-group">
                                     <label class="onclick bmd-label-static">Marital Status</label>
-                                    <input class="form-control" style="padding-top: 17px;" type="text" name="forenames" placeholder="Single" disabled aria-required="true" aria-invalid="true">
+                                    <input class="form-control" style="padding-top: 17px;" type="text" name="forenames" placeholder="Single" readonly aria-required="true" aria-invalid="true">
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group bmd-form-group">
                                     <label class="onclick bmd-label-static">Occupation</label>
-                                    <input class="form-control" style="padding-top: 17px;" type="text" name="forenames" placeholder="I.T. Professional" disabled aria-required="true" aria-invalid="true">
+                                    <input class="form-control" style="padding-top: 17px;" type="text" name="forenames" placeholder="I.T. Professional" readonly aria-required="true" aria-invalid="true">
                                 </div>
                             </div>
                         </div>
@@ -177,13 +177,13 @@
                             <div class="col-md-6">
                                 <div class="form-group bmd-form-group">
                                     <label class="onclick bmd-label-static">Religion</label>
-                                    <input class="form-control" style="padding-top: 17px;" type="text" name="forenames" placeholder="Athiest" disabled aria-required="true" aria-invalid="true">
+                                    <input class="form-control" style="padding-top: 17px;" type="text" name="forenames" placeholder="Athiest" readonly aria-required="true" aria-invalid="true">
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group bmd-form-group">
                                     <label class="onclick bmd-label-static">Religious Denomination</label>
-                                    <input class="form-control" style="padding-top: 17px;" type="text" name="forenames" placeholder="Athiest" disabled aria-required="true" aria-invalid="true">
+                                    <input class="form-control" style="padding-top: 17px;" type="text" name="forenames" placeholder="Athiest" readonly aria-required="true" aria-invalid="true">
                                 </div>
                             </div>
                         </div>
@@ -269,7 +269,7 @@
 @section scripts {
     <script type="text/javascript">
         function editProfile() {
-            $(".form-control").prop("disabled", false);
+            $(".form-control").prop("readonly", false);
             $(".form-control").val("lol");
 
             $("#EditProfileBtn").remove();
@@ -280,7 +280,7 @@
     function cancelProfileEdit() {
         $("#buttonswitch").empty();
         $("#buttonswitch").append("<button id='EditProfileBtn' onclick='editProfile()' class='btn btn-rose pull-left'>Edit Profile</button>");
-        $(".form-control").prop("disabled", true);
+        $(".form-control").prop("readonly", true);
     };
     </script>
 }

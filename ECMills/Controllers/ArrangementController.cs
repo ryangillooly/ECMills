@@ -75,6 +75,14 @@ namespace ECMills.Controllers
             return View();
         }
 
+        /***************** TEST SECTION ***********************/
+        [Route("{id}/CoffinTest")]
+        public ActionResult CoffinBackup(Int16 id)
+        {
+            return View();
+        }
+        /******************************************************/
+
         [Route("{id}/Transport")]
         public ActionResult Transport(Int16 id)
         {
