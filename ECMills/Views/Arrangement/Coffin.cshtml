@@ -1,18 +1,27 @@
 ﻿@using ECMills.Models;
 @model dynamic
 
+<!-- Overwrite some styles locally, do not overwrite globally-->
+<style>
+    .form-group {
+        padding-bottom: 16px !important;
+    }
+</style>
+
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-6">
-            <div class="card">
-                <div class="card-header card-header-primary">
-                    <h4 class="card-title">Mrs Violet Anthoinette Crooks</h4>
-                    <p class="card-category">Coffin</p>
+            <div class="card" style="height: 83vh !important;">
+                <div class="card-header card-header-text card-header-rose">
+                    <div class="card-text">
+                        <h4 class="card-title">Mrs Violet Anthoinette Crooks</h4>
+                        <p class="card-category">Coffin</p>
+                    </div>
                 </div>
                 <div class="card-body">
                     <div class="row">
                         <div class="col-md-6">
-                            <div class="form-group bmd-form-group">
+                            <div class="form-group bmd-form-group ">
                                 <label class="bmd-label-static">
                                     Coffin Or Casket
                                 </label>
@@ -23,7 +32,7 @@
 
                             <div class="form-group bmd-form-group">
                                 <label class="onclick bmd-label-static">Supplier</label>
-                                <input class="form-control" style="padding-top: 17px;" type="text" name="forenames" placeholder="" readonly aria-required="true" aria-invalid="true">
+                                <input class="form-control" style="padding-top: 17px;" type="text" name="forenames" placeholder="" aria-required="true" aria-invalid="true">
                             </div>
 
                             <div class="form-group bmd-form-group">
@@ -117,103 +126,134 @@
                             </div>
                         </div>
                     </div>
-                    <div data-color="purple" class="BreakLine"></div>
-                    <div class="">
-                        <label class="bmd-label-static">
-                            Internal
-                        </label>
-                        <div class="form-group bmd-form-group">
+                    <div data-color="rose" class="BreakLine"></div>
+                    <div class="row">
+                        <div class="col-md-3">
                             <label class="bmd-label-static">
-                                Length
+                                Internal
                             </label>
-                            <div class="form-control">
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group bmd-form-group">
+                                <label class="bmd-label-static">
+                                    Length
+                                </label>
+                                <div class="form-control">
 
+                                </div>
                             </div>
                         </div>
-                        <div class="form-group bmd-form-group">
-                            <label class="bmd-label-static">
-                                Width
-                            </label>
-                            <div class="form-control">
+                        <div class="col-md-3">
+                            <div class="form-group bmd-form-group">
+                                <label class="bmd-label-static">
+                                    Width
+                                </label>
+                                <div class="form-control">
 
+                                </div>
                             </div>
                         </div>
-                        <div class="form-group bmd-form-group">
-                            <label class="bmd-label-static">
-                                Depth
-                            </label>
-                            <div class="form-control">
+                        <div class="col-md-3">
+                            <div class="form-group bmd-form-group">
+                                <label class="bmd-label-static">
+                                    Depth
+                                </label>
+                                <div class="form-control">
 
-                            </div>
-                        </div>
-                        <label class="bmd-label-static">
-                            Internal
-                        </label>
-                        <div class="form-group bmd-form-group">
-                            <label class="bmd-label-static">
-                                Length
-                            </label>
-                            <div class="form-control">
-
-                            </div>
-                        </div>
-                        <div class="form-group bmd-form-group">
-                            <label class="bmd-label-static">
-                                Width
-                            </label>
-                            <div class="form-control">
-
-                            </div>
-                        </div>
-                        <div class="form-group bmd-form-group">
-                            <label class="bmd-label-static">
-                                Depth
-                            </label>
-                            <div class="form-control">
-
-                            </div>
-                        </div>
-                        <label class="bmd-label-static">
-                            Deceased Person
-                        </label>
-                        <div class="form-group bmd-form-group">
-                            <label class="bmd-label-static">
-                                Length
-                            </label>
-                            <div class="form-control">
-
-                            </div>
-                        </div>
-                        <div class="form-group bmd-form-group">
-                            <label class="bmd-label-static">
-                                Width
-                            </label>
-                            <div class="form-control">
-
-                            </div>
-                        </div>
-                        <div class="form-group bmd-form-group">
-                            <label class="bmd-label-static">
-                                Depth
-                            </label>
-                            <div class="form-control">
-
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <div data-color="purple" class="BreakLine"></div>
-                    <div>
-                        Notes
-                        <textarea class="FullHeightWidth" rows=5 placeholder="Enter your notes here."></textarea>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <label class="bmd-label-static">
+                                Internal
+                            </label>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group bmd-form-group">
+                                <label class="bmd-label-static">
+                                    Length
+                                </label>
+                                <div class="form-control">
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group bmd-form-group">
+                                <label class="bmd-label-static">
+                                    Width
+                                </label>
+                                <div class="form-control">
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group bmd-form-group">
+                                <label class="bmd-label-static">
+                                    Depth
+                                </label>
+                                <div class="form-control">
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <label class="bmd-label-static">
+                                Deceased Person
+                            </label>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group bmd-form-group">
+                                <label class="bmd-label-static">
+                                    Length
+                                </label>
+                                <div class="form-control">
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group bmd-form-group">
+                                <label class="bmd-label-static">
+                                    Width
+                                </label>
+                                <div class="form-control">
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group bmd-form-group">
+                                <label class="bmd-label-static">
+                                    Depth
+                                </label>
+                                <div class="form-control">
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div data-color="rose" class="BreakLine"></div>
+                            <div>
+                                <label class="onclick bmd-label-static">Notes</label>
+                                <textarea class="form-control" rows="4"></textarea>
+                            </div>
+                        </div>
                     </div>
                 </div>
-
             </div>
         </div>
         <div class="col-md-6">
             <div class="row">
                 <div class="col-md-12">
-                    <div class="card">
+                    <div class="card RemoveBottomMargin" style="height: 28vh !important;">
                         <div class="card-body">
                             Visiting
                             <hr />
@@ -223,7 +263,7 @@
             </div>
             <div class="row">
                 <div class="col-md-12">
-                    <div class="card">
+                    <div class="card RemoveBottomMargin" style="height: 28vh !important;">
                         <div class="card-body">
                             Jewellery
                             <hr />
@@ -232,9 +272,9 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-6">
+                <div class="col-md-12">
                     <div class="card">
-                        <div class="card-body">
+                        <div class="card-body" style="height: 20.5vh !important">
                             Ashes / Casket Details
                             <hr />
                         </div>

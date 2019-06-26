@@ -9,15 +9,13 @@
     width: 100%;
 }
 
-    .Dashboard-A-Tag:hover {
-        background: #c7c7c71c;
-    }
+.Dashboard-A-Tag:hover {
+    background: #c7c7c71c;
+}
 
 .bootstrap-select button.dropdown-toggle {
     margin-top: 2px;
 }
-
-
 
 /*******/
 .header-fixed {

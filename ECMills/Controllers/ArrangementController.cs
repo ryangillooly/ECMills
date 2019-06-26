@@ -29,7 +29,6 @@ namespace ECMills.Controllers
         public ActionResult Info(Int16 id)
         {
             Session["DeceasedID"] = id;
-
             return View();
         }
 
@@ -37,11 +36,11 @@ namespace ECMills.Controllers
         [Route("{id}/Deceased")]
         public ActionResult Deceased(Int16 id)
         {
-            Int16 DeceasedID = id;
+            Session["DeceasedID"] = id;
 
             dynamic dynamicObject             = new ExpandoObject();
-            dynamicObject.DeceasedProfile     = sp_GetDeceasedProfile(DeceasedID);
-            dynamicObject.DeceasedAddressList = sp_GetDeceasedAddressList(DeceasedID);
+            dynamicObject.DeceasedProfile     = sp_GetDeceasedProfile(id);
+            dynamicObject.DeceasedAddressList = sp_GetDeceasedAddressList(id);
 
             return View(dynamicObject);
         }
@@ -56,6 +55,8 @@ namespace ECMills.Controllers
         [Route("{id}/Contacts")]
         public ActionResult Contacts(Int16 id)
         {
+            Session["DeceasedID"] = id;
+
             dynamic dynamicObject = new ExpandoObject();
             dynamicObject.DeceasedContactList            = sp_GetDeceasedContactsList(id);
             dynamicObject.DeceasedContactsContactDetails = sp_GetDeceasedContactsContactDetails(id);
@@ -66,12 +67,14 @@ namespace ECMills.Controllers
         [Route("{id}/Ceremony")]
         public ActionResult Ceremony(Int16 id)
         {
+            Session["DeceasedID"] = id;
             return View(id);
         }
 
         [Route("{id}/Coffin")]
         public ActionResult Coffin(Int16 id)
         {
+            Session["DeceasedID"] = id;
             return View();
         }
 
@@ -86,12 +89,14 @@ namespace ECMills.Controllers
         [Route("{id}/Transport")]
         public ActionResult Transport(Int16 id)
         {
+            Session["DeceasedID"] = id;
             return View();
         }
 
         [Route("{id}/Documents")]
         public ActionResult Documents(Int16 id)
         {
+            Session["DeceasedID"] = id;
             return View();
         }
 
