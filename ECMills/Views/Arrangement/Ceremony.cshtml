@@ -1,13 +1,19 @@
 ﻿@using ECMills.Models;
 @model dynamic
 
+<style>
+    .card-nav-tabs .card-header {
+        margin-top: 0px !important;
+    }
+</style>
+
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-6">
             <div class="row">
                 <div class="col-md-12">
-                    <div class="card card-nav-tabs RemoveBottomMargin Height40vh OverflowYScroll">
-                        <div class="card-header card-header-icon card-header-rose" style="margin-top: 0px !important;">
+                    <div class="card card-nav-tabs">
+                        <div class="card-header card-header-icon card-header-rose">
                             <div class="card-icon">
                                 <i class="material-icons">perm_identity</i>
                             </div>
@@ -19,20 +25,20 @@
                         <div class="card-body">
                             <div class="nav-tabs-navigation">
                                 <div class="nav-tabs-wrapper">
-                                    <ul class="nav nav-tabs active show" data-tabs="tabs" style="padding-left: 0px !important; border-bottom: 1px solid; border-radius: 0;">
+                                    <ul class="nav nav-tabs active show" data-tabs="tabs">
                                         <li class="nav-item active">
-                                            <a class="nav-link active NavButtonBorder" href="#profile" data-toggle="tab" style="color: black !important;">
+                                            <a class="nav-link active" href="#profile" data-toggle="tab">
                                                 Ceremony
                                             </a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link NavButtonBorder" href="#messages" data-toggle="tab" style="color: black !important;">
+                                            <a class="nav-link NavButtonBorder" href="#messages" data-toggle="tab">
                                                 Committal
                                                 <div class="ripple-container"></div>
                                             </a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link NavButtonBorder" href="#settings" data-toggle="tab" style="color: black !important;">
+                                            <a class="nav-link NavButtonBorder" href="#settings" data-toggle="tab">
                                                 Reception
                                                 <div class="ripple-container"></div>
                                             </a>
@@ -259,9 +265,9 @@
                     </div>
                 </div>
             </div>
-            <div class="row">
+            <div class="row col-xs">
                 <div class="col-md-12">
-                    <div class="card Height40vh OverflowYScroll">
+                    <div class="card">
                         <div class="card-body">
                             
                             Officiant
@@ -272,12 +278,12 @@
                                 <div class="col-md-6">
                                             <div class="form-group bmd-form-group">
                                                 <label class="onclick bmd-label-static">Name</label>
-                                                <input class="form-control" style="padding-top: 17px; background-color: transparent !important;" type="text" name="forenames" placeholder="Chaplin Nicholas Roddis" readonly aria-required="true" aria-invalid="true">
+                                                <input class="form-control" type="text" name="forenames" placeholder="Chaplin Nicholas Roddis" readonly aria-required="true" aria-invalid="true">
                                             </div>
                                             <div class="form-group">
                                                 <div class="form-group bmd-form-group">
                                                     <label class="bmd-label-static">Address</label>
-                                                    <textarea style="background-color: transparent !important;" class="form-control" rows="4" placeholder="Martlets Hospice
+                                                    <textarea class="form-control" rows="4" placeholder="Martlets Hospice
 Wayfield Avenue
 Hove
 BN37LW" ></textarea>
@@ -313,7 +319,7 @@ BN37LW" ></textarea>
         <div class="col-md-6">
             <div class="row">
                 <div class="col-md-12">
-                    <div class="card RemoveBottomMargin Height40vh OverflowYScroll">
+                    <div class="card">
                         <div class="card-body">
                             
                             Memorial
@@ -409,7 +415,7 @@ BN37LW" ></textarea>
             </div>
             <div class="row">
                 <div class="col-md-12">
-                    <div class="card Height40vh OverflowYScroll">
+                    <div class="card">
                         <div class="card-body">
                             Music
                             <hr>

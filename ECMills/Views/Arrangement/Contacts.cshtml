@@ -4,7 +4,7 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-6">
-            <div class="card" style="margin-bottom: 0px !important;">
+            <div class="card">
                 <div class="card-header card-header-icon card-header-rose">
                     <div class="card-icon">
                         <i class="material-icons">perm_identity</i>
@@ -32,18 +32,18 @@
                                         <li class="nav-item col-md-12">
                                             <a class="nav-link @(ListItem == 1 ? "active" : "")" data-toggle="tab" role="tablist" onclick="GetDeceasedContactsDetails('@DeceasedContactList.ContactType','@DeceasedContactList.Relationship','@DeceasedContactList.Name','@DeceasedContactList.DateOfBirth','@DeceasedContactList.Occupation','@DeceasedContactList.AccountModerator','@address','@DeceasedContactList.Notes');">
                                                 <div class="row">
-                                                    <span class="col-md-6 TxtAlignLeft">
+                                                    <span class="col-md-6">
                                                         @DeceasedContactList.ContactType
                                                     </span>
-                                                    <span class="col-md-6 TxtAlignRight">
+                                                    <span class="col-md-6">
                                                         @DeceasedContactList.Relationship
                                                     </span>
                                                 </div>
                                                 <div class="row">
-                                                    <span class="col-md-6 TxtAlignLeft">
+                                                    <span class="col-md-6">
                                                         @DeceasedContactList.Name
                                                     </span>
-                                                    <span class="col-md-6 TxtAlignRight">
+                                                    <span class="col-md-6">
                                                         07415835716
                                                     </span>
                                                 </div>
@@ -61,7 +61,7 @@
             </div>
         </div>
         <div class="col-md-6">
-            <div class="card" style="margin-bottom: 0px !important;">
+            <div class="card">
                 <div class="card-body">
                     Contact Details
 

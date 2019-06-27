@@ -10,7 +10,7 @@
 
                 foreach (sp_GetDeceasedProfile_Result DeceasedProfile in Model.DeceasedProfile)
                 {
-                    <div class="card OverflowYScroll" style="margin-bottom: 0px !important; height: 53vh !important;">
+                    <div class="card">
                         <div class="card-header card-header-icon card-header-rose">
                             <div class="card-icon">
                                 <i class="material-icons">perm_identity</i>
@@ -26,13 +26,13 @@
                                     <div class="col-md-6">
                                         <div class="form-group bmd-form-group">
                                             <label class="bmd-label-static">Name</label>
-                                            <div class="form-control" id="ReadOnlyInput-Name">@DeceasedProfile.Name</div>
+                                            <div class="form-control">@DeceasedProfile.Name</div>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group bmd-form-group">
                                             <label class="bmd-label-static">Known As</label>
-                                            <div class="form-control" id="ReadOnlyInput-Known_As">@DeceasedProfile.Known_As</div>
+                                            <div class="form-control">@DeceasedProfile.Known_As</div>
                                         </div>
                                     </div>
                                 </div>
@@ -46,7 +46,7 @@
                                     <div class="col-md-6">
                                         <div class="form-group bmd-form-group">
                                             <label class="bmd-label-static">Age</label>
-                                            <div class="form-control" id="ReadOnlyInput-Age">@DeceasedProfile.Age</div>
+                                            <div class="form-control">@DeceasedProfile.Age</div>
                                         </div>
                                     </div>
                                 </div>
@@ -60,14 +60,14 @@
                                                 string DOB = DT.ToLongDateString();
                                             }
 
-                                            <div class="form-control" id="ReadOnlyInput-DOB">@DOB</div>
+                                            <div class="form-control">@DOB</div>
 
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group bmd-form-group">
                                             <label class="bmd-label-static">Date/Time of Death</label>
-                                            <div class="form-control" id="ReadOnlyInput-TimeOfDeath">@DeceasedProfile.TimeOfDeath</div>
+                                            <div class="form-control">@DeceasedProfile.TimeOfDeath</div>
                                         </div>
                                     </div>
                                 </div>
@@ -75,13 +75,13 @@
                                     <div class="col-md-6">
                                         <div class="form-group bmd-form-group">
                                             <label class="bmd-label-static">Marital Status</label>
-                                            <div class="form-control" id="ReadOnlyInput-MaritalStatus">@DeceasedProfile.MaritalStatus</div>
+                                            <div class="form-control">@DeceasedProfile.MaritalStatus</div>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group bmd-form-group">
                                             <label class="bmd-label-static">Occupation</label>
-                                            <div class="form-control" id="ReadOnlyInput-Occupation">@DeceasedProfile.Occupation</div>
+                                            <div class="form-control">@DeceasedProfile.Occupation</div>
                                         </div>
                                     </div>
                                 </div>
@@ -89,13 +89,13 @@
                                     <div class="col-md-6">
                                         <div class="form-group bmd-form-group">
                                             <label class="bmd-label-static">Religion</label>
-                                            <div class="form-control" id="ReadOnlyInput-Religion">@DeceasedProfile.Religion</div>
+                                            <div class="form-control">@DeceasedProfile.Religion</div>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group bmd-form-group">
                                             <label class="bmd-label-static">Religious Denomination</label>
-                                            <div class="form-control" id="ReadOnlyInput-RelDom">@DeceasedProfile.ReligiousDenomination</div>
+                                            <div class="form-control">@DeceasedProfile.ReligiousDenomination</div>
                                         </div>
                                     </div>
                                 </div>
@@ -118,7 +118,7 @@
             }
         </div>
         <div class="col-lg-6 col-sm-12">
-            <div class="card OverflowYScroll" style="margin-bottom: 0px !important; height: 53vh !important;">
+            <div class="card">
                 <div class="card-body">
                     Listed Addresses
 
@@ -133,7 +133,7 @@
                                     {
 
                                         <li class="nav-item col-md-12">
-                                            <a class="nav-link @(ListItem == 1 ? "active" : "") " style="text-align: left;" data-toggle="tab" role="tablist" onclick="GetDeceasedAddressDetails('@DeceasedAddressList.AddressType','@DeceasedAddressList.AddressLine1','@DeceasedAddressList.AddressLine2','@DeceasedAddressList.City','@DeceasedAddressList.PostCode','@DeceasedAddressList.ContactName','@DeceasedAddressList.ContactNo');">
+                                            <a class="nav-link @(ListItem == 1 ? "active" : "")" data-toggle="tab" role="tablist" onclick="GetDeceasedAddressDetails('@DeceasedAddressList.AddressType','@DeceasedAddressList.AddressLine1','@DeceasedAddressList.AddressLine2','@DeceasedAddressList.City','@DeceasedAddressList.PostCode','@DeceasedAddressList.ContactName','@DeceasedAddressList.ContactNo');">
                                                 <b>@DeceasedAddressList.AddressType</b>
                                                 <br />
                                                 @DeceasedAddressList.AddressLine1, @DeceasedAddressList.AddressLine2, @DeceasedAddressList.City, @DeceasedAddressList.PostCode
@@ -152,7 +152,7 @@
     </div>
     <div class="row">
         <div class="col-lg-12">
-            <div class="card OverflowYScroll" style="margin-bottom: 0px !important; height: 27vh !important;">
+            <div class="card">
                 <div class="card-body">
                     Address Details
 

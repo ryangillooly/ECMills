@@ -4,6 +4,10 @@
     padding: 0px;
 }
 
+.card {
+    margin-bottom: 0px;
+}
+
 .Dashboard-A-Tag {
     display: block;
     width: 100%;
@@ -13,11 +17,23 @@
     background: #c7c7c71c;
 }
 
+.row.display-flex {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.row.display-flex > [class*='col-'] {
+    display: flex;
+    flex-direction: column;
+}
+
 .bootstrap-select button.dropdown-toggle {
     margin-top: 2px;
 }
 
-/*******/
+
+/******************************************/
+
 .header-fixed {
     width: 100%
 }
@@ -31,13 +47,13 @@
     display: block;
 }
 
-    .header-fixed > tbody > tr:after,
-    .header-fixed > thead > tr:after {
-        content: ' ';
-        display: block;
-        visibility: hidden;
-        clear: both;
-    }
+.header-fixed > tbody > tr:after,
+.header-fixed > thead > tr:after {
+    content: ' ';
+    display: block;
+    visibility: hidden;
+    clear: both;
+}
 
 .header-fixed > tbody {
     overflow-y: auto;
@@ -49,7 +65,7 @@
     float: left;
 }
 
-/*******/
+/******************************************/
 
 
 .TxtAlignLeft {
