@@ -78,16 +78,36 @@ namespace ECMills.Controllers
             return View();
         }
 
-        /***************** TEST SECTION ***********************/
-        [Route("{id}/CoffinTest")]
-        public ActionResult CoffinBackup(Int16 id)
-        {
-            return View();
-        }
-        /******************************************************/
-
         [Route("{id}/Transport")]
         public ActionResult Transport(Int16 id)
+        {
+            Session["DeceasedID"] = id;
+            return View();
+        }
+
+        [Route("{id}/Additions")]
+        public ActionResult Additions(Int16 id)
+        {
+            Session["DeceasedID"] = id;
+            return View();
+        }
+
+        [Route("{id}/Donations")]
+        public ActionResult Donations(Int16 id)
+        {
+            Session["DeceasedID"] = id;
+            return View();
+        }
+
+        [Route("{id}/Notes")]
+        public ActionResult Notes(Int16 id)
+        {
+            Session["DeceasedID"] = id;
+            return View();
+        }
+
+        [Route("{id}/Correspondence")]
+        public ActionResult Correspondence(Int16 id)
         {
             Session["DeceasedID"] = id;
             return View();

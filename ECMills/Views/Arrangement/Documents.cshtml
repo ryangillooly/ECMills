@@ -7,17 +7,17 @@
             <div class="card RemoveMargins">
                 <div class="card-header card-header-icon card-header-rose">
                     <div class="card-icon">
-                        <i class="material-icons">car</i>
+                        <i class="material-icons">insert_drive_file</i>
                     </div>
                     <h4 class="card-title">
-                        Mrs Violet Anthoinette Crooks
-                        <small class="category">Documents</small>
+                        Documents
+                        <small class="category"> - Mrs Violet Anthoinette Crooks</small>
                     </h4>
                 </div>
 
                 <hr />
 
-                <div class="card-body" id="DocumentNav">
+                <div class="card-body" id="DocumentNav" style="padding-top: 0;">
                     <ul class="nav nav-pills nav-pills-icons nav-pills-rose" role="tablist">
                         <li class="nav-item">
                             <a class="nav-link active" data-toggle="tab" href="#forms" role="tablist" aria-expanded="true">
@@ -43,15 +43,19 @@
 
                     <hr />
 
-                    <div class="fileinput fileinput-new" data-provides="fileinput">
-                        <span class="btn btn-outline-secondary btn-file">
-                            <span class="fileinput-new">Select file</span>
+                    <div class="fileinput fileinput-new col-12" data-provides="fileinput">
+                        <span class="btn-file">
+                            <span style="background-color: #f7f7f7;" class="btn btn-success btn-link btn-sm fileinput-new" data-original-title="Refresh Files">
+                                <i class="material-icons">add</i>
+                            </span>
+
                             <span class="fileinput-exists">Change</span>
                             <input type="file" name="..." multiple>
                         </span>
                         <span class="fileinput-filename"></span>
-                        <a href="#" class="close fileinput-exists" data-dismiss="fileinput" style="float: none">&times;</a>
-                    </div>
+                        <a href="#" style="background-color: #f7f7f7;" class="btn btn-success btn-link btn-sm fileinput-exists" data-dismiss="fileinput">
+                            <i class="material-icons">refresh</i>
+                        </a>
 
                         <button type="button" onclick="" style="background-color: #f7f7f7;" class="btn btn-primary btn-link btn-sm" data-original-title="Refresh Files">
                             <i class="material-icons">refresh</i>
@@ -70,51 +74,26 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <td>Medical Certificate - Ryan</td>
-                                            <td>PDF</td>
-                                            <td>Cremation Form - 4</td>
-                                            <td>3.45 MB</td>
-                                            <td>6 Days Ago</td>
-                                            <td>
-                                                <button type="button" style="background-color: #f7f7f7;" class="btn btn-info btn-link btn-sm">
-                                                    <i class="material-icons">edit</i>
-                                                </button>
-                                                <button type="button" style="background-color: #f7f7f7;" class="btn btn-danger btn-link btn-sm">
-                                                    <i class="material-icons">close</i>
-                                                </button>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>Medical Certificate - Ryan</td>
-                                            <td>PDF</td>
-                                            <td>Cremation Form - 4</td>
-                                            <td>3.45 MB</td>
-                                            <td>6 Days Ago</td>
-                                            <td>
-                                                <button type="button" style="background-color: #f7f7f7;" class="btn btn-info btn-link btn-sm">
-                                                    <i class="material-icons">edit</i>
-                                                </button>
-                                                <button type="button" style="background-color: #f7f7f7;" class="btn btn-danger btn-link btn-sm">
-                                                    <i class="material-icons">close</i>
-                                                </button>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>Medical Certificate - Ryan</td>
-                                            <td>PDF</td>
-                                            <td>Cremation Form - 4</td>
-                                            <td>3.45 MB</td>
-                                            <td>6 Days Ago</td>
-                                            <td>
-                                                <button type="button" style="background-color: #f7f7f7;" class="btn btn-info btn-link btn-sm">
-                                                    <i class="material-icons">edit</i>
-                                                </button>
-                                                <button type="button" style="background-color: #f7f7f7;" class="btn btn-danger btn-link btn-sm">
-                                                    <i class="material-icons">close</i>
-                                                </button>
-                                            </td>
-                                        </tr>
+                                        @{
+                                            for (int i = 0; i < 8; i++)
+                                            {
+                                                <tr>
+                                                    <td>Medical Certificate - Ryan</td>
+                                                    <td>PDF</td>
+                                                    <td>Cremation Form - 4</td>
+                                                    <td>3.45 MB</td>
+                                                    <td>6 Days Ago</td>
+                                                    <td>
+                                                        <button type="button" style="background-color: #f7f7f7;" class="btn btn-info btn-link btn-sm">
+                                                            <i class="material-icons">edit</i>
+                                                        </button>
+                                                        <button type="button" onclick="removeRow()" style="background-color: #f7f7f7;" class="btn btn-danger btn-link btn-sm">
+                                                            <i class="material-icons">close</i>
+                                                        </button>
+                                                    </td>
+                                                </tr>
+                                            }
+                                        }
                                     </tbody>
                                 </table>
                             </div>
@@ -276,7 +255,17 @@
                             </div>
                         </div>
                     </div>
+                    </div>
             </div>
         </div>
     </div>
 </div>
+
+@section scripts {
+    <script>
+    function removeRow() {
+        var button = $(this).get.button;
+        button.removeRow;
+        }
+    </script>   
+}
