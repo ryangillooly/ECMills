@@ -1,25 +1,24 @@
 ﻿@using ECMills.Models;
 @model dynamic
 
-<!--  -->
 <style>
     .timeline > li > .timeline-panel {
         margin-bottom: 0;
         padding: 6px 20px 6px 20px;
     }
 
-        .timeline > li > .timeline-panel:hover {
-            background: #ff2ff92e;
-        }
+    .timeline > li > .timeline-panel:hover {
+        background: #ff2ff92e;
+    }
 
-            .timeline > li > .timeline-panel:hover:after {
-                background: #ff2ff92e;
-                border-right: 0 solid #ff2ff92e;
-            }
+    .timeline > li > .timeline-panel:hover:after {
+        background: #ff2ff92e;
+        border-right: 0 solid #ff2ff92e;
+    }
 
-        .timeline > li > .timeline-panel > .timeline-heading {
-            margin-bottom: 0;
-        }
+    .timeline > li > .timeline-panel > .timeline-heading {
+        margin-bottom: 0;
+    }
 
     .timeline > li > .timeline-badge {
         top: 0px;
@@ -58,11 +57,11 @@
         border-bottom-left-radius: 50%;
     }
 
-        .timeline > li > .timeline-badge [class*=" ti-"], .timeline > li > .timeline-badge [class=material-icons], .timeline > li > .timeline-badge [class^=ti-] {
-            font-size: large;
-            display: block;
-            line-height: 2;
-        }
+    .timeline > li > .timeline-badge [class*=" ti-"], .timeline > li > .timeline-badge [class=material-icons], .timeline > li > .timeline-badge [class^=ti-] {
+        font-size: large;
+        display: block;
+        line-height: 2;
+    }
 
     .timeline > li > .timeline-panel:before {
         position: absolute;
@@ -120,85 +119,75 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group bmd-form-group">
-                                    <label class="onclick bmd-label-static">Name</label>
-                                    <input class="form-control" type="text" name="forenames" placeholder="Miss Violet Crooks" readonly aria-required="true" aria-invalid="true">
+                                    <label class="bmd-label-static">Job Type</label>
+                                    <input class="form-control" type="text" name="forenames" placeholder="Funeral" aria-required="true" aria-invalid="true">
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group bmd-form-group">
-                                    <label class="onclick bmd-label-static">Known As</label>
-                                    <input class="form-control"  type="text" name="forenames" placeholder="" readonly aria-required="true" aria-invalid="true">
+                                    <label class="bmd-label-static">Job Sub Type</label>
+                                    <input class="form-control"  type="text" name="forenames" placeholder="Funeral" aria-required="true" aria-invalid="true">
                                 </div>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group bmd-form-group">
-                                    <label class="onclick bmd-label-static">Gender</label>
-                                    <input class="form-control"type="text" name="forenames" placeholder="Male" readonly aria-required="true" aria-invalid="true">
+                                    <label class="bmd-label-static">Branch</label>
+                                    <input class="form-control"type="text" name="forenames" placeholder="Acton" aria-required="true" aria-invalid="true">
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group bmd-form-group">
-                                    <label class="onclick bmd-label-static">Age</label>
-                                    <input class="form-control" type="text" name="forenames" placeholder="43" readonly aria-required="true" aria-invalid="true">
+                                    <label class="bmd-label-static">Status</label>
+                                    <input class="form-control" type="text" name="forenames" placeholder="Confirmed" aria-required="true" aria-invalid="true">
                                 </div>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group bmd-form-group">
-                                    <label class="onclick bmd-label-static">Date of Birth</label>
-                                    <input class="form-control" type="text" name="forenames" placeholder="5th December 1976" readonly aria-required="true" aria-invalid="true">
+                                    <label class="bmd-label-static">Funeral Director</label>
+                                    <input class="form-control" type="text" name="forenames" placeholder="Roger Mills" aria-required="true" aria-invalid="true">
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group bmd-form-group">
-                                    <label class="onclick bmd-label-static">Date/Time of Death</label>
-                                    <input class="form-control" type="text" name="forenames" placeholder="20th June 2019 02:32am" readonly aria-required="true" aria-invalid="true">
+                                    <label class="bmd-label-static">Funeral Arranger</label>
+                                    <input class="form-control" type="text" name="forenames" placeholder="Karen Shaw" aria-required="true" aria-invalid="true">
                                 </div>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group bmd-form-group">
-                                    <label class="onclick bmd-label-static">Marital Status</label>
-                                    <input class="form-control" type="text" name="forenames" placeholder="Single" readonly aria-required="true" aria-invalid="true">
+                                    <label class="bmd-label-static">Called</label>
+                                    <input class="form-control" type="text" name="forenames" placeholder="22 March 2019 10:03AM" aria-required="true" aria-invalid="true">
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group bmd-form-group">
-                                    <label class="onclick bmd-label-static">Occupation</label>
-                                    <input class="form-control" type="text" name="forenames" placeholder="I.T. Professional" readonly aria-required="true" aria-invalid="true">
+                                    <label class="bmd-label-static">Communication</label>
+                                    <input class="form-control" type="text" name="forenames" placeholder="Not Specified" aria-required="true" aria-invalid="true">
                                 </div>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group bmd-form-group">
-                                    <label class="onclick bmd-label-static">Religion</label>
-                                    <input class="form-control" type="text" name="forenames" placeholder="Athiest" readonly aria-required="true" aria-invalid="true">
+                                    <label class="bmd-label-static">Source</label>
+                                    <input class="form-control" type="text" name="forenames" placeholder="Location" aria-required="true" aria-invalid="true">
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group bmd-form-group">
-                                    <label class="onclick bmd-label-static">Religious Denomination</label>
-                                    <input class="form-control" type="text" name="forenames" placeholder="Athiest" readonly aria-required="true" aria-invalid="true">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="form-group">
-                                    <div class="form-group bmd-form-group">
-                                        <label class="onclick bmd-label-floating">Additional Notes</label>
-                                        <textarea class="form-control" rows="3"></textarea>
-                                    </div>
+                                    <label class="bmd-label-static">First Call Converted From</label>
+                                    <input class="form-control" type="text" name="forenames" placeholder="Ryan Gillooly (21/03/2019)" aria-required="true" aria-invalid="true">
                                 </div>
                             </div>
                         </div>
                         <div id="buttonswitch">
-                            <button id="EditProfileBtn" onclick="editProfile()" class="btn btn-rose pull-left">Edit Profile</button>
+                            <button id="EditProfileBtn" onclick="editProfile()" class="btn btn-rose pull-left">Edit Arrangement</button>
                         </div>
                         <div class="clearfix"></div>
                     </form>
@@ -213,52 +202,259 @@
                     <hr>
 
                     <ul class="timeline timeline-simple">
-                        @{
-                            Int16 MaxCount = 15;
-                            Int16 Count = 1;
-                            while (Count <= MaxCount)
-                            {
-                                if (Count % 2 == 0)
-                                {
-                                    <li class="timeline-inverted">
-                                        <div class="timeline-badge success">
-                                            <i class="material-icons">mail</i>
-                                        </div>
-                                        <div class="timeline-panel">
-                                            <div class="timeline-heading">
-                                                <span class="badge badge-pill badge-success">Form</span> <text>Cremation 1</text>
-                                            </div>
-                                        </div>
-                                    </li>
-
-                                    <li class="timeline-inverted">
-                                        <div class="timeline-badge danger">
-                                            <i class="material-icons">mail</i>
-                                        </div>
-                                        <div class="timeline-panel">
-                                            <div class="timeline-heading">
-                                                <span class="badge badge-pill badge-danger">Form</span> <text>Cremation 2</text>
-                                            </div>
-                                        </div>
-                                    </li>
-                                }
-                                else
-                                {
-                                    <li class="timeline-inverted">
-                                        <div class="timeline-badge warning">
-                                            <i class="material-icons">mail</i>
-                                        </div>
-                                        <div class="timeline-panel">
-                                            <div class="timeline-heading">
-                                                <span class="badge badge-pill badge-warning">Form</span> <text>Cremation 3</text>
-                                            </div>
-                                        </div>
-                                    </li>
-                                }
-
-                                Count++;
-                            }
-                        }
+                        <li class="timeline-inverted">
+                            <div class="timeline-badge danger">
+                                <i class="material-icons">close</i>
+                            </div>
+                            <div class="timeline-panel">
+                                <div class="timeline-heading">
+                                    <span class="badge badge-pill badge-danger" style="margin-right: 2rem;">Form</span>
+                                    <text>Hospital Release Form Recieved</text>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="timeline-inverted">
+                            <div class="timeline-badge success">
+                                <i class="material-icons">check</i>
+                            </div>
+                            <div class="timeline-panel">
+                                <div class="timeline-heading">
+                                    <span class="badge badge-pill badge-success" style="margin-right: 1rem;">Activity</span>
+                                    <text>Decease Person Brought Into Our Care</text>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="timeline-inverted">
+                            <div class="timeline-badge danger">
+                                <i class="material-icons">close</i>
+                            </div>
+                            <div class="timeline-panel">
+                                <div class="timeline-heading">
+                                    <span class="badge badge-pill badge-danger" style="margin-right: 1rem;">Activity</span>
+                                    <text>Funeral Arrangement Completed</text>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="timeline-inverted">
+                            <div class="timeline-badge warning">
+                                <i class="material-icons"></i>
+                            </div>
+                            <div class="timeline-panel">
+                                <div class="timeline-heading">
+                                    <span class="badge badge-pill badge-warning" style="margin-right: 2rem;">Form</span>
+                                    <text>Estimate, Confirmation & Itinerary Sent To Client</text>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="timeline-inverted">
+                            <div class="timeline-badge success">
+                                <i class="material-icons">check</i>
+                            </div>
+                            <div class="timeline-panel">
+                                <div class="timeline-heading">
+                                    <span class="badge badge-pill badge-success" style="margin-right: 2rem;">Form</span>
+                                    <text>Registrars Certificate for Cremation Received</text>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="timeline-inverted">
+                            <div class="timeline-badge success">
+                                <i class="material-icons">check</i>
+                            </div>
+                            <div class="timeline-panel">
+                                <div class="timeline-heading">
+                                    <span class="badge badge-pill badge-success" style="margin-right: 1rem;">Activity</span>
+                                    <text>Cremation Booked and Confirmed</text>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="timeline-inverted">
+                            <div class="timeline-badge success">
+                                <i class="material-icons">check</i>
+                            </div>
+                            <div class="timeline-panel">
+                                <div class="timeline-heading">
+                                    <span class="badge badge-pill badge-success" style="margin-right: 1rem;">Activity</span>
+                                    <text>Officiant Confirmation Sent</text>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="timeline-inverted">
+                            <div class="timeline-badge success">
+                                <i class="material-icons">check</i>
+                            </div>
+                            <div class="timeline-panel">
+                                <div class="timeline-heading">
+                                    <span class="badge badge-pill badge-success" style="margin-right: 2rem;">Form</span>
+                                    <text>Cremation Form 4 Received</text>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="timeline-inverted">
+                            <div class="timeline-badge success">
+                                <i class="material-icons">check</i>
+                            </div>
+                            <div class="timeline-panel">
+                                <div class="timeline-heading">
+                                    <span class="badge badge-pill badge-success" style="margin-right: 2rem;">Form</span>
+                                    <text>Cremation Form 5 Received</text>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="timeline-inverted">
+                            <div class="timeline-badge danger">
+                                <i class="material-icons">close</i>
+                            </div>
+                            <div class="timeline-panel">
+                                <div class="timeline-heading">
+                                    <span class="badge badge-pill badge-danger" style="margin-right: 2rem;">Form</span>
+                                    <text>Cremation Form 6 Received</text>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="timeline-inverted">
+                            <div class="timeline-badge warning">
+                                <i class="material-icons"></i>
+                            </div>
+                            <div class="timeline-panel">
+                                <div class="timeline-heading">
+                                    <span class="badge badge-pill badge-warning" style="margin-right: 1rem;">Activity</span>
+                                    <text>Cremation Forms Delivered to Crematorium</text>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="timeline-inverted">
+                            <div class="timeline-badge danger">
+                                <i class="material-icons">close</i>
+                            </div>
+                            <div class="timeline-panel">
+                                <div class="timeline-heading">
+                                    <span class="badge badge-pill badge-danger" style="margin-right: 1rem;">Activity</span>
+                                    <text>Wesley Visual Login Ordered</text>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="timeline-inverted">
+                            <div class="timeline-badge danger">
+                                <i class="material-icons">close</i>
+                            </div>
+                            <div class="timeline-panel">
+                                <div class="timeline-heading">
+                                    <span class="badge badge-pill badge-danger" style="margin-right: 1rem;">Activity</span>
+                                    <text>Wesley Visual Tribute Uploaded</text>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="timeline-inverted">
+                            <div class="timeline-badge danger">
+                                <i class="material-icons">close</i>
+                            </div>
+                            <div class="timeline-panel">
+                                <div class="timeline-heading">
+                                    <span class="badge badge-pill badge-danger" style="margin-right: 1rem;">Activity</span>
+                                    <text>Instruction for Cremated Remains Receieved</text>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="timeline-inverted">
+                            <div class="timeline-badge success">
+                                <i class="material-icons">check</i>
+                            </div>
+                            <div class="timeline-panel">
+                                <div class="timeline-heading">
+                                    <span class="badge badge-pill badge-success" style="margin-right: 1rem;">Activity</span>
+                                    <text>Confirmation of Arrangement Signed & Uploaded</text>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="timeline-inverted">
+                            <div class="timeline-badge success">
+                                <i class="material-icons">check</i>
+                            </div>
+                            <div class="timeline-panel">
+                                <div class="timeline-heading">
+                                    <span class="badge badge-pill badge-success" style="margin-right: 1rem;">Activity</span>
+                                    <text>Coffin Order Placed with Garage/Supplier</text>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="timeline-inverted">
+                            <div class="timeline-badge success">
+                                <i class="material-icons">check</i>
+                            </div>
+                            <div class="timeline-panel">
+                                <div class="timeline-heading">
+                                    <span class="badge badge-pill badge-success" style="margin-right: 1rem;">Activity</span>
+                                    <text>Coffin receieved and fitted at branch</text>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="timeline-inverted">
+                            <div class="timeline-badge warning">
+                                <i class="material-icons"></i>
+                            </div>
+                            <div class="timeline-panel">
+                                <div class="timeline-heading">
+                                    <span class="badge badge-pill badge-warning" style="margin-right: 1rem;">Activity</span>
+                                    <text>Client advised that deceased person is ready for visiting</text>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="timeline-inverted">
+                            <div class="timeline-badge warning">
+                                <i class="material-icons"></i>
+                            </div>
+                            <div class="timeline-panel">
+                                <div class="timeline-heading">
+                                    <span class="badge badge-pill badge-warning" style="margin-right: 1rem;">Activity</span>
+                                    <text>Organist/Wesley/Music Confirmed</text>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="timeline-inverted">
+                            <div class="timeline-badge warning">
+                                <i class="material-icons"></i>
+                            </div>
+                            <div class="timeline-panel">
+                                <div class="timeline-heading">
+                                    <span class="badge badge-pill badge-warning" style="margin-right: 1rem;">Activity</span>
+                                    <text>Flowers Ordered From Supplier</text>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="timeline-inverted">
+                            <div class="timeline-badge warning">
+                                <i class="material-icons"></i>
+                            </div>
+                            <div class="timeline-panel">
+                                <div class="timeline-heading">
+                                    <span class="badge badge-pill badge-warning" style="margin-right: 1rem;">Activity</span>
+                                    <text>Order of Service Approved by Family</text>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="timeline-inverted">
+                            <div class="timeline-badge warning">
+                                <i class="material-icons"></i>
+                            </div>
+                            <div class="timeline-panel">
+                                <div class="timeline-heading">
+                                    <span class="badge badge-pill badge-warning" style="margin-right: 1rem;">Activity</span>
+                                    <text>Order of Service Received from Printers</text>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="timeline-inverted">
+                            <div class="timeline-badge warning">
+                                <i class="material-icons"></i>
+                            </div>
+                            <div class="timeline-panel">
+                                <div class="timeline-heading">
+                                    <span class="badge badge-pill badge-warning" style="margin-right: 1rem;">Activity</span>
+                                    <text>Obituary agreed and submitted</text>
+                                </div>
+                            </div>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -279,8 +475,7 @@
 
     function cancelProfileEdit() {
         $("#buttonswitch").empty();
-        $("#buttonswitch").append("<button id='EditProfileBtn' onclick='editProfile()' class='btn btn-rose pull-left'>Edit Profile</button>");
-        $(".form-control").prop("readonly", true);
+        $("#buttonswitch").append("<button id='EditProfileBtn' onclick='editProfile()' class='btn btn-rose pull-left'>Edit Arrangement</button>");
     };
     </script>
 }
