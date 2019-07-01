@@ -120,6 +120,12 @@ namespace ECMills.Controllers
             return View();
         }
 
+        [Route("{id}/Finance/Sales")]
+        public ActionResult Sales(Int16 id)
+        {
+            return View();
+        }
+
         public List<sp_GetDeceasedList_Result> sp_GetDeceasedList()
         {
             return DBContext.sp_GetDeceasedList().ToList();

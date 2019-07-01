@@ -418,6 +418,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\css\fresh-bootstrap-table.css" />
     <Content Include="Assets\css\material-dashboard.css" />
     <Content Include="Assets\css\material-dashboard.min.css" />
     <Content Include="Assets\css\partials\dashboard\core\bootstrap\scss\bootstrap-grid.css" />
@@ -464,6 +465,7 @@
     <Content Include="Assets\img\sidebar-2.jpg" />
     <Content Include="Assets\img\sidebar-3.jpg" />
     <Content Include="Assets\img\sidebar-4.jpg" />
+    <Content Include="Assets\js\bootstrap-table.js" />
     <Content Include="Assets\js\core\bootstrap-material-design.min.js" />
     <Content Include="Assets\js\core\jquery.min.js" />
     <Content Include="Assets\js\core\popper.min.js" />
@@ -857,11 +859,12 @@
     <Content Include="Views\Diary\Diary.cshtml" />
     <Content Include="Views\Shared\ThemeChangePlugin.cshtml" />
     <Content Include="Views\FirstCalls\FirstCalls.cshtml" />
-    <Content Include="Views\Dashboard\test.cshtml" />
+    <Content Include="Views\Dashboard\testtable.cshtml" />
     <Content Include="Views\Arrangement\Additions.cshtml" />
     <Content Include="Views\Arrangement\Notes.cshtml" />
     <Content Include="Views\Arrangement\Donations.cshtml" />
     <Content Include="Views\Arrangement\Correspondence.cshtml" />
+    <Content Include="Views\Arrangement\Sales.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

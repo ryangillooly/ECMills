@@ -539,8 +539,8 @@
                                     <td>@deceased.Client_Name</td>
 
                                     <td class="text-right">
-                                        <button type="button" onclick="@Url.Action("Info", "Arrangement", null, null)" style="background-color: #f7f7f7;" rel="tooltip" class="btn btn-info btn-link btn-sm" data-original-title="View Arrangement">
-                                            <i class="material-icons">person</i>
+                                        <button type="button" style="background-color: #f7f7f7;" rel="tooltip" class="btn btn-danger btn-link btn-sm remove">
+                                            <i class="material-icons">close</i>
                                             <div class="ripple-container"></div>
                                         </button>
                                     </td>
@@ -581,7 +581,7 @@
             }
           });
 
-          var table = $('#datatable').DataTable();
+          var table = $('#datatables').DataTable();
 
           // Edit record
           table.on('click', '.edit', function() {
@@ -595,11 +595,6 @@
             $tr = $(this).closest('tr');
             table.row($tr).remove().draw();
             e.preventDefault();
-          });
-
-          //Like record
-          table.on('click', '.like', function() {
-            alert('You clicked on Like button');
           });
         });
     </script>
