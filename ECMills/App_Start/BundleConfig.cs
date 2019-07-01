@@ -12,8 +12,7 @@ namespace ECMills
 
             bundles.Add(new StyleBundle("~/MainCSS").Include(
                 "~/Assets/css/*.min.css",
-                "~/Assets/css/MyCSS/Layout.css",
-                "~/Assets/css/fresh-bootstrap-table.css"
+                "~/Assets/css/MyCSS/Layout.css"
             ));
 
             bundles.Add(new ScriptBundle("~/CoreJS").Include(
@@ -41,8 +40,7 @@ namespace ECMills
                 "~/Assets/js/plugins/chartist.min.js",
                 "~/Assets/js/plugins/bootstrap-notify.js",
                 "~/Assets/js/material-dashboard.js" ,
-                "~/Assets/js/demo.js",
-                "~/Assets/js/bootstrap-table.js"
+                "~/Assets/js/demo.js"
             ));
 
             BundleTable.EnableOptimizations = true;
