@@ -100,87 +100,93 @@
                     <i class="fas fa-pound-sign"></i>
                     <p>Accounts <b class="caret"></b></p>
                 </a>
-                <ul class="collapse" id="AccountsDropdown">
-                    <li class="nav-item  @(ViewContext.RouteData.Values["Controller"].ToString() == "Accounts" &&
+                <div class="collapse" id="AccountsDropdown" style="">
+                    <ul class="nav">
+                        <li class="nav-item  @(ViewContext.RouteData.Values["Controller"].ToString() == "Accounts" &&
                                     ViewContext.RouteData.Values["Action"].ToString() == "PurchaseOrders" ? "active" : "")">
-                        <a class="nav-link" href="@Url.Action("PurchaseOrders", "Accounts", null, null)">
-                            <i class="fas fa-shopping-basket"></i>
-                            <p>Purchase Orders</p>
-                        </a>
-                    </li>
-                    <li class="nav-item  @(ViewContext.RouteData.Values["Controller"].ToString() == "Accounts" &&
+                            <a class="nav-link" href="@Url.Action("PurchaseOrders", "Accounts", null, null)">
+                                <span class="sidebar-mini"> PO </span>
+                                <span class="sidebar-normal"> Purchase Orders </span>
+                            </a>
+                        </li>
+                        <li class="nav-item  @(ViewContext.RouteData.Values["Controller"].ToString() == "Accounts" &&
                                            ViewContext.RouteData.Values["Action"].ToString() == "Payments" ? "active" : "")">
-                        <a class="nav-link" href="@Url.Action("Payments", "Accounts", null, null)">
-                            <i class="fas fa-pound-sign"></i>
-                            <p>Fees Payments</p>
-                        </a>
-                    </li>
-                </ul>
+                            <a class="nav-link" href="@Url.Action("Payments", "Accounts", null, null)">
+                                <span class="sidebar-mini"> FP </span>
+                                <span class="sidebar-normal"> Fees Payments </span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
             </li>
             <li class="nav-item ">
                 <a class="nav-link" data-toggle="collapse" href="#ContactsDropdown" aria-expanded="false" aria-controls="ContactsDropdown">
                     <i class="material-icons">unarchive</i>
                     <p>Contacts <b class="caret"></b></p>
                 </a>
-                <ul class="collapse" id="ContactsDropdown">
-                    <li class="nav-item  @(ViewContext.RouteData.Values["Controller"].ToString() == "Contacts" &&
+                <div class="collapse" id="ContactsDropdown" style="">
+                    <ul class="nav">
+                        <li class="nav-item  @(ViewContext.RouteData.Values["Controller"].ToString() == "Contacts" &&
                                     ViewContext.RouteData.Values["Action"].ToString() == "Suppliers" ? "active" : "")">
-                        <a class="nav-link" href="@Url.Action("Suppliers", "Contacts", null, null)">
-                            <i class="fas fa-pound-sign"></i>
-                            <p>Suppliers</p>
-                        </a>
-                    </li>
-                    <li class="nav-item  @(ViewContext.RouteData.Values["Controller"].ToString() == "Contacts" &&
+                            <a class="nav-link" href="@Url.Action("Suppliers", "Contacts", null, null)">
+                                <span class="sidebar-mini"> S </span>
+                                <span class="sidebar-normal"> Suppliers </span>
+                            </a>
+                        </li>
+                        <li class="nav-item  @(ViewContext.RouteData.Values["Controller"].ToString() == "Contacts" &&
                                            ViewContext.RouteData.Values["Action"].ToString() == "Addresses" ? "active" : "")">
-                        <a class="nav-link" href="@Url.Action("Addresses", "Contacts", null, null)">
-                            <i class="fas fa-pound-sign"></i>
-                            <p>Addresses</p>
-                        </a>
-                    </li>
-                    <li class="nav-item  @(ViewContext.RouteData.Values["Controller"].ToString() == "Contacts" &&
+                            <a class="nav-link" href="@Url.Action("Addresses", "Contacts", null, null)">
+                                <span class="sidebar-mini"> A </span>
+                                <span class="sidebar-normal"> Addresses </span>
+                            </a>
+                        </li>
+                        <li class="nav-item  @(ViewContext.RouteData.Values["Controller"].ToString() == "Contacts" &&
                                            ViewContext.RouteData.Values["Action"].ToString() == "Contacts" ? "active" : "")">
-                        <a class="nav-link" href="@Url.Action("Contacts", "Contacts", null, null)">
-                            <i class="fas fa-pound-sign"></i>
-                            <p>Contacts</p>
-                        </a>
-                    </li>
-                </ul>
+                            <a class="nav-link" href="@Url.Action("Contacts", "Contacts", null, null)">
+                                <span class="sidebar-mini"> C </span>
+                                <span class="sidebar-normal"> Contacts </span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
             </li>
             <li class="nav-item ">
                 <a class="nav-link" data-toggle="collapse" href="#ReportsDropdown" aria-expanded="false" aria-controls="ReportsDropdown">
                     <i class="material-icons">unarchive</i>
                     <p>Reports <b class="caret"></b></p>
                 </a>
-                <ul class="collapse" id="ReportsDropdown">
-                    <li class="nav-item  @(ViewContext.RouteData.Values["Controller"].ToString() == "Reports" &&
+                <div class="collapse" id="ReportsDropdown" style="">
+                    <ul class="nav">
+                        <li class="nav-item  @(ViewContext.RouteData.Values["Controller"].ToString() == "CReportsontacts" &&
                                     ViewContext.RouteData.Values["Action"].ToString() == "Management" ? "active" : "")">
-                        <a class="nav-link" href="@Url.Action("Management", "Reports", null, null)">
-                            <i class="fas fa-shopping-basket"></i>
-                            <p>Management</p>
-                        </a>
-                    </li>
-                    <li class="nav-item  @(ViewContext.RouteData.Values["Controller"].ToString() == "Reports" &&
+                            <a class="nav-link" href="@Url.Action("Management", "Reports", null, null)">
+                                <span class="sidebar-mini"> M </span>
+                                <span class="sidebar-normal"> Management </span>
+                            </a>
+                        </li>
+                        <li class="nav-item  @(ViewContext.RouteData.Values["Controller"].ToString() == "Reports" &&
                                            ViewContext.RouteData.Values["Action"].ToString() == "General" ? "active" : "")">
-                        <a class="nav-link" href="@Url.Action("General", "Reports", null, null)">
-                            <i class="fas fa-pound-sign"></i>
-                            <p>General</p>
-                        </a>
-                    </li>
-                    <li class="nav-item  @(ViewContext.RouteData.Values["Controller"].ToString() == "Reports" &&
+                            <a class="nav-link" href="@Url.Action("General", "Reports", null, null)">
+                                <span class="sidebar-mini"> G </span>
+                                <span class="sidebar-normal"> General </span>
+                            </a>
+                        </li>
+                        <li class="nav-item  @(ViewContext.RouteData.Values["Controller"].ToString() == "Reports" &&
                                            ViewContext.RouteData.Values["Action"].ToString() == "Finance" ? "active" : "")">
-                        <a class="nav-link" href="@Url.Action("Finance", "Reports", null, null)">
-                            <i class="fas fa-pound-sign"></i>
-                            <p>Finance</p>
-                        </a>
-                    </li>
-                    <li class="nav-item  @(ViewContext.RouteData.Values["Controller"].ToString() == "Reports" &&
+                            <a class="nav-link" href="@Url.Action("Finance", "Reports", null, null)">
+                                <span class="sidebar-mini"> F </span>
+                                <span class="sidebar-normal"> Finance </span>
+                            </a>
+                        </li>
+                        <li class="nav-item  @(ViewContext.RouteData.Values["Controller"].ToString() == "Reports" &&
                                            ViewContext.RouteData.Values["Action"].ToString() == "FuneralPlan" ? "active" : "")">
-                        <a class="nav-link" href="@Url.Action("FuneralPlan", "Reports", null, null)">
-                            <i class="fas fa-pound-sign"></i>
-                            <p>Funeral Plan</p>
-                        </a>
-                    </li>
-                </ul>
+                            <a class="nav-link" href="@Url.Action("FuneralPlan", "Reports", null, null)">
+                                <span class="sidebar-mini"> FP </span>
+                                <span class="sidebar-normal"> Funeral Plan </span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
             </li>
         </ul>
     </div>

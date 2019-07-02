@@ -1,4 +1,31 @@
-﻿<div class="sidebar" data-color="rose" data-background-color="black" data-image="/Assets/img/sidebar-1.jpg">
+﻿<style>    
+    .sidebar #footer:before {
+        content: "";
+        position: absolute;
+        top: -10px;
+        right: 15px;
+        height: 1px;
+        width: calc(100% - 30px);
+        background-color: hsla(0,0%,71%,.3);
+    }
+
+    ol.breadcrumb {
+        background-color: transparent;
+        margin-bottom: 0;
+    }
+
+    ol>li>a {
+        color: white;
+    }
+
+    #footer {
+        display: block;
+        position: relative;
+        z-index: 4;
+    }
+</style>
+
+<div class="sidebar" data-color="rose" data-background-color="black" data-image="/Assets/img/sidebar-1.jpg">
     <!--
         Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
 
@@ -12,7 +39,7 @@
             Mills Funerals
         </a>
     </div>
-    <div class="sidebar-wrapper">
+    <div class="sidebar-wrapper" style="height: 88%;">
         <div class="user">
             <div class="photo">
                 <img src="~/Assets/img/faces/avatar.jpg" />
@@ -128,5 +155,13 @@
                 </a>
             </li>
         </ul>
+    </div>
+    <div id="footer" class="col-12">
+        <nav class="col-12" aria-label="breadcrumb" role="navigation">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Info</li>
+            </ol>
+        </nav>
     </div>
 </div>

@@ -45,12 +45,6 @@ namespace ECMills.Controllers
             return View(dynamicObject);
         }
 
-        public ActionResult ProfileUpdate(string Name, string Known_As, string Gender, int Age, DateTime DOB,
-                                  DateTime TimeOfDeath, string MaritalStatus, string Occupation,
-                                  string Religion, string Reldom)
-        {
-            return Content("YEP");
-        }
 
         [Route("{id}/Contacts")]
         public ActionResult Contacts(Int16 id)
