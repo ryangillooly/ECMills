@@ -21,13 +21,13 @@ namespace ECMills.Controllers
         [Route("")]
         public ActionResult FirstCalls()
         {
-            var deceased = sp_GetDeceasedList();
-            return View(deceased);
+            return View();
         }
 
-        public List<sp_GetDeceasedList_Result> sp_GetDeceasedList()
+        [Route("test")]
+        public ActionResult test()
         {
-            return DBContext.sp_GetDeceasedList().ToList();
+            return View();
         }
     }
 }

@@ -282,6 +282,15 @@ demo = {
     });
   },
 
+
+
+
+
+
+
+
+
+
   initMaterialWizard: function() {
     // Code for the Validator
     var $validator = $('.card-wizard form').validate({
@@ -310,8 +319,6 @@ demo = {
         $(element).append(error);
       }
     });
-
-
 
     // Wizard Initialization
     $('.card-wizard').bootstrapWizard({
@@ -390,7 +397,6 @@ demo = {
         refreshAnimation($wizard, index);
       }
     });
-
 
     // Prepare the preview for profile picture
     $("#wizard-picture").change(function() {
@@ -486,6 +492,19 @@ demo = {
       });
     }
   },
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   initCharts: function() {
     if ($('#roundedLineChart').length != 0 && $('#straightLinesChart').length != 0 && $('#colouredRoundedLineChart').length != 0 && $('#colouredBarsChart').length != 0 && $('#simpleBarChart').length != 0 && $('#multipleBarsChart').length != 0) {
