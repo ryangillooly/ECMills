@@ -36,6 +36,10 @@ public partial class User
 
         this.Notifications = new HashSet<Notification>();
 
+        this.FirstCalls = new HashSet<FirstCall>();
+
+        this.FirstCalls1 = new HashSet<FirstCall>();
+
     }
 
 
@@ -84,6 +88,14 @@ public partial class User
     [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
 
     public virtual ICollection<Notification> Notifications { get; set; }
+
+    [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+
+    public virtual ICollection<FirstCall> FirstCalls { get; set; }
+
+    [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+
+    public virtual ICollection<FirstCall> FirstCalls1 { get; set; }
 
 }
 

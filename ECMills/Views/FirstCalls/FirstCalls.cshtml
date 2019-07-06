@@ -1,8 +1,13 @@
-﻿@using ECMills.Models;
-@model dynamic
+﻿@model IEnumerable<ECMills.Models.sp_GetFirstCallsList_Result>
+
+<style>
+    .form-control[readonly] {
+        background-color: transparent;
+    }
+</style>
 
 <div class="container-fluid">
-    <div class="col-md-8 col-12 mr-auto ml-auto">
+    <div class="col-12 mr-auto ml-auto">
         <!--      Wizard container        -->
         <div class="wizard-container">
             <div class="card card-wizard active" data-color="rose" id="wizardProfile">
@@ -46,12 +51,12 @@
                                         <div class="row">
                                             <div class="col-md-12">
                                                 <div class="row">
-                                                    <div class="col-md-4">
+                                                    <div class="col-md-3">
                                                         <div class="form-group bmd-form-group">
                                                             <label class="bmd-label-static">Job Type</label>
                                                             <div class="dropdown bootstrap-select">
                                                                 <div class="dropdown bootstrap-select form-control">
-                                                                    <select class="selectpicker" data-size="7" name="JobType" aria-invalid="true" required data-style="select-with-transition" title="" tabindex="-98">
+                                                                    <select class="selectpicker" data-size="7" name="JobType" aria-invalid="true" required data-style="select-with-transition" title=" " tabindex="-98">
                                                                         <option value="Funeral"> Funeral </option>
                                                                         <option value="FuneralPlan"> Sundry </option>
                                                                     </select>
@@ -60,12 +65,12 @@
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <div class="col-md-5">
+                                                    <div class="col-md-3">
                                                         <div class="form-group bmd-form-group">
                                                             <label class="bmd-label-static">Job Sub Type</label>
                                                             <div class="dropdown bootstrap-select">
                                                                 <div class="dropdown bootstrap-select form-control">
-                                                                    <select class="selectpicker" required data-size="7" data-style="select-with-transition" title="" tabindex="-98">
+                                                                    <select class="selectpicker" required data-size="7" data-style="select-with-transition" title=" " tabindex="-98">
                                                                         <option value="Funeral"> Funeral </option>
                                                                         <option value="FuneralPlan"> Funeral Plan </option>
                                                                         <option value="FuneralPlan"> Cremation </option>
@@ -90,9 +95,51 @@
                                                             </div>
                                                         </div>
                                                     </div>
+                                                    <div class="col-md-3">
+                                                        <div class="form-group bmd-form-group">
+                                                            <label class="bmd-label-static">Job Status</label>
+                                                            <div class="dropdown bootstrap-select">
+                                                                <div class="dropdown bootstrap-select form-control">
+                                                                    <select class="selectpicker" required data-size="7" data-style="select-with-transition" title="" tabindex="-98">
+                                                                        <option value="Funeral"> Open </option>
+                                                                        <option value="FuneralPlan"> In Progress </option>
+                                                                        <option value="FuneralPlan"> Pending Appointment </option>
+                                                                        <option value="FuneralPlan"> Closed </option>
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <div class="form-group bmd-form-group">
+                                                            <label class="bmd-label-floating">Call Taken By</label>
+                                                            <input readonly class="form-control" value="Ryan Gillooly" type="text" aria-required="true" aria-invalid="true">
+
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <div class="form-group bmd-form-group">
+                                                            <label class="bmd-label-floating">Call Taken At</label>
+                                                            <input readonly class="form-control" value="23/06/2019 10:34" type="text" aria-required="true" aria-invalid="true">
+
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <div class="form-group bmd-form-group">
+                                                            <label class="bmd-label-floating">Arranging Branch</label>
+                                                            <input readonly class="form-control" value="Acton" type="text" aria-required="true" aria-invalid="true">
+                                                        </div>
+                                                    </div>
+                                                    
+                                                    <div class="col-md-3">
+                                                        <div class="form-group bmd-form-group">
+                                                            <label class="bmd-label-floating">Deceased Location</label>
+                                                            <input class="form-control" type="text" name="pickedupfrom" required aria-required="true" aria-invalid="true">
+                                                        </div>
+                                                    </div>
                                                 </div>
                                                 <div class="row">
-                                                    <div class="col-md-3">
+                                                    <div class="col-md-2">
                                                         <div class="form-group bmd-form-group">
                                                             <label class="bmd-label-static">Title</label>
                                                             <div class="dropdown bootstrap-select">
@@ -112,26 +159,24 @@
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <div class="col-md-4">
+                                                    <div class="col-md-3">
                                                         <div class="form-group bmd-form-group">
                                                             <label class="bmd-label-floating">Forename(s)</label>
-                                                            <input class="form-control" type="text" name="forenames" required aria-required="true" aria-invalid="true">
+                                                            <input class="form-control" type="text" value="Jack" required aria-required="true" aria-invalid="true">
                                                         </div>
                                                     </div>
-                                                    <div class="col-md-5">
+                                                    <div class="col-md-3">
                                                         <div class="form-group bmd-form-group">
                                                             <label class="bmd-label-floating">Surname</label>
-                                                            <input class="form-control" type="text" name="surname" required aria-required="true" aria-invalid="true">
+                                                            <input class="form-control" type="text" value="Crooks" required aria-required="true" aria-invalid="true">
                                                         </div>
                                                     </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-md-6">
+                                                    <div class="col-md-3">
                                                         <div class="form-group bmd-form-group">
                                                             <label class="bmd-label-static">Relationship To Deceased</label>
                                                             <div class="dropdown bootstrap-select">
                                                                 <div class="dropdown bootstrap-select">
-                                                                    <select class="selectpicker" data-size="7" data-style="select-with-transition" title="" tabindex="-98">
+                                                                    <select class="selectpicker" data-size="7" required data-style="select-with-transition" title="" tabindex="-98">
                                                                         <option selected></option>
                                                                         <option value="Funeral"> Son </option>
                                                                         <option value="FuneralPlan"> Daughter </option>
@@ -148,14 +193,6 @@
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <div class="col-md-6">
-                                                        <div class="form-group bmd-form-group">
-                                                            <label class="bmd-label-floating">Deceased Picked Up From</label>
-                                                            <input class="form-control" type="text" name="pickedupfrom" required aria-required="true" aria-invalid="true">
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
                                                     <div class="col-lg-12">
                                                         <div class="card" style="box-shadow: none !important;">
                                                             <div class="card-header" style="padding: 0;">
@@ -183,29 +220,12 @@
                                                                                     <a href="#" class="btn btn-link btn-danger btn-just-icon remove"><i class="material-icons">close</i></a>
                                                                                 </td>
                                                                             </tr>
-                                                                            <tr>
-                                                                                <td style="padding: 0;">Mobile Phone</td>
-                                                                                <td style="padding: 0;">07415835716</td>
-                                                                                <td class="text-right" style="padding: 0;">
-                                                                                    <a href="#" class="btn btn-link btn-danger btn-just-icon remove"><i class="material-icons">close</i></a>
-                                                                                </td>
-                                                                            </tr>
-                                                                            <tr>
-                                                                                <td style="padding: 0;">Home Phone</td>
-                                                                                <td style="padding: 0;">01236 612854</td>
-                                                                                <td class="text-right" style="padding: 0;">
-                                                                                    <a href="#" class="btn btn-link btn-danger btn-just-icon remove"><i class="material-icons">close</i></a>
-                                                                                </td>
-                                                                            </tr>
                                                                         </tbody>
                                                                     </table>
-
                                                                 </div>
                                                             </div>
                                                         </div>
                                                     </div>
-                                                </div>
-                                                <div class="row">
                                                     <div class="col-md-12">
                                                         <div class="form-group">
                                                             <div class="form-group bmd-form-group">

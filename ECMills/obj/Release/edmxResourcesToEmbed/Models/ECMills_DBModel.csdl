@@ -92,6 +92,7 @@
     <NavigationProperty Name="Orders" Relationship="Self.FK_Client_ID_Orders_ClientID" FromRole="Client" ToRole="Orders" />
     <NavigationProperty Name="User" Relationship="Self.FK_Users_ID_Client_CreatedBy" FromRole="Client" ToRole="Users" />
     <NavigationProperty Name="User1" Relationship="Self.FK_Users_ID_Client_LastModifiedBy" FromRole="Client" ToRole="Users" />
+    <NavigationProperty Name="FirstCalls" Relationship="ECMills_DatabaseModel.FK__FirstCall__Clien__5AB9788F" FromRole="Client" ToRole="FirstCall" />
   </EntityType>
   <EntityType Name="Coffin">
     <Key>
@@ -166,6 +167,7 @@
     <NavigationProperty Name="MaritalStatu" Relationship="Self.FK_MaritalStatus_ID_Deceased_MaritalStatusID" FromRole="Deceased" ToRole="MaritalStatus" />
     <NavigationProperty Name="User" Relationship="Self.FK_Users_ID_Deceased_CreatedBy" FromRole="Deceased" ToRole="Users" />
     <NavigationProperty Name="User1" Relationship="Self.FK_Users_ID_Deceased_LastModifiedBy" FromRole="Deceased" ToRole="Users" />
+    <NavigationProperty Name="FirstCalls" Relationship="ECMills_DatabaseModel.FK__FirstCall__Decea__5BAD9CC8" FromRole="Deceased" ToRole="FirstCall" />
   </EntityType>
   <EntityType Name="DeceasedAddressType">
     <Key>
@@ -412,6 +414,7 @@
     <Property Name="ID" Type="Byte" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Type" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
     <NavigationProperty Name="Orders" Relationship="Self.FK_OrderSubType_ID_Orders_OrderSubTypeID" FromRole="OrderSubType" ToRole="Orders" />
+    <NavigationProperty Name="FirstCalls" Relationship="ECMills_DatabaseModel.FK__FirstCall__Order__5D95E53A" FromRole="OrderSubType" ToRole="FirstCall" />
   </EntityType>
   <EntityType Name="OrderType">
     <Key>
@@ -420,6 +423,7 @@
     <Property Name="ID" Type="Byte" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Type" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
     <NavigationProperty Name="Orders" Relationship="Self.FK_OrderType_ID_Orders_OrderTypeID" FromRole="OrderType" ToRole="Orders" />
+    <NavigationProperty Name="FirstCalls" Relationship="ECMills_DatabaseModel.FK__FirstCall__Order__5CA1C101" FromRole="OrderType" ToRole="FirstCall" />
   </EntityType>
   <EntityType Name="Organist">
     <Key>
@@ -498,6 +502,8 @@
     <NavigationProperty Name="Orders" Relationship="Self.FK_Users_ID_Orders_CreatedBy" FromRole="Users" ToRole="Orders" />
     <NavigationProperty Name="Orders1" Relationship="Self.FK_Users_ID_Orders_LastModifiedBy" FromRole="Users" ToRole="Orders" />
     <NavigationProperty Name="Notifications" Relationship="ECMills_DatabaseModel.FK_Notifications_UserID_Users_ID" FromRole="User" ToRole="Notification" />
+    <NavigationProperty Name="FirstCalls" Relationship="ECMills_DatabaseModel.FK__FirstCall__Creat__5E8A0973" FromRole="User" ToRole="FirstCall" />
+    <NavigationProperty Name="FirstCalls1" Relationship="ECMills_DatabaseModel.FK__FirstCall__LastM__5F7E2DAC" FromRole="User" ToRole="FirstCall" />
   </EntityType>
   <EntityType Name="action">
     <Key>
@@ -906,6 +912,7 @@
     <Property Name="City" Type="String" MaxLength="85" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="PostCode" Type="String" MaxLength="8" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="PhoneNo" Type="String" MaxLength="13" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="OfficeName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
   </EntityType>
   <EntityType Name="OrderItem">
     <Key>
@@ -2086,6 +2093,37 @@
       <Parameter Name="UserID" Mode="In" Type="Byte" />
     </FunctionImport>
     <EntitySet Name="vw_GetUserNotifications" EntityType="ECMills_DatabaseModel.vw_GetUserNotifications" />
+    <EntitySet Name="FirstCalls" EntityType="ECMills_DatabaseModel.FirstCall" />
+    <EntitySet Name="vw_GetFirstCalls" EntityType="ECMills_DatabaseModel.vw_GetFirstCalls" />
+    <AssociationSet Name="FK__FirstCall__Clien__5AB9788F" Association="ECMills_DatabaseModel.FK__FirstCall__Clien__5AB9788F">
+      <End Role="Client" EntitySet="Clients" />
+      <End Role="FirstCall" EntitySet="FirstCalls" />
+    </AssociationSet>
+    <AssociationSet Name="FK__FirstCall__Decea__5BAD9CC8" Association="ECMills_DatabaseModel.FK__FirstCall__Decea__5BAD9CC8">
+      <End Role="Deceased" EntitySet="Deceaseds" />
+      <End Role="FirstCall" EntitySet="FirstCalls" />
+    </AssociationSet>
+    <AssociationSet Name="FK__FirstCall__Creat__5E8A0973" Association="ECMills_DatabaseModel.FK__FirstCall__Creat__5E8A0973">
+      <End Role="User" EntitySet="Users" />
+      <End Role="FirstCall" EntitySet="FirstCalls" />
+    </AssociationSet>
+    <AssociationSet Name="FK__FirstCall__LastM__5F7E2DAC" Association="ECMills_DatabaseModel.FK__FirstCall__LastM__5F7E2DAC">
+      <End Role="User" EntitySet="Users" />
+      <End Role="FirstCall" EntitySet="FirstCalls" />
+    </AssociationSet>
+    <AssociationSet Name="FK__FirstCall__Order__5CA1C101" Association="ECMills_DatabaseModel.FK__FirstCall__Order__5CA1C101">
+      <End Role="OrderType" EntitySet="OrderTypes" />
+      <End Role="FirstCall" EntitySet="FirstCalls" />
+    </AssociationSet>
+    <AssociationSet Name="FK__FirstCall__Order__5D95E53A" Association="ECMills_DatabaseModel.FK__FirstCall__Order__5D95E53A">
+      <End Role="OrderSubType" EntitySet="OrderSubTypes" />
+      <End Role="FirstCall" EntitySet="FirstCalls" />
+    </AssociationSet>
+    <FunctionImport Name="sp_GetFirstCalls" ReturnType="Collection(ECMills_DatabaseModel.sp_GetFirstCalls_Result)">
+      <Parameter Name="FirstCallID" Mode="In" Type="Int16" />
+    </FunctionImport>
+    <FunctionImport Name="sp_GetFirstCallsList" ReturnType="Collection(ECMills_DatabaseModel.sp_GetFirstCallsList_Result)" />
+    <FunctionImport Name="sp_Report_GetJobCountByOffice" ReturnType="Collection(ECMills_DatabaseModel.sp_Report_GetJobCountByOffice_Result)" />
   </EntityContainer>
   <ComplexType Name="sp_GetDeceasedAddressList_Result">
     <Property Type="Int16" Name="DeceasedID" Nullable="false" />
@@ -2208,4 +2246,166 @@
     <Property Name="Param" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="TimeLogged" Type="DateTime" Nullable="false" Precision="3" />
   </EntityType>
+  <EntityType Name="FirstCall">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ClientID" Type="Int16" Nullable="false" />
+    <Property Name="DeceasedID" Type="Int16" Nullable="false" />
+    <Property Name="OrderTypeID" Type="Byte" Nullable="false" />
+    <Property Name="OrderSubTypeID" Type="Byte" Nullable="false" />
+    <Property Name="DeathRegistered" Type="Boolean" Nullable="false" />
+    <Property Name="DeceasedPickedUpFrom" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Relationship" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="AppointmentDate" Type="DateTime" Precision="3" />
+    <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="CreationTime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CreatedBy" Type="Byte" Nullable="false" />
+    <Property Name="LastModifiedTime" Type="DateTime" Precision="3" />
+    <Property Name="LastMofiedBy" Type="Byte" />
+    <NavigationProperty Name="Client" Relationship="ECMills_DatabaseModel.FK__FirstCall__Clien__5AB9788F" FromRole="FirstCall" ToRole="Client" />
+    <NavigationProperty Name="Deceased" Relationship="ECMills_DatabaseModel.FK__FirstCall__Decea__5BAD9CC8" FromRole="FirstCall" ToRole="Deceased" />
+    <NavigationProperty Name="User" Relationship="ECMills_DatabaseModel.FK__FirstCall__Creat__5E8A0973" FromRole="FirstCall" ToRole="User" />
+    <NavigationProperty Name="User1" Relationship="ECMills_DatabaseModel.FK__FirstCall__LastM__5F7E2DAC" FromRole="FirstCall" ToRole="User" />
+    <NavigationProperty Name="OrderType" Relationship="ECMills_DatabaseModel.FK__FirstCall__Order__5CA1C101" FromRole="FirstCall" ToRole="OrderType" />
+    <NavigationProperty Name="OrderSubType" Relationship="ECMills_DatabaseModel.FK__FirstCall__Order__5D95E53A" FromRole="FirstCall" ToRole="OrderSubType" />
+  </EntityType>
+  <EntityType Name="vw_GetFirstCalls">
+    <Key>
+      <PropertyRef Name="FirstCallID" />
+      <PropertyRef Name="ClientTitle" />
+      <PropertyRef Name="ClientForenames" />
+      <PropertyRef Name="ClientSurname" />
+      <PropertyRef Name="DeceasedTitle" />
+      <PropertyRef Name="DeceasedForenames" />
+      <PropertyRef Name="DeceasedSurname" />
+      <PropertyRef Name="OrderType" />
+      <PropertyRef Name="OrderSubType" />
+      <PropertyRef Name="DeathRegistered" />
+      <PropertyRef Name="Relationship" />
+    </Key>
+    <Property Name="FirstCallID" Type="Int16" Nullable="false" />
+    <Property Name="ClientTitle" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="ClientForenames" Type="String" Nullable="false" MaxLength="60" FixedLength="false" Unicode="true" />
+    <Property Name="ClientSurname" Type="String" Nullable="false" MaxLength="60" FixedLength="false" Unicode="true" />
+    <Property Name="DeceasedTitle" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="DeceasedForenames" Type="String" Nullable="false" MaxLength="60" FixedLength="false" Unicode="true" />
+    <Property Name="DeceasedSurname" Type="String" Nullable="false" MaxLength="60" FixedLength="false" Unicode="true" />
+    <Property Name="OrderType" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="OrderSubType" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="DeathRegistered" Type="Boolean" Nullable="false" />
+    <Property Name="DeceasedPickedUpFrom" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Relationship" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="AppointmentDate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <Association Name="FK__FirstCall__Clien__5AB9788F">
+    <End Type="ECMills_DatabaseModel.Client" Role="Client" Multiplicity="1" />
+    <End Type="ECMills_DatabaseModel.FirstCall" Role="FirstCall" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Client">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="FirstCall">
+        <PropertyRef Name="ClientID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__FirstCall__Decea__5BAD9CC8">
+    <End Type="ECMills_DatabaseModel.Deceased" Role="Deceased" Multiplicity="1" />
+    <End Type="ECMills_DatabaseModel.FirstCall" Role="FirstCall" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Deceased">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="FirstCall">
+        <PropertyRef Name="DeceasedID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__FirstCall__Creat__5E8A0973">
+    <End Type="ECMills_DatabaseModel.User" Role="User" Multiplicity="1" />
+    <End Type="ECMills_DatabaseModel.FirstCall" Role="FirstCall" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="FirstCall">
+        <PropertyRef Name="CreatedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__FirstCall__LastM__5F7E2DAC">
+    <End Type="ECMills_DatabaseModel.User" Role="User" Multiplicity="0..1" />
+    <End Type="ECMills_DatabaseModel.FirstCall" Role="FirstCall" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="FirstCall">
+        <PropertyRef Name="LastMofiedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__FirstCall__Order__5CA1C101">
+    <End Type="ECMills_DatabaseModel.OrderType" Role="OrderType" Multiplicity="1" />
+    <End Type="ECMills_DatabaseModel.FirstCall" Role="FirstCall" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OrderType">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="FirstCall">
+        <PropertyRef Name="OrderTypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__FirstCall__Order__5D95E53A">
+    <End Type="ECMills_DatabaseModel.OrderSubType" Role="OrderSubType" Multiplicity="1" />
+    <End Type="ECMills_DatabaseModel.FirstCall" Role="FirstCall" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OrderSubType">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="FirstCall">
+        <PropertyRef Name="OrderSubTypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <ComplexType Name="sp_GetFirstCalls_Result">
+    <Property Type="Int16" Name="FirstCallID" Nullable="false" />
+    <Property Type="String" Name="ClientTitle" Nullable="false" MaxLength="10" />
+    <Property Type="String" Name="ClientForenames" Nullable="false" MaxLength="60" />
+    <Property Type="String" Name="ClientSurname" Nullable="false" MaxLength="60" />
+    <Property Type="String" Name="DeceasedTitle" Nullable="false" MaxLength="10" />
+    <Property Type="String" Name="DeceasedForenames" Nullable="false" MaxLength="60" />
+    <Property Type="String" Name="DeceasedSurname" Nullable="false" MaxLength="60" />
+    <Property Type="String" Name="OrderType" Nullable="false" MaxLength="30" />
+    <Property Type="String" Name="OrderSubType" Nullable="false" MaxLength="30" />
+    <Property Type="Boolean" Name="DeathRegistered" Nullable="false" />
+    <Property Type="String" Name="DeceasedPickedUpFrom" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="Relationship" Nullable="false" MaxLength="30" />
+    <Property Type="String" Name="Notes" Nullable="true" />
+    <Property Type="DateTime" Name="AppointmentDate" Nullable="true" Precision="23" />
+  </ComplexType>
+  <ComplexType Name="sp_GetFirstCallsList_Result">
+    <Property Type="Int16" Name="FirstCallID" Nullable="false" />
+    <Property Type="String" Name="ClientTitle" Nullable="false" MaxLength="10" />
+    <Property Type="String" Name="ClientForenames" Nullable="false" MaxLength="60" />
+    <Property Type="String" Name="ClientSurname" Nullable="false" MaxLength="60" />
+    <Property Type="String" Name="DeceasedTitle" Nullable="false" MaxLength="10" />
+    <Property Type="String" Name="DeceasedForenames" Nullable="false" MaxLength="60" />
+    <Property Type="String" Name="DeceasedSurname" Nullable="false" MaxLength="60" />
+    <Property Type="String" Name="OrderType" Nullable="false" MaxLength="30" />
+    <Property Type="String" Name="OrderSubType" Nullable="false" MaxLength="30" />
+    <Property Type="Boolean" Name="DeathRegistered" Nullable="false" />
+    <Property Type="String" Name="DeceasedPickedUpFrom" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="Relationship" Nullable="false" MaxLength="30" />
+    <Property Type="String" Name="Notes" Nullable="true" />
+    <Property Type="DateTime" Name="AppointmentDate" Nullable="true" Precision="23" />
+  </ComplexType>
+  <ComplexType Name="sp_Report_GetJobCountByOffice_Result">
+    <Property Type="String" Name="Office" Nullable="true" MaxLength="20" />
+    <Property Type="Int32" Name="Jobs" Nullable="true" />
+  </ComplexType>
 </Schema>

@@ -24,6 +24,8 @@ public partial class OrderType
 
         this.Orders = new HashSet<Order>();
 
+        this.FirstCalls = new HashSet<FirstCall>();
+
     }
 
 
@@ -36,6 +38,10 @@ public partial class OrderType
     [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
 
     public virtual ICollection<Order> Orders { get; set; }
+
+    [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+
+    public virtual ICollection<FirstCall> FirstCalls { get; set; }
 
 }
 

@@ -478,6 +478,7 @@
     <EntitySetMapping Name="Offices">
       <EntityTypeMapping TypeName="ECMills_DatabaseModel.Office">
         <MappingFragment StoreEntitySet="Office">
+          <ScalarProperty Name="OfficeName" ColumnName="OfficeName" />
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="AddressLine1" ColumnName="AddressLine1" />
           <ScalarProperty Name="AddressLine2" ColumnName="AddressLine2" />
@@ -757,5 +758,93 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="FirstCalls">
+      <EntityTypeMapping TypeName="ECMills_DatabaseModel.FirstCall">
+        <MappingFragment StoreEntitySet="FirstCalls">
+          <ScalarProperty Name="LastMofiedBy" ColumnName="LastMofiedBy" />
+          <ScalarProperty Name="LastModifiedTime" ColumnName="LastModifiedTime" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreationTime" ColumnName="CreationTime" />
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+          <ScalarProperty Name="AppointmentDate" ColumnName="AppointmentDate" />
+          <ScalarProperty Name="Relationship" ColumnName="Relationship" />
+          <ScalarProperty Name="DeceasedPickedUpFrom" ColumnName="DeceasedPickedUpFrom" />
+          <ScalarProperty Name="DeathRegistered" ColumnName="DeathRegistered" />
+          <ScalarProperty Name="OrderSubTypeID" ColumnName="OrderSubTypeID" />
+          <ScalarProperty Name="OrderTypeID" ColumnName="OrderTypeID" />
+          <ScalarProperty Name="DeceasedID" ColumnName="DeceasedID" />
+          <ScalarProperty Name="ClientID" ColumnName="ClientID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vw_GetFirstCalls">
+      <EntityTypeMapping TypeName="ECMills_DatabaseModel.vw_GetFirstCalls">
+        <MappingFragment StoreEntitySet="vw_GetFirstCalls">
+          <ScalarProperty Name="AppointmentDate" ColumnName="AppointmentDate" />
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+          <ScalarProperty Name="Relationship" ColumnName="Relationship" />
+          <ScalarProperty Name="DeceasedPickedUpFrom" ColumnName="DeceasedPickedUpFrom" />
+          <ScalarProperty Name="DeathRegistered" ColumnName="DeathRegistered" />
+          <ScalarProperty Name="OrderSubType" ColumnName="OrderSubType" />
+          <ScalarProperty Name="OrderType" ColumnName="OrderType" />
+          <ScalarProperty Name="DeceasedSurname" ColumnName="DeceasedSurname" />
+          <ScalarProperty Name="DeceasedForenames" ColumnName="DeceasedForenames" />
+          <ScalarProperty Name="DeceasedTitle" ColumnName="DeceasedTitle" />
+          <ScalarProperty Name="ClientSurname" ColumnName="ClientSurname" />
+          <ScalarProperty Name="ClientForenames" ColumnName="ClientForenames" />
+          <ScalarProperty Name="ClientTitle" ColumnName="ClientTitle" />
+          <ScalarProperty Name="FirstCallID" ColumnName="FirstCallID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="sp_GetFirstCalls" FunctionName="ECMills_DatabaseModel.Store.sp_GetFirstCalls">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ECMills_DatabaseModel.sp_GetFirstCalls_Result">
+          <ScalarProperty Name="FirstCallID" ColumnName="FirstCallID" />
+          <ScalarProperty Name="ClientTitle" ColumnName="ClientTitle" />
+          <ScalarProperty Name="ClientForenames" ColumnName="ClientForenames" />
+          <ScalarProperty Name="ClientSurname" ColumnName="ClientSurname" />
+          <ScalarProperty Name="DeceasedTitle" ColumnName="DeceasedTitle" />
+          <ScalarProperty Name="DeceasedForenames" ColumnName="DeceasedForenames" />
+          <ScalarProperty Name="DeceasedSurname" ColumnName="DeceasedSurname" />
+          <ScalarProperty Name="OrderType" ColumnName="OrderType" />
+          <ScalarProperty Name="OrderSubType" ColumnName="OrderSubType" />
+          <ScalarProperty Name="DeathRegistered" ColumnName="DeathRegistered" />
+          <ScalarProperty Name="DeceasedPickedUpFrom" ColumnName="DeceasedPickedUpFrom" />
+          <ScalarProperty Name="Relationship" ColumnName="Relationship" />
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+          <ScalarProperty Name="AppointmentDate" ColumnName="AppointmentDate" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_GetFirstCallsList" FunctionName="ECMills_DatabaseModel.Store.sp_GetFirstCallsList">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ECMills_DatabaseModel.sp_GetFirstCallsList_Result">
+          <ScalarProperty Name="FirstCallID" ColumnName="FirstCallID" />
+          <ScalarProperty Name="ClientTitle" ColumnName="ClientTitle" />
+          <ScalarProperty Name="ClientForenames" ColumnName="ClientForenames" />
+          <ScalarProperty Name="ClientSurname" ColumnName="ClientSurname" />
+          <ScalarProperty Name="DeceasedTitle" ColumnName="DeceasedTitle" />
+          <ScalarProperty Name="DeceasedForenames" ColumnName="DeceasedForenames" />
+          <ScalarProperty Name="DeceasedSurname" ColumnName="DeceasedSurname" />
+          <ScalarProperty Name="OrderType" ColumnName="OrderType" />
+          <ScalarProperty Name="OrderSubType" ColumnName="OrderSubType" />
+          <ScalarProperty Name="DeathRegistered" ColumnName="DeathRegistered" />
+          <ScalarProperty Name="DeceasedPickedUpFrom" ColumnName="DeceasedPickedUpFrom" />
+          <ScalarProperty Name="Relationship" ColumnName="Relationship" />
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+          <ScalarProperty Name="AppointmentDate" ColumnName="AppointmentDate" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_Report_GetJobCountByOffice" FunctionName="ECMills_DatabaseModel.Store.sp_Report_GetJobCountByOffice">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ECMills_DatabaseModel.sp_Report_GetJobCountByOffice_Result">
+          <ScalarProperty Name="Office" ColumnName="Office" />
+          <ScalarProperty Name="Jobs" ColumnName="Jobs" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
   </EntityContainerMapping>
 </Mapping>

@@ -421,7 +421,7 @@ demo = {
                 height: '230px'
             };
 
-            Chartist.Pie('#chartPreferences', dataPreferences, optionsPreferences);
+            new Chartist.Pie('#chartPreferences', dataPreferences, optionsPreferences);
 
             /*  **************** Simple Bar Chart - barchart ******************** */
 
@@ -490,6 +490,7 @@ demo = {
         }
 
     },
+
 
     showSwal: function (type) {
         if (type == 'basic') {

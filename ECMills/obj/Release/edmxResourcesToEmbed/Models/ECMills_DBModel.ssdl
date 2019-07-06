@@ -194,6 +194,25 @@ warning 6002: The table/view 'ECMills.dbo.DeceasedContactsPointOfContact' does n
     <Property Name="PhoneNo" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="Fee" Type="decimal" Precision="6" Scale="2" Nullable="false" />
   </EntityType>
+  <EntityType Name="FirstCalls">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="smallint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ClientID" Type="smallint" Nullable="false" />
+    <Property Name="DeceasedID" Type="smallint" Nullable="false" />
+    <Property Name="OrderTypeID" Type="tinyint" Nullable="false" />
+    <Property Name="OrderSubTypeID" Type="tinyint" Nullable="false" />
+    <Property Name="DeathRegistered" Type="bit" Nullable="false" />
+    <Property Name="DeceasedPickedUpFrom" Type="varchar" MaxLength="100" />
+    <Property Name="Relationship" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="AppointmentDate" Type="datetime" />
+    <Property Name="Notes" Type="varchar(max)" />
+    <Property Name="CreationTime" Type="datetime" Nullable="false" />
+    <Property Name="CreatedBy" Type="tinyint" Nullable="false" />
+    <Property Name="LastModifiedTime" Type="datetime" />
+    <Property Name="LastMofiedBy" Type="tinyint" />
+  </EntityType>
   <!--Errors Found During Generation:
 warning 6002: The table/view 'ECMills.dbo.Jewellery' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
   <EntityType Name="Jewellery">
@@ -291,6 +310,7 @@ warning 6002: The table/view 'ECMills.dbo.Office' does not have a primary key de
     <Property Name="City" Type="nvarchar" MaxLength="85" Nullable="false" />
     <Property Name="PostCode" Type="nvarchar" MaxLength="8" Nullable="false" />
     <Property Name="PhoneNo" Type="nvarchar" MaxLength="13" Nullable="false" />
+    <Property Name="OfficeName" Type="varchar" MaxLength="20" />
   </EntityType>
   <EntityType Name="Officiant">
     <Key>
@@ -688,6 +708,37 @@ warning 6002: The table/view 'ECMills.dbo.vw_GetDeceasedProfile' does not have a
     <Property Name="Occupation" Type="nvarchar" MaxLength="100" />
   </EntityType>
   <!--Errors Found During Generation:
+warning 6002: The table/view 'ECMills.dbo.vw_GetFirstCalls' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="vw_GetFirstCalls">
+    <Key>
+      <PropertyRef Name="FirstCallID" />
+      <PropertyRef Name="ClientTitle" />
+      <PropertyRef Name="ClientForenames" />
+      <PropertyRef Name="ClientSurname" />
+      <PropertyRef Name="DeceasedTitle" />
+      <PropertyRef Name="DeceasedForenames" />
+      <PropertyRef Name="DeceasedSurname" />
+      <PropertyRef Name="OrderType" />
+      <PropertyRef Name="OrderSubType" />
+      <PropertyRef Name="DeathRegistered" />
+      <PropertyRef Name="Relationship" />
+    </Key>
+    <Property Name="FirstCallID" Type="smallint" Nullable="false" />
+    <Property Name="ClientTitle" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="ClientForenames" Type="nvarchar" MaxLength="60" Nullable="false" />
+    <Property Name="ClientSurname" Type="nvarchar" MaxLength="60" Nullable="false" />
+    <Property Name="DeceasedTitle" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="DeceasedForenames" Type="nvarchar" MaxLength="60" Nullable="false" />
+    <Property Name="DeceasedSurname" Type="nvarchar" MaxLength="60" Nullable="false" />
+    <Property Name="OrderType" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="OrderSubType" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="DeathRegistered" Type="bit" Nullable="false" />
+    <Property Name="DeceasedPickedUpFrom" Type="varchar" MaxLength="100" />
+    <Property Name="Relationship" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="Notes" Type="varchar(max)" />
+    <Property Name="AppointmentDate" Type="datetime" />
+  </EntityType>
+  <!--Errors Found During Generation:
 warning 6002: The table/view 'ECMills.dbo.vw_GetUserNotifications' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
   <EntityType Name="vw_GetUserNotifications">
     <Key>
@@ -735,6 +786,78 @@ warning 6002: The table/view 'ECMills.sys.database_firewall_rules' does not have
     <Property Name="create_date" Type="datetime" Nullable="false" />
     <Property Name="modify_date" Type="datetime" Nullable="false" />
   </EntityType>
+  <Association Name="FK__FirstCall__Clien__5AB9788F">
+    <End Role="Client" Type="Self.Client" Multiplicity="1" />
+    <End Role="FirstCalls" Type="Self.FirstCalls" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Client">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="FirstCalls">
+        <PropertyRef Name="ClientID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__FirstCall__Creat__5E8A0973">
+    <End Role="Users" Type="Self.Users" Multiplicity="1" />
+    <End Role="FirstCalls" Type="Self.FirstCalls" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="FirstCalls">
+        <PropertyRef Name="CreatedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__FirstCall__Decea__5BAD9CC8">
+    <End Role="Deceased" Type="Self.Deceased" Multiplicity="1" />
+    <End Role="FirstCalls" Type="Self.FirstCalls" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Deceased">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="FirstCalls">
+        <PropertyRef Name="DeceasedID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__FirstCall__LastM__5F7E2DAC">
+    <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+    <End Role="FirstCalls" Type="Self.FirstCalls" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="FirstCalls">
+        <PropertyRef Name="LastMofiedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__FirstCall__Order__5CA1C101">
+    <End Role="OrderType" Type="Self.OrderType" Multiplicity="1" />
+    <End Role="FirstCalls" Type="Self.FirstCalls" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OrderType">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="FirstCalls">
+        <PropertyRef Name="OrderTypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__FirstCall__Order__5D95E53A">
+    <End Role="OrderSubType" Type="Self.OrderSubType" Multiplicity="1" />
+    <End Role="FirstCalls" Type="Self.FirstCalls" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OrderSubType">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="FirstCalls">
+        <PropertyRef Name="OrderSubTypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_2133">
     <End Role="OrderItemType" Type="Self.OrderItemType" Multiplicity="1" />
     <End Role="OrderItemSubType" Type="Self.OrderItemSubType" Multiplicity="*" />
@@ -1276,9 +1399,14 @@ warning 6002: The table/view 'ECMills.sys.database_firewall_rules' does not have
   <Function Name="sp_GetDeceasedProfile" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="DeceasedID" Type="smallint" Mode="In" />
   </Function>
+  <Function Name="sp_GetFirstCalls" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="FirstCallID" Type="smallint" Mode="In" />
+  </Function>
+  <Function Name="sp_GetFirstCallsList" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
   <Function Name="sp_GetUserNotifications" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="UserID" Type="tinyint" Mode="In" />
   </Function>
+  <Function Name="sp_Report_GetJobCountByOffice" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
   <EntityContainer Name="ECMills_DatabaseModelStoreContainer">
     <EntitySet Name="Ceremony" EntityType="Self.Ceremony" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Client" EntityType="Self.Client" Schema="dbo" store:Type="Tables" />
@@ -1289,6 +1417,7 @@ warning 6002: The table/view 'ECMills.sys.database_firewall_rules' does not have
     <EntitySet Name="DeceasedAddressType" EntityType="Self.DeceasedAddressType" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="DeceasedContactsContactType" EntityType="Self.DeceasedContactsContactType" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Doctor" EntityType="Self.Doctor" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FirstCalls" EntityType="Self.FirstCalls" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="MaritalStatus" EntityType="Self.MaritalStatus" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Memorial" EntityType="Self.Memorial" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="MemorialContactPoint" EntityType="Self.MemorialContactPoint" Schema="dbo" store:Type="Tables" />
@@ -1376,7 +1505,8 @@ warning 6002: The table/view 'ECMills.sys.database_firewall_rules' does not have
     [Office].[AddressLine2] AS [AddressLine2], 
     [Office].[City] AS [City], 
     [Office].[PostCode] AS [PostCode], 
-    [Office].[PhoneNo] AS [PhoneNo]
+    [Office].[PhoneNo] AS [PhoneNo], 
+    [Office].[OfficeName] AS [OfficeName]
     FROM [dbo].[Office] AS [Office]</DefiningQuery>
     </EntitySet>
     <EntitySet Name="OrderItems" EntityType="Self.OrderItems" store:Type="Tables" store:Schema="dbo">
@@ -1495,6 +1625,24 @@ warning 6002: The table/view 'ECMills.sys.database_firewall_rules' does not have
     [vw_GetDeceasedProfile].[Occupation] AS [Occupation]
     FROM [dbo].[vw_GetDeceasedProfile] AS [vw_GetDeceasedProfile]</DefiningQuery>
     </EntitySet>
+    <EntitySet Name="vw_GetFirstCalls" EntityType="Self.vw_GetFirstCalls" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [vw_GetFirstCalls].[FirstCallID] AS [FirstCallID], 
+    [vw_GetFirstCalls].[ClientTitle] AS [ClientTitle], 
+    [vw_GetFirstCalls].[ClientForenames] AS [ClientForenames], 
+    [vw_GetFirstCalls].[ClientSurname] AS [ClientSurname], 
+    [vw_GetFirstCalls].[DeceasedTitle] AS [DeceasedTitle], 
+    [vw_GetFirstCalls].[DeceasedForenames] AS [DeceasedForenames], 
+    [vw_GetFirstCalls].[DeceasedSurname] AS [DeceasedSurname], 
+    [vw_GetFirstCalls].[OrderType] AS [OrderType], 
+    [vw_GetFirstCalls].[OrderSubType] AS [OrderSubType], 
+    [vw_GetFirstCalls].[DeathRegistered] AS [DeathRegistered], 
+    [vw_GetFirstCalls].[DeceasedPickedUpFrom] AS [DeceasedPickedUpFrom], 
+    [vw_GetFirstCalls].[Relationship] AS [Relationship], 
+    [vw_GetFirstCalls].[Notes] AS [Notes], 
+    [vw_GetFirstCalls].[AppointmentDate] AS [AppointmentDate]
+    FROM [dbo].[vw_GetFirstCalls] AS [vw_GetFirstCalls]</DefiningQuery>
+    </EntitySet>
     <EntitySet Name="vw_GetUserNotifications" EntityType="Self.vw_GetUserNotifications" store:Type="Views" store:Schema="dbo">
       <DefiningQuery>SELECT 
     [vw_GetUserNotifications].[UserID] AS [UserID], 
@@ -1524,6 +1672,30 @@ warning 6002: The table/view 'ECMills.sys.database_firewall_rules' does not have
     [database_firewall_rules].[modify_date] AS [modify_date]
     FROM [sys].[database_firewall_rules] AS [database_firewall_rules]</DefiningQuery>
     </EntitySet>
+    <AssociationSet Name="FK__FirstCall__Clien__5AB9788F" Association="Self.FK__FirstCall__Clien__5AB9788F">
+      <End Role="Client" EntitySet="Client" />
+      <End Role="FirstCalls" EntitySet="FirstCalls" />
+    </AssociationSet>
+    <AssociationSet Name="FK__FirstCall__Creat__5E8A0973" Association="Self.FK__FirstCall__Creat__5E8A0973">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="FirstCalls" EntitySet="FirstCalls" />
+    </AssociationSet>
+    <AssociationSet Name="FK__FirstCall__Decea__5BAD9CC8" Association="Self.FK__FirstCall__Decea__5BAD9CC8">
+      <End Role="Deceased" EntitySet="Deceased" />
+      <End Role="FirstCalls" EntitySet="FirstCalls" />
+    </AssociationSet>
+    <AssociationSet Name="FK__FirstCall__LastM__5F7E2DAC" Association="Self.FK__FirstCall__LastM__5F7E2DAC">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="FirstCalls" EntitySet="FirstCalls" />
+    </AssociationSet>
+    <AssociationSet Name="FK__FirstCall__Order__5CA1C101" Association="Self.FK__FirstCall__Order__5CA1C101">
+      <End Role="OrderType" EntitySet="OrderType" />
+      <End Role="FirstCalls" EntitySet="FirstCalls" />
+    </AssociationSet>
+    <AssociationSet Name="FK__FirstCall__Order__5D95E53A" Association="Self.FK__FirstCall__Order__5D95E53A">
+      <End Role="OrderSubType" EntitySet="OrderSubType" />
+      <End Role="FirstCalls" EntitySet="FirstCalls" />
+    </AssociationSet>
     <AssociationSet Name="FK_2133" Association="Self.FK_2133">
       <End Role="OrderItemType" EntitySet="OrderItemType" />
       <End Role="OrderItemSubType" EntitySet="OrderItemSubType" />

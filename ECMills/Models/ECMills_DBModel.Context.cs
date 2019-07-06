@@ -181,6 +181,10 @@ public partial class ECMills_DBConnection : DbContext
 
     public virtual DbSet<vw_GetUserNotifications> vw_GetUserNotifications { get; set; }
 
+    public virtual DbSet<FirstCall> FirstCalls { get; set; }
+
+    public virtual DbSet<vw_GetFirstCalls> vw_GetFirstCalls { get; set; }
+
 
     public virtual ObjectResult<sp_GetDeceasedAddressList_Result> sp_GetDeceasedAddressList(Nullable<short> deceasedID)
     {
@@ -237,15 +241,41 @@ public partial class ECMills_DBConnection : DbContext
     }
 
 
-    public virtual ObjectResult<sp_GetUserNotifications_Result> sp_GetUserNotifications(Nullable<short> userID)
+    public virtual ObjectResult<sp_GetUserNotifications_Result> sp_GetUserNotifications(Nullable<byte> userID)
     {
 
         var userIDParameter = userID.HasValue ?
             new ObjectParameter("UserID", userID) :
-            new ObjectParameter("UserID", typeof(short));
+            new ObjectParameter("UserID", typeof(byte));
 
 
         return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_GetUserNotifications_Result>("sp_GetUserNotifications", userIDParameter);
+    }
+
+
+    public virtual ObjectResult<sp_GetFirstCalls_Result> sp_GetFirstCalls(Nullable<short> firstCallID)
+    {
+
+        var firstCallIDParameter = firstCallID.HasValue ?
+            new ObjectParameter("FirstCallID", firstCallID) :
+            new ObjectParameter("FirstCallID", typeof(short));
+
+
+        return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_GetFirstCalls_Result>("sp_GetFirstCalls", firstCallIDParameter);
+    }
+
+
+    public virtual ObjectResult<sp_GetFirstCallsList_Result> sp_GetFirstCallsList()
+    {
+
+        return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_GetFirstCallsList_Result>("sp_GetFirstCallsList");
+    }
+
+
+    public virtual ObjectResult<sp_Report_GetJobCountByOffice_Result> sp_Report_GetJobCountByOffice()
+    {
+
+        return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_Report_GetJobCountByOffice_Result>("sp_Report_GetJobCountByOffice");
     }
 
 }

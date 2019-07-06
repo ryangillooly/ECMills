@@ -244,6 +244,9 @@
     <Compile Include="Models\EnumType.cs">
       <DependentUpon>ECMills_DBModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\FirstCall.cs">
+      <DependentUpon>ECMills_DBModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Jewellery.cs">
       <DependentUpon>ECMills_DBModel.tt</DependentUpon>
     </Compile>
@@ -364,7 +367,16 @@
     <Compile Include="Models\sp_GetDeceasedProfile_Result.cs">
       <DependentUpon>ECMills_DBModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\sp_GetFirstCallsList_Result.cs">
+      <DependentUpon>ECMills_DBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sp_GetFirstCalls_Result.cs">
+      <DependentUpon>ECMills_DBModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\sp_GetUserNotifications_Result.cs">
+      <DependentUpon>ECMills_DBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sp_Report_GetJobCountByOffice_Result.cs">
       <DependentUpon>ECMills_DBModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\subscription.cs">
@@ -416,6 +428,9 @@
       <DependentUpon>ECMills_DBModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\vw_GetDeceasedProfile.cs">
+      <DependentUpon>ECMills_DBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\vw_GetFirstCalls.cs">
       <DependentUpon>ECMills_DBModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\vw_GetUserNotifications.cs">
@@ -678,6 +693,7 @@
     <Content Include="Views\Arrangement\Sales.cshtml" />
     <Content Include="Views\FirstCalls\test.cshtml" />
     <Content Include="Views\Arrangement\TransportMap.cshtml" />
+    <Content Include="Views\Reports\Management.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -689,7 +705,6 @@
     <Folder Include="Views\Finance\" />
     <Folder Include="Views\FuneralPlanEnquiries\" />
     <Folder Include="Views\FuneralPlans\" />
-    <Folder Include="Views\Reports\" />
     <Folder Include="Views\View\" />
   </ItemGroup>
   <ItemGroup>

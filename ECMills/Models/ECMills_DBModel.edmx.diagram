@@ -134,6 +134,14 @@
         <EntityTypeShape EntityType="ECMills_DatabaseModel.Notification" Width="1.5" PointX="3" PointY="41.5" />
         <AssociationConnector Association="ECMills_DatabaseModel.FK_Notifications_UserID_Users_ID" />
         <EntityTypeShape EntityType="ECMills_DatabaseModel.vw_GetUserNotifications" Width="1.5" PointX="22.375" PointY="10.75" />
+        <EntityTypeShape EntityType="ECMills_DatabaseModel.FirstCall" Width="1.5" PointX="16.25" PointY="35.875" />
+        <EntityTypeShape EntityType="ECMills_DatabaseModel.vw_GetFirstCalls" Width="1.5" PointX="22.375" PointY="14.75" />
+        <AssociationConnector Association="ECMills_DatabaseModel.FK__FirstCall__Clien__5AB9788F" />
+        <AssociationConnector Association="ECMills_DatabaseModel.FK__FirstCall__Decea__5BAD9CC8" />
+        <AssociationConnector Association="ECMills_DatabaseModel.FK__FirstCall__Creat__5E8A0973" />
+        <AssociationConnector Association="ECMills_DatabaseModel.FK__FirstCall__LastM__5F7E2DAC" />
+        <AssociationConnector Association="ECMills_DatabaseModel.FK__FirstCall__Order__5CA1C101" />
+        <AssociationConnector Association="ECMills_DatabaseModel.FK__FirstCall__Order__5D95E53A" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
