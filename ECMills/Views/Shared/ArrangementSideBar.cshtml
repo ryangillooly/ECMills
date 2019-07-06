@@ -1,31 +1,4 @@
-﻿<style>    
-    .sidebar #footer:before {
-        content: "";
-        position: absolute;
-        top: -10px;
-        right: 15px;
-        height: 1px;
-        width: calc(100% - 30px);
-        background-color: hsla(0,0%,71%,.3);
-    }
-
-    ol.breadcrumb {
-        background-color: transparent;
-        margin-bottom: 0;
-    }
-
-    ol>li>a {
-        color: white;
-    }
-
-    #footer {
-        display: block;
-        position: relative;
-        z-index: 4;
-    }
-</style>
-
-<div class="sidebar" data-color="rose" data-background-color="black" data-image="/Assets/img/sidebar-1.jpg">
+﻿<div class="sidebar" data-color="rose" data-background-color="black" data-image="/Assets/img/sidebar-1.jpg">
     <!--
         Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
 
@@ -77,73 +50,99 @@
         </div>
         <ul class="nav">
             <li class="nav-item">
-                <a class="nav-link" href="@Url.Action("Info", "Arrangement", new { id = Session["DeceasedID"] }, null)">
+                <a class="nav-link" href="@Url.Action("Info", "Arrangement", null, null)">
                     <i class="material-icons">info_outline</i>
                     <p>Info</p>
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="@Url.Action("Deceased", "Arrangement", new { id = Session["DeceasedID"] }, null)">
+                <a class="nav-link" href="@Url.Action("Deceased", "Arrangement", null, null)">
                     <i class="material-icons">person</i>
                     <p>Deceased</p>
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="@Url.Action("Contacts", "Arrangement", new { id = Session["DeceasedID"] }, null)">
+                <a class="nav-link" href="@Url.Action("Contacts", "Arrangement", null, null)">
                     <i class="material-icons">call</i>
                     <p>Contacts</p>
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="@Url.Action("Ceremony", "Arrangement", new { id = Session["DeceasedID"] }, null)">
+                <a class="nav-link" href="@Url.Action("Ceremony", "Arrangement", null, null)">
                     <i class="material-icons">library_books</i>
                     <p>Ceremony</p>
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="@Url.Action("Coffin", "Arrangement", new { id = Session["DeceasedID"] }, null)">
+                <a class="nav-link" href="@Url.Action("Coffin", "Arrangement", null, null)">
                     <i class="material-icons">library_books</i>
                     <p>Coffin</p>
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="@Url.Action("Transport", "Arrangement", new { id = Session["DeceasedID"] }, null)">
+                <a class="nav-link" data-toggle="collapse" href="#TransportDropdown" aria-expanded="false">
                     <i class="material-icons">directions_car</i>
-                    <p>Transport</p>
+                    <p>Transport<b class="caret"></b></p>
                 </a>
+                <div class="collapse" id="TransportDropdown">
+                    <ul class="nav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="@Url.Action("TransportDetails", "Arrangement", null, null)">
+                                <span class="sidebar-mini"> D </span>
+                                <span class="sidebar-normal"> Details </span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="@Url.Action("TransportMap", "Arrangement", null, null)">
+                                <span class="sidebar-mini"> M </span>
+                                <span class="sidebar-normal"> Map </span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
             </li>
             <li class="nav-item ">
-                <a class="nav-link" href="@Url.Action("Additions", "Arrangement", new { id = Session["DeceasedID"] }, null)">
+                <a class="nav-link" href="@Url.Action("Additions", "Arrangement", null, null)">
                     <i class="material-icons">add</i>
                     <p>Additions</p>
                 </a>
             </li>
             <li class="nav-item ">
-                <a class="nav-link" href="@Url.Action("Notes", "Arrangement", new { id = Session["DeceasedID"] }, null)">
+                <a class="nav-link" href="@Url.Action("Notes", "Arrangement", null, null)">
                     <i class="material-icons">create</i>
                     <p>Notes</p>
                 </a>
             </li>
             <li class="nav-item ">
-                <a class="nav-link" href="@Url.Action("Donations", "Arrangement", new { id = Session["DeceasedID"] }, null)">
+                <a class="nav-link" data-toggle="collapse" href="#FinanceDropdown" aria-expanded="false">
                     <i class="material-icons">attach_money</i>
-                    <p>Donations</p>
+                    <p>Finance<b class="caret"></b></p>
                 </a>
+                <div class="collapse" id="FinanceDropdown" style="">
+                    <ul class="nav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="@Url.Action("Sales", "Arrangement", null, null)">
+                                <span class="sidebar-mini"> S </span>
+                                <span class="sidebar-normal"> Sales </span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="@Url.Action("Donations", "Arrangement", null, null)">
+                                <span class="sidebar-mini"> D </span>
+                                <span class="sidebar-normal"> Donations </span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">
-                    <i class="material-icons">attach_money</i>
-                    <p>Finance</p>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="@Url.Action("Correspondence", "Arrangement", new { id = Session["DeceasedID"] }, null)">
+                <a class="nav-link" href="@Url.Action("Correspondence", "Arrangement", null, null)">
                     <i class="material-icons">message</i>
                     <p>Correspondence</p>
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="@Url.Action("Documents", "Arrangement", new { id = Session["DeceasedID"] }, null)">
+                <a class="nav-link" href="@Url.Action("Documents", "Arrangement", null, null)">
                     <i class="material-icons">insert_drive_file</i>
                     <p>Documents</p>
                 </a>
@@ -155,13 +154,5 @@
                 </a>
             </li>
         </ul>
-    </div>
-    <div id="footer" class="col-12">
-        <nav class="col-12" aria-label="breadcrumb" role="navigation">
-            <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Info</li>
-            </ol>
-        </nav>
     </div>
 </div>

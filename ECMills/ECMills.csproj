@@ -655,7 +655,7 @@
     <Content Include="Views\Arrangement\Coffin.cshtml" />
     <Content Include="Views\Login\Index.cshtml" />
     <Content Include="Views\Login\LoginLayout.cshtml" />
-    <Content Include="Views\Arrangement\Transport.cshtml" />
+    <Content Include="Views\Arrangement\TransportDetails.cshtml" />
     <Content Include="Views\Arrangement\Documents.cshtml" />
     <Content Include="Views\Dashboard\Dashboard.cshtml" />
     <Content Include="Views\Diary\Diary.cshtml" />
@@ -668,6 +668,7 @@
     <Content Include="Views\Arrangement\Correspondence.cshtml" />
     <Content Include="Views\Arrangement\Sales.cshtml" />
     <Content Include="Views\FirstCalls\test.cshtml" />
+    <Content Include="Views\Arrangement\TransportMap.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -680,6 +681,7 @@
     <Folder Include="Views\FuneralPlanEnquiries\" />
     <Folder Include="Views\FuneralPlans\" />
     <Folder Include="Views\Reports\" />
+    <Folder Include="Views\View\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

@@ -72,8 +72,15 @@ namespace ECMills.Controllers
             return View();
         }
 
-        [Route("{id}/Transport")]
-        public ActionResult Transport(Int16 id)
+        [Route("{id}/Transport/Details")]
+        public ActionResult TransportDetails(Int16 id)
+        {
+            Session["DeceasedID"] = id;
+            return View();
+        }
+
+        [Route("{id}/Transport/Map")]
+        public ActionResult TransportMap(Int16 id)
         {
             Session["DeceasedID"] = id;
             return View();
@@ -81,13 +88,6 @@ namespace ECMills.Controllers
 
         [Route("{id}/Additions")]
         public ActionResult Additions(Int16 id)
-        {
-            Session["DeceasedID"] = id;
-            return View();
-        }
-
-        [Route("{id}/Donations")]
-        public ActionResult Donations(Int16 id)
         {
             Session["DeceasedID"] = id;
             return View();
@@ -117,6 +117,14 @@ namespace ECMills.Controllers
         [Route("{id}/Finance/Sales")]
         public ActionResult Sales(Int16 id)
         {
+            Session["DeceasedID"] = id;
+            return View();
+        }
+
+        [Route("{id}/Finance/Donations")]
+        public ActionResult Donations(Int16 id)
+        {
+            Session["DeceasedID"] = id;
             return View();
         }
 

@@ -1,8 +1,4 @@
-﻿@using ECMills.Models;
-@model dynamic
-
-@{
-    ViewBag.Title = "Arrangement";
+﻿@{
     Layout = "~/Views/Login/LoginLayout.cshtml";
 }
 
@@ -53,7 +49,6 @@
 @section scripts {
     <script>
         $(document).ready(function () {
-            $().ready(function () {
                 $sidebar = $('.sidebar');
 
                 $sidebar_img_container = $sidebar.find('.sidebar-background');
@@ -219,7 +214,6 @@
                     }, 1000);
 
                 });
-            });
         });
     </script>
     <script>
