@@ -260,6 +260,21 @@ warning 6002: The table/view 'ECMills.dbo.Music' does not have a primary key def
     <Property Name="Notes" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="OnEntry" Type="nvarchar" MaxLength="50" Nullable="false" />
   </EntityType>
+  <EntityType Name="Notifications">
+    <Key>
+      <PropertyRef Name="UserID" />
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="UserID" Type="tinyint" Nullable="false" />
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Details" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="Category" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="NotificationFrom" Type="tinyint" />
+    <Property Name="MVCAction" Type="varchar" MaxLength="50" />
+    <Property Name="MVCController" Type="varchar" MaxLength="50" />
+    <Property Name="MVCParam" Type="varchar" MaxLength="50" />
+    <Property Name="TimeLogged" Type="datetime" Nullable="false" />
+  </EntityType>
   <!--Errors Found During Generation:
 warning 6002: The table/view 'ECMills.dbo.Office' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
   <EntityType Name="Office">
@@ -673,6 +688,27 @@ warning 6002: The table/view 'ECMills.dbo.vw_GetDeceasedProfile' does not have a
     <Property Name="Occupation" Type="nvarchar" MaxLength="100" />
   </EntityType>
   <!--Errors Found During Generation:
+warning 6002: The table/view 'ECMills.dbo.vw_GetUserNotifications' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="vw_GetUserNotifications">
+    <Key>
+      <PropertyRef Name="UserID" />
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="Details" />
+      <PropertyRef Name="Category" />
+      <PropertyRef Name="NotificationFrom" />
+      <PropertyRef Name="TimeLogged" />
+    </Key>
+    <Property Name="UserID" Type="tinyint" Nullable="false" />
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="Details" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="Category" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="NotificationFrom" Type="nvarchar" MaxLength="121" Nullable="false" />
+    <Property Name="Controller" Type="varchar" MaxLength="50" />
+    <Property Name="Action" Type="varchar" MaxLength="50" />
+    <Property Name="Param" Type="varchar" MaxLength="50" />
+    <Property Name="TimeLogged" Type="datetime" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
 warning 6002: The table/view 'ECMills.dbo.vw_RowCountForAllTables' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
   <EntityType Name="vw_RowCountForAllTables">
     <Key>
@@ -864,6 +900,18 @@ warning 6002: The table/view 'ECMills.sys.database_firewall_rules' does not have
       </Principal>
       <Dependent Role="MemorialContactPoint">
         <PropertyRef Name="OrderID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Notifications_UserID_Users_ID">
+    <End Role="Users" Type="Self.Users" Multiplicity="1" />
+    <End Role="Notifications" Type="Self.Notifications" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Notifications">
+        <PropertyRef Name="UserID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -1228,6 +1276,9 @@ warning 6002: The table/view 'ECMills.sys.database_firewall_rules' does not have
   <Function Name="sp_GetDeceasedProfile" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="DeceasedID" Type="smallint" Mode="In" />
   </Function>
+  <Function Name="sp_GetUserNotifications" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="UserID" Type="tinyint" Mode="In" />
+  </Function>
   <EntityContainer Name="ECMills_DatabaseModelStoreContainer">
     <EntitySet Name="Ceremony" EntityType="Self.Ceremony" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Client" EntityType="Self.Client" Schema="dbo" store:Type="Tables" />
@@ -1241,6 +1292,7 @@ warning 6002: The table/view 'ECMills.sys.database_firewall_rules' does not have
     <EntitySet Name="MaritalStatus" EntityType="Self.MaritalStatus" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Memorial" EntityType="Self.Memorial" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="MemorialContactPoint" EntityType="Self.MemorialContactPoint" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Notifications" EntityType="Self.Notifications" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Officiant" EntityType="Self.Officiant" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="OfficiantContactPoint" EntityType="Self.OfficiantContactPoint" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="OrderChecklist" EntityType="Self.OrderChecklist" Schema="dbo" store:Type="Tables" />
@@ -1443,6 +1495,19 @@ warning 6002: The table/view 'ECMills.sys.database_firewall_rules' does not have
     [vw_GetDeceasedProfile].[Occupation] AS [Occupation]
     FROM [dbo].[vw_GetDeceasedProfile] AS [vw_GetDeceasedProfile]</DefiningQuery>
     </EntitySet>
+    <EntitySet Name="vw_GetUserNotifications" EntityType="Self.vw_GetUserNotifications" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [vw_GetUserNotifications].[UserID] AS [UserID], 
+    [vw_GetUserNotifications].[ID] AS [ID], 
+    [vw_GetUserNotifications].[Details] AS [Details], 
+    [vw_GetUserNotifications].[Category] AS [Category], 
+    [vw_GetUserNotifications].[NotificationFrom] AS [NotificationFrom], 
+    [vw_GetUserNotifications].[Controller] AS [Controller], 
+    [vw_GetUserNotifications].[Action] AS [Action], 
+    [vw_GetUserNotifications].[Param] AS [Param], 
+    [vw_GetUserNotifications].[TimeLogged] AS [TimeLogged]
+    FROM [dbo].[vw_GetUserNotifications] AS [vw_GetUserNotifications]</DefiningQuery>
+    </EntitySet>
     <EntitySet Name="vw_RowCountForAllTables" EntityType="Self.vw_RowCountForAllTables" store:Type="Views" store:Schema="dbo">
       <DefiningQuery>SELECT 
     [vw_RowCountForAllTables].[Table] AS [Table], 
@@ -1514,6 +1579,10 @@ warning 6002: The table/view 'ECMills.sys.database_firewall_rules' does not have
     <AssociationSet Name="FK_Memorial_OrderID_MemorialContactPoint_OrderID" Association="Self.FK_Memorial_OrderID_MemorialContactPoint_OrderID">
       <End Role="Memorial" EntitySet="Memorial" />
       <End Role="MemorialContactPoint" EntitySet="MemorialContactPoint" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Notifications_UserID_Users_ID" Association="Self.FK_Notifications_UserID_Users_ID">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Notifications" EntitySet="Notifications" />
     </AssociationSet>
     <AssociationSet Name="FK_Officiant_ID_Ceremony_OfficiantID" Association="Self.FK_Officiant_ID_Ceremony_OfficiantID">
       <End Role="Officiant" EntitySet="Officiant" />

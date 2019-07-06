@@ -497,6 +497,7 @@
     <NavigationProperty Name="Deceaseds1" Relationship="Self.FK_Users_ID_Deceased_LastModifiedBy" FromRole="Users" ToRole="Deceased" />
     <NavigationProperty Name="Orders" Relationship="Self.FK_Users_ID_Orders_CreatedBy" FromRole="Users" ToRole="Orders" />
     <NavigationProperty Name="Orders1" Relationship="Self.FK_Users_ID_Orders_LastModifiedBy" FromRole="Users" ToRole="Orders" />
+    <NavigationProperty Name="Notifications" Relationship="ECMills_DatabaseModel.FK_Notifications_UserID_Users_ID" FromRole="User" ToRole="Notification" />
   </EntityType>
   <EntityType Name="action">
     <Key>
@@ -2076,6 +2077,15 @@
     <FunctionImport Name="sp_GetDeceasedContactsContactDetails" ReturnType="Collection(ECMills_DatabaseModel.sp_GetDeceasedContactsContactDetails_Result)">
       <Parameter Name="DeceasedID" Mode="In" Type="Int16" />
     </FunctionImport>
+    <EntitySet Name="Notifications" EntityType="ECMills_DatabaseModel.Notification" />
+    <AssociationSet Name="FK_Notifications_UserID_Users_ID" Association="ECMills_DatabaseModel.FK_Notifications_UserID_Users_ID">
+      <End Role="User" EntitySet="Users" />
+      <End Role="Notification" EntitySet="Notifications" />
+    </AssociationSet>
+    <FunctionImport Name="sp_GetUserNotifications" ReturnType="Collection(ECMills_DatabaseModel.sp_GetUserNotifications_Result)">
+      <Parameter Name="UserID" Mode="In" Type="Byte" />
+    </FunctionImport>
+    <EntitySet Name="vw_GetUserNotifications" EntityType="ECMills_DatabaseModel.vw_GetUserNotifications" />
   </EntityContainer>
   <ComplexType Name="sp_GetDeceasedAddressList_Result">
     <Property Type="Int16" Name="DeceasedID" Nullable="false" />
@@ -2142,4 +2152,60 @@
     <Property Type="String" Name="PointOfContactType" Nullable="false" MaxLength="50" />
     <Property Type="String" Name="PointOfContactValue" Nullable="false" MaxLength="100" />
   </ComplexType>
+  <EntityType Name="Notification">
+    <Key>
+      <PropertyRef Name="UserID" />
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="UserID" Type="Byte" Nullable="false" />
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Details" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Category" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="NotificationFrom" Type="Byte" />
+    <Property Name="MVCAction" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="MVCController" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="MVCParam" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="TimeLogged" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="User" Relationship="ECMills_DatabaseModel.FK_Notifications_UserID_Users_ID" FromRole="Notification" ToRole="User" />
+  </EntityType>
+  <Association Name="FK_Notifications_UserID_Users_ID">
+    <End Type="ECMills_DatabaseModel.User" Role="User" Multiplicity="1" />
+    <End Type="ECMills_DatabaseModel.Notification" Role="Notification" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Notification">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <ComplexType Name="sp_GetUserNotifications_Result">
+    <Property Type="String" Name="Details" Nullable="false" MaxLength="255" />
+    <Property Type="String" Name="Category" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="NotificationFrom" Nullable="false" MaxLength="121" />
+    <Property Type="String" Name="Controller" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Action" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Param" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="TimeLogged" Nullable="false" Precision="23" />
+  </ComplexType>
+  <EntityType Name="vw_GetUserNotifications">
+    <Key>
+      <PropertyRef Name="UserID" />
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="Details" />
+      <PropertyRef Name="Category" />
+      <PropertyRef Name="NotificationFrom" />
+      <PropertyRef Name="TimeLogged" />
+    </Key>
+    <Property Name="UserID" Type="Byte" Nullable="false" />
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="Details" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Category" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="NotificationFrom" Type="String" Nullable="false" MaxLength="121" FixedLength="false" Unicode="true" />
+    <Property Name="Controller" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Action" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Param" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="TimeLogged" Type="DateTime" Nullable="false" Precision="3" />
+  </EntityType>
 </Schema>

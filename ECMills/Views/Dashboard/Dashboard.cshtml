@@ -1,8 +1,4 @@
-﻿
-@using ECMills.Models;
-@model dynamic
-
-<style>
+﻿<style>
     .card {
         margin-bottom: 30px !important;
     }
@@ -408,7 +404,7 @@
 
 @section scripts {
     <script>
-        $('tr[data-href]').on("click", function() {
+        $('tr[data-href]').on("click", function () {
             document.location = $(this).data('href');
         });
     </script>

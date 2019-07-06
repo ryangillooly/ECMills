@@ -131,6 +131,9 @@
         <AssociationConnector Association="ECMills_DatabaseModel.FK__ScheduleT__Sched__1446FBA6" ManuallyRouted="false" />
         <AssociationConnector Association="ECMills_DatabaseModel.taskdependency" ManuallyRouted="false" />
         <EntityTypeShape EntityType="ECMills_DatabaseModel.vw_GetDeceasedContactsContactDetails" Width="1.5" PointX="22.375" PointY="7.75" />
+        <EntityTypeShape EntityType="ECMills_DatabaseModel.Notification" Width="1.5" PointX="3" PointY="41.5" />
+        <AssociationConnector Association="ECMills_DatabaseModel.FK_Notifications_UserID_Users_ID" />
+        <EntityTypeShape EntityType="ECMills_DatabaseModel.vw_GetUserNotifications" Width="1.5" PointX="22.375" PointY="10.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -265,6 +265,21 @@ warning 6002: The table/view 'ECMills.dbo.Music' does not have a primary key def
           <Property Name="Notes" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="OnEntry" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
+        <EntityType Name="Notifications">
+          <Key>
+            <PropertyRef Name="UserID" />
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="UserID" Type="tinyint" Nullable="false" />
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Details" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="Category" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="NotificationFrom" Type="tinyint" />
+          <Property Name="MVCAction" Type="varchar" MaxLength="50" />
+          <Property Name="MVCController" Type="varchar" MaxLength="50" />
+          <Property Name="MVCParam" Type="varchar" MaxLength="50" />
+          <Property Name="TimeLogged" Type="datetime" Nullable="false" />
+        </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'ECMills.dbo.Office' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="Office">
@@ -678,6 +693,27 @@ warning 6002: The table/view 'ECMills.dbo.vw_GetDeceasedProfile' does not have a
           <Property Name="Occupation" Type="nvarchar" MaxLength="100" />
         </EntityType>
         <!--Errors Found During Generation:
+warning 6002: The table/view 'ECMills.dbo.vw_GetUserNotifications' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="vw_GetUserNotifications">
+          <Key>
+            <PropertyRef Name="UserID" />
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="Details" />
+            <PropertyRef Name="Category" />
+            <PropertyRef Name="NotificationFrom" />
+            <PropertyRef Name="TimeLogged" />
+          </Key>
+          <Property Name="UserID" Type="tinyint" Nullable="false" />
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="Details" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="Category" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="NotificationFrom" Type="nvarchar" MaxLength="121" Nullable="false" />
+          <Property Name="Controller" Type="varchar" MaxLength="50" />
+          <Property Name="Action" Type="varchar" MaxLength="50" />
+          <Property Name="Param" Type="varchar" MaxLength="50" />
+          <Property Name="TimeLogged" Type="datetime" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
 warning 6002: The table/view 'ECMills.dbo.vw_RowCountForAllTables' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="vw_RowCountForAllTables">
           <Key>
@@ -869,6 +905,18 @@ warning 6002: The table/view 'ECMills.sys.database_firewall_rules' does not have
             </Principal>
             <Dependent Role="MemorialContactPoint">
               <PropertyRef Name="OrderID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Notifications_UserID_Users_ID">
+          <End Role="Users" Type="Self.Users" Multiplicity="1" />
+          <End Role="Notifications" Type="Self.Notifications" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Notifications">
+              <PropertyRef Name="UserID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1233,6 +1281,9 @@ warning 6002: The table/view 'ECMills.sys.database_firewall_rules' does not have
         <Function Name="sp_GetDeceasedProfile" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="DeceasedID" Type="smallint" Mode="In" />
         </Function>
+        <Function Name="sp_GetUserNotifications" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="UserID" Type="tinyint" Mode="In" />
+        </Function>
         <EntityContainer Name="ECMills_DatabaseModelStoreContainer">
           <EntitySet Name="Ceremony" EntityType="Self.Ceremony" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Client" EntityType="Self.Client" Schema="dbo" store:Type="Tables" />
@@ -1246,6 +1297,7 @@ warning 6002: The table/view 'ECMills.sys.database_firewall_rules' does not have
           <EntitySet Name="MaritalStatus" EntityType="Self.MaritalStatus" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Memorial" EntityType="Self.Memorial" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="MemorialContactPoint" EntityType="Self.MemorialContactPoint" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Notifications" EntityType="Self.Notifications" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Officiant" EntityType="Self.Officiant" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="OfficiantContactPoint" EntityType="Self.OfficiantContactPoint" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="OrderChecklist" EntityType="Self.OrderChecklist" Schema="dbo" store:Type="Tables" />
@@ -1448,6 +1500,19 @@ warning 6002: The table/view 'ECMills.sys.database_firewall_rules' does not have
     [vw_GetDeceasedProfile].[Occupation] AS [Occupation]
     FROM [dbo].[vw_GetDeceasedProfile] AS [vw_GetDeceasedProfile]</DefiningQuery>
           </EntitySet>
+          <EntitySet Name="vw_GetUserNotifications" EntityType="Self.vw_GetUserNotifications" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [vw_GetUserNotifications].[UserID] AS [UserID], 
+    [vw_GetUserNotifications].[ID] AS [ID], 
+    [vw_GetUserNotifications].[Details] AS [Details], 
+    [vw_GetUserNotifications].[Category] AS [Category], 
+    [vw_GetUserNotifications].[NotificationFrom] AS [NotificationFrom], 
+    [vw_GetUserNotifications].[Controller] AS [Controller], 
+    [vw_GetUserNotifications].[Action] AS [Action], 
+    [vw_GetUserNotifications].[Param] AS [Param], 
+    [vw_GetUserNotifications].[TimeLogged] AS [TimeLogged]
+    FROM [dbo].[vw_GetUserNotifications] AS [vw_GetUserNotifications]</DefiningQuery>
+          </EntitySet>
           <EntitySet Name="vw_RowCountForAllTables" EntityType="Self.vw_RowCountForAllTables" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
     [vw_RowCountForAllTables].[Table] AS [Table], 
@@ -1519,6 +1584,10 @@ warning 6002: The table/view 'ECMills.sys.database_firewall_rules' does not have
           <AssociationSet Name="FK_Memorial_OrderID_MemorialContactPoint_OrderID" Association="Self.FK_Memorial_OrderID_MemorialContactPoint_OrderID">
             <End Role="Memorial" EntitySet="Memorial" />
             <End Role="MemorialContactPoint" EntitySet="MemorialContactPoint" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Notifications_UserID_Users_ID" Association="Self.FK_Notifications_UserID_Users_ID">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Notifications" EntitySet="Notifications" />
           </AssociationSet>
           <AssociationSet Name="FK_Officiant_ID_Ceremony_OfficiantID" Association="Self.FK_Officiant_ID_Ceremony_OfficiantID">
             <End Role="Officiant" EntitySet="Officiant" />
@@ -2138,6 +2207,7 @@ warning 6002: The table/view 'ECMills.sys.database_firewall_rules' does not have
           <NavigationProperty Name="Deceaseds1" Relationship="Self.FK_Users_ID_Deceased_LastModifiedBy" FromRole="Users" ToRole="Deceased" />
           <NavigationProperty Name="Orders" Relationship="Self.FK_Users_ID_Orders_CreatedBy" FromRole="Users" ToRole="Orders" />
           <NavigationProperty Name="Orders1" Relationship="Self.FK_Users_ID_Orders_LastModifiedBy" FromRole="Users" ToRole="Orders" />
+          <NavigationProperty Name="Notifications" Relationship="ECMills_DatabaseModel.FK_Notifications_UserID_Users_ID" FromRole="User" ToRole="Notification" />
         </EntityType>
         <EntityType Name="action">
           <Key>
@@ -3717,6 +3787,15 @@ warning 6002: The table/view 'ECMills.sys.database_firewall_rules' does not have
           <FunctionImport Name="sp_GetDeceasedContactsContactDetails" ReturnType="Collection(ECMills_DatabaseModel.sp_GetDeceasedContactsContactDetails_Result)">
           <Parameter Name="DeceasedID" Mode="In" Type="Int16" />
           </FunctionImport>
+          <EntitySet Name="Notifications" EntityType="ECMills_DatabaseModel.Notification" />
+          <AssociationSet Name="FK_Notifications_UserID_Users_ID" Association="ECMills_DatabaseModel.FK_Notifications_UserID_Users_ID">
+            <End Role="User" EntitySet="Users" />
+            <End Role="Notification" EntitySet="Notifications" />
+          </AssociationSet>
+          <FunctionImport Name="sp_GetUserNotifications" ReturnType="Collection(ECMills_DatabaseModel.sp_GetUserNotifications_Result)">
+          <Parameter Name="UserID" Mode="In" Type="Byte" />
+          </FunctionImport>
+          <EntitySet Name="vw_GetUserNotifications" EntityType="ECMills_DatabaseModel.vw_GetUserNotifications" />
         </EntityContainer>
         <ComplexType Name="sp_GetDeceasedAddressList_Result">
           <Property Type="Int16" Name="DeceasedID" Nullable="false" />
@@ -3783,6 +3862,62 @@ warning 6002: The table/view 'ECMills.sys.database_firewall_rules' does not have
           <Property Type="String" Name="PointOfContactType" Nullable="false" MaxLength="50" />
           <Property Type="String" Name="PointOfContactValue" Nullable="false" MaxLength="100" />
         </ComplexType>
+        <EntityType Name="Notification">
+          <Key>
+            <PropertyRef Name="UserID" />
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="UserID" Type="Byte" Nullable="false" />
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Details" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Category" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="NotificationFrom" Type="Byte" />
+          <Property Name="MVCAction" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="MVCController" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="MVCParam" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="TimeLogged" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="User" Relationship="ECMills_DatabaseModel.FK_Notifications_UserID_Users_ID" FromRole="Notification" ToRole="User" />
+        </EntityType>
+        <Association Name="FK_Notifications_UserID_Users_ID">
+          <End Type="ECMills_DatabaseModel.User" Role="User" Multiplicity="1" />
+          <End Type="ECMills_DatabaseModel.Notification" Role="Notification" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Notification">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <ComplexType Name="sp_GetUserNotifications_Result">
+          <Property Type="String" Name="Details" Nullable="false" MaxLength="255" />
+          <Property Type="String" Name="Category" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="NotificationFrom" Nullable="false" MaxLength="121" />
+          <Property Type="String" Name="Controller" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Action" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Param" Nullable="true" MaxLength="50" />
+          <Property Type="DateTime" Name="TimeLogged" Nullable="false" Precision="23" />
+        </ComplexType>
+        <EntityType Name="vw_GetUserNotifications">
+          <Key>
+            <PropertyRef Name="UserID" />
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="Details" />
+            <PropertyRef Name="Category" />
+            <PropertyRef Name="NotificationFrom" />
+            <PropertyRef Name="TimeLogged" />
+          </Key>
+          <Property Name="UserID" Type="Byte" Nullable="false" />
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="Details" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Category" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="NotificationFrom" Type="String" Nullable="false" MaxLength="121" FixedLength="false" Unicode="true" />
+          <Property Name="Controller" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Action" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Param" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="TimeLogged" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -4502,6 +4637,49 @@ warning 6002: The table/view 'ECMills.sys.database_firewall_rules' does not have
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
+          <EntitySetMapping Name="Notifications">
+            <EntityTypeMapping TypeName="ECMills_DatabaseModel.Notification">
+              <MappingFragment StoreEntitySet="Notifications">
+                <ScalarProperty Name="TimeLogged" ColumnName="TimeLogged" />
+                <ScalarProperty Name="MVCParam" ColumnName="MVCParam" />
+                <ScalarProperty Name="MVCController" ColumnName="MVCController" />
+                <ScalarProperty Name="MVCAction" ColumnName="MVCAction" />
+                <ScalarProperty Name="NotificationFrom" ColumnName="NotificationFrom" />
+                <ScalarProperty Name="Category" ColumnName="Category" />
+                <ScalarProperty Name="Details" ColumnName="Details" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="sp_GetUserNotifications" FunctionName="ECMills_DatabaseModel.Store.sp_GetUserNotifications">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ECMills_DatabaseModel.sp_GetUserNotifications_Result">
+                <ScalarProperty Name="Details" ColumnName="Details" />
+                <ScalarProperty Name="Category" ColumnName="Category" />
+                <ScalarProperty Name="NotificationFrom" ColumnName="NotificationFrom" />
+                <ScalarProperty Name="Controller" ColumnName="Controller" />
+                <ScalarProperty Name="Action" ColumnName="Action" />
+                <ScalarProperty Name="Param" ColumnName="Param" />
+                <ScalarProperty Name="TimeLogged" ColumnName="TimeLogged" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="vw_GetUserNotifications">
+            <EntityTypeMapping TypeName="ECMills_DatabaseModel.vw_GetUserNotifications">
+              <MappingFragment StoreEntitySet="vw_GetUserNotifications">
+                <ScalarProperty Name="TimeLogged" ColumnName="TimeLogged" />
+                <ScalarProperty Name="Param" ColumnName="Param" />
+                <ScalarProperty Name="Action" ColumnName="Action" />
+                <ScalarProperty Name="Controller" ColumnName="Controller" />
+                <ScalarProperty Name="NotificationFrom" ColumnName="NotificationFrom" />
+                <ScalarProperty Name="Category" ColumnName="Category" />
+                <ScalarProperty Name="Details" ColumnName="Details" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

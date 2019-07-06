@@ -15,20 +15,30 @@ namespace ECMills.Models
 using System;
     using System.Collections.Generic;
     
-public partial class Office
+public partial class Notification
 {
 
-    public byte ID { get; set; }
+    public byte UserID { get; set; }
 
-    public string AddressLine1 { get; set; }
+    public int ID { get; set; }
 
-    public string AddressLine2 { get; set; }
+    public string Details { get; set; }
 
-    public string City { get; set; }
+    public string Category { get; set; }
 
-    public string PostCode { get; set; }
+    public Nullable<byte> NotificationFrom { get; set; }
 
-    public string PhoneNo { get; set; }
+    public string MVCAction { get; set; }
+
+    public string MVCController { get; set; }
+
+    public string MVCParam { get; set; }
+
+    public System.DateTime TimeLogged { get; set; }
+
+
+
+    public virtual User User { get; set; }
 
 }
 

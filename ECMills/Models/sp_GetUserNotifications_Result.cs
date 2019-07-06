@@ -13,22 +13,23 @@ namespace ECMills.Models
 {
 
 using System;
-    using System.Collections.Generic;
     
-public partial class Office
+public partial class sp_GetUserNotifications_Result
 {
 
-    public byte ID { get; set; }
+    public string Details { get; set; }
 
-    public string AddressLine1 { get; set; }
+    public string Category { get; set; }
 
-    public string AddressLine2 { get; set; }
+    public string NotificationFrom { get; set; }
 
-    public string City { get; set; }
+    public string Controller { get; set; }
 
-    public string PostCode { get; set; }
+    public string Action { get; set; }
 
-    public string PhoneNo { get; set; }
+    public string Param { get; set; }
+
+    public System.DateTime TimeLogged { get; set; }
 
 }
 

@@ -714,5 +714,48 @@
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
+    <EntitySetMapping Name="Notifications">
+      <EntityTypeMapping TypeName="ECMills_DatabaseModel.Notification">
+        <MappingFragment StoreEntitySet="Notifications">
+          <ScalarProperty Name="TimeLogged" ColumnName="TimeLogged" />
+          <ScalarProperty Name="MVCParam" ColumnName="MVCParam" />
+          <ScalarProperty Name="MVCController" ColumnName="MVCController" />
+          <ScalarProperty Name="MVCAction" ColumnName="MVCAction" />
+          <ScalarProperty Name="NotificationFrom" ColumnName="NotificationFrom" />
+          <ScalarProperty Name="Category" ColumnName="Category" />
+          <ScalarProperty Name="Details" ColumnName="Details" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="sp_GetUserNotifications" FunctionName="ECMills_DatabaseModel.Store.sp_GetUserNotifications">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ECMills_DatabaseModel.sp_GetUserNotifications_Result">
+          <ScalarProperty Name="Details" ColumnName="Details" />
+          <ScalarProperty Name="Category" ColumnName="Category" />
+          <ScalarProperty Name="NotificationFrom" ColumnName="NotificationFrom" />
+          <ScalarProperty Name="Controller" ColumnName="Controller" />
+          <ScalarProperty Name="Action" ColumnName="Action" />
+          <ScalarProperty Name="Param" ColumnName="Param" />
+          <ScalarProperty Name="TimeLogged" ColumnName="TimeLogged" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="vw_GetUserNotifications">
+      <EntityTypeMapping TypeName="ECMills_DatabaseModel.vw_GetUserNotifications">
+        <MappingFragment StoreEntitySet="vw_GetUserNotifications">
+          <ScalarProperty Name="TimeLogged" ColumnName="TimeLogged" />
+          <ScalarProperty Name="Param" ColumnName="Param" />
+          <ScalarProperty Name="Action" ColumnName="Action" />
+          <ScalarProperty Name="Controller" ColumnName="Controller" />
+          <ScalarProperty Name="NotificationFrom" ColumnName="NotificationFrom" />
+          <ScalarProperty Name="Category" ColumnName="Category" />
+          <ScalarProperty Name="Details" ColumnName="Details" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

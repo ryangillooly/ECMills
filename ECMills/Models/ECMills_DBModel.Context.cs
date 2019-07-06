@@ -177,6 +177,10 @@ public partial class ECMills_DBConnection : DbContext
 
     public virtual DbSet<vw_GetDeceasedContactsContactDetails> vw_GetDeceasedContactsContactDetails { get; set; }
 
+    public virtual DbSet<Notification> Notifications { get; set; }
+
+    public virtual DbSet<vw_GetUserNotifications> vw_GetUserNotifications { get; set; }
+
 
     public virtual ObjectResult<sp_GetDeceasedAddressList_Result> sp_GetDeceasedAddressList(Nullable<short> deceasedID)
     {
@@ -230,6 +234,18 @@ public partial class ECMills_DBConnection : DbContext
 
 
         return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_GetDeceasedContactsContactDetails_Result>("sp_GetDeceasedContactsContactDetails", deceasedIDParameter);
+    }
+
+
+    public virtual ObjectResult<sp_GetUserNotifications_Result> sp_GetUserNotifications(Nullable<short> userID)
+    {
+
+        var userIDParameter = userID.HasValue ?
+            new ObjectParameter("UserID", userID) :
+            new ObjectParameter("UserID", typeof(short));
+
+
+        return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_GetUserNotifications_Result>("sp_GetUserNotifications", userIDParameter);
     }
 
 }
