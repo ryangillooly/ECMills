@@ -37,18 +37,10 @@
         </div>
     </div>
 
-    @Html.Partial("ThemeChangePlugin")
-    
-
+    <!--@@Html.Partial("ThemeChangePlugin")-->
     @Scripts.Render("~/CoreJS")
     @Scripts.Render("~/MaterialJS")
-
-    <script>
-        $(document).ready(function () {
-            MyJS.initSidebar();
-        });
-    </script>
-
+    <script>$(document).ready(function () {MyJS.initSidebar();});</script>
     @RenderSection("scripts", required: false)
 </body>
 </html>
