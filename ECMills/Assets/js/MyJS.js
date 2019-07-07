@@ -252,6 +252,87 @@
         });
     },
 
+    initMaterialDatatables: function () {
+        $('.datatables').DataTable({
+            "pagingType": "full_numbers",
+            "lengthMenu": [
+                [10, 25, 50, -1],
+                [10, 25, 50, "All"]
+            ],
+            responsive: true,
+            language: {
+                search: "_INPUT_",
+                searchPlaceholder: "Search records",
+            }
+        });
+
+        var table = $('.datatables').DataTable();
+
+        // Edit record
+        table.on('click', '.edit', function () {
+            $tr = $(this).closest('tr');
+            var data = table.row($tr).data();
+            alert('You press on Row: ' + data[0] + ' ' + data[1] + ' ' + data[2] + '\'s row.');
+        });
+
+        // Delete a record
+        table.on('click', '.remove', function (e) {
+            $tr = $(this).closest('tr');
+            table.row($tr).remove().draw();
+            e.preventDefault();
+        });
+    },
+
+    initCalculateMapRoute: function() {
+    
+        /********************* Single Map *********************
+        var to = new google.maps.LatLng(51.525471, 0.016910);
+        var mapOptions = {
+            zoom: 15,
+            center: to,
+            scrollwheel: false,
+        }
+
+        var map = new google.maps.Map(document.getElementById("destinationMap"), mapOptions);
+        var marker = new google.maps.Marker({
+            position: to,
+            title: "Destination"
+        });
+
+        marker.setMap(map);
+        */
+        //********************* Route Calculation Map *********************//
+        var from = new google.maps.LatLng(51.508469, -0.267600);
+        var to = new google.maps.LatLng(51.525471, 0.016910);
+        var directionsDisplay = new google.maps.DirectionsRenderer;
+        var directionsService = new google.maps.DirectionsService;
+        var map = new google.maps.Map(document.getElementById('estimatedRouteMap'), {
+            zoom: 10,
+            center: from,
+            scrollwheel: false
+        });
+
+        directionsDisplay.setMap(map);
+
+        calculateAndDisplayRoute(directionsService, directionsDisplay);
+
+        function calculateAndDisplayRoute(directionsService, directionsDisplay) {
+            directionsService.route({
+                origin: from,
+                destination: to,
+                travelMode: 'DRIVING'
+            },
+            function (response, status) {
+                if (status === 'OK') {
+                    directionsDisplay.setDirections(response);
+                    directionsDisplay.setPanel(document.getElementById('right-panel'));
+                } else {
+                    window.alert('Directions request failed due to ' + status);
+                }
+            });
+        }
+    },
+
     GetDeceasedContactsDetails: function(ContactType, Relationship, Name, DOB, Occupation, AccountsModerator, Address, Notes)
     {
         $("#ContactType").empty();
@@ -291,7 +372,6 @@
         $('#ContactName').append(ContactName);
         $('#ContactPoints').append(ContactNo);
     },
-
 }
 
 /* POTENTIALLY NOT USED. EXCLUDING UNTIL CONFIRMED TO DELETE - 07/07/19

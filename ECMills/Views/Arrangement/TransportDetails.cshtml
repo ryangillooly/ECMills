@@ -1,5 +1,6 @@
 ﻿<div class="container-fluid">
     <div class="row">
+        <!---
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header card-header-icon card-header-rose">
@@ -8,122 +9,151 @@
                     </div>
                     <h4 class="card-title">
                         Mrs Violet Anthoinette Crooks
-                        <small class="category">Vehicles</small> 
+                        <small class="category">Vehicles</small>
                     </h4>
                 </div>
                 <div class="card-body">
-                    <table class="table table-hover">
-                        <thead class="text-rose">
-                            <tr>
-                                <th>Type</th>
-                                <th>Vehicle/Supplier</th>
-                                <th>Time</th>
-                                <th>Collection</th>
-                                <th>Destination</th>
-                                <th>2nd Destination</th>
-                                <th>Return</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>Hearse</td>
-                                <td>Car</td>
-                                <td>11:20</td>
-                                <td>next of Kin: Address</td>
-                                <td>123 Road, ML6 0NY</td>
-                                <td>123 Road, ML6 0NY</td>
-                                <td>123 Road, ML6 0NY</td>
-                                <td>Home</td>
-                            </tr>
-                            <tr>
-                                <td>Hearse</td>
-                                <td>Car</td>
-                                <td>11:20</td>
-                                <td>next of Kin: Address</td>
-                                <td>123 Road, ML6 0NY</td>
-                                <td>123 Road, ML6 0NY</td>
-                                <td>123 Road, ML6 0NY</td>
-                                <td>Home</td>
-                            </tr>
-                            <tr>
-                                <td>Hearse</td>
-                                <td>Car</td>
-                                <td>11:20</td>
-                                <td>next of Kin: Address</td>
-                                <td>123 Road, ML6 0NY</td>
-                                <td>123 Road, ML6 0NY</td>
-                                <td>123 Road, ML6 0NY</td>
-                                <td>Home</td>
-                            </tr>
-                            <tr>
-                                <td>Hearse</td>
-                                <td>Car</td>
-                                <td>11:20</td>
-                                <td>next of Kin: Address</td>
-                                <td>123 Road, ML6 0NY</td>
-                                <td>123 Road, ML6 0NY</td>
-                                <td>123 Road, ML6 0NY</td>
-                                <td>Home</td>
-                            </tr>
-                            <tr>
-                                <td>Hearse</td>
-                                <td>Car</td>
-                                <td>11:20</td>
-                                <td>next of Kin: Address</td>
-                                <td>123 Road, ML6 0NY</td>
-                                <td>123 Road, ML6 0NY</td>
-                                <td>123 Road, ML6 0NY</td>
-                                <td>Home</td>
-                            </tr>
-                            <tr>
-                                <td>Hearse</td>
-                                <td>Car</td>
-                                <td>11:20</td>
-                                <td>next of Kin: Address</td>
-                                <td>123 Road, ML6 0NY</td>
-                                <td>123 Road, ML6 0NY</td>
-                                <td>123 Road, ML6 0NY</td>
-                                <td>Home</td>
-                            </tr>
-                            <tr>
-                                <td>Hearse</td>
-                                <td>Car</td>
-                                <td>11:20</td>
-                                <td>next of Kin: Address</td>
-                                <td>123 Road, ML6 0NY</td>
-                                <td>123 Road, ML6 0NY</td>
-                                <td>123 Road, ML6 0NY</td>
-                                <td>Home</td>
-                            </tr>
-                            <tr>
-                                <td>Hearse</td>
-                                <td>Car</td>
-                                <td>11:20</td>
-                                <td>next of Kin: Address</td>
-                                <td>123 Road, ML6 0NY</td>
-                                <td>123 Road, ML6 0NY</td>
-                                <td>123 Road, ML6 0NY</td>
-                                <td>Home</td>
-                            </tr>
-                            <tr>
-                                <td>Hearse</td>
-                                <td>Car</td>
-                                <td>11:20</td>
-                                <td>next of Kin: Address</td>
-                                <td>123 Road, ML6 0NY</td>
-                                <td>123 Road, ML6 0NY</td>
-                                <td>123 Road, ML6 0NY</td>
-                                <td>Home</td>
-                            </tr>
-                        </tbody>
-                    </table>
+                    <div class="material-datatables">
+                        <table class="datatables table table-striped table-no-bordered table-hover" cellspacing="0" style="width:100%">
+                            <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Vehicle/Supplier</th>
+                                    <th>Time</th>
+                                    <th>Collection</th>
+                                    <th>Destination</th>
+                                    <th>2nd Destination</th>
+                                    <th>Return</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @for (int i = 0; i < 5; i++)
+                                {
+                                    <tr>
+                                        <td>Hearse</td>
+                                        <td>Car</td>
+                                        <td>11:20</td>
+                                        <td>next of Kin: Address</td>
+                                        <td>123 Road, ML6 0NY</td>
+                                        <td>123 Road, ML6 0NY</td>
+                                        <td>123 Road, ML6 0NY</td>
+                                        <td>Home</td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="toolbar">
+                        <button type="button" id="additem" data-toggle="modal" style="background-color: #f7f7f7;" rel="tooltip" title="" class="btn btn-success btn-link btn-sm" data-original-title="Add New Arrangement">
+                            <i class="material-icons">add</i>
+                        </button>
+                        <button type="button" onclick="EditArrangements()" style="background-color: #f7f7f7;" rel="tooltip" title="" class="btn btn-primary btn-link btn-sm" data-original-title="Edit Existing Arrangement">
+                            <i class="material-icons">edit</i>
+                        </button>
+                        <button type="button" style="background-color: #f7f7f7;" rel="tooltip" title="" class="btn btn-danger btn-link btn-sm" data-original-title="Remove Existing Arrangement">
+                            <i class="material-icons">close</i>
+                        </button>
+                    </div>
+                    <div class="material-datatables">
+                        <table class="datatables table table-striped table-no-bordered table-hover" cellspacing="0" style="width:100%">
+                            <thead>
+                                <tr>
+                                    <th style="width: 10% !important;">Charge</th>
+                                    <th class="order-sm-last" style="width: 50% !important;">Description</th>
+                                    <th style="width: 8% !important;">Price (£)</th>
+                                    <th style="width: 8% !important;">VAT (£)</th>
+                                    <th style="width: 8% !important;">total (£)</th>
+                                    <th style="width: 8% !important;">Cost (£)</th>
+                                    <th style="width: 8% !important;" class="disabled-sorting text-right">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @@{
+                                    for (int i = 0; i < 14; i++)
+                                    {
+                                        <tr>
+                                            <td>Professional Attention</td>
+                                            <td>
+                                                <p>
+                                                    To our Professional Attention throughout the arrangements including the arrangement interview; use of our Chapel of Rest & Facilities; dealing with correspondence; administration of all documents and disbursements; supervising the funeral and the attendance  of our Funeral Director Mr. Roger Mills at the committal service.
+                                                </p>
+                                            </td>
+                                            <td>1,066.00</td>
+                                            <td>0.00</td>
+                                            <td>1,066.00</td>
+                                            <td>1,066.00</td>
+                                            <td class="text-right">
+                                                <button type="button" style="background-color: #f7f7f7;" rel="tooltip" class="btn btn-danger btn-link btn-sm remove">
+                                                    <i class="material-icons">close</i>
+                                                    <div class="ripple-container"></div>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                    }
+                                }
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
+        </div>
+        -->
+    
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header card-header-icon card-header-rose">
+                    <div class="card-icon">
+                        <i class="material-icons">car</i>
+                    </div>
+                    <h4 class="card-title">
+                        Mrs Violet Anthoinette Crooks
+                        <small class="category">Vehicles</small>
+                    </h4>
+                </div>
+                <div class="card-body">
+                    <div class="material-datatables">
+                        <table class="datatables table table-striped table-no-bordered table-hover" cellspacing="0" style="width:100%">
+                            <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Vehicle/Supplier</th>
+                                    <th>Time</th>
+                                    <th>Collection</th>
+                                    <th>Destination</th>
+                                    <th>2nd Destination</th>
+                                    <th>Return</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!--********** TEST DATA **********-->
+                                @{
+                                    for (int i = 0; i < 14; i++)
+                                    {
+                                        <tr>
+                                            <td>Hearse</td>
+                                            <td>Car</td>
+                                            <td>11:20</td>
+                                            <td>next of Kin: Address</td>
+                                            <td>123 Road, ML6 0NY</td>
+                                            <td>123 Road, ML6 0NY</td>
+                                            <td>Home</td>
+                                        </tr>
+                                    }
+                                }
+                                <!--*******************************-->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <!-- end content-->
+            </div>
+            <!--  end card  -->
         </div>
     </div>
     <div class="row">
         <div class="col-md-6">
-            <div class="card" >
+            <div class="card">
                 <div class="card-body">
                     Fees
                     <hr />
@@ -190,7 +220,7 @@
             <div class="card">
                 <div class="card-body">
                     Personnel
-                    
+
                     <hr />
 
                     <div class="row">
@@ -210,3 +240,11 @@
     </div>
 </div>
 
+
+@section scripts {
+    <script>
+        $(document).ready(function () {
+            MyJS.initMaterialDatatables();
+        });
+    </script>
+}

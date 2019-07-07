@@ -53,199 +53,206 @@
                     </button>
                     <div class="tab-content">
                         <div class="tab-pane active" id="forms">
-                            <table class="table table-hover">
-                                <thead class="text-rose">
-                                    <tr>
-                                        <th>Name</th>
-                                        <th>Type</th>
-                                        <th>Document Type</th>
-                                        <th>Size</th>
-                                        <th>Last Updated</th>
-                                        <th>Actions</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @{
-                                        for (int i = 0; i < 8; i++)
-                                        {
-                                            <tr>
-                                                <td>Medical Certificate - Ryan</td>
-                                                <td>PDF</td>
-                                                <td>Cremation Form - 4</td>
-                                                <td>3.45 MB</td>
-                                                <td>6 Days Ago</td>
-                                                <td>
-                                                    <button type="button" style="background-color: #f7f7f7;" class="btn btn-info btn-link btn-sm">
-                                                        <i class="material-icons">edit</i>
-                                                    </button>
-                                                    <button type="button" onclick="removeRow()" style="background-color: #f7f7f7;" class="btn btn-danger btn-link btn-sm">
-                                                        <i class="material-icons">close</i>
-                                                    </button>
-                                                </td>
-                                            </tr>
+                            <div class="material-datatables">
+                                <table id="" class="datatables table table-striped table-no-bordered table-hover" cellspacing="0" style="width:100%">
+                                    <thead class="text-rose">
+                                        <tr>
+                                            <th>Name</th>
+                                            <th>Type</th>
+                                            <th>Document Type</th>
+                                            <th>Size</th>
+                                            <th>Last Updated</th>
+                                            <th>Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @{
+                                            for (int i = 0; i < 8; i++)
+                                            {
+                                                <tr>
+                                                    <td>Medical Certificate - Ryan</td>
+                                                    <td>PDF</td>
+                                                    <td>Cremation Form - 4</td>
+                                                    <td>3.45 MB</td>
+                                                    <td>6 Days Ago</td>
+                                                    <td>
+                                                        <button type="button" style="background-color: #f7f7f7;" class="btn btn-info btn-link btn-sm">
+                                                            <i class="material-icons">edit</i>
+                                                        </button>
+                                                        <button type="button" onclick="removeRow()" style="background-color: #f7f7f7;" class="btn btn-danger btn-link btn-sm">
+                                                            <i class="material-icons">close</i>
+                                                        </button>
+                                                    </td>
+                                                </tr>
+                                            }
                                         }
-                                    }
-                                </tbody>
-                            </table>
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
-
                         <div class="tab-pane" id="letters">
-                            <table class="table table-hover">
-                                <thead class="text-rose">
-                                    <tr>
-                                        <th>Name</th>
-                                        <th>Type</th>
-                                        <th>Document Type</th>
-                                        <th>Size</th>
-                                        <th>Last Updated</th>
-                                        <th>Actions</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>Husbands Letter</td>
-                                        <td>PDF</td>
-                                        <td>Cremation Form - 4</td>
-                                        <td>3.45 MB</td>
-                                        <td>6 Days Ago</td>
-                                        <td>
-                                            <button type="button" style="background-color: #f7f7f7;" class="btn btn-info btn-link btn-sm">
-                                                <i class="material-icons">edit</i>
-                                            </button>
-                                            <button type="button" style="background-color: #f7f7f7;" class="btn btn-danger btn-link btn-sm">
-                                                <i class="material-icons">close</i>
-                                            </button>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
+                            <div class="material-datatables">
+                                <table id="" class="datatables table table-striped table-no-bordered table-hover" cellspacing="0" style="width:100%">
+                                    <thead class="text-rose">
+                                        <tr>
+                                            <th>Name</th>
+                                            <th>Type</th>
+                                            <th>Document Type</th>
+                                            <th>Size</th>
+                                            <th>Last Updated</th>
+                                            <th>Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Husbands Letter</td>
+                                            <td>PDF</td>
+                                            <td>Cremation Form - 4</td>
+                                            <td>3.45 MB</td>
+                                            <td>6 Days Ago</td>
+                                            <td>
+                                                <button type="button" style="background-color: #f7f7f7;" class="btn btn-info btn-link btn-sm">
+                                                    <i class="material-icons">edit</i>
+                                                </button>
+                                                <button type="button" style="background-color: #f7f7f7;" class="btn btn-danger btn-link btn-sm">
+                                                    <i class="material-icons">close</i>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
 
                         <div class="tab-pane" id="miscellaneous">
-                            <table class="table table-hover">
-                                <thead class="text-rose">
-                                    <tr>
-                                        <th>Name</th>
-                                        <th>Type</th>
-                                        <th>Document Type</th>
-                                        <th>Size</th>
-                                        <th>Last Updated</th>
-                                        <th>Actions</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>Medical Certificate - Ryan</td>
-                                        <td>PDF</td>
-                                        <td>Cremation Form - 4</td>
-                                        <td>3.45 MB</td>
-                                        <td>6 Days Ago</td>
-                                        <td>
-                                            <button type="button" style="background-color: #f7f7f7;" class="btn btn-info btn-link btn-sm">
-                                                <i class="material-icons">edit</i>
-                                            </button>
-                                            <button type="button" style="background-color: #f7f7f7;" class="btn btn-danger btn-link btn-sm">
-                                                <i class="material-icons">close</i>
-                                            </button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Medical Certificate - Ryan</td>
-                                        <td>PDF</td>
-                                        <td>Cremation Form - 4</td>
-                                        <td>3.45 MB</td>
-                                        <td>6 Days Ago</td>
-                                        <td>
-                                            <button type="button" style="background-color: #f7f7f7;" class="btn btn-info btn-link btn-sm">
-                                                <i class="material-icons">edit</i>
-                                            </button>
-                                            <button type="button" style="background-color: #f7f7f7;" class="btn btn-danger btn-link btn-sm">
-                                                <i class="material-icons">close</i>
-                                            </button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Medical Certificate - Ryan</td>
-                                        <td>PDF</td>
-                                        <td>Cremation Form - 4</td>
-                                        <td>3.45 MB</td>
-                                        <td>6 Days Ago</td>
-                                        <td>
-                                            <button type="button" style="background-color: #f7f7f7;" class="btn btn-info btn-link btn-sm">
-                                                <i class="material-icons">edit</i>
-                                            </button>
-                                            <button type="button" style="background-color: #f7f7f7;" class="btn btn-danger btn-link btn-sm">
-                                                <i class="material-icons">close</i>
-                                            </button>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
+                            <div class="material-datatables">
+                                <table id="" class="datatables table table-striped table-no-bordered table-hover" cellspacing="0" style="width:100%">
+                                    <thead class="text-rose">
+                                        <tr>
+                                            <th>Name</th>
+                                            <th>Type</th>
+                                            <th>Document Type</th>
+                                            <th>Size</th>
+                                            <th>Last Updated</th>
+                                            <th>Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Medical Certificate - Ryan</td>
+                                            <td>PDF</td>
+                                            <td>Cremation Form - 4</td>
+                                            <td>3.45 MB</td>
+                                            <td>6 Days Ago</td>
+                                            <td>
+                                                <button type="button" style="background-color: #f7f7f7;" class="btn btn-info btn-link btn-sm">
+                                                    <i class="material-icons">edit</i>
+                                                </button>
+                                                <button type="button" style="background-color: #f7f7f7;" class="btn btn-danger btn-link btn-sm">
+                                                    <i class="material-icons">close</i>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Medical Certificate - Ryan</td>
+                                            <td>PDF</td>
+                                            <td>Cremation Form - 4</td>
+                                            <td>3.45 MB</td>
+                                            <td>6 Days Ago</td>
+                                            <td>
+                                                <button type="button" style="background-color: #f7f7f7;" class="btn btn-info btn-link btn-sm">
+                                                    <i class="material-icons">edit</i>
+                                                </button>
+                                                <button type="button" style="background-color: #f7f7f7;" class="btn btn-danger btn-link btn-sm">
+                                                    <i class="material-icons">close</i>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Medical Certificate - Ryan</td>
+                                            <td>PDF</td>
+                                            <td>Cremation Form - 4</td>
+                                            <td>3.45 MB</td>
+                                            <td>6 Days Ago</td>
+                                            <td>
+                                                <button type="button" style="background-color: #f7f7f7;" class="btn btn-info btn-link btn-sm">
+                                                    <i class="material-icons">edit</i>
+                                                </button>
+                                                <button type="button" style="background-color: #f7f7f7;" class="btn btn-danger btn-link btn-sm">
+                                                    <i class="material-icons">close</i>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
 
                         <div class="tab-pane" id="accounts">
-                            <table class="table table-hover">
-                                <thead class="text-rose">
-                                    <tr>
-                                        <th>Name</th>
-                                        <th>Type</th>
-                                        <th>Document Type</th>
-                                        <th>Size</th>
-                                        <th>Last Updated</th>
-                                        <th>Actions</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>Medical Certificate - Ryan</td>
-                                        <td>PDF</td>
-                                        <td>Cremation Form - 4</td>
-                                        <td>3.45 MB</td>
-                                        <td>6 Days Ago</td>
-                                        <td>
-                                            <button type="button" style="background-color: #f7f7f7;" class="btn btn-info btn-link btn-sm">
-                                                <i class="material-icons">edit</i>
-                                            </button>
-                                            <button type="button" style="background-color: #f7f7f7;" class="btn btn-danger btn-link btn-sm">
-                                                <i class="material-icons">close</i>
-                                            </button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Medical Certificate - Ryan</td>
-                                        <td>PDF</td>
-                                        <td>Cremation Form - 4</td>
-                                        <td>3.45 MB</td>
-                                        <td>6 Days Ago</td>
-                                        <td>
-                                            <button type="button" style="background-color: #f7f7f7;" class="btn btn-info btn-link btn-sm">
-                                                <i class="material-icons">edit</i>
-                                            </button>
-                                            <button type="button" style="background-color: #f7f7f7;" class="btn btn-danger btn-link btn-sm">
-                                                <i class="material-icons">close</i>
-                                            </button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Medical Certificate - Ryan</td>
-                                        <td>PDF</td>
-                                        <td>Cremation Form - 4</td>
-                                        <td>3.45 MB</td>
-                                        <td>6 Days Ago</td>
-                                        <td>
-                                            <button type="button" style="background-color: #f7f7f7;" class="btn btn-info btn-link btn-sm">
-                                                <i class="material-icons">edit</i>
-                                            </button>
-                                            <button type="button" style="background-color: #f7f7f7;" class="btn btn-danger btn-link btn-sm">
-                                                <i class="material-icons">close</i>
-                                            </button>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
+                            <div class="material-datatables">
+                                <table id="" class="datatables table table-striped table-no-bordered table-hover" cellspacing="0" style="width:100%">
+                                    <thead class="text-rose">
+                                        <tr>
+                                            <th>Name</th>
+                                            <th>Type</th>
+                                            <th>Document Type</th>
+                                            <th>Size</th>
+                                            <th>Last Updated</th>
+                                            <th>Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Medical Certificate - Ryan</td>
+                                            <td>PDF</td>
+                                            <td>Cremation Form - 4</td>
+                                            <td>3.45 MB</td>
+                                            <td>6 Days Ago</td>
+                                            <td>
+                                                <button type="button" style="background-color: #f7f7f7;" class="btn btn-info btn-link btn-sm">
+                                                    <i class="material-icons">edit</i>
+                                                </button>
+                                                <button type="button" style="background-color: #f7f7f7;" class="btn btn-danger btn-link btn-sm">
+                                                    <i class="material-icons">close</i>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Medical Certificate - Ryan</td>
+                                            <td>PDF</td>
+                                            <td>Cremation Form - 4</td>
+                                            <td>3.45 MB</td>
+                                            <td>6 Days Ago</td>
+                                            <td>
+                                                <button type="button" style="background-color: #f7f7f7;" class="btn btn-info btn-link btn-sm">
+                                                    <i class="material-icons">edit</i>
+                                                </button>
+                                                <button type="button" style="background-color: #f7f7f7;" class="btn btn-danger btn-link btn-sm">
+                                                    <i class="material-icons">close</i>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Medical Certificate - Ryan</td>
+                                            <td>PDF</td>
+                                            <td>Cremation Form - 4</td>
+                                            <td>3.45 MB</td>
+                                            <td>6 Days Ago</td>
+                                            <td>
+                                                <button type="button" style="background-color: #f7f7f7;" class="btn btn-info btn-link btn-sm">
+                                                    <i class="material-icons">edit</i>
+                                                </button>
+                                                <button type="button" style="background-color: #f7f7f7;" class="btn btn-danger btn-link btn-sm">
+                                                    <i class="material-icons">close</i>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                     </div>
-                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -253,9 +260,8 @@
 
 @section scripts {
     <script>
-    function removeRow() {
-        var button = $(this).get.button;
-        button.removeRow;
-        }
-    </script>   
+        $(document).ready(function () {
+            MyJS.initMaterialDatatables();
+        });
+    </script>
 }

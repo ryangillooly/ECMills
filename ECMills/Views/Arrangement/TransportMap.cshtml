@@ -15,102 +15,10 @@
                 <div id="warnings-panel"></div>
             </div>
         </div>
-        <div class="col-md-6">
-            <div class="card ">
-                <div class="card-header card-header-text card-header-rose">
-                    <div class="card-text">
-                        <h4 class="card-title">Departure Location</h4>
-                    </div>
-                </div>
-                <div class="card-body ">
-                    <h4 class="card-title"></h4>
-                    <div id="departureLocationMap" class="map"></div>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-6">
-            <div class="card ">
-                <div class="card-header card-header-text card-header-rose">
-                    <div class="card-text">
-                        <h4 class="card-title">Destination</h4>
-                    </div>
-                </div>
-                <div class="card-body ">
-                    <h4 class="card-title"></h4>
-                    <div id="destinationMap" class="map"></div>
-                </div>
-            </div>
-        </div>
     </div>
 </div>
 
 @section scripts {
-    <script>
-        function calculateRoute() {
-            //********************* Departure Map *********************//
-            var from = new google.maps.LatLng(51.508470, -0.267600);
-            var mapOptions = {
-                zoom: 15,
-                center: from,
-                scrollwheel: false,
-            }
-
-            var map = new google.maps.Map(document.getElementById("departureLocationMap"), mapOptions);
-            var marker = new google.maps.Marker({
-                position: from,
-                title: "Departure"
-            });
-
-            marker.setMap(map);
-
-            //********************* Destination Map *********************//
-            var to = new google.maps.LatLng(51.525471, 0.016910);
-            var mapOptions = {
-                zoom: 15,
-                center: to,
-                scrollwheel: false,
-            }
-
-            var map = new google.maps.Map(document.getElementById("destinationMap"), mapOptions);
-            var marker = new google.maps.Marker({
-                position: to,
-                title: "Destination"
-            });
-
-            marker.setMap(map);
-
-            //********************* Route Calculation Map *********************//
-            var directionsDisplay = new google.maps.DirectionsRenderer;
-            var directionsService = new google.maps.DirectionsService;
-            var map = new google.maps.Map(document.getElementById('estimatedRouteMap'), {
-              zoom: 10,
-              center: from,
-              scrollwheel: false
-            });
-
-            directionsDisplay.setMap(map);
-
-            calculateAndDisplayRoute(directionsService, directionsDisplay);
-  
-            function calculateAndDisplayRoute(directionsService, directionsDisplay) {
-                directionsService.route({
-                    origin: from,
-                    destination: to,
-                    travelMode: 'DRIVING'
-                },
-                function (response, status)
-                {
-                    if (status === 'OK') {
-                        directionsDisplay.setDirections(response);
-                        directionsDisplay.setPanel(document.getElementById('right-panel'));
-                    } else {
-                        window.alert('Directions request failed due to ' + status);
-                    }
-                });
-            }
-        }
-    </script>
-
     <!--  Google Maps Plugin    -->
-    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA_M3vFsidMkPcs07xZbGeKY8Pz44IwYHg&callback=calculateRoute"></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA_M3vFsidMkPcs07xZbGeKY8Pz44IwYHg&callback=MyJS.initCalculateMapRoute"></script>
 }

@@ -423,6 +423,9 @@ demo = {
 
             new Chartist.Pie('#chartPreferences', dataPreferences, optionsPreferences);
 
+
+
+            
             /*  **************** Simple Bar Chart - barchart ******************** */
 
             var dataSimpleBarChart = {
