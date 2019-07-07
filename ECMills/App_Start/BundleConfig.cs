@@ -18,7 +18,8 @@ namespace ECMills
             bundles.Add(new ScriptBundle("~/CoreJS").Include(
                 "~/Assets/js/core/jquery.min.js",
                 "~/Assets/js/core/popper.min.js",
-                "~/Assets/js/core/bootstrap-material-design.min.js"
+                "~/Assets/js/core/bootstrap-material-design.min.js",
+                "~/Assets/js/MyJS.js"
             ));
 
          

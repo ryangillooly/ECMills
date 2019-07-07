@@ -491,7 +491,6 @@ demo = {
 
     },
 
-
     showSwal: function (type) {
         if (type == 'basic') {
             swal({
