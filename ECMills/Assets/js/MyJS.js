@@ -250,5 +250,100 @@
                 }
             ]
         });
-    }
+    },
+
+    GetDeceasedContactsDetails: function(ContactType, Relationship, Name, DOB, Occupation, AccountsModerator, Address, Notes)
+    {
+        $("#ContactType").empty();
+        $("#Relationship").empty();
+        $("#Name").empty();
+        $("#DOB").empty();
+        $("#Occupation").empty();
+        $("#AccountsModerator").empty();
+        $("#Address").empty();
+        $("#Notes").empty();
+
+        $('#ContactType').append(ContactType);
+        $("#Relationship").append(Relationship);
+        $("#Name").append(Name);
+        $("#DOB").append(DOB);
+        $("#Occupation").append(Occupation);
+        $('#AccountsModerator').append(AccountsModerator);
+        $('#Address').append(Address);
+        $('#Notes').append(Notes);
+    },
+
+    GetDeceasedAddressDetails: function(AddressType, AddressLine1, AddressLine2, City, PostCode, ContactName, ContactNo)
+     {
+        $("#AddressType").empty();
+        $("#AddressLine1").empty();
+        $("#AddressLine2").empty();
+        $("#City").empty();
+        $("#PostCode").empty();
+        $("#ContactName").empty();
+        $("#ContactPoints").empty();
+
+        $('#AddressType').append(AddressType);
+        $("#AddressLine1").append(AddressLine1);
+        $("#AddressLine2").append(AddressLine2);
+        $("#City").append(City);
+        $("#PostCode").append(PostCode);
+        $('#ContactName').append(ContactName);
+        $('#ContactPoints').append(ContactNo);
+    },
+
 }
+
+/* POTENTIALLY NOT USED. EXCLUDING UNTIL CONFIRMED TO DELETE - 07/07/19
+   EditDeceasedProfile: function(Name, Known_As, Gender, Age, DOB, TimeOfDeath, MaritalStatus, Occupation, Religion, ReligiousDenomination)
+   {
+       // Redo this section by passing an array as the variable with all the values
+       // Then loop through the array values and run dynamic JS to replace the div's
+       $('#ReadOnlyInput-Name').replaceWith('<input name="Name"            id="ReadWriteInput-Name"          type="text" class="form-control" placeholder="' + Name + '" />');
+       $('#ReadOnlyInput-Known_As').replaceWith('<input name="Known_As"        id="ReadWriteInput-Known_As"      type="text" class="form-control" placeholder="' + Known_As + '" />');
+       $('#ReadOnlyInput-Gender').replaceWith('<input name="Gender"          id="ReadWriteInput-Gender"        type="text" class="form-control" placeholder="' + Gender + '" />');
+       $('#ReadOnlyInput-Age').replaceWith('<input name="Age"             id="ReadWriteInput-Age"           type="text" class="form-control" placeholder="' + Age + '" />');
+       $('#ReadOnlyInput-DOB').replaceWith('<input name="DOB"             id="ReadWriteInput-DOB"           type="text" class="form-control datetimepicker" placeholder="' + DOB + '" />');
+       $('#ReadOnlyInput-TimeOfDeath').replaceWith('<input name="TimeOfDeath"     id="ReadWriteInput-TimeOfDeath"   type="text" class="form-control datetimepicker" placeholder="' + TimeOfDeath + '" />');
+       $('#ReadOnlyInput-MaritalStatus').replaceWith('<input name="MaritalStatus"   id="ReadWriteInput-MaritalStatus" type="text" class="form-control" placeholder="' + MaritalStatus + '" />');
+       $('#ReadOnlyInput-Occupation').replaceWith('<input name="Occupation"      id="ReadWriteInput-Occupation"    type="text" class="form-control" placeholder="' + Occupation + '" />');
+       $('#ReadOnlyInput-Religion').replaceWith('<input name="Religion"        id="ReadWriteInput-Religion"      type="text" class="form-control" placeholder="' + Religion + '" />');
+       $('#ReadOnlyInput-RelDom').replaceWith('<input name="RelDom"          id="ReadWriteInput-RelDom"        type="text" class="form-control" placeholder="' + ReligiousDenomination + '" />');
+
+       $('#EditProfile_Button').replaceWith('<button type="button" id="CancelDeceasedProfileEdit_Button" class="btn btn-primary pull-left col-md-3" onclick="CancelDeceasedProfileEdit(\'' + Name + '\',\'' + Known_As + '\',\'' + Gender + '\',\'' + Age + '\',\'' + DOB + '\',\'' + TimeOfDeath + '\',\'' + MaritalStatus + '\',\'' + Occupation + '\',\'' + Religion + '\',\'' + ReligiousDenomination + '\')">Cancel</button>');
+
+       $('#UpdateProfileDiv').append('<input type="submit" class="btn btn-primary pull-right col-md-3" />')
+
+       $('.datetimepicker').datetimepicker({
+           icons: {
+               time: "fa fa-clock-o",
+               date: "fa fa-calendar",
+               up: "fa fa-chevron-up",
+               down: "fa fa-chevron-down",
+               previous: 'fa fa-chevron-left',
+               next: 'fa fa-chevron-right',
+               today: 'fa fa-screenshot',
+               clear: 'fa fa-trash',
+               close: 'fa fa-remove'
+           }
+       });
+   },
+
+   CancelDeceasedProfileEdit: function (Name, Known_As, Gender, Age, DOB, TimeOfDeath, MaritalStatus, Occupation, Religion, ReligiousDenomination)
+   {
+       // backslash + quote is an escape character for single quote (e.g  \' )
+       $('#ReadWriteInput-Name').replaceWith('<div class="form-control" id="ReadOnlyInput-Name">' + Name + '</div>');
+       $('#ReadWriteInput-Known_As').replaceWith('<div class="form-control" id="ReadOnlyInput-Known_As">' + Known_As + '</div>');
+       $('#ReadWriteInput-Gender').replaceWith('<div class="form-control" id="ReadOnlyInput-Gender">' + Gender + '</div>');
+       $('#ReadWriteInput-Age').replaceWith('<div class="form-control" id="ReadOnlyInput-Age">' + Age + '</div>');
+       $('#ReadWriteInput-DOB').replaceWith('<div class="form-control" id="ReadOnlyInput-DOB">' + DOB + '</div>');
+       $('#ReadWriteInput-TimeOfDeath').replaceWith('<div class="form-control" id="ReadOnlyInput-TimeOfDeath">' + TimeOfDeath + '</div>');
+       $('#ReadWriteInput-MaritalStatus').replaceWith('<div class="form-control" id="ReadOnlyInput-MaritalStatus">' + MaritalStatus + '</div>');
+       $('#ReadWriteInput-Occupation').replaceWith('<div class="form-control" id="ReadOnlyInput-Occupation">' + Occupation + '</div>');
+       $('#ReadWriteInput-Religion').replaceWith('<div class="form-control" id="ReadOnlyInput-Religion">' + Religion + '</div>');
+       $('#ReadWriteInput-RelDom').replaceWith('<div class="form-control" id="ReadOnlyInput-RelDom">' + ReligiousDenomination + '</div>');
+
+       $('#CancelDeceasedProfileEdit_Button').replaceWith('<button type="button" id="EditProfile_Button" class="btn btn-primary pull-left col-md-3" onclick="EditDeceasedProfile(\'' + Name + '\',\'' + Known_As + '\',\'' + Gender + '\',\'' + Age + '\',\'' + DOB + '\',\'' + TimeOfDeath + '\',\'' + MaritalStatus + '\',\'' + Occupation + '\',\'' + Religion + '\',\'' + ReligiousDenomination + '\')">Edit Profile</button>');
+       $('#UpdateProfileDiv').empty();
+   }
+   */

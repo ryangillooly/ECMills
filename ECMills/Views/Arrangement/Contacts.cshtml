@@ -30,7 +30,7 @@
                                         string address = DeceasedContactList.AddressLine1 + ", " + DeceasedContactList.AddressLine2 + ", " + DeceasedContactList.City + ", " + DeceasedContactList.PostCode;
 
                                         <li class="nav-item col-md-12">
-                                            <a class="nav-link @(ListItem == 1 ? "active" : "")" data-toggle="tab" role="tablist" onclick="GetDeceasedContactsDetails('@DeceasedContactList.ContactType','@DeceasedContactList.Relationship','@DeceasedContactList.Name','@DeceasedContactList.DateOfBirth','@DeceasedContactList.Occupation','@DeceasedContactList.AccountModerator','@address','@DeceasedContactList.Notes');">
+                                            <a class="nav-link @(ListItem == 1 ? "active" : "")" data-toggle="tab" role="tablist" onclick="MyJS.GetDeceasedContactsDetails('@DeceasedContactList.ContactType','@DeceasedContactList.Relationship','@DeceasedContactList.Name','@DeceasedContactList.DateOfBirth','@DeceasedContactList.Occupation','@DeceasedContactList.AccountModerator','@address','@DeceasedContactList.Notes');">
                                                 <div class="row">
                                                     <span class="col-md-6">
                                                         @DeceasedContactList.ContactType
@@ -132,28 +132,3 @@
         </div>
     </div>
 </div>
-
-@section scripts {
-    <script type="text/javascript">
-          function GetDeceasedContactsDetails(ContactType, Relationship, Name, DOB, Occupation, AccountsModerator, Address, Notes)
-        {
-            $("#ContactType").empty();
-            $("#Relationship").empty();
-            $("#Name").empty();
-            $("#DOB").empty();
-            $("#Occupation").empty();
-            $("#AccountsModerator").empty();
-            $("#Address").empty();
-            $("#Notes").empty();
-
-            $('#ContactType').append(ContactType);
-            $("#Relationship").append(Relationship);
-            $("#Name").append(Name);
-            $("#DOB").append(DOB);
-            $("#Occupation").append(Occupation);
-            $('#AccountsModerator').append(AccountsModerator);
-            $('#Address').append(Address);
-            $('#Notes').append(Notes);
-         };
-    </script>
-}
