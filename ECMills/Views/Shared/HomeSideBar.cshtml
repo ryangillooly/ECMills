@@ -175,6 +175,52 @@
                     </ul>
                 </div>
             </li>
+            <li class="nav-item ">
+                <a class="nav-link" data-toggle="collapse" href="#ManagementDropdown" aria-expanded="false" aria-controls="ManagementDropdown">
+                    <i class="material-icons">attach_money</i>
+                    <p>Management<b class="caret"></b></p>
+                </a>
+                <div class="collapse" id="ManagementDropdown" style="">
+                    <ul class="nav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="@Url.Action("Churches", "Management", null, null)">
+                                <span class="sidebar-mini"> CH </span>
+                                <span class="sidebar-normal"> Churches </span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="@Url.Action("Crematoriums", "Management", null, null)">
+                                <span class="sidebar-mini"> CR </span>
+                                <span class="sidebar-normal"> Crematoriums </span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="@Url.Action("Cemeterys", "Management", null, null)">
+                                <span class="sidebar-mini"> CE </span>
+                                <span class="sidebar-normal"> Cemeterys </span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="@Url.Action("Suppliers", "Management", null, null)">
+                                <span class="sidebar-mini"> S </span>
+                                <span class="sidebar-normal"> Suppliers </span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="@Url.Action("Coffins", "Management", null, null)">
+                                <span class="sidebar-mini"> CO </span>
+                                <span class="sidebar-normal"> Coffins </span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="@Url.Action("Packages", "Management", null, null)">
+                                <span class="sidebar-mini"> P </span>
+                                <span class="sidebar-normal"> Packages </span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
         </ul>
     </div>
 </div>

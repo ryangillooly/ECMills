@@ -168,6 +168,7 @@
     <Compile Include="Controllers\FuneralPlanEnquiriesController.cs" />
     <Compile Include="Controllers\FuneralPlansController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\ManagementController.cs" />
     <Compile Include="Controllers\ReportsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -695,6 +696,12 @@
     <Content Include="Views\FirstCalls\test.cshtml" />
     <Content Include="Views\Arrangement\TransportMap.cshtml" />
     <Content Include="Views\Reports\Management.cshtml" />
+    <Content Include="Views\Management\Churches.cshtml" />
+    <Content Include="Views\Management\Suppliers.cshtml" />
+    <Content Include="Views\Management\Cemeterys.cshtml" />
+    <Content Include="Views\Management\Crematoriums.cshtml" />
+    <Content Include="Views\Management\Packages.cshtml" />
+    <Content Include="Views\Management\Coffins.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

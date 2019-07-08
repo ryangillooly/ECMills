@@ -4,15 +4,44 @@
         box-shadow: 0 3px 4px 0 rgba(0,0,0,.2), 0 3px 3px -2px rgba(0,0,0,.14), 0 1px 8px 0 rgba(0,0,0,.12);
     }
 
-    .navbar, .navbar>.container, .navbar>.container-fluid {flex-wrap: nowrap !important;}
+    .navbar, .navbar > .container, .navbar > .container-fluid {
+        flex-wrap: nowrap !important;
+    }
+
+    .container-fluid {
+        color: black;
+    }
+
+    .sticky-top .btn-white:hover {
+        background-color: rgba(0,0,0,.1) !important;
+        box-shadow: unset !important;
+        color: black !important;
+    }
+
+    .sticky-top .btn-round {
+        font-size: 24px;
+        height: 40px;
+        min-width: 40px;
+        width: 40px;
+        padding: 0;
+        overflow: hidden;
+        position: relative;
+        line-height: 41px;
+        color: black;
+        box-shadow: unset;
+    }
+
+    .navbar .navbar-minimize {
+        padding: 0px 0 0 15px;
+    }
 </style>
 
-<nav class="navbar navbar-expand-lg sticky-top">
+<nav id="TopNav" class="navbar navbar-expand-lg sticky-top">
     <div class="container-fluid">
         <div class="navbar-wrapper">
             <div class="navbar-minimize">
                 <button id="minimizeSidebar" class="btn btn-just-icon btn-white btn-fab btn-round">
-                    <i class="material-icons text_align-center visible-on-sidebar-regular">more_vert</i>
+                    <i class="material-icons text_align-center visible-on-sidebar-regular">dehaze</i>
                     <i class="material-icons design_bullet-list-67 visible-on-sidebar-mini">view_list</i>
                 </button>
             </div>
@@ -39,7 +68,7 @@
                     <a class="nav-link" href="@Url.Action("Dashboard", "Dashboard", null, null)">
                         <i class="material-icons">dashboard</i>
                         <p class="d-lg-none d-md-block">
-                            Stats
+                            Dashboard
                         </p>
                     </a>
                 </li>
@@ -52,9 +81,9 @@
                         </p>
                     </a>
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item" href="#">Mike John responded to your email</a>
-                        <a class="dropdown-item" href="#">You have 5 new tasks</a>
-                        <a class="dropdown-item" href="#">You're now friend with Andrew</a>
+                        <a class="dropdown-item" href="#">Karen has submitted AR-7001 for Approval</a>
+                        <a class="dropdown-item" href="#">The Traffic Service has identified a possible delay in your journey</a>
+                        <a class="dropdown-item" href="#">AR-6872 has an outstanding payment of 16 days</a>
                         <a class="dropdown-item" href="#">Another Notification</a>
                         <a class="dropdown-item" href="#">Another One</a>
                     </div>
@@ -77,3 +106,23 @@
         </div>
     </div>
 </nav>
+
+@section scripts {
+    <script>
+        $(document).ready(function () {
+            function myFunction(x) {
+                if (x.matches) { // More than 992
+                    $("#TopNav").removeClass("fixed-bottom");
+                    $("#TopNav").addlass("sticky-top");
+                } else {//Less than 992
+                    $("#TopNav").removeClass("sticky-top");
+                    $("#TopNav").addClass("fixed-bottom");
+                }
+            }
+
+            var x = window.matchMedia("@@media all and (max-width: 992px)")
+            myFunction(x) // Call listener function at run time
+            x.addListener(myFunction) // Attach listener function on state changes
+        });
+    </script>
+}

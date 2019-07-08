@@ -13236,7 +13236,8 @@ fieldset[disabled] .form-group .form-control {
   position: relative;
   color: inherit;
   height: 50px;
-  font-size: 1.125rem;
+  /*font-size: 1.125rem; RG - 08072019 */
+  font-size: 14px;
   line-height: 30px;
   padding: 0.625rem 0;
   font-weight: 300;
