@@ -353,6 +353,12 @@
     <Compile Include="Models\scope_info_dss.cs">
       <DependentUpon>ECMills_DBModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\sp_GetChurches_Result.cs">
+      <DependentUpon>ECMills_DBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sp_GetCrematoriums_Result.cs">
+      <DependentUpon>ECMills_DBModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\sp_GetDeceasedAddressList_Result.cs">
       <DependentUpon>ECMills_DBModel.tt</DependentUpon>
     </Compile>
@@ -414,6 +420,12 @@
       <DependentUpon>ECMills_DBModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Visitor.cs">
+      <DependentUpon>ECMills_DBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\vw_GetChurches.cs">
+      <DependentUpon>ECMills_DBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\vw_GetCrematoriums.cs">
       <DependentUpon>ECMills_DBModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\vw_GetDeceasedAddressList.cs">
@@ -479,17 +491,21 @@
     <Content Include="Assets\img\image_placeholder.jpg" />
     <Content Include="Assets\img\lock.jpg" />
     <Content Include="Assets\img\login.jpg" />
+    <Content Include="Assets\img\mahoganycoffin.jpg" />
     <Content Include="Assets\img\mask.png" />
     <Content Include="Assets\img\new_logo.png" />
+    <Content Include="Assets\img\oakveneercoffin.png" />
     <Content Include="Assets\img\placeholder.jpg" />
     <Content Include="Assets\img\product1.jpg" />
     <Content Include="Assets\img\product2.jpg" />
     <Content Include="Assets\img\product3.jpg" />
+    <Content Include="Assets\img\redwoodcoffin.jpg" />
     <Content Include="Assets\img\register.jpg" />
     <Content Include="Assets\img\sidebar-1.jpg" />
     <Content Include="Assets\img\sidebar-2.jpg" />
     <Content Include="Assets\img\sidebar-3.jpg" />
     <Content Include="Assets\img\sidebar-4.jpg" />
+    <Content Include="Assets\img\wickercoffin.jpg" />
     <Content Include="Assets\js\bootstrap-table.js" />
     <Content Include="Assets\js\core\bootstrap-material-design.min.js" />
     <Content Include="Assets\js\core\jquery.min.js" />
@@ -702,6 +718,7 @@
     <Content Include="Views\Management\Crematoriums.cshtml" />
     <Content Include="Views\Management\Packages.cshtml" />
     <Content Include="Views\Management\Coffins.cshtml" />
+    <Content Include="Views\FuneralPlans\FuneralPlans.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -712,7 +729,6 @@
     <Folder Include="Views\Contacts\" />
     <Folder Include="Views\Finance\" />
     <Folder Include="Views\FuneralPlanEnquiries\" />
-    <Folder Include="Views\FuneralPlans\" />
     <Folder Include="Views\View\" />
   </ItemGroup>
   <ItemGroup>

@@ -6,10 +6,12 @@ using System.Web.Mvc;
 
 namespace ECMills.Controllers
 {
+    [RoutePrefix("FuneralPlans")]
     public class FuneralPlansController : Controller
     {
         // GET: FuneralPlans
-        public ActionResult Index()
+        [Route("")]
+        public ActionResult FuneralPlans()
         {
             return View();
         }

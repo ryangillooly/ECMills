@@ -1,4 +1,6 @@
-﻿<div class="container-fluid">
+﻿@model IEnumerable<ECMills.Models.sp_GetCrematoriums_Result>
+
+<div class="container-fluid">
     <div class="row">
         <div class="col-12">
             <div class="card">
@@ -15,48 +17,16 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                @foreach (var Crematorium in Model)
+                                {
                                 <tr>
-                                    <td>East London Crematorium</td>
-                                    <td>187 Acton St</td>
-                                    <td>Holborn</td>
-                                    <td>London</td>
-                                    <td>SE2 7RT</td>
+                                    <td>@Crematorium.ID</td>
+                                    <td>@Crematorium.AddressLine1</td>
+                                    <td>@Crematorium.AddressLine2</td>
+                                    <td>@Crematorium.City</td>
+                                    <td>@Crematorium.PostCode</td>
                                 </tr>
-                                <tr>
-                                    <td>West London Crematorium</td>
-                                    <td>21-24 Essex Avenue</td>
-                                    <td>Picadilly</td>
-                                    <td>London</td>
-                                    <td>SW9 6EF</td>
-                                </tr>
-                                <tr>
-                                    <td>My Lady's Crematorium</td>
-                                    <td>44 Endlesfield Road</td>
-                                    <td>Oxford Circus</td>
-                                    <td>London</td>
-                                    <td>NE2 3RD</td>
-                                </tr>
-                                <tr>
-                                    <td>East London Crematorium</td>
-                                    <td>187 Acton St</td>
-                                    <td>Holborn</td>
-                                    <td>London</td>
-                                    <td>SE2 7RT</td>
-                                </tr>
-                                <tr>
-                                    <td>East London Crematorium</td>
-                                    <td>187 Acton St</td>
-                                    <td>Holborn</td>
-                                    <td>London</td>
-                                    <td>SE2 7RT</td>
-                                </tr>
-                                <tr>
-                                    <td>East London Crematorium</td>
-                                    <td>187 Acton St</td>
-                                    <td>Holborn</td>
-                                    <td>London</td>
-                                    <td>SE2 7RT</td>
-                                </tr>
+                                }
                             </tbody>
                         </table>
                     </div>

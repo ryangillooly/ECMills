@@ -84,19 +84,6 @@
                                                     </div>
                                                     <div class="col-md-3">
                                                         <div class="form-group bmd-form-group">
-                                                            <div class="form-check mr-auto">
-                                                                <label class="form-check-label">
-                                                                    <input class="form-check-input" type="checkbox" value="" checked="">
-                                                                    <span class="form-check-sign">
-                                                                        <span class="check"></span>
-                                                                    </span>
-                                                                    Death Registered?
-                                                                </label>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-3">
-                                                        <div class="form-group bmd-form-group">
                                                             <label class="bmd-label-static">Job Status</label>
                                                             <div class="dropdown bootstrap-select">
                                                                 <div class="dropdown bootstrap-select form-control">
@@ -112,6 +99,19 @@
                                                     </div>
                                                     <div class="col-md-3">
                                                         <div class="form-group bmd-form-group">
+                                                            <div class="form-check mr-auto">
+                                                                <label class="form-check-label">
+                                                                    <input class="form-check-input" type="checkbox" value="" checked="">
+                                                                    <span class="form-check-sign">
+                                                                        <span class="check"></span>
+                                                                    </span>
+                                                                    Death Registered?
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <div class="form-group bmd-form-group">
                                                             <label class="bmd-label-floating">Call Taken By</label>
                                                             <input readonly class="form-control" value="Ryan Gillooly" type="text" aria-required="true" aria-invalid="true">
 
@@ -120,7 +120,7 @@
                                                     <div class="col-md-3">
                                                         <div class="form-group bmd-form-group">
                                                             <label class="bmd-label-floating">Call Taken At</label>
-                                                            <input readonly class="form-control" value="23/06/2019 10:34" type="text" aria-required="true" aria-invalid="true">
+                                                            <input readonly class="form-control datetimepicker" value="" type="text" aria-required="true" aria-invalid="true">
 
                                                         </div>
                                                     </div>
@@ -128,13 +128,6 @@
                                                         <div class="form-group bmd-form-group">
                                                             <label class="bmd-label-floating">Arranging Branch</label>
                                                             <input readonly class="form-control" value="Acton" type="text" aria-required="true" aria-invalid="true">
-                                                        </div>
-                                                    </div>
-                                                    
-                                                    <div class="col-md-3">
-                                                        <div class="form-group bmd-form-group">
-                                                            <label class="bmd-label-floating">Deceased Location</label>
-                                                            <input class="form-control" type="text" name="pickedupfrom" required aria-required="true" aria-invalid="true">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -191,6 +184,12 @@
                                                                     </select>
                                                                 </div>
                                                             </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <div class="form-group bmd-form-group">
+                                                            <label class="bmd-label-floating">Deceased Location</label>
+                                                            <input class="form-control" type="text" name="pickedupfrom" required aria-required="true" aria-invalid="true">
                                                         </div>
                                                     </div>
                                                     <div class="col-lg-12">
@@ -523,6 +522,7 @@
         $(document).ready(function () {
             // Initialise the wizard
             demo.initMaterialWizard();
+            demo.initDateTimePicker();
             setTimeout(function () {
                 $('.card.card-wizard').addClass('active');
             }, 600);

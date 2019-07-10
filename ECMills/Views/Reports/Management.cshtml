@@ -1,54 +1,118 @@
 ﻿<div class="container-fluid">
     <div class="row">
-        <div class="col-md-4">
-            <div class="card card-chart" data-count="3">
-                <div class="card-header card-header-success" data-header-animation="true">
-                    <div class="ct-chart"></div>                
-                </div>
-                <div class="card-body">
-                    <div class="card-actions">
-                        <button type="button" class="btn btn-danger btn-link fix-broken-card">
-                            <i class="material-icons">build</i> Fix Header!
-                        </button>
-                        <button type="button" class="btn btn-info btn-link" rel="tooltip" data-placement="bottom" title="" data-original-title="Refresh">
-                            <i class="material-icons">refresh</i>
-                        </button>
-                        <button type="button" class="btn btn-default btn-link" rel="tooltip" data-placement="bottom" title="" data-original-title="Change Date">
-                            <i class="material-icons">edit</i>
-                        </button>
-                    </div>
-                    <h4 class="card-title">Arrangement Count Per Office</h4>
-                    <p class="card-category">
-                        <span class="text-success"><i class="fa fa-long-arrow-up"></i> 55% </span> increase in today sales.
-                    </p>
-                </div>
-                <div class="card-footer">
-                    <div class="stats">
-                        <i class="material-icons">access_time</i> updated 4 minutes ago
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-5">
-            <div class="card card-chart">
-                <div class="card-header card-header-icon card-header-danger">
-                    <div class="card-icon">
-                        <i class="material-icons">pie_chart</i>
-                    </div>
-                    <h4 class="card-title">Arrangement Count By Office</h4>
-                </div>
-                <div class="card-body">
-                    <div id="chartPreferences" class="ct-chart"></div>
-                </div>
-                <div class="card-footer">
+        <div class="col-12">
+            <div class="content">
+                <div class="container-fluid">
                     <div class="row">
-                        <div class="col-md-12">
-                            <h6 class="card-category">Legend</h6>
+                        <div class="col-md-4">
+                            <div class="card card-chart">
+                                <div class="card-header card-header-rose">
+                                    <div id="roundedLineChart" class="ct-chart"></div>
+                                </div>
+                                <div class="card-body">
+                                    <h4 class="card-title">Rounded Line Chart</h4>
+                                    <p class="card-category">Line Chart</p>
+                                </div>
+                            </div>
                         </div>
-                        <div class="col-md-12">
-                            <i class="fa fa-circle text-info"></i> Acton
-                            <i class="fa fa-circle text-warning"></i> Harlesden
-                            <i class="fa fa-circle text-danger"></i> Willesden
+                        <div class="col-md-4">
+                            <div class="card card-chart">
+                                <div class="card-header card-header-warning">
+                                    <div id="straightLinesChart" class="ct-chart"></div>
+                                </div>
+                                <div class="card-body">
+                                    <h4 class="card-title">Straight Lines Chart</h4>
+                                    <p class="card-category">Line Chart with Points</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card card-chart">
+                                <div class="card-header card-header-info">
+                                    <div id="simpleBarChart" class="ct-chart"></div>
+                                </div>
+                                <div class="card-body">
+                                    <h4 class="card-title ">Simple Bar Chart</h4>
+                                    <p class="card-category">Bar Chart</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="card">
+                                <div class="card-header card-header-icon card-header-info">
+                                    <div class="card-icon">
+                                        <i class="material-icons">timeline</i>
+                                    </div>
+                                    <h4 class="card-title">
+                                        Coloured Line Chart
+                                        <small> - Rounded</small>
+                                    </h4>
+                                </div>
+                                <div class="card-body">
+                                    <div id="colouredRoundedLineChart" class="ct-chart"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="card">
+                                <div class="card-header card-header-icon card-header-rose">
+                                    <div class="card-icon">
+                                        <i class="material-icons">insert_chart</i>
+                                    </div>
+                                    <h4 class="card-title">
+                                        Multiple Bars Chart
+                                        <small>- Bar Chart</small>
+                                    </h4>
+                                </div>
+                                <div class="card-body">
+                                    <div id="multipleBarsChart" class="ct-chart"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-7">
+                            <div class="card">
+                                <div class="card-header card-header-icon card-header-info">
+                                    <div class="card-icon">
+                                        <i class="material-icons">timeline</i>
+                                    </div>
+                                    <h4 class="card-title">
+                                        Coloured Bars Chart
+                                        <small> - Rounded</small>
+                                    </h4>
+                                </div>
+                                <div class="card-body">
+                                    <div id="colouredBarsChart" class="ct-chart"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-5">
+                            <div class="card card-chart">
+                                <div class="card-header card-header-icon card-header-danger">
+                                    <div class="card-icon">
+                                        <i class="material-icons">pie_chart</i>
+                                    </div>
+                                    <h4 class="card-title">Pie Chart</h4>
+                                </div>
+                                <div class="card-body">
+                                    <div id="chartPreferences" class="ct-chart"></div>
+                                </div>
+                                <div class="card-footer">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <h6 class="card-category">Legend</h6>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <i class="fa fa-circle text-info"></i> Apple
+                                            <i class="fa fa-circle text-warning"></i> Samsung
+                                            <i class="fa fa-circle text-danger"></i> Windows Phone
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -59,22 +123,8 @@
 
 @section scripts {
     <script>
-    $(document).ready(function () {
-        //demo.initCharts();
-
-        new Chartist.Line('.ct-chart', {
-  labels: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
-  series: [
-    [12, 9, 7, 8, 5],
-    [2, 1, 3.5, 7, 3],
-    [1, 3, 4, 5, 6]
-  ]
-}, {
-  fullWidth: true,
-  chartPadding: {
-    right: 40
-  }
-});
-    });
+        $(document).ready(function () {
+            demo.initCharts();
+        });
     </script>
 }

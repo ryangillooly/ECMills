@@ -60,14 +60,14 @@
                                                 string DOB = DT.ToLongDateString();
                                             }
 
-                                            <input class="form-control" type="text" name="forenames" placeholder="@DOB" aria-required="true" aria-invalid="true">
+                                            <input class="form-control datetimepicker" type="text" name="forenames" placeholder="@DOB" aria-required="true" aria-invalid="true">
 
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group bmd-form-group">
                                             <label class="bmd-label-static">Date/Time of Death</label>
-                                            <input class="form-control" type="text" name="forenames" placeholder="@DeceasedProfile.TimeOfDeath" aria-required="true" aria-invalid="true">
+                                            <input class="form-control datetimepicker" type="text" name="forenames" placeholder="@DeceasedProfile.TimeOfDeath" aria-required="true" aria-invalid="true">
                                         </div>
                                     </div>
                                 </div>
@@ -221,3 +221,11 @@
         </div>
     </div>
 </div>
+
+@section scripts{
+    <script>
+        $(document).ready(function () {
+            demo.initDateTimePicker();
+        });    
+    </script>
+}

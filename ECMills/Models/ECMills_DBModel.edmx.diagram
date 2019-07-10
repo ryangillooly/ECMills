@@ -142,6 +142,8 @@
         <AssociationConnector Association="ECMills_DatabaseModel.FK__FirstCall__LastM__5F7E2DAC" />
         <AssociationConnector Association="ECMills_DatabaseModel.FK__FirstCall__Order__5CA1C101" />
         <AssociationConnector Association="ECMills_DatabaseModel.FK__FirstCall__Order__5D95E53A" />
+        <EntityTypeShape EntityType="ECMills_DatabaseModel.vw_GetCrematoriums" Width="1.5" PointX="18.375" PointY="22.75" />
+        <EntityTypeShape EntityType="ECMills_DatabaseModel.vw_GetChurches" Width="1.5" PointX="22.375" PointY="19.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -185,6 +185,10 @@ public partial class ECMills_DBConnection : DbContext
 
     public virtual DbSet<vw_GetFirstCalls> vw_GetFirstCalls { get; set; }
 
+    public virtual DbSet<vw_GetCrematoriums> vw_GetCrematoriums { get; set; }
+
+    public virtual DbSet<vw_GetChurches> vw_GetChurches { get; set; }
+
 
     public virtual ObjectResult<sp_GetDeceasedAddressList_Result> sp_GetDeceasedAddressList(Nullable<short> deceasedID)
     {
@@ -276,6 +280,20 @@ public partial class ECMills_DBConnection : DbContext
     {
 
         return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_Report_GetJobCountByOffice_Result>("sp_Report_GetJobCountByOffice");
+    }
+
+
+    public virtual ObjectResult<sp_GetCrematoriums_Result> sp_GetCrematoriums()
+    {
+
+        return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_GetCrematoriums_Result>("sp_GetCrematoriums");
+    }
+
+
+    public virtual ObjectResult<sp_GetChurches_Result> sp_GetChurches()
+    {
+
+        return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_GetChurches_Result>("sp_GetChurches");
     }
 
 }

@@ -2124,6 +2124,10 @@
     </FunctionImport>
     <FunctionImport Name="sp_GetFirstCallsList" ReturnType="Collection(ECMills_DatabaseModel.sp_GetFirstCallsList_Result)" />
     <FunctionImport Name="sp_Report_GetJobCountByOffice" ReturnType="Collection(ECMills_DatabaseModel.sp_Report_GetJobCountByOffice_Result)" />
+    <EntitySet Name="vw_GetCrematoriums" EntityType="ECMills_DatabaseModel.vw_GetCrematoriums" />
+    <FunctionImport Name="sp_GetCrematoriums" ReturnType="Collection(ECMills_DatabaseModel.sp_GetCrematoriums_Result)" />
+    <EntitySet Name="vw_GetChurches" EntityType="ECMills_DatabaseModel.vw_GetChurches" />
+    <FunctionImport Name="sp_GetChurches" ReturnType="Collection(ECMills_DatabaseModel.sp_GetChurches_Result)" />
   </EntityContainer>
   <ComplexType Name="sp_GetDeceasedAddressList_Result">
     <Property Type="Int16" Name="DeceasedID" Nullable="false" />
@@ -2407,5 +2411,65 @@
   <ComplexType Name="sp_Report_GetJobCountByOffice_Result">
     <Property Type="String" Name="Office" Nullable="true" MaxLength="20" />
     <Property Type="Int32" Name="Jobs" Nullable="true" />
+  </ComplexType>
+  <EntityType Name="vw_GetCrematoriums">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="AddressLine1" />
+      <PropertyRef Name="AddressLine2" />
+      <PropertyRef Name="City" />
+      <PropertyRef Name="PostCode" />
+      <PropertyRef Name="ContactNo" />
+      <PropertyRef Name="Email" />
+      <PropertyRef Name="Website" />
+    </Key>
+    <Property Name="ID" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AddressLine1" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="AddressLine2" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="City" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="PostCode" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ContactNo" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Website" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <ComplexType Name="sp_GetCrematoriums_Result">
+    <Property Type="Int16" Name="ID" Nullable="false" />
+    <Property Type="String" Name="AddressLine1" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="AddressLine2" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="City" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="PostCode" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="ContactNo" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="Email" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="Website" Nullable="false" MaxLength="100" />
+  </ComplexType>
+  <EntityType Name="vw_GetChurches">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="AddressLine1" />
+      <PropertyRef Name="AddressLine2" />
+      <PropertyRef Name="City" />
+      <PropertyRef Name="PostCode" />
+      <PropertyRef Name="ContactNo" />
+      <PropertyRef Name="Email" />
+      <PropertyRef Name="Website" />
+    </Key>
+    <Property Name="ID" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AddressLine1" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="AddressLine2" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="City" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="PostCode" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ContactNo" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Website" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <ComplexType Name="sp_GetChurches_Result">
+    <Property Type="Int16" Name="ID" Nullable="false" />
+    <Property Type="String" Name="AddressLine1" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="AddressLine2" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="City" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="PostCode" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="ContactNo" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="Email" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="Website" Nullable="false" MaxLength="100" />
   </ComplexType>
 </Schema>

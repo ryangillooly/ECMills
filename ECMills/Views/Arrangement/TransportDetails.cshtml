@@ -123,21 +123,28 @@
                                     <th>Destination</th>
                                     <th>2nd Destination</th>
                                     <th>Return</th>
+                                    <th class="disabled-sorting text-right">Actions</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <!--********** TEST DATA **********-->
                                 @{
-                                    for (int i = 0; i < 14; i++)
+                                    for (int i = 0; i < 3; i++)
                                     {
                                         <tr>
                                             <td>Hearse</td>
-                                            <td>Car</td>
+                                            <td>N/A</td>
                                             <td>11:20</td>
-                                            <td>next of Kin: Address</td>
-                                            <td>123 Road, ML6 0NY</td>
-                                            <td>123 Road, ML6 0NY</td>
+                                            <td>Next of Kin: Address</td>
+                                            <td>33 Ashbourne Road, CR4 2BE</td>
+                                            <td>92 Eastfield Street, NW10 E5R</td>
                                             <td>Home</td>
+                                            <td class="text-right">
+                                                <button type="button" style="background-color: #f7f7f7;" rel="tooltip" class="btn btn-danger btn-link btn-sm remove">
+                                                    <i class="material-icons">close</i>
+                                                    <div class="ripple-container"></div>
+                                                </button>
+                                            </td>
                                         </tr>
                                     }
                                 }

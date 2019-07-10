@@ -274,7 +274,6 @@ demo = {
         }
     },
 
-
     initCharts: function () {
         if ($('#roundedLineChart').length != 0 && $('#straightLinesChart').length != 0 && $('#colouredRoundedLineChart').length != 0 && $('#colouredBarsChart').length != 0 && $('#simpleBarChart').length != 0 && $('#multipleBarsChart').length != 0) {
             /* ----------==========    Rounded Line Chart initialization    ==========---------- */
@@ -421,11 +420,8 @@ demo = {
                 height: '230px'
             };
 
-            new Chartist.Pie('#chartPreferences', dataPreferences, optionsPreferences);
+            Chartist.Pie('#chartPreferences', dataPreferences, optionsPreferences);
 
-
-
-            
             /*  **************** Simple Bar Chart - barchart ******************** */
 
             var dataSimpleBarChart = {
@@ -493,6 +489,7 @@ demo = {
         }
 
     },
+
 
     showSwal: function (type) {
         if (type == 'basic') {

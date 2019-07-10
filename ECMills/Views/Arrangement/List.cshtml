@@ -310,8 +310,7 @@
                                                                                 <div class="col-md-6">
                                                                                     <div class="form-group bmd-form-group">
                                                                                         <label class="bmd-label-floating">Date of Birth</label>
-                                                                                        <div class="form-control" id="ReadOnlyInput-DOB"></div>
-
+                                                                                        <input class="form-control datetimepicker" type="text"/>
                                                                                     </div>
                                                                                 </div>
                                                                                 <div class="col-md-6">
@@ -424,14 +423,13 @@
                                                                                 <div class="col-md-6">
                                                                                     <div class="form-group bmd-form-group">
                                                                                         <label class="bmd-label-static">Date of Birth</label>
-                                                                                        <div class="form-control" id="ReadOnlyInput-DOB"></div>
-
+                                                                                        <input class="form-control datetimepicker" type="text" /> 
                                                                                     </div>
                                                                                 </div>
                                                                                 <div class="col-md-6">
                                                                                     <div class="form-group bmd-form-group">
                                                                                         <label class="bmd-label-static">Date/Time of Death</label>
-                                                                                        <div class="form-control" id="ReadOnlyInput-TimeOfDeath"></div>
+                                                                                        <input class="form-control datetimepicker" type="text" />
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
@@ -563,6 +561,7 @@
     <script>
         $(document).ready(function() {
             demo.initMaterialWizard();
+            demo.initDateTimePicker();
             MyJS.initMaterialDatatables();
             setTimeout(function() {$('.card.card-wizard').addClass('active');}, 600);
         });

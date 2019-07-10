@@ -608,6 +608,50 @@ warning 6002: The table/view 'ECMills.dbo.Visitors' does not have a primary key 
           <Property Name="Time" Type="datetime" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
+warning 6002: The table/view 'ECMills.dbo.vw_GetChurches' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="vw_GetChurches">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="AddressLine1" />
+            <PropertyRef Name="AddressLine2" />
+            <PropertyRef Name="City" />
+            <PropertyRef Name="PostCode" />
+            <PropertyRef Name="ContactNo" />
+            <PropertyRef Name="Email" />
+            <PropertyRef Name="Website" />
+          </Key>
+          <Property Name="ID" Type="smallint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AddressLine1" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="AddressLine2" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="City" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="PostCode" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="ContactNo" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Website" Type="nvarchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'ECMills.dbo.vw_GetCrematoriums' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="vw_GetCrematoriums">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="AddressLine1" />
+            <PropertyRef Name="AddressLine2" />
+            <PropertyRef Name="City" />
+            <PropertyRef Name="PostCode" />
+            <PropertyRef Name="ContactNo" />
+            <PropertyRef Name="Email" />
+            <PropertyRef Name="Website" />
+          </Key>
+          <Property Name="ID" Type="smallint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AddressLine1" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="AddressLine2" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="City" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="PostCode" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="ContactNo" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Website" Type="nvarchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
 warning 6002: The table/view 'ECMills.dbo.vw_GetDeceasedAddressList' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="vw_GetDeceasedAddressList">
           <Key>
@@ -1391,6 +1435,8 @@ warning 6002: The table/view 'ECMills.sys.database_firewall_rules' does not have
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Function Name="sp_GetChurches" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="sp_GetCrematoriums" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="sp_GetDeceasedAddressList" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="DeceasedID" Type="smallint" Mode="In" />
         </Function>
@@ -1564,6 +1610,30 @@ warning 6002: The table/view 'ECMills.sys.database_firewall_rules' does not have
     [Visitors].[Relationship] AS [Relationship], 
     [Visitors].[Time] AS [Time]
     FROM [dbo].[Visitors] AS [Visitors]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vw_GetChurches" EntityType="Self.vw_GetChurches" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [vw_GetChurches].[ID] AS [ID], 
+    [vw_GetChurches].[AddressLine1] AS [AddressLine1], 
+    [vw_GetChurches].[AddressLine2] AS [AddressLine2], 
+    [vw_GetChurches].[City] AS [City], 
+    [vw_GetChurches].[PostCode] AS [PostCode], 
+    [vw_GetChurches].[ContactNo] AS [ContactNo], 
+    [vw_GetChurches].[Email] AS [Email], 
+    [vw_GetChurches].[Website] AS [Website]
+    FROM [dbo].[vw_GetChurches] AS [vw_GetChurches]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vw_GetCrematoriums" EntityType="Self.vw_GetCrematoriums" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [vw_GetCrematoriums].[ID] AS [ID], 
+    [vw_GetCrematoriums].[AddressLine1] AS [AddressLine1], 
+    [vw_GetCrematoriums].[AddressLine2] AS [AddressLine2], 
+    [vw_GetCrematoriums].[City] AS [City], 
+    [vw_GetCrematoriums].[PostCode] AS [PostCode], 
+    [vw_GetCrematoriums].[ContactNo] AS [ContactNo], 
+    [vw_GetCrematoriums].[Email] AS [Email], 
+    [vw_GetCrematoriums].[Website] AS [Website]
+    FROM [dbo].[vw_GetCrematoriums] AS [vw_GetCrematoriums]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="vw_GetDeceasedAddressList" EntityType="Self.vw_GetDeceasedAddressList" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
@@ -4006,6 +4076,10 @@ warning 6002: The table/view 'ECMills.sys.database_firewall_rules' does not have
           </FunctionImport>
           <FunctionImport Name="sp_GetFirstCallsList" ReturnType="Collection(ECMills_DatabaseModel.sp_GetFirstCallsList_Result)" />
           <FunctionImport Name="sp_Report_GetJobCountByOffice" ReturnType="Collection(ECMills_DatabaseModel.sp_Report_GetJobCountByOffice_Result)" />
+          <EntitySet Name="vw_GetCrematoriums" EntityType="ECMills_DatabaseModel.vw_GetCrematoriums" />
+          <FunctionImport Name="sp_GetCrematoriums" ReturnType="Collection(ECMills_DatabaseModel.sp_GetCrematoriums_Result)" />
+          <EntitySet Name="vw_GetChurches" EntityType="ECMills_DatabaseModel.vw_GetChurches" />
+          <FunctionImport Name="sp_GetChurches" ReturnType="Collection(ECMills_DatabaseModel.sp_GetChurches_Result)" />
         </EntityContainer>
         <ComplexType Name="sp_GetDeceasedAddressList_Result">
           <Property Type="Int16" Name="DeceasedID" Nullable="false" />
@@ -4289,6 +4363,66 @@ warning 6002: The table/view 'ECMills.sys.database_firewall_rules' does not have
         <ComplexType Name="sp_Report_GetJobCountByOffice_Result">
           <Property Type="String" Name="Office" Nullable="true" MaxLength="20" />
           <Property Type="Int32" Name="Jobs" Nullable="true" />
+        </ComplexType>
+        <EntityType Name="vw_GetCrematoriums">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="AddressLine1" />
+            <PropertyRef Name="AddressLine2" />
+            <PropertyRef Name="City" />
+            <PropertyRef Name="PostCode" />
+            <PropertyRef Name="ContactNo" />
+            <PropertyRef Name="Email" />
+            <PropertyRef Name="Website" />
+          </Key>
+          <Property Name="ID" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AddressLine1" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="AddressLine2" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="City" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PostCode" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ContactNo" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Website" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <ComplexType Name="sp_GetCrematoriums_Result">
+          <Property Type="Int16" Name="ID" Nullable="false" />
+          <Property Type="String" Name="AddressLine1" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="AddressLine2" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="City" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="PostCode" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="ContactNo" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Email" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Website" Nullable="false" MaxLength="100" />
+        </ComplexType>
+        <EntityType Name="vw_GetChurches">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="AddressLine1" />
+            <PropertyRef Name="AddressLine2" />
+            <PropertyRef Name="City" />
+            <PropertyRef Name="PostCode" />
+            <PropertyRef Name="ContactNo" />
+            <PropertyRef Name="Email" />
+            <PropertyRef Name="Website" />
+          </Key>
+          <Property Name="ID" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AddressLine1" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="AddressLine2" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="City" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PostCode" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ContactNo" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Website" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <ComplexType Name="sp_GetChurches_Result">
+          <Property Type="Int16" Name="ID" Nullable="false" />
+          <Property Type="String" Name="AddressLine1" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="AddressLine2" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="City" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="PostCode" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="ContactNo" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Email" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Website" Nullable="false" MaxLength="100" />
         </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
@@ -5138,6 +5272,62 @@ warning 6002: The table/view 'ECMills.sys.database_firewall_rules' does not have
               <ComplexTypeMapping TypeName="ECMills_DatabaseModel.sp_Report_GetJobCountByOffice_Result">
                 <ScalarProperty Name="Office" ColumnName="Office" />
                 <ScalarProperty Name="Jobs" ColumnName="Jobs" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="vw_GetCrematoriums">
+            <EntityTypeMapping TypeName="ECMills_DatabaseModel.vw_GetCrematoriums">
+              <MappingFragment StoreEntitySet="vw_GetCrematoriums">
+                <ScalarProperty Name="Website" ColumnName="Website" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="ContactNo" ColumnName="ContactNo" />
+                <ScalarProperty Name="PostCode" ColumnName="PostCode" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="AddressLine2" ColumnName="AddressLine2" />
+                <ScalarProperty Name="AddressLine1" ColumnName="AddressLine1" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="sp_GetCrematoriums" FunctionName="ECMills_DatabaseModel.Store.sp_GetCrematoriums">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ECMills_DatabaseModel.sp_GetCrematoriums_Result">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="AddressLine1" ColumnName="AddressLine1" />
+                <ScalarProperty Name="AddressLine2" ColumnName="AddressLine2" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="PostCode" ColumnName="PostCode" />
+                <ScalarProperty Name="ContactNo" ColumnName="ContactNo" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Website" ColumnName="Website" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="vw_GetChurches">
+            <EntityTypeMapping TypeName="ECMills_DatabaseModel.vw_GetChurches">
+              <MappingFragment StoreEntitySet="vw_GetChurches">
+                <ScalarProperty Name="Website" ColumnName="Website" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="ContactNo" ColumnName="ContactNo" />
+                <ScalarProperty Name="PostCode" ColumnName="PostCode" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="AddressLine2" ColumnName="AddressLine2" />
+                <ScalarProperty Name="AddressLine1" ColumnName="AddressLine1" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="sp_GetChurches" FunctionName="ECMills_DatabaseModel.Store.sp_GetChurches">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ECMills_DatabaseModel.sp_GetChurches_Result">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="AddressLine1" ColumnName="AddressLine1" />
+                <ScalarProperty Name="AddressLine2" ColumnName="AddressLine2" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="PostCode" ColumnName="PostCode" />
+                <ScalarProperty Name="ContactNo" ColumnName="ContactNo" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Website" ColumnName="Website" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>

@@ -603,6 +603,50 @@ warning 6002: The table/view 'ECMills.dbo.Visitors' does not have a primary key 
     <Property Name="Time" Type="datetime" Nullable="false" />
   </EntityType>
   <!--Errors Found During Generation:
+warning 6002: The table/view 'ECMills.dbo.vw_GetChurches' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="vw_GetChurches">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="AddressLine1" />
+      <PropertyRef Name="AddressLine2" />
+      <PropertyRef Name="City" />
+      <PropertyRef Name="PostCode" />
+      <PropertyRef Name="ContactNo" />
+      <PropertyRef Name="Email" />
+      <PropertyRef Name="Website" />
+    </Key>
+    <Property Name="ID" Type="smallint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AddressLine1" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="AddressLine2" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="City" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="PostCode" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ContactNo" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Website" Type="nvarchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'ECMills.dbo.vw_GetCrematoriums' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="vw_GetCrematoriums">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="AddressLine1" />
+      <PropertyRef Name="AddressLine2" />
+      <PropertyRef Name="City" />
+      <PropertyRef Name="PostCode" />
+      <PropertyRef Name="ContactNo" />
+      <PropertyRef Name="Email" />
+      <PropertyRef Name="Website" />
+    </Key>
+    <Property Name="ID" Type="smallint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AddressLine1" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="AddressLine2" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="City" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="PostCode" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ContactNo" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Website" Type="nvarchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
 warning 6002: The table/view 'ECMills.dbo.vw_GetDeceasedAddressList' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
   <EntityType Name="vw_GetDeceasedAddressList">
     <Key>
@@ -1386,6 +1430,8 @@ warning 6002: The table/view 'ECMills.sys.database_firewall_rules' does not have
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Function Name="sp_GetChurches" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="sp_GetCrematoriums" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
   <Function Name="sp_GetDeceasedAddressList" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="DeceasedID" Type="smallint" Mode="In" />
   </Function>
@@ -1559,6 +1605,30 @@ warning 6002: The table/view 'ECMills.sys.database_firewall_rules' does not have
     [Visitors].[Relationship] AS [Relationship], 
     [Visitors].[Time] AS [Time]
     FROM [dbo].[Visitors] AS [Visitors]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="vw_GetChurches" EntityType="Self.vw_GetChurches" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [vw_GetChurches].[ID] AS [ID], 
+    [vw_GetChurches].[AddressLine1] AS [AddressLine1], 
+    [vw_GetChurches].[AddressLine2] AS [AddressLine2], 
+    [vw_GetChurches].[City] AS [City], 
+    [vw_GetChurches].[PostCode] AS [PostCode], 
+    [vw_GetChurches].[ContactNo] AS [ContactNo], 
+    [vw_GetChurches].[Email] AS [Email], 
+    [vw_GetChurches].[Website] AS [Website]
+    FROM [dbo].[vw_GetChurches] AS [vw_GetChurches]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="vw_GetCrematoriums" EntityType="Self.vw_GetCrematoriums" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [vw_GetCrematoriums].[ID] AS [ID], 
+    [vw_GetCrematoriums].[AddressLine1] AS [AddressLine1], 
+    [vw_GetCrematoriums].[AddressLine2] AS [AddressLine2], 
+    [vw_GetCrematoriums].[City] AS [City], 
+    [vw_GetCrematoriums].[PostCode] AS [PostCode], 
+    [vw_GetCrematoriums].[ContactNo] AS [ContactNo], 
+    [vw_GetCrematoriums].[Email] AS [Email], 
+    [vw_GetCrematoriums].[Website] AS [Website]
+    FROM [dbo].[vw_GetCrematoriums] AS [vw_GetCrematoriums]</DefiningQuery>
     </EntitySet>
     <EntitySet Name="vw_GetDeceasedAddressList" EntityType="Self.vw_GetDeceasedAddressList" store:Type="Views" store:Schema="dbo">
       <DefiningQuery>SELECT 
